@@ -19,14 +19,14 @@
 // NOTE: You can't use @extend that break component independent and topdoc parsing.
 
 // internal variables
-var-navigation-bar-background-color := #F8F8F8
-var-color--navigation-bar := #1F1F21
-var-navigation-bar-separator-color := #ddd
+var-navigation-bar-background-color = $toolbar-background-color
+var-navigation-bar-separator-color = $toolbar-border-color
+var-navigation-bar-color = $toolbar-text-color
 
-var-height--navigation-bar = 44px
-var-box-shadow--navigation-bar = none
-var-padding--navigation-bar = 0
-var-border-bottom--navigation-bar = 1px solid var-navigation-bar-separator-color
+var-navigation-bar-height = 44px
+var-navigation-bar-box-shadow = none
+var-navigation-bar-padding = 0
+var-navigation-bar-separator = 1px solid var-navigation-bar-separator-color
 
 /*! topdoc
   name: Navigation Bar
@@ -60,13 +60,13 @@ navigation-bar__item()
 .navigation-bar
   navigation-bar()
   display block
-  height var-height--navigation-bar
-  padding-left var-padding--navigation-bar
-  padding-right var-padding--navigation-bar
+  height var-navigation-bar-height
+  padding-left var-navigation-bar-padding
+  padding-right var-navigation-bar-padding
   background var-navigation-bar-background-color
-  color var-color--navigation-bar
-  box-shadow var-box-shadow--navigation-bar
-  border-bottom var-border-bottom--navigation-bar
+  color var-navigation-bar-color
+  box-shadow var-navigation-bar-box-shadow
+  border-bottom var-navigation-bar-separator
   font-weight var-font-weight
   width 100%
   white-space nowrap
@@ -74,7 +74,7 @@ navigation-bar__item()
   retina-navigation-bar-border(bottom, var-navigation-bar-separator-color)
 
 .navigation-bar__line-height
-  line-height var-height--navigation-bar
+  line-height var-navigation-bar-height
   padding-bottom 0
   padding-top 0
 
@@ -83,7 +83,7 @@ navigation-bar__item()
 
 .navigation-bar__item
   navigation-bar__item()
-  height var-height--navigation-bar
+  height var-navigation-bar-height
   vertical-align top
   overflow visible
   display block
@@ -106,15 +106,16 @@ navigation-bar__item()
   @extend .navigation-bar__item
   width 46%
   text-align center
-  line-height 44px
+  line-height var-navigation-bar-height
   font-size var-font-size--large
   font-weight var-font-weight--large
+  color var-navigation-bar-color
 
 .navigation-bar__title
-  line-height var-height--navigation-bar
+  line-height var-navigation-bar-height
   font-size var-font-size--large
   font-weight var-font-weight--large
-  color var-color--navigation-bar
+  color var-navigation-bar-color
   margin 0
   padding 0
   overflow visible
@@ -147,6 +148,124 @@ navigation-bar__item()
   name: Navigation Bar with Outline Button
   use: Toolbar Button, Navigation Bar
   markup:
+    <!-- Prerequisite=This example use ionicons(http://ionicons.com) to display icons. -->
+    <div class="navigation-bar">
+      <div class="navigation-bar__left">
+        <span class="toolbar-button--outline navigation-bar__line-height">
+          <i class="ion-navicon" style="font-size:32px; vertical-align:-6px;"></i>
+        </span>
+      </div>
+
+      <div class="navigation-bar__center">
+        Title
+      </div>
+
+      <div class="navigation-bar__right">
+        <span class="toolbar-button--outline navigation-bar__line-height">Button</span>
+      </div>
+    </div>
+*/
+
+/*! topdoc
+  name: Android-like Navigation Bar
+  class: navigation-bar--android
+  hint: .navigation-bar--android
+  use: Navigation Bar, Toolbar Button
+  markup:
+    <div class="navigation-bar navigation-bar--android">
+      <div class="navigation-bar__left navigation-bar--android__left">
+        <span class="toolbar-button navigation-bar__line-height" style="padding:0 5px 0 5px;"><i class="ion-android-arrow-back" style="font-size:20px;"></i></span>
+      </div>
+      <div class="navigation-bar__center navigation-bar--android__center">
+        <span class="toolbar-button navigation-bar__line-height" style="padding:0">
+          <i class="ion-cube" style="font-size:20px;"></i> App Bar
+        </span>
+      </div>
+      <div class="navigation-bar__right navigation-bar--android__right">
+        <span class="toolbar-button--quiet navigation-bar__line-height">
+          <i class="ion-android-share" style="font-size:20px;"></i>
+        </span>
+        <span class="toolbar-button--quiet navigation-bar__line-height">
+          <i class="ion-android-more" style="font-size:20px;"></i>
+        </span>
+      </div>
+    </div>
+*/
+.navigation-bar--android__left
+  float left
+  text-align left
+  width auto
+  min-width 10px
+
+.navigation-bar--android__center
+  float left
+  text-align left
+  width auto
+  max-width 50%
+
+.navigation-bar--android__right
+  float right
+  text-align right
+  width auto
+
+.navigation-bar--android__center:first-child:last-child
+  padding-left 10px
+
+/*! topdoc
+  name: Android-like Navigation Bar(2)
+  use: Android-like Navigation Bar
+  markup:
+    <div class="navigation-bar navigation-bar--android">
+      <div class="navigation-bar__left navigation-bar--android__left">
+        <span class="toolbar-button navigation-bar__line-height" style="padding:0 5px 0 0;"><i class="ion-android-drawer" style="font-size:20px;"></i></span>
+      </div>
+      <div class="navigation-bar__center navigation-bar--android__center">
+        App Bar
+      </div>
+      <div class="navigation-bar__right navigation-bar--android__right">
+        <span class="toolbar-button--quiet navigation-bar__line-height">
+          <i class="ion-android-star" style="font-size:20px;"></i>
+        </span>
+        <span class="toolbar-button--quiet navigation-bar__line-height">
+          <i class="ion-android-search" style="font-size:20px;"></i>
+        </span>
+        <span class="toolbar-button--quiet navigation-bar__line-height">
+          <i class="ion-android-more" style="font-size:20px;"></i>
+        </span>
+      </div>
+    </div>
+*/
+
+/*! topdoc
+  name: Transparent Navigation Bar
+  class: navigation-bar--transparent
+  use: Toolbar Button, Navigation Bar
+  markup:
+    <div class="navigation-bar navigation-bar--transparent">
+      <div class="navigation-bar__left">
+        <span class="toolbar-button--quiet navigation-bar__line-height">
+          <i class="ion-navicon" style="font-size:32px; vertical-align:-6px;"></i>
+        </span>
+      </div>
+      <div class="navigation-bar__center">
+        Navigation Bar
+      </div>
+      <div class="navigation-bar__right">
+        <span class="toolbar-button--quiet navigation-bar__line-height">Label</span>
+      </div>
+    </div>
+*/
+
+.navigation-bar--transparent
+  background-color transparent
+  background-image none
+  border none
+
+/*! topdoc
+  name: Navigation Bar with Outline Button
+  use: Toolbar Button, Navigation Bar
+  markup:
+    <!-- Prerequisite=This example use ionicons(http://ionicons.com) to display icons. -->
     <div class="navigation-bar">
       <div class="navigation-bar__left">
         <span class="toolbar-button--outline navigation-bar__line-height">
@@ -169,6 +288,7 @@ navigation-bar__item()
   class: navigation-bar--transparent
   use: Toolbar Button, Navigation Bar
   markup:
+    <!-- Prerequisite=This example use ionicons(http://ionicons.com) to display icons. -->
     <div class="navigation-bar navigation-bar--transparent">
       <div class="navigation-bar__left">
         <span class="toolbar-button--quiet navigation-bar__line-height">
@@ -201,15 +321,15 @@ navigation-bar__item()
 .bottom-bar
   navigation-bar()
   display block
-  height var-height--navigation-bar
-  padding-left var-padding--navigation-bar
-  padding-right var-padding--navigation-bar
+  height var-navigation-bar-height
+  padding-left var-navigation-bar-padding
+  padding-right var-navigation-bar-padding
   background var-navigation-bar-background-color
-  color var-color--navigation-bar
-  box-shadow var-box-shadow--navigation-bar
+  color var-navigation-bar-color
+  box-shadow var-navigation-bar-box-shadow
   font-weight var-font-weight
   border-bottom none
-  border-top var-border-bottom--navigation-bar
+  border-top var-navigation-bar-separator
   position absolute
   bottom 0px
   right 0px
@@ -217,7 +337,7 @@ navigation-bar__item()
   retina-navigation-bar-border(top, var-navigation-bar-separator-color)
 
 .bottom-bar__line-height
-  line-height var-height--navigation-bar
+  line-height var-navigation-bar-height
   padding-bottom 0
   padding-top 0
 
