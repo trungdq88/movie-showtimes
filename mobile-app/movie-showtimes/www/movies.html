@@ -1,4 +1,4 @@
-<ons-page>
+<ons-page ng-controller="MovieListController">
     <ons-toolbar>
         <div class="left">
             <ons-toolbar-button>
@@ -13,11 +13,36 @@
         <!--</div>-->
     </ons-toolbar>
 
-    <p style="padding-top: 100px; color: #999; text-align: center">Page 1</p>
+    <!--<div style="text-align: center;">-->
+        <!--<ons-button modifier="light" onclick="navMovies.pushPage('page_new.html')">-->
+            <!--New Page-->
+        <!--</ons-button>-->
+    <!--</div>-->
 
-    <div style="text-align: center;">
-        <ons-button modifier="light" onclick="navMovies.pushPage('page_new.html')">
-            New Page
-        </ons-button>
-    </div>
+    <p id="loading-holder" class="placeholder">
+        <img src="img/loading-spin.svg"/>
+    </p>
+
+    <ons-list  ng-repeat="movieItem in movieItems">
+        <ons-list-item modifier="chevron" class="list-item-container">
+            <ons-row>
+                <ons-col width="95px">
+                    <img src="http://components.onsen.io/patterns/images/location1.png" class="thumbnail">
+                </ons-col>
+                <ons-col>
+                    <div class="name">
+                        {{movieItem.name}}
+                    </div>
+                    <div class="show-date">
+                        <i class="fa fa-clock-o"></i> {{movieItem.show_date}}, {{movieItem.theaterNum}} rạp chiếu
+                    </div>
+                    <div class="desc">
+                        {{movieItem.description}}
+                    </div>
+                </ons-col>
+                <ons-col width="40px"></ons-col>
+            </ons-row>
+        </ons-list-item>
+    </ons-list>
+
 </ons-page>

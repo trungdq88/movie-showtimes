@@ -11,12 +11,17 @@
     <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">
     <link rel="stylesheet" href="styles/app.css"/>
     <link rel="stylesheet" href="styles/menu.css"/>
+    <link rel="stylesheet" href="styles/movie-list.css"/>
+    <link rel="stylesheet" href="styles/utils.css"/>
 
     <script src="lib/onsen/js/angular/angular.js"></script>
     <script src="lib/onsen/js/onsenui.js"></script>
+    <script src="lib/jquery.js"></script>
 
     <script src="cordova.js"></script>
+
     <script src="js/app.js"></script>
+    <script src="js/MovieListController.js"></script>
 
 </head>
 <body ng-controller="AppController">
@@ -29,12 +34,12 @@
         side="left">
 </ons-sliding-menu>
 <ons-template id="movies_nav.html">
-    <ons-navigator title="Navigator" var="navMovies" page="movies.html">
+    <ons-navigator var="navMovies" page="movies.html">
     </ons-navigator>
 </ons-template>
 
 <ons-template id="theater_nav.html">
-    <ons-navigator title="Navigator" var="navTheater" page="theater.html">
+    <ons-navigator var="navTheater" page="theater.html">
     </ons-navigator>
 </ons-template>
 
