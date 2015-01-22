@@ -5,7 +5,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
 
-    <title>My Onsen App</title>
+    <title>Lịch Chiếu Phim Tổng Hợp</title>
 
     <link rel="stylesheet" href="lib/onsen/css/onsenui.css">
     <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">
@@ -23,129 +23,19 @@
 
 <ons-sliding-menu
         var="menu"
-        main-page="page1_nav.html"
+        main-page="movies_nav.html"
         menu-page="menu.html"
         max-slide-distance="250px"
         side="left">
 </ons-sliding-menu>
-<ons-template id="page1_nav.html">
-    <ons-navigator title="Navigator" var="navigator1" page="page1.html">
+<ons-template id="movies_nav.html">
+    <ons-navigator title="Navigator" var="navMovies" page="movies.html">
     </ons-navigator>
 </ons-template>
-<ons-template id="page1.html">
-    <ons-page>
-        <ons-toolbar>
-            <div class="left">
-                <ons-toolbar-button>
-                    <ons-icon icon="fa-bars" onclick="menu.toggleMenu()"></ons-icon>
-                </ons-toolbar-button>
-            </div>
-            <div class="center">Simple Navigation</div>
-            <div class="right">
-                <ons-toolbar-button onclick="navigator1.popPage()">
-                    Back
-                </ons-toolbar-button>
-            </div>
-        </ons-toolbar>
 
-        <p style="padding-top: 100px; color: #999; text-align: center">Page 1</p>
-
-        <div style="text-align: center;">
-            <ons-button modifier="light" onclick="navigator1.pushPage('page_new.html')">
-                New Page
-            </ons-button>
-        </div>
-    </ons-page>
-</ons-template>
-
-<ons-template id="page2_nav.html">
-    <ons-navigator title="Navigator" var="navigator2" page="page2.html">
+<ons-template id="theater_nav.html">
+    <ons-navigator title="Navigator" var="navTheater" page="theater.html">
     </ons-navigator>
-</ons-template>
-<ons-template id="page2.html">
-    <ons-page>
-        <ons-toolbar>
-            <div class="left">
-                <ons-toolbar-button>
-                    <ons-icon icon="fa-bars" onclick="menu.toggleMenu()"></ons-icon>
-                </ons-toolbar-button>
-            </div>
-            <div class="center">Simple Navigation</div>
-            <div class="right">
-                <ons-toolbar-button onclick="navigator2.popPage()">
-                    Back
-                </ons-toolbar-button>
-            </div>
-        </ons-toolbar>
-
-        <p style="padding-top: 100px; color: #999; text-align: center">Page 2</p>
-
-        <div style="text-align: center;">
-            <ons-button modifier="light" onclick="navigator2.pushPage('page_new.html')">
-                New Page
-            </ons-button>
-        </div>
-    </ons-page>
-</ons-template>
-
-<ons-template id="page_new.html">
-    <ons-page>
-        <ons-toolbar>
-            <div class="left">
-                <ons-back-button>Back</ons-back-button>
-            </div>
-            <div class="center">Page 2</div>
-            <div class="right">
-                <ons-button>Hello</ons-button>
-            </div>
-        </ons-toolbar>
-        <div style="text-align: center;">
-            <br/>
-            <ons-button modifier="light" onclick="navigator1.pushPage('page_new.html')">
-                New Page
-            </ons-button>
-        </div>
-    </ons-page>
-</ons-template>
-
-<ons-template id="menu.html">
-    <ons-page modifier="menu-page">
-        <ons-toolbar modifier="transparent"></ons-toolbar>
-
-        <ons-list class="menu-list">
-            <ons-list-item class="menu-item" ng-click="menu.setMainPage('page1_nav.html', {closeMenu: true})">
-                <ons-icon icon="fa-plus"></ons-icon>
-                New Post
-            </ons-list-item>
-
-            <ons-list-item class="menu-item" ng-click="menu.setMainPage('page2_nav.html', {closeMenu: true})">
-                <ons-icon icon="fa-bookmark"></ons-icon>
-                Bookmark
-            </ons-list-item>
-
-            <ons-list-item class="menu-item" ng-click="menu.setMainPage('page1_nav.html', {closeMenu: true})">
-                <ons-icon icon="fa-twitter"></ons-icon>
-                Official Twitter
-            </ons-list-item>
-        </ons-list>
-
-        <br>
-
-        <ons-list class="bottom-menu-list">
-            <ons-list-item class="bottom-menu-item" ng-click="menu.setMainPage('page2_nav.html', {closeMenu: true})">
-                Settings
-                <div class="notification menu-notification">3</div>
-            </ons-list-item>
-
-            <ons-list-item class="bottom-menu-item" ng-click="menu.setMainPage('page1_nav.html', {closeMenu: true})">
-                Help
-            </ons-list-item>
-
-            <ons-list-item class="bottom-menu-item" ng-click="menu.setMainPage('page2_nav.html', {closeMenu: true})">
-                Send feedback
-            </ons-list-item>
-        </ons-list>
-    </ons-page>
 </ons-template>
 
 </body>

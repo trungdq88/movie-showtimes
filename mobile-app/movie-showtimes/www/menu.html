@@ -1,0 +1,36 @@
+
+<ons-page modifier="menu-page">
+    <ons-toolbar modifier="transparent"></ons-toolbar>
+
+    <ons-list class="menu-list">
+        <ons-list-item class="menu-item" ng-click="menu.setMainPage('movies_nav.html', {closeMenu: true})">
+            <ons-icon icon="fa-film"></ons-icon>
+            Phim đang chiếu
+        </ons-list-item>
+
+        <ons-list-item class="menu-item" ng-click="menu.setMainPage('theater_nav.html', {closeMenu: true})">
+            <ons-icon icon="fa-building"></ons-icon>
+            Danh sách rạp
+        </ons-list-item>
+
+        <ons-list-item class="menu-item" ng-click="menu.setMainPage('search_nav.html', {closeMenu: true})">
+            <ons-icon icon="fa-search"></ons-icon>
+            Tìm kiếm
+        </ons-list-item>
+    </ons-list>
+
+    <br>
+
+    <ons-list class="bottom-menu-list">
+        <ons-list-item class="bottom-menu-item" ng-click="menu.setMainPage('page2_nav.html', {closeMenu: true})">
+            <ons-icon icon="fa-refresh"></ons-icon>
+            Cập nhật dữ liệu
+            <div class="notification menu-notification">3</div>
+        </ons-list-item>
+
+        <ons-list-item class="bottom-menu-item" ng-click="menu.setMainPage('page1_nav.html', {closeMenu: true})">
+            <ons-icon icon="fa-info-circle"></ons-icon>
+            Giới thiệu
+        </ons-list-item>
+    </ons-list>
+</ons-page>

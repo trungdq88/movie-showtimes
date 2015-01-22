@@ -56,3 +56,9 @@
 .bottom-menu-item:active {
     background-color: rgba(255, 255, 255, 0.1);
 }
+
+.bottom-menu-item ons-icon.ons-icon.fa.fa-lg,
+.menu-list ons-icon.ons-icon.fa.fa-lg {
+    width: 50px;
+    text-align: center;
+}
