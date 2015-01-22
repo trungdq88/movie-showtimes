@@ -3,7 +3,7 @@
  */
 angular.module('app').service('DataService', function($q, $http) {
     var self = this;
-    var API_SOURCE = '/movie-showtimes/fake-api/data.json';
+    var API_SOURCE = 'fake-api/data.json';
     var pData = $http.get(API_SOURCE)
             .then(function(payload) {
                 return payload.data;
