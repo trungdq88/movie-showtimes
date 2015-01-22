@@ -5,9 +5,18 @@
 angular.module('app').controller('MovieListController', function ($scope, DataService) {
     $scope.movieItems = [];
     $scope.isLoaded = false;
-    DataService.getMovies(function (movies) {
+
+
+    DataService.getMovies().then(function (movies) {
         $scope.movieItems = movies;
         $scope.isLoaded = true;
-        $scope.$apply();
+    }, function (reason) {
+        console.log("Could not get movies.", reason);
+        // Maybe provide a "Try again" button?
     });
+
+
+    $scope.showDetail = function (movieId) {
+        $scope.ons.navigator.pushPage('movie_detail.html', {data: movieId})
+    }
 });

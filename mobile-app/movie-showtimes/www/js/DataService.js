@@ -1,25 +1,29 @@
 /**
  * Created by dinhquangtrung on 1/22/15.
  */
-angular.module('app').service('DataService', function() {
-    var _movies = [];
-    this.getMovies = function (done) {
-        if (_movies.length == 0) {
-            // TODO: call API here
-            setTimeout(function () {
-                for (var i = 0; i < 20; i++) {
-                    _movies.push({
-                        name: 'Để mốt tính',
-                        show_date: 'Hôm nay',
-                        description: 'Bốn năm sau khi chia tay với Dũng ' +
-                            'và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều',
-                        theaterNum: 4
-                    });
-                }
-                done(_movies);
-            }, 3000);
-        } else {
-            done(_movies);
-        }
+angular.module('app').service('DataService', function($q, $http) {
+    var self = this;
+    var API_SOURCE = '/movie-showtimes/fake-api/data.json';
+    var pData = $http.get(API_SOURCE)
+            .then(function(payload) {
+                return payload.data;
+            });
+    this.getMovies = function () {
+        return pData.then(function (data) {
+            return data.movies;
+        });
+    };
+    this.getMovie = function (movieId) {
+        return self.getMovies().then(function (movies) {
+            var result = movies.filter(function (o) {
+               return o.id == movieId;
+            });
+            if (result.length) {
+                // If there is a duplicate id movies, return the first one
+                return result[0];
+            } else {
+                return $q.reject('Không tìm thấy phim');
+            }
+        });
     }
 });

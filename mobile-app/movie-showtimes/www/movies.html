@@ -23,11 +23,13 @@
         <img src="img/loading-spin.svg"/>
     </p>
 
-    <ons-list  ng-repeat="movieItem in movieItems">
-        <ons-list-item modifier="chevron" class="list-item-container">
+    <ons-list>
+        <ons-list-item ng-repeat="movieItem in movieItems"
+                       modifier="chevron" class="list-item-container"
+                       ng-click="showDetail(movieItem.id)">
             <ons-row>
                 <ons-col width="95px">
-                    <img src="http://components.onsen.io/patterns/images/location1.png" class="thumbnail">
+                    <img ng-src="{{movieItem.poster}}" class="thumbnail">
                 </ons-col>
                 <ons-col>
                     <div class="name">
