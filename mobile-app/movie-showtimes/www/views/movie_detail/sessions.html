@@ -1,0 +1,60 @@
+<ons-page ng-controller="MovieDetailControllerSessions">
+    <div class="navigation-bar">
+        <div class="navigation-bar__center">
+
+            <!-- segment control -->
+            <div class="button-bar" style="width:300px; margin:8px auto 0;">
+                <div class="button-bar__item" ng-class="{border:!isTomorrowAvailable && !isLaterAvailable}">
+                    <input type="radio" name="navi-segment-a" checked>
+
+                    <div class="button-bar__button">Hôm nay</div>
+                </div>
+                <div class="button-bar__item"
+                     ng-class="{hidden:!isTomorrowAvailable, border:isTomorrowAvailable && !isLaterAvailable}">
+                    <input type="radio" name="navi-segment-a">
+
+                    <div class="button-bar__button">Ngày mai</div>
+                </div>
+                <div class="button-bar__item"
+                     ng-class="{hidden:!isLaterAvailable, border:isLaterAvailable}">
+                    <input type="radio" name="navi-segment-a">
+
+                    <div class="button-bar__button">Sau nữa</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <ons-list class="plan-list">
+        <ons-list-item
+                modifier="chevron" class="plan"
+                ng-repeat="a in [1,2,3,4,5,6,7,8,9,10]"
+                ng-click="showSessionDetail(a)">
+            <ons-row>
+                <ons-col width="80px" class="plan-left">
+                    <div class="plan-date">5:30 PM</div>
+                    <div class="plan-duration">1h</div>
+                </ons-col>
+
+                <ons-col width="6px" class="plan-center"
+                         ng-style="{backgroundColor:a % 2 == 1 ? 'rgba(235,94,47,0.5)' : '#ccc'}">
+                </ons-col>
+
+                <ons-col class="plan-right">
+                    <div class="plan-name">Galaxy Tân Bình</div>
+
+                    <div class="plan-info">
+                        <div>
+                            <ons-icon icon="fa-map-marker"></ons-icon>
+                            6 CMT8, P.7, Q.Tân Bình, TPHCM
+                        </div>
+                    </div>
+                </ons-col>
+            </ons-row>
+        </ons-list-item>
+
+    </ons-list>
+
+
+</ons-page>

@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="styles/app.css"/>
     <link rel="stylesheet" href="styles/menu.css"/>
     <link rel="stylesheet" href="styles/movie-list.css"/>
+    <link rel="stylesheet" href="styles/movie-detail.css"/>
+    <link rel="stylesheet" href="styles/movie-detail-sessions.css"/>
     <link rel="stylesheet" href="styles/utils.css"/>
 
     <script src="lib/onsen/js/angular/angular.js"></script>
@@ -31,17 +33,17 @@
 <ons-sliding-menu
         var="menu"
         main-page="movies_nav.html"
-        menu-page="menu.html"
+        menu-page="views/menu.html"
         max-slide-distance="250px"
         side="left">
 </ons-sliding-menu>
 <ons-template id="movies_nav.html">
-    <ons-navigator var="navMovies" page="movies.html">
+    <ons-navigator var="navMovies" page="views/movies.html">
     </ons-navigator>
 </ons-template>
 
 <ons-template id="theaters_nav.html">
-    <ons-navigator var="navTheater" page="theaters.html">
+    <ons-navigator var="navTheater" page="views/theaters.html">
     </ons-navigator>
 </ons-template>
 
