@@ -20,6 +20,7 @@ angular.module('app').controller('CitySelectController', function ($scope, DataS
         if ($scope.currentCity) {
             DataService.setCity($scope.currentCity);
             $scope.ons.modal.hide();
+            // Refresh all data in all controllers
         }
     };
 });
