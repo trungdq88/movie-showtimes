@@ -1,8 +1,8 @@
 <ons-page ng-controller="MovieListController">
     <ons-toolbar>
-        <div class="left">
+        <div class="left" onclick="menu.toggleMenu()">
             <ons-toolbar-button>
-                <ons-icon icon="fa-bars" onclick="menu.toggleMenu()"></ons-icon>
+                <ons-icon icon="fa-bars"></ons-icon>
             </ons-toolbar-button>
         </div>
         <div class="center">Phim đang chiếu</div>
@@ -22,6 +22,19 @@
     <p id="loading-holder" class="placeholder" ng-class="{hidden:isLoaded}">
         <img src="img/loading-spin.svg"/>
     </p>
+
+    <div class="list-filter">
+        <div class="filter">
+            <ons-button id="button" ng-click="show('#button')">
+                <i class="fa fa-chevron-right"></i> Chọn cụm rạp
+            </ons-button>
+        </div>
+        <div class="filter">
+            <ons-button id="button" ng-click="show('#button')">
+                <i class="fa fa-chevron-right"></i> Chọn rạp
+            </ons-button>
+        </div>
+    </div>
 
     <ons-list>
         <ons-list-item ng-repeat="movieItem in movieItems"

@@ -1,5 +1,5 @@
 
-<ons-page modifier="menu-page">
+<ons-page modifier="menu-page" ng-controller="MenuController">
     <ons-toolbar modifier="transparent"></ons-toolbar>
 
     <ons-list class="menu-list">
@@ -22,15 +22,22 @@
     <br>
 
     <ons-list class="bottom-menu-list">
-        <ons-list-item class="bottom-menu-item" ng-click="menu.setMainPage('page2_nav.html', {closeMenu: true})">
+
+        <ons-list-item id="set-city-btn" class="bottom-menu-item" ng-click="selectCity.show();">
+            <ons-icon icon="fa-map-marker"></ons-icon>
+            Cài đặt thành phố
+        </ons-list-item>
+        <ons-list-item class="bottom-menu-item" ng-click="">
             <ons-icon icon="fa-refresh"></ons-icon>
             Cập nhật dữ liệu
             <div class="notification menu-notification">3</div>
         </ons-list-item>
 
-        <ons-list-item class="bottom-menu-item" ng-click="menu.setMainPage('page1_nav.html', {closeMenu: true})">
+        <ons-list-item class="bottom-menu-item" ng-click="">
             <ons-icon icon="fa-info-circle"></ons-icon>
             Giới thiệu
         </ons-list-item>
     </ons-list>
+
+
 </ons-page>

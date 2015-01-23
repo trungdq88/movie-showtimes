@@ -4,6 +4,7 @@
 angular.module('app').service('DataService', function($q, $http) {
     var self = this;
     var API_SOURCE = 'fake-api/data.json';
+    var CITY_KEY = 'movie-showtimes-city';
     var pData = $http.get(API_SOURCE)
             .then(function(payload) {
                 return payload.data;
@@ -17,6 +18,23 @@ angular.module('app').service('DataService', function($q, $http) {
         return pData.then(function (data) {
             return data.theaters;
         })
+    };
+    this.getCities = function () {
+        return $q(function (resolve, reject) {
+            resolve([
+                'Hồ Chí Minh',
+                'Hà Nội',
+                'Hải Phòng',
+                'Đà Nẵng',
+                'Thừa Thiên Huế'
+            ]);
+        });
+    };
+    this.setCity = function (city) {
+        localStorage[CITY_KEY] = city;
+    };
+    this.getCurrentCity = function () {
+        return localStorage[CITY_KEY];
     };
     this.getMovie = function (movieId) {
         return self.getMovies().then(function (movies) {

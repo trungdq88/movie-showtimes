@@ -114,3 +114,22 @@
 .movie-prop {
     margin: 5px 0;
 }
+.list-filter {
+    overflow: hidden;
+}
+.list-filter .filter {
+    float: left;
+    width: 50%;
+    padding: 0 5px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+}
+.list-filter .filter ons-button {
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+}

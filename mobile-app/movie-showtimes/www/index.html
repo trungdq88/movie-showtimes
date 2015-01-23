@@ -27,6 +27,8 @@
     <script src="js/MovieDetailController.js"></script>
     <script src="js/TheaterListController.js"></script>
     <script src="js/TheaterDetailController.js"></script>
+    <script src="js/MenuController.js"></script>
+    <script src="js/CitySelectController.js"></script>
     <script src="js/DataService.js"></script>
 
 </head>
@@ -49,5 +51,27 @@
     </ons-navigator>
 </ons-template>
 
+<ons-modal var="selectCity" ng-controller="CitySelectController">
+    <div class="city-select">
+    <ons-list>
+
+        <ons-list-header>Cài đặt thành phố</ons-list-header>
+
+        <ons-list-item modifier="tappable" ng-repeat="city in cities"
+                ng-click="selectCity(city)">
+            <label class="radio-button radio-button--list-item">
+                <input type="radio" name="a" ng-checked="city == currentCity">
+                <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+                {{city}}
+            </label>
+        </ons-list-item>
+
+    </ons-list>
+    <br/>
+    <ons-button id="button" ng-click="saveSelection()">
+        Lưu lại
+    </ons-button>
+    </div>
+</ons-modal>
 </body>
 </html>
