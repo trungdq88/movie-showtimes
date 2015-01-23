@@ -1,74 +1,51 @@
 <ons-page ng-controller="MovieDetailControllerInfo">
     <div class="card"
-         style="background-image: url(http://components.onsen.io/patterns/images/sushi-bg.jpg)">
+         ng-style="{'background-image': 'url({{movie.poster}})'}">
     </div>
 
     <ons-list style="border-top: none">
         <ons-list-item style="line-height: 1; padding: 0;">
             <ons-row class="action">
-
-                <ons-col class="action-col">
-                    <div class="action-icon">
-                        <ons-icon icon="ion-ios7-star-half"></ons-icon>
-                    </div>
-                    <div class="action-label">Rate</div>
-                </ons-col>
-
-                <ons-col class="action-col">
-                    <div class="action-icon">
-                        <ons-icon icon="ion-bookmark"></ons-icon>
-                    </div>
-                    <div class="action-label">Favorite</div>
-                </ons-col>
-
-                <ons-col class="action-col">
-                    <div class="action-icon">
-                        <ons-icon icon="ion-share"></ons-icon>
-                    </div>
-                    <div class="action-label">Share</div>
-                </ons-col>
-
                 <ons-col class="action-col">
                     <div class="action-icon">
                         <ons-icon icon="fa-play-circle"></ons-icon>
                     </div>
-                    <div class="action-label">Trailer</div>
+                    <div class="action-label">Xem trailer</div>
                 </ons-col>
-
             </ons-row>
         </ons-list-item>
     </ons-list>
 
     <div class="movie-description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed orci pretium, varius ipsum ut, ullamcorper magna. Duis quis condimentum libero. Nulla vitae magna arcu. Etiam convallis in sapien eget accumsan. Morbi non lacus vitae tortor imperdiet condimentum. Vestibulum condimentum erat at leo faucibus ullamcorper. Fusce maximus odio placerat lacus congue consequat. Etiam varius lorem ipsum, sed sagittis est vestibulum eget. Mauris eros ex, tempor et enim quis, elementum elementum justo.
+        <h1>{{movie.name}}</h1>
+
+        <div class="movie-prop">
+            <b>Khởi chiếu:</b> {{movie.show_date || "-"}}
+        </div>
+        <div class="movie-prop">
+            <b>Thể loại:</b> {{movie.genre || "-"}}
+        </div>
+        <div class="movie-prop">
+            <b>Diễn viên:</b> {{movie.actor || "-"}}
+        </div>
+        <div class="movie-prop">
+            <b>Đạo diễn:</b> {{movie.director || "-"}}
+        </div>
+        <div class="movie-prop">
+            <b>Thời lượng:</b> {{movie.length || "-"}}
+        </div>
+        <div class="movie-prop">
+            <b>Âm thanh:</b> {{movie.audio_type || "-"}}
+        </div>
+        <div class="movie-prop">
+            <b>Hình ảnh:</b> {{movie.video_type || "-"}}
+        </div>
+        <div class="movie-prop">
+            <b>Giới hạn độ tuổi:</b> {{movie.age_restriction || "-"}}
+        </div>
+        <hr/>
+        <div>
+            {{movie.description}}
+        </div>
     </div>
-    <ons-list style="margin-top: 12px;">
-        <ons-list-item modifier="chevron">
-            <div class="prop-desc">
-                <ons-icon icon="fa-map-marker"></ons-icon>
-                2-15-13 Hongo Bunkyo Tokyo
-            </div>
-        </ons-list-item>
-
-        <ons-list-item modifier="chevron">
-            <div class="prop-desc">
-                <ons-icon icon="fa-mobile"></ons-icon>
-                (111) 123-4567
-            </div>
-        </ons-list-item>
-
-        <ons-list-item modifier="chevron">
-            <div class="prop-desc">
-                <ons-icon icon="fa-book"></ons-icon>
-                Store Photos and Menus
-            </div>
-        </ons-list-item>
-
-        <ons-list-item modifier="chevron">
-            <div class="prop-desc">
-                <ons-icon icon="fa-clock-o"></ons-icon>
-                Make a Reservation
-            </div>
-        </ons-list-item>
-    </ons-list>
 </ons-page>
