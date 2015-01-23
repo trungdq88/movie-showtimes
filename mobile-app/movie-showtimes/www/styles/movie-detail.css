@@ -63,12 +63,12 @@
 
 .action-col {
     text-align: center;
-    opacity: 0.4;
+    color: #eb5e2f;
     padding: 10px 0 8px;
 }
 
 .action-col:active {
-    opacity: 0.7;
+    color: #d8562b;
 }
 
 .action-col ons-button {

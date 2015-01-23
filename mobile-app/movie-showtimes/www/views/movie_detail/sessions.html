@@ -4,19 +4,23 @@
 
             <!-- segment control -->
             <div class="button-bar" style="width:300px; margin:8px auto 0;">
-                <div class="button-bar__item" ng-class="{border:!isTomorrowAvailable && !isLaterAvailable}">
+                <div class="button-bar__item"
+                     ng-class="{border:!isTomorrowAvailable && !isLaterAvailable}"
+                        ng-click="changeSession(todaySessions)">
                     <input type="radio" name="navi-segment-a" checked>
 
                     <div class="button-bar__button">Hôm nay</div>
                 </div>
                 <div class="button-bar__item"
-                     ng-class="{hidden:!isTomorrowAvailable, border:isTomorrowAvailable && !isLaterAvailable}">
+                     ng-class="{hidden:!isTomorrowAvailable, border:isTomorrowAvailable && !isLaterAvailable}"
+                     ng-click="changeSession(tomorrowSessions)">
                     <input type="radio" name="navi-segment-a">
 
                     <div class="button-bar__button">Ngày mai</div>
                 </div>
                 <div class="button-bar__item"
-                     ng-class="{hidden:!isLaterAvailable, border:isLaterAvailable}">
+                     ng-class="{hidden:!isLaterAvailable, border:isLaterAvailable}"
+                     ng-click="changeSession(laterSessions)">
                     <input type="radio" name="navi-segment-a">
 
                     <div class="button-bar__button">Sau nữa</div>
@@ -29,25 +33,25 @@
     <ons-list class="plan-list">
         <ons-list-item
                 modifier="chevron" class="plan"
-                ng-repeat="a in [1,2,3,4,5,6,7,8,9,10]"
+                ng-repeat="session in activeSessions.sessions"
                 ng-click="showSessionDetail(a)">
             <ons-row>
                 <ons-col width="80px" class="plan-left">
-                    <div class="plan-date">5:30 PM</div>
-                    <div class="plan-duration">1h</div>
+                    <div class="plan-date">{{session.show_time | date:'hh:mm a'}}</div>
+                    <div class="plan-duration">{{activeSessions.label || (session.show_time | date:"dd 'tháng' M ")}}</div>
                 </ons-col>
 
                 <ons-col width="6px" class="plan-center"
-                         ng-style="{backgroundColor:a % 2 == 1 ? 'rgba(235,94,47,0.5)' : '#ccc'}">
+                         ng-style="{backgroundColor:$index % 2 == 1 ? 'rgba(235,94,47,0.5)' : '#ccc'}">
                 </ons-col>
 
                 <ons-col class="plan-right">
-                    <div class="plan-name">Galaxy Tân Bình</div>
+                    <div class="plan-name">{{session.theater.name}}</div>
 
                     <div class="plan-info">
                         <div>
                             <ons-icon icon="fa-map-marker"></ons-icon>
-                            6 CMT8, P.7, Q.Tân Bình, TPHCM
+                            {{session.theater.address}}
                         </div>
                     </div>
                 </ons-col>
