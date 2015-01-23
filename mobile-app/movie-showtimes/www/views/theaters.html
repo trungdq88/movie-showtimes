@@ -1,4 +1,4 @@
-<ons-page>
+<ons-page ng-controller="TheaterListController">
     <ons-toolbar>
         <div class="left">
             <ons-toolbar-button>
@@ -6,18 +6,34 @@
             </ons-toolbar-button>
         </div>
         <div class="center">Danh sách rạp</div>
-        <div class="right">
-            <ons-toolbar-button onclick="navTheater.popPage()">
-                Back
-            </ons-toolbar-button>
-        </div>
     </ons-toolbar>
 
-    <p style="padding-top: 100px; color: #999; text-align: center">Page 2</p>
+    <p id="loading-holder" class="placeholder" ng-class="{hidden:isLoaded}">
+        <img src="img/loading-spin.svg"/>
+    </p>
 
-    <div style="text-align: center;">
-        <ons-button modifier="light" onclick="navigator2.pushPage('page_new.html')">
-            New Page
-        </ons-button>
-    </div>
+    <ons-list>
+        <ons-list-item ng-repeat="theaterItem in theaterItems"
+                       modifier="chevron" class="list-item-container"
+                       ng-click="showDetail(theaterItem.id)">
+            <ons-row>
+                <ons-col width="95px">
+                    <img ng-src="{{theaterItem.image}}" class="thumbnail">
+                </ons-col>
+                <ons-col>
+                    <div class="name">
+                        {{theaterItem.name}}
+                    </div>
+                    <div class="show-date">
+                        <i class="fa fa-location-arrow"></i> {{theaterItem.address}}
+                    </div>
+                    <div class="desc">
+                        {{theaterItem.description}}
+                    </div>
+                </ons-col>
+                <ons-col width="40px"></ons-col>
+            </ons-row>
+        </ons-list-item>
+    </ons-list>
+
 </ons-page>

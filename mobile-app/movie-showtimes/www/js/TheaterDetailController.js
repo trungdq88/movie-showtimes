@@ -2,31 +2,32 @@
  * Created by dinhquangtrung on 1/22/15.
  */
 
-angular.module('app').controller('MovieDetailController', function ($scope, DataService) {
+angular.module('app').controller('TheaterDetailControllerTitle', function ($scope, DataService) {
     var movieId = $scope.ons.navigator.getCurrentPage().options.data;
-    DataService.getMovie(movieId).then(function (movie) {
-        $scope.movie = movie;
+    DataService.getTheater(movieId).then(function (theater) {
+        $scope.theater = theater;
+
         var MSECONDS_PER_DAY = 24 * 60 * 60 * 1000;
         var today = Math.floor(+new Date / MSECONDS_PER_DAY) * MSECONDS_PER_DAY;
         var tomorrow = Math.floor(+new Date / MSECONDS_PER_DAY) * MSECONDS_PER_DAY + MSECONDS_PER_DAY;
         var later = Math.floor(+new Date / MSECONDS_PER_DAY) * MSECONDS_PER_DAY + 2 * MSECONDS_PER_DAY;
         $scope.todaySessions = {
             label: "Hôm nay",
-            sessions: $scope.movie.sessions.filter(function (o) {
+            sessions: $scope.theater.sessions.filter(function (o) {
                 var show_date = Math.floor(o.show_time / MSECONDS_PER_DAY) * MSECONDS_PER_DAY;
                 return show_date >= today && show_date < tomorrow;
             })
         };
         $scope.tomorrowSessions = {
             label: "Ngày mai",
-            sessions: $scope.movie.sessions.filter(function (o) {
+            sessions: $scope.theater.sessions.filter(function (o) {
                 var show_date = Math.floor(o.show_time / MSECONDS_PER_DAY) * MSECONDS_PER_DAY;
                 return show_date >= tomorrow && show_date < later;
             })
         };
         $scope.laterSessions = {
             label: "",
-            sessions: $scope.movie.sessions.filter(function (o) {
+            sessions: $scope.theater.sessions.filter(function (o) {
                 var show_date = Math.floor(o.show_time / MSECONDS_PER_DAY) * MSECONDS_PER_DAY;
                 return show_date >= later;
             })
@@ -50,9 +51,10 @@ angular.module('app').controller('MovieDetailController', function ($scope, Data
             // $scope.ons.navigator.pushPage('views/movie_detail/session_detail.html', {data: session})
         };
     }, function (reason) {
-        console.log('Could not get movie.', reason);
+        console.log('Could not get theater.', reason);
     });
-    $scope.openTrailer = function () {
-        navigator.app.loadUrl($scope.movie.trailer, {openExternal: true});
+
+    $scope.openMap = function () {
+        navigator.app.loadUrl($scope.theater.map_link, {openExternal: true});
     }
 });

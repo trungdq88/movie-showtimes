@@ -343,5 +343,217 @@
             "audio_type": "Lồng tiếng",
             "video_type": "4DX"
         }
+    ],
+    "theaters": [
+        {
+            "id": "1",
+            "name": "Galaxy Quang Trung 1",
+            "description": "Rạp đẹp ở đường Quang Trung",
+            "city": "TPHCM",
+            "address": "283 Quang Trung, Q. Gò Vấp, TPHCM",
+            "map_link": "ád",
+            "image": "https://www.cgv.vn/media/cinema/_/m/_mg_4806_-_copy_2a.jpg",
+            "sessions": [
+                {
+                    "id": "1",
+                    "show_time": 1421982863822,
+                    "movie": {
+                        "name": "Lý Mạc Sầu"
+                    }
+                },
+                {
+                    "id": "1",
+                    "show_time": 1421982863822,
+                    "movie": {
+                        "name": "Lý Mạc Sầu"
+                    }
+                },
+                {
+                    "id": "1",
+                    "show_time": 1421982863822,
+                    "movie": {
+                        "name": "Lý Mạc Sầu"
+                    }
+                },
+                {
+                    "id": "1",
+                    "show_time": 1422058200000,
+                    "movie": {
+                        "name": "Lý Mạc Sầu"
+                    }
+                },
+                {
+                    "id": "1",
+                    "show_time": 1422058200000,
+                    "movie": {
+                        "name": "Lý Mạc Sầu"
+                    }
+                },
+                {
+                    "id": "1",
+                    "show_time": 1422058200000,
+                    "movie": {
+                        "name": "Lý Mạc Sầu"
+                    }
+                },
+                {
+                    "id": "1",
+                    "show_time": 1422058200000,
+                    "movie": {
+                        "name": "Lý Mạc Sầu"
+                    }
+                },
+                {
+                    "id": "1",
+                    "show_time": 1422058200000,
+                    "movie": {
+                        "name": "Lý Mạc Sầu"
+                    }
+                },
+                {
+                    "id": "1",
+                    "show_time": 1422058200000,
+                    "movie": {
+                        "name": "Lý Mạc Sầu"
+                    }
+                },
+                {
+                    "id": "1",
+                    "show_time": 1422173400000,
+                    "movie": {
+                        "name": "Lý Mạc Sầu"
+                    }
+                },
+                {
+                    "id": "1",
+                    "show_time": 1422173400000,
+                    "movie": {
+                        "name": "Lý Mạc Sầu"
+                    }
+                },
+                {
+                    "id": "1",
+                    "show_time": 1422173400000,
+                    "movie": {
+                        "name": "Lý Mạc Sầu"
+                    }
+                },
+                {
+                    "id": "1",
+                    "show_time": 1422173400000,
+                    "movie": {
+                        "name": "Lý Mạc Sầu"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "name": "Galaxy Quang Trung 2",
+            "description": "Rạp đẹp ở đường Quang Trung",
+            "city": "TPHCM",
+            "address": "283 Quang Trung, Q. Gò Vấp, TPHCM",
+            "map_link": "ád",
+            "image": "https://www.cgv.vn/media/cinema/_/m/_mg_4806_-_copy_2a.jpg"
+        },
+        {
+            "id": "3",
+            "name": "Galaxy Quang Trung 3",
+            "description": "Rạp đẹp ở đường Quang Trung",
+            "city": "TPHCM",
+            "address": "283 Quang Trung, Q. Gò Vấp, TPHCM",
+            "map_link": "ád",
+            "image": "https://www.cgv.vn/media/cinema/_/m/_mg_4806_-_copy_2a.jpg"
+        },
+        {
+            "id": "4",
+            "name": "Galaxy Quang Trung 4",
+            "description": "Rạp đẹp ở đường Quang Trung",
+            "city": "TPHCM",
+            "address": "283 Quang Trung, Q. Gò Vấp, TPHCM",
+            "map_link": "ád",
+            "image": "https://www.cgv.vn/media/cinema/_/m/_mg_4806_-_copy_2a.jpg"
+        },
+        {
+            "id": "1",
+            "name": "Galaxy Quang Trung",
+            "description": "Rạp đẹp ở đường Quang Trung",
+            "city": "TPHCM",
+            "address": "283 Quang Trung, Q. Gò Vấp, TPHCM",
+            "map_link": "ád",
+            "image": "https://www.cgv.vn/media/cinema/_/m/_mg_4806_-_copy_2a.jpg"
+        },
+        {
+            "id": "1",
+            "name": "Galaxy Quang Trung",
+            "description": "Rạp đẹp ở đường Quang Trung",
+            "city": "TPHCM",
+            "address": "283 Quang Trung, Q. Gò Vấp, TPHCM",
+            "map_link": "ád",
+            "image": "https://www.cgv.vn/media/cinema/_/m/_mg_4806_-_copy_2a.jpg"
+        },
+        {
+            "id": "1",
+            "name": "Galaxy Quang Trung",
+            "description": "Rạp đẹp ở đường Quang Trung",
+            "city": "TPHCM",
+            "address": "283 Quang Trung, Q. Gò Vấp, TPHCM",
+            "map_link": "ád",
+            "image": "https://www.cgv.vn/media/cinema/_/m/_mg_4806_-_copy_2a.jpg"
+        },
+        {
+            "id": "1",
+            "name": "Galaxy Quang Trung",
+            "description": "Rạp đẹp ở đường Quang Trung",
+            "city": "TPHCM",
+            "address": "283 Quang Trung, Q. Gò Vấp, TPHCM",
+            "map_link": "ád",
+            "image": "https://www.cgv.vn/media/cinema/_/m/_mg_4806_-_copy_2a.jpg"
+        },
+        {
+            "id": "1",
+            "name": "Galaxy Quang Trung",
+            "description": "Rạp đẹp ở đường Quang Trung",
+            "city": "TPHCM",
+            "address": "283 Quang Trung, Q. Gò Vấp, TPHCM",
+            "map_link": "ád",
+            "image": "https://www.cgv.vn/media/cinema/_/m/_mg_4806_-_copy_2a.jpg"
+        },
+        {
+            "id": "1",
+            "name": "Galaxy Quang Trung",
+            "description": "Rạp đẹp ở đường Quang Trung",
+            "city": "TPHCM",
+            "address": "283 Quang Trung, Q. Gò Vấp, TPHCM",
+            "map_link": "ád",
+            "image": "https://www.cgv.vn/media/cinema/_/m/_mg_4806_-_copy_2a.jpg"
+        },
+        {
+            "id": "1",
+            "name": "Galaxy Quang Trung",
+            "description": "Rạp đẹp ở đường Quang Trung",
+            "city": "TPHCM",
+            "address": "283 Quang Trung, Q. Gò Vấp, TPHCM",
+            "map_link": "ád",
+            "image": "https://www.cgv.vn/media/cinema/_/m/_mg_4806_-_copy_2a.jpg"
+        },
+        {
+            "id": "1",
+            "name": "Galaxy Quang Trung",
+            "description": "Rạp đẹp ở đường Quang Trung",
+            "city": "TPHCM",
+            "address": "283 Quang Trung, Q. Gò Vấp, TPHCM",
+            "map_link": "ád",
+            "image": "https://www.cgv.vn/media/cinema/_/m/_mg_4806_-_copy_2a.jpg"
+        },
+        {
+            "id": "1",
+            "name": "Galaxy Quang Trung",
+            "description": "Rạp đẹp ở đường Quang Trung",
+            "city": "TPHCM",
+            "address": "283 Quang Trung, Q. Gò Vấp, TPHCM",
+            "map_link": "ád",
+            "image": "https://www.cgv.vn/media/cinema/_/m/_mg_4806_-_copy_2a.jpg"
+        }
     ]
 }
