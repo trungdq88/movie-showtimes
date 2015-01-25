@@ -1,0 +1,12 @@
+.placeholder {
+    padding-top: 100px;
+    color: #999;
+    text-align: center;
+}
+.placeholder img {
+    width: 32px;
+    height: 32px;
+}
+.hidden {
+    display: none;
+}

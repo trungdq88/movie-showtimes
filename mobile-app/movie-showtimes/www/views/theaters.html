@@ -1,0 +1,52 @@
+<ons-page ng-controller="TheaterListController">
+    <ons-toolbar>
+        <div class="left" onclick="menu.toggleMenu()">
+            <ons-toolbar-button>
+                <ons-icon icon="fa-bars"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Danh sách rạp</div>
+    </ons-toolbar>
+
+    <div class="list-filter">
+        <div class="filter">
+            <ons-button id="button" ng-click="show('#button')">
+                <i class="fa fa-chevron-right"></i> Chọn cụm rạp
+            </ons-button>
+        </div>
+        <div class="filter">
+            <ons-button id="button" ng-click="show('#button')">
+                <i class="fa fa-chevron-right"></i> Chọn phim
+            </ons-button>
+        </div>
+    </div>
+
+    <p id="loading-holder" class="placeholder" ng-class="{hidden:isLoaded}">
+        <img src="img/loading-spin.svg"/>
+    </p>
+
+    <ons-list>
+        <ons-list-item ng-repeat="theaterItem in theaterItems"
+                       modifier="chevron" class="list-item-container"
+                       ng-click="showDetail(theaterItem.id)">
+            <ons-row>
+                <ons-col width="95px">
+                    <img ng-src="{{theaterItem.image}}" class="thumbnail">
+                </ons-col>
+                <ons-col>
+                    <div class="name">
+                        {{theaterItem.name}}
+                    </div>
+                    <div class="show-date">
+                        <i class="fa fa-location-arrow"></i> {{theaterItem.address}}
+                    </div>
+                    <div class="desc">
+                        {{theaterItem.description}}
+                    </div>
+                </ons-col>
+                <ons-col width="40px"></ons-col>
+            </ons-row>
+        </ons-list-item>
+    </ons-list>
+
+</ons-page>

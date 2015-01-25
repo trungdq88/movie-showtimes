@@ -1,0 +1,14 @@
+<ons-page ng-controller="MovieDetailController">
+    <ons-toolbar>
+        <div class="left">
+            <ons-back-button>Quay lại</ons-back-button>
+        </div>
+        <div class="center">{{movie.name}}</div>
+    </ons-toolbar>
+    <ons-tabbar var="movieDetailTab">
+        <ons-tab page="views/movie_detail/info.html" icon="fa-info-circle" label="Thông tin phim" active="true">
+        </ons-tab>
+        <ons-tab page="views/movie_detail/sessions.html" icon="fa-calendar" label="Lịch chiếu">
+        </ons-tab>
+    </ons-tabbar>
+</ons-page>

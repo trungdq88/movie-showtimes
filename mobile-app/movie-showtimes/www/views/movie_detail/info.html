@@ -1,0 +1,51 @@
+<ons-page>
+    <div class="card"
+         ng-style="{'background-image': 'url({{movie.poster}})'}">
+    </div>
+
+    <ons-list style="border-top: none">
+        <ons-list-item style="line-height: 1; padding: 0;">
+            <ons-row class="action" ng-click="openTrailer()">
+                <ons-col class="action-col">
+                    <div class="action-icon">
+                        <ons-icon icon="fa-play-circle"></ons-icon>
+                    </div>
+                    <div class="action-label">Xem trailer</div>
+                </ons-col>
+            </ons-row>
+        </ons-list-item>
+    </ons-list>
+
+    <div class="movie-description">
+        <h1>{{movie.name}}</h1>
+
+        <div class="movie-prop">
+            <b>Khởi chiếu:</b> {{movie.show_date || "-"}}
+        </div>
+        <div class="movie-prop">
+            <b>Thể loại:</b> {{movie.genre || "-"}}
+        </div>
+        <div class="movie-prop">
+            <b>Diễn viên:</b> {{movie.actor || "-"}}
+        </div>
+        <div class="movie-prop">
+            <b>Đạo diễn:</b> {{movie.director || "-"}}
+        </div>
+        <div class="movie-prop">
+            <b>Thời lượng:</b> {{movie.length || "-"}}
+        </div>
+        <div class="movie-prop">
+            <b>Âm thanh:</b> {{movie.audio_type || "-"}}
+        </div>
+        <div class="movie-prop">
+            <b>Hình ảnh:</b> {{movie.video_type || "-"}}
+        </div>
+        <div class="movie-prop">
+            <b>Giới hạn độ tuổi:</b> {{movie.age_restriction || "-"}}
+        </div>
+        <hr/>
+        <div>
+            {{movie.description}}
+        </div>
+    </div>
+</ons-page>
