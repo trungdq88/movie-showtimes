@@ -19,7 +19,7 @@ angular.module('app').controller('CitySelectController', function ($scope, DataS
     $scope.saveSelection = function () {
         if ($scope.currentCity) {
             DataService.setCity($scope.currentCity);
-            $scope.ons.modal.hide();
+            $scope.varSelectCity.hide();
             // Refresh all data in all controllers
         }
     };

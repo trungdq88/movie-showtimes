@@ -2,7 +2,7 @@
  * Created by dinhquangtrung on 1/22/15.
  */
 
-angular.module('app').controller('TheaterListController', function ($scope, DataService) {
+angular.module('app').controller('TheaterListController', function ($scope, DataSession, DataService) {
     $scope.theaterItems = [];
     $scope.isLoaded = false;
 

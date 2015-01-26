@@ -30,6 +30,16 @@ angular.module('app').service('DataService', function($q, $http) {
             ]);
         });
     };
+    this.getCinemas = function () {
+        return $q(function (rs, rj) {
+            rs(["Galaxy", "CGV", "Lotte", "BHD Star"]);
+        }) ;
+    };
+    this.getTheaters = function () {
+        return $q(function (rs, rj) {
+            rs(["Galaxy Tân Bình", "Galaxy Quang Trung", "Galaxy ABC", "Galaxy XYZ"]);
+        }) ;
+    };
     this.setCity = function (city) {
         localStorage[CITY_KEY] = city;
     };

@@ -27,9 +27,12 @@
     <script src="js/MovieDetailController.js"></script>
     <script src="js/TheaterListController.js"></script>
     <script src="js/TheaterDetailController.js"></script>
+    <script src="js/CinemaSelectController.js"></script>
+    <script src="js/TheaterSelectController.js"></script>
     <script src="js/MenuController.js"></script>
     <script src="js/CitySelectController.js"></script>
     <script src="js/DataService.js"></script>
+    <script src="js/DataSession.js"></script>
 
 </head>
 <body ng-controller="AppController">
@@ -51,7 +54,7 @@
     </ons-navigator>
 </ons-template>
 
-<ons-modal var="selectCity" ng-controller="CitySelectController">
+<ons-modal var="varSelectCity" ng-controller="CitySelectController">
     <div class="city-select">
     <ons-list>
 
@@ -60,7 +63,7 @@
         <ons-list-item modifier="tappable" ng-repeat="city in cities"
                 ng-click="selectCity(city)">
             <label class="radio-button radio-button--list-item">
-                <input type="radio" name="a" ng-checked="city == currentCity">
+                <input type="radio" name="city" ng-checked="city == currentCity">
                 <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
                 {{city}}
             </label>
@@ -73,5 +76,6 @@
     </ons-button>
     </div>
 </ons-modal>
+
 </body>
 </html>
