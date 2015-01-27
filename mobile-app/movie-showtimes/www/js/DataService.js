@@ -38,7 +38,9 @@ angular.module('app').service('DataService', function($q, $http) {
             // Remove duplicate and sort
             theaters = uniqBy(theaters, function (theater) {
                 return theater.name;
-            })
+            });
+
+            // TODO: Add sessions
             return theaters;
         })
     };
