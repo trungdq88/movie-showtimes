@@ -20,7 +20,7 @@ angular.module('app').controller('TheaterSelectController', function ($scope, Da
                 return theater.name;
             });
         }
-        $scope.selectTheater($scope.defaultTheater);
+        $scope.selectTheater(_data.selectedTheater || $scope.defaultTheater);
     };
 
     DataService.getTheaters().then(function (theaters) {
@@ -28,6 +28,7 @@ angular.module('app').controller('TheaterSelectController', function ($scope, Da
         $scope.theaterItems = theaters.map(function (theater) {
             return theater.name;
         });
+        _data.cinemaChange();
     });
 
     $scope.selectTheater = function (name) {

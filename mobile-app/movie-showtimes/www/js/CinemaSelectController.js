@@ -8,6 +8,7 @@ angular.module('app').controller('CinemaSelectController', function ($scope, $q,
     DataService.getCinemas().then(function (cinemas) {
         _data.cinemaItems = cinemas;
         $scope.cinemaItems = cinemas;
+        _data.selectedCinema && $scope.selectCinema(_data.selectedCinema);
     });
 
     $scope.selectCinema = function (name) {
