@@ -3,8 +3,8 @@
  */
 
 angular.module('app').controller('TheaterDetailControllerTitle', function ($scope, DataService) {
-    var movieId = $scope.ons.navigator.getCurrentPage().options.data;
-    DataService.getTheater(movieId).then(function (theater) {
+    var theaterName = $scope.ons.navigator.getCurrentPage().options.data;
+    DataService.getTheater(theaterName).then(function (theater) {
         $scope.theater = theater;
 
         var MSECONDS_PER_DAY = 24 * 60 * 60 * 1000;

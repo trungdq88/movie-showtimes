@@ -19,7 +19,7 @@ angular.module('app').controller('TheaterListController', function ($scope, Data
     });
 
 
-    $scope.showDetail = function (theaterId) {
-        $scope.ons.navigator.pushPage('views/theater_detail/theater_detail.html', {data: theaterId})
+    $scope.showDetail = function (theatername) {
+        $scope.ons.navigator.pushPage('views/theater_detail/theater_detail.html', {data: theatername})
     }
 });

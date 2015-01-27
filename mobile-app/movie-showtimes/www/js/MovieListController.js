@@ -66,7 +66,7 @@ angular.module('app').controller('MovieListController', function ($scope, DataSe
     });
 
 
-    $scope.showDetail = function (movieId) {
-        $scope.ons.navigator.pushPage('views/movie_detail/movie_detail.html', {data: movieId})
+    $scope.showDetail = function (movieName) {
+        $scope.ons.navigator.pushPage('views/movie_detail/movie_detail.html', {data: movieName})
     };
 });

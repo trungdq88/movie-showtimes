@@ -3,8 +3,8 @@
  */
 
 angular.module('app').controller('MovieDetailController', function ($scope, DataService) {
-    var movieId = $scope.ons.navigator.getCurrentPage().options.data;
-    DataService.getMovie(movieId).then(function (movie) {
+    var movieName = $scope.ons.navigator.getCurrentPage().options.data;
+    DataService.getMovie(movieName).then(function (movie) {
         $scope.movie = movie;
         var MSECONDS_PER_DAY = 24 * 60 * 60 * 1000;
         var today = Math.floor(+new Date / MSECONDS_PER_DAY) * MSECONDS_PER_DAY;

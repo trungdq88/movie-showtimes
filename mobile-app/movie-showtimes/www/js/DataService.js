@@ -31,10 +31,24 @@ angular.module('app').service('DataService', function($q, $http) {
                 return theater.name;
             });
 
-            // TODO: Add sessions
+            // Add sessions
             for (i = 0; i < theaters.length; i++) {
-                var session = theaters[i].session = [];
-
+                var currentTheater = theaters[i];
+                currentTheater.sessions = [];
+                // Loop through movies
+                for (var k = 0; k < movies.length; k++) {
+                    // Get all sessions of each movies
+                    // In Array(Session), filter all the session of current theater
+                    var _sessions = movies[k].sessions.filter(function (session) {
+                        return session.theater.name == currentTheater.name;
+                    });
+                    // Sessions in _sessions are currently missing `movie` property, add it now
+                    for (var j = 0; j < _sessions.length; j++) {
+                        _sessions[j].movie = movies[k].name;
+                    }
+                    // And add to current theater's sessions
+                    currentTheater.sessions = currentTheater.sessions.concat(_sessions);
+                }
             }
 
 
@@ -84,10 +98,10 @@ angular.module('app').service('DataService', function($q, $http) {
     this.getCurrentCity = function () {
         return localStorage[CITY_KEY];
     };
-    this.getMovie = function (movieId) {
+    this.getMovie = function (movieName) {
         return self.getMovies().then(function (movies) {
-            var result = movies.filter(function (o) {
-                return o.id == movieId;
+            var result = movies.filter(function (movie) {
+                return movie.name == movieName;
             });
             if (result.length) {
                 // If there is a duplicate id movies, return the first one
@@ -97,10 +111,10 @@ angular.module('app').service('DataService', function($q, $http) {
             }
         });
     };
-    this.getTheater = function (theaterId) {
+    this.getTheater = function (theaterName) {
         return self.getTheaters().then(function (theaters) {
-            var result = theaters.filter(function (o) {
-                return o.id == theaterId;
+            var result = theaters.filter(function (theater) {
+                return theater.name == theaterName;
             });
             if (result.length) {
                 // If there is a duplicate id theaters, return the first one

@@ -1,7 +1,6 @@
 [
     {
-        "id": "1",
-        "name": "Để mốt tính",
+        "name": "Để mốt tính 1",
         "description": "Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều",
         "poster": "http://components.onsen.io/patterns/images/location1.png",
         "trailer": "https://www.youtube.com/watch?v=njos57IJf-0",
@@ -15,7 +14,6 @@
         "video_type": "4DX",
         "sessions": [
             {
-                "id": "1",
                 "show_time": 1422982863822,
                 "theater": {
                     "cinema": "Galaxy",
@@ -69,8 +67,7 @@
         ]
     },
     {
-        "id": "2",
-        "name": "Để mốt tính",
+        "name": "Để mốt tính 2",
         "description": "Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều",
         "poster": "http://components.onsen.io/patterns/images/location1.png",
         "trailer": "https://www.youtube.com/watch?v=njos57IJf-0",
@@ -82,7 +79,6 @@
         "video_type": "4DX",
         "sessions": [
             {
-                "id": "1",
                 "show_time": 1422982863822,
                 "theater": {
                     "cinema": "Galaxy",
@@ -95,7 +91,6 @@
                 }
             },
             {
-                "id": "4",
                 "show_time": 1422431967169,
                 "theater": {
                     "cinema": "Galaxy",
@@ -110,8 +105,7 @@
         ]
     },
     {
-        "id": "3",
-        "name": "Để mốt tính",
+        "name": "Để mốt tính 3",
         "description": "Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều",
         "poster": "http://components.onsen.io/patterns/images/location1.png",
         "trailer": "https://www.youtube.com/watch?v=njos57IJf-0",
@@ -166,8 +160,7 @@
         ]
     },
     {
-        "id": "4",
-        "name": "Để mốt tính",
+        "name": "Để mốt tính 4",
         "description": "Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều",
         "poster": "http://components.onsen.io/patterns/images/location1.png",
         "trailer": "https://www.youtube.com/watch?v=njos57IJf-0",
@@ -181,7 +174,6 @@
         "video_type": "4DX",
         "sessions": [
             {
-                "id": "9",
                 "show_time": 1422345531425,
                 "theater": {
                     "cinema": "CGV",
@@ -235,8 +227,7 @@
         ]
     },
     {
-        "id": "5",
-        "name": "Để mốt tính",
+        "name": "Để mốt tính 5",
         "description": "Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều",
         "poster": "http://components.onsen.io/patterns/images/location1.png",
         "trailer": "https://www.youtube.com/watch?v=njos57IJf-0",
@@ -250,7 +241,6 @@
         "video_type": "4DX",
         "sessions": [
             {
-                "id": "1",
                 "show_time": 1422982863822,
                 "theater": {
                     "cinema": "Galaxy",
@@ -263,7 +253,6 @@
                 }
             },
             {
-                "id": "5",
                 "show_time": 1422431967169,
                 "theater": {
                     "cinema": "Lotte",
@@ -276,7 +265,6 @@
                 }
             },
             {
-                "id": "6",
                 "show_time": 1422431967169,
                 "theater": {
                     "name": "Lotte Quang Trung 6",
@@ -288,7 +276,6 @@
                 }
             },
             {
-                "id": "7",
                 "show_time": 1422431967169,
                 "theater": {
                     "cinema": "Lotte",
@@ -303,14 +290,12 @@
         ]
     },
     {
-        "id": "6",
-        "name": "Để mốt tính",
+        "name": "Để mốt tính 6",
         "poster": "http://components.onsen.io/patterns/images/location1.png",
         "show_date": "Hôm nay",
         "description": "Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều",
         "sessions": [
             {
-                "id": "1",
                 "show_time": 1422982863822,
                 "theater": {
                     "cinema": "Galaxy",
@@ -323,7 +308,6 @@
                 }
             },
             {
-                "id": "2",
                 "show_time": 1422982863822,
                 "theater": {
                     "cinema": "Galaxy",
@@ -377,8 +361,7 @@
         ]
     },
     {
-        "id": "7",
-        "name": "Để mốt tính",
+        "name": "Để mốt tính 7",
         "description": "Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều",
         "poster": "http://components.onsen.io/patterns/images/location1.png",
         "trailer": "https://www.youtube.com/watch?v=njos57IJf-0",
@@ -392,7 +375,6 @@
         "video_type": "4DX",
         "sessions": [
             {
-                "id": "1",
                 "show_time": 1422982863822,
                 "theater": {
                     "cinema": "Galaxy",
@@ -405,7 +387,6 @@
                 }
             },
             {
-                "id": "2",
                 "show_time": 1422982863822,
                 "theater": {
                     "cinema": "Galaxy",
@@ -418,7 +399,6 @@
                 }
             },
             {
-                "id": "3",
                 "show_time": 1422982863822,
                 "theater": {
                     "cinema": "Galaxy",
@@ -446,8 +426,7 @@
         ]
     },
     {
-        "id": "8",
-        "name": "Để mốt tính",
+        "name": "Để mốt tính 8",
         "description": "Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều",
         "poster": "http://components.onsen.io/patterns/images/location1.png",
         "trailer": "https://www.youtube.com/watch?v=njos57IJf-0",
@@ -476,8 +455,7 @@
         ]
     },
     {
-        "id": "9",
-        "name": "Để mốt tính",
+        "name": "Để mốt tính 9",
         "description": "Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều",
         "poster": "http://components.onsen.io/patterns/images/location1.png",
         "trailer": "https://www.youtube.com/watch?v=njos57IJf-0",
@@ -491,7 +469,6 @@
         "video_type": "4DX",
         "sessions": [
             {
-                "id": "6",
                 "show_time": 1422431967169,
                 "theater": {
                     "name": "Lotte Quang Trung 6",
@@ -503,7 +480,6 @@
                 }
             },
             {
-                "id": "7",
                 "show_time": 1422431967169,
                 "theater": {
                     "cinema": "Lotte",
@@ -516,7 +492,6 @@
                 }
             },
             {
-                "id": "8",
                 "show_time": 1422431967169,
                 "theater": {
                     "cinema": "CGV",
@@ -529,7 +504,6 @@
                 }
             },
             {
-                "id": "9",
                 "show_time": 1422345531425,
                 "theater": {
                     "cinema": "CGV",
@@ -545,7 +519,7 @@
     },
     {
         "id": "10",
-        "name": "Để mốt tính",
+        "name": "Để mốt tính 10",
         "description": "Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều",
         "poster": "http://components.onsen.io/patterns/images/location1.png",
         "trailer": "https://www.youtube.com/watch?v=njos57IJf-0",
@@ -601,7 +575,7 @@
     },
     {
         "id": "11",
-        "name": "Để mốt tính",
+        "name": "Để mốt tính 11",
         "description": "Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều",
         "poster": "http://components.onsen.io/patterns/images/location1.png",
         "trailer": "https://www.youtube.com/watch?v=njos57IJf-0",
@@ -615,7 +589,6 @@
         "video_type": "4DX",
         "sessions": [
             {
-                "id": "6",
                 "show_time": 1422431967169,
                 "theater": {
                     "name": "Lotte Quang Trung 6",
@@ -630,7 +603,7 @@
     },
     {
         "id": "13",
-        "name": "Để mốt tính",
+        "name": "Để mốt tính 12",
         "description": "Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều",
         "poster": "http://components.onsen.io/patterns/images/location1.png",
         "trailer": "https://www.youtube.com/watch?v=njos57IJf-0",
@@ -644,7 +617,6 @@
         "video_type": "4DX",
         "sessions": [
             {
-                "id": "5",
                 "show_time": 1422431967169,
                 "theater": {
                     "cinema": "Lotte",
@@ -657,7 +629,6 @@
                 }
             },
             {
-                "id": "6",
                 "show_time": 1422431967169,
                 "theater": {
                     "name": "Lotte Quang Trung 6",
@@ -669,7 +640,6 @@
                 }
             },
             {
-                "id": "7",
                 "show_time": 1422431967169,
                 "theater": {
                     "cinema": "Lotte",
@@ -682,7 +652,6 @@
                 }
             },
             {
-                "id": "8",
                 "show_time": 1422431967169,
                 "theater": {
                     "cinema": "CGV",
@@ -695,7 +664,6 @@
                 }
             },
             {
-                "id": "9",
                 "show_time": 1422345531425,
                 "theater": {
                     "cinema": "CGV",
