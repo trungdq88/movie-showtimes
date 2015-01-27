@@ -32,13 +32,19 @@ angular.module('app').controller('MovieDetailController', function ($scope, Data
             })
         };
 
-        $scope.activeSessions = $scope.todaySessions;
 
-        if ($scope.tomorrowSessions.sessions.length) {
-            $scope.isTomorrowAvailable = true;
-        }
+
         if ($scope.laterSessions.sessions.length) {
             $scope.isLaterAvailable = true;
+            $scope.activeSessions = $scope.laterSessions;
+        }
+        if ($scope.tomorrowSessions.sessions.length) {
+            $scope.isTomorrowAvailable = true;
+            $scope.activeSessions = $scope.tomorrowSessions;
+        }
+        if ($scope.todaySessions.sessions.length) {
+            $scope.isTodayAvailable = true;
+            $scope.activeSessions = $scope.todaySessions;
         }
 
         // Methods

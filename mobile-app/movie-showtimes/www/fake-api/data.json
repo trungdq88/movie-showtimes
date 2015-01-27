@@ -17,11 +17,11 @@
             "sessions": [
                 {
                     "id": "1",
-                    "show_time": 1421982863822,
+                    "show_time": 1422982863822,
                     "theater": {
                         "cinema": "Galaxy",
                         "name": "Galaxy Quang Trung 1",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -30,11 +30,11 @@
                 },
                 {
                     "id": "12",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "BHD",
                         "name": "BHD Quang Trung 12",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -58,11 +58,11 @@
             "sessions": [
                 {
                     "id": "1",
-                    "show_time": 1421982863822,
+                    "show_time": 1422982863822,
                     "theater": {
                         "cinema": "Galaxy",
                         "name": "Galaxy Quang Trung 1",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -71,11 +71,11 @@
                 },
                 {
                     "id": "4",
-                    "show_time": 1422058200000,
+                    "show_time": 1422431967169,
                     "theater": {
                         "cinema": "Galaxy",
                         "name": "Galaxy Quang Trung 4",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -101,11 +101,11 @@
             "sessions": [
                 {
                     "id": "10",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "CGV",
                         "name": "CGV Quang Trung 10",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -114,11 +114,11 @@
                 },
                 {
                     "id": "11",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "BHD",
                         "name": "BHD Quang Trung 11",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -127,11 +127,11 @@
                 },
                 {
                     "id": "12",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "BHD",
                         "name": "BHD Quang Trung 12",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -157,11 +157,11 @@
             "sessions": [
                 {
                     "id": "9",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "CGV",
                         "name": "CGV Quang Trung 9",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -170,11 +170,11 @@
                 },
                 {
                     "id": "10",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "CGV",
                         "name": "CGV Quang Trung 10",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -183,11 +183,11 @@
                 },
                 {
                     "id": "11",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "BHD",
                         "name": "BHD Quang Trung 11",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -196,11 +196,11 @@
                 },
                 {
                     "id": "12",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "BHD",
                         "name": "BHD Quang Trung 12",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -226,11 +226,11 @@
             "sessions": [
                 {
                     "id": "1",
-                    "show_time": 1421982863822,
+                    "show_time": 1422982863822,
                     "theater": {
                         "cinema": "Galaxy",
                         "name": "Galaxy Quang Trung 1",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -239,11 +239,11 @@
                 },
                 {
                     "id": "5",
-                    "show_time": 1422058200000,
+                    "show_time": 1422431967169,
                     "theater": {
                         "cinema": "Lotte",
                         "name": "Lotte Quang Trung 5",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -252,10 +252,10 @@
                 },
                 {
                     "id": "6",
-                    "show_time": 1422058200000,
+                    "show_time": 1422431967169,
                     "theater": {
                         "name": "Lotte Quang Trung 6",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -264,11 +264,11 @@
                 },
                 {
                     "id": "7",
-                    "show_time": 1422058200000,
+                    "show_time": 1422431967169,
                     "theater": {
                         "cinema": "Lotte",
                         "name": "Lotte Quang Trung 7",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -286,11 +286,11 @@
             "sessions": [
                 {
                     "id": "1",
-                    "show_time": 1421982863822,
+                    "show_time": 1422982863822,
                     "theater": {
                         "cinema": "Galaxy",
                         "name": "Galaxy Quang Trung 1",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -299,11 +299,11 @@
                 },
                 {
                     "id": "2",
-                    "show_time": 1421982863822,
+                    "show_time": 1422982863822,
                     "theater": {
                         "cinema": "Galaxy",
                         "name": "Galaxy Quang Trung 2",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -312,11 +312,11 @@
                 },
                 {
                     "id": "10",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "CGV",
                         "name": "CGV Quang Trung 10",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -325,11 +325,11 @@
                 },
                 {
                     "id": "11",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "BHD",
                         "name": "BHD Quang Trung 11",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -338,11 +338,11 @@
                 },
                 {
                     "id": "12",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "BHD",
                         "name": "BHD Quang Trung 12",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -368,11 +368,11 @@
             "sessions": [
                 {
                     "id": "1",
-                    "show_time": 1421982863822,
+                    "show_time": 1422982863822,
                     "theater": {
                         "cinema": "Galaxy",
                         "name": "Galaxy Quang Trung 1",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -381,11 +381,11 @@
                 },
                 {
                     "id": "2",
-                    "show_time": 1421982863822,
+                    "show_time": 1422982863822,
                     "theater": {
                         "cinema": "Galaxy",
                         "name": "Galaxy Quang Trung 2",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -394,11 +394,11 @@
                 },
                 {
                     "id": "3",
-                    "show_time": 1421982863822,
+                    "show_time": 1422982863822,
                     "theater": {
                         "cinema": "Galaxy",
                         "name": "Galaxy Quang Trung 3",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -407,11 +407,11 @@
                 },
                 {
                     "id": "12",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "BHD",
                         "name": "BHD Quang Trung 12",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -437,11 +437,11 @@
             "sessions": [
                 {
                     "id": "12",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "BHD",
                         "name": "BHD Quang Trung 12",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -467,10 +467,10 @@
             "sessions": [
                 {
                     "id": "6",
-                    "show_time": 1422058200000,
+                    "show_time": 1422431967169,
                     "theater": {
                         "name": "Lotte Quang Trung 6",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -479,11 +479,11 @@
                 },
                 {
                     "id": "7",
-                    "show_time": 1422058200000,
+                    "show_time": 1422431967169,
                     "theater": {
                         "cinema": "Lotte",
                         "name": "Lotte Quang Trung 7",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -492,11 +492,11 @@
                 },
                 {
                     "id": "8",
-                    "show_time": 1422058200000,
+                    "show_time": 1422431967169,
                     "theater": {
                         "cinema": "CGV",
                         "name": "CGV Quang Trung 8",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -505,11 +505,11 @@
                 },
                 {
                     "id": "9",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "CGV",
                         "name": "CGV Quang Trung 9",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -535,11 +535,11 @@
             "sessions": [
                 {
                     "id": "10",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "CGV",
                         "name": "CGV Quang Trung 10",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -548,11 +548,11 @@
                 },
                 {
                     "id": "11",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "BHD",
                         "name": "BHD Quang Trung 11",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -561,11 +561,11 @@
                 },
                 {
                     "id": "12",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "BHD",
                         "name": "BHD Quang Trung 12",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -591,10 +591,10 @@
             "sessions": [
                 {
                     "id": "6",
-                    "show_time": 1422058200000,
+                    "show_time": 1422431967169,
                     "theater": {
                         "name": "Lotte Quang Trung 6",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -620,11 +620,11 @@
             "sessions": [
                 {
                     "id": "5",
-                    "show_time": 1422058200000,
+                    "show_time": 1422431967169,
                     "theater": {
                         "cinema": "Lotte",
                         "name": "Lotte Quang Trung 5",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -633,10 +633,10 @@
                 },
                 {
                     "id": "6",
-                    "show_time": 1422058200000,
+                    "show_time": 1422431967169,
                     "theater": {
                         "name": "Lotte Quang Trung 6",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -645,11 +645,11 @@
                 },
                 {
                     "id": "7",
-                    "show_time": 1422058200000,
+                    "show_time": 1422431967169,
                     "theater": {
                         "cinema": "Lotte",
                         "name": "Lotte Quang Trung 7",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -658,11 +658,11 @@
                 },
                 {
                     "id": "8",
-                    "show_time": 1422058200000,
+                    "show_time": 1422431967169,
                     "theater": {
                         "cinema": "CGV",
                         "name": "CGV Quang Trung 8",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -671,11 +671,11 @@
                 },
                 {
                     "id": "9",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "CGV",
                         "name": "CGV Quang Trung 9",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -684,11 +684,11 @@
                 },
                 {
                     "id": "10",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "CGV",
                         "name": "CGV Quang Trung 10",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -697,11 +697,11 @@
                 },
                 {
                     "id": "11",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "BHD",
                         "name": "BHD Quang Trung 11",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
@@ -710,11 +710,11 @@
                 },
                 {
                     "id": "12",
-                    "show_time": 1422173400000,
+                    "show_time": 1422345531425,
                     "theater": {
                         "cinema": "BHD",
                         "name": "BHD Quang Trung 12",
-                        "destination": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
                         "city": "TPHCM",
                         "address": "15 Quang Trung, Q.12, TPHCM",
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",

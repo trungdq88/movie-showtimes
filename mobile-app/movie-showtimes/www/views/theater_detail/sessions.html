@@ -5,23 +5,23 @@
             <!-- segment control -->
             <div class="button-bar" style="width:300px; margin:8px auto 0;">
                 <div class="button-bar__item"
-                     ng-class="{border:!isTomorrowAvailable && !isLaterAvailable}"
-                        ng-click="changeSession(todaySessions)">
-                    <input type="radio" name="navi-segment-a" checked>
+                     ng-hide="!isTodayAvailable"
+                     ng-click="changeSession(todaySessions)">
+                    <input type="radio" name="navi-segment-a" ng-checked="isTodayAvailable">
 
                     <div class="button-bar__button">Hôm nay</div>
                 </div>
                 <div class="button-bar__item"
-                     ng-class="{hidden:!isTomorrowAvailable, border:isTomorrowAvailable && !isLaterAvailable}"
+                     ng-hide="!isTomorrowAvailable"
                      ng-click="changeSession(tomorrowSessions)">
-                    <input type="radio" name="navi-segment-a">
+                    <input type="radio" name="navi-segment-a" ng-checked="isTomorrowAvailable && !isTodayAvailable">
 
                     <div class="button-bar__button">Ngày mai</div>
                 </div>
                 <div class="button-bar__item"
-                     ng-class="{hidden:!isLaterAvailable, border:isLaterAvailable}"
+                     ng-hide="!isLaterAvailable"
                      ng-click="changeSession(laterSessions)">
-                    <input type="radio" name="navi-segment-a">
+                    <input type="radio" name="navi-segment-a" ng-checked="isLaterAvailable && !isTomorrowAvailable && !isTodayAvailable">
 
                     <div class="button-bar__button">Sau nữa</div>
                 </div>
@@ -29,6 +29,10 @@
 
         </div>
     </div>
+
+    <div class="placeholder"
+         ng-hide="isTomorrowAvailable || isTodayAvailable || isLaterAvailable"
+            >Hiện tại chưa có lịch chiếu</div>
 
     <ons-list class="plan-list">
         <ons-list-item class="plan"
