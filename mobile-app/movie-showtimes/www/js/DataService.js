@@ -10,9 +10,7 @@ angular.module('app').service('DataService', function($q, $http) {
                 return payload.data;
             });
     this.getMovies = function () {
-        return pData.then(function (data) {
-            return data.movies;
-        });
+        return pData;
     };
     this.getTheaters = function () {
         return this.getMovies().then(function (movies) {
@@ -34,6 +32,12 @@ angular.module('app').service('DataService', function($q, $http) {
             });
 
             // TODO: Add sessions
+            for (i = 0; i < theaters.length; i++) {
+                var session = theaters[i].session = [];
+
+            }
+
+
             return theaters;
         })
     };
