@@ -1,13 +1,6 @@
 /**
  * Created by dinhquangtrung on 1/22/15.
  */
-function uniqBy(a, key) {
-    var seen = {};
-    return a.filter(function(item) {
-        var k = key(item);
-        return seen.hasOwnProperty(k) ? false : (seen[k] = true);
-    })
-}
 angular.module('app').service('DataService', function($q, $http) {
     var self = this;
     var API_SOURCE = 'fake-api/data.json';

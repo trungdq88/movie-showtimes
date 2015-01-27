@@ -40,6 +40,32 @@
                         "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
                         "image": "http://lottecinemavn.com/getattachment/65104783-44e5-4ab2-81c0-43f79aae030e/NodeAlias.aspx?width=191&height=123"
                     }
+                },
+                {
+                    "id": "13",
+                    "show_time": 1422982863822,
+                    "theater": {
+                        "cinema": "BHD",
+                        "name": "BHD Quang Trung 12",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "city": "TPHCM",
+                        "address": "15 Quang Trung, Q.12, TPHCM",
+                        "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
+                        "image": "http://lottecinemavn.com/getattachment/65104783-44e5-4ab2-81c0-43f79aae030e/NodeAlias.aspx?width=191&height=123"
+                    }
+                },
+                {
+                    "id": "14",
+                    "show_time": 1422348531425,
+                    "theater": {
+                        "cinema": "BHD",
+                        "name": "BHD Quang Trung 12",
+                        "description": "Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung",
+                        "city": "TPHCM",
+                        "address": "15 Quang Trung, Q.12, TPHCM",
+                        "map_link": "https://www.google.com/maps/place/Diamond+Plaza/@10.780761,106.69862,14z/data=!4m5!1m2!2m1!1sDiamond+Plaza+-+34+L%C3%AA+Du%E1%BA%ABn+-+Qu%E1%BA%ADn+1+-+TP.HCM!3m1!1s0x31752f37cf249259:0x6d20f4627abe507d?hl=vi",
+                        "image": "http://lottecinemavn.com/getattachment/65104783-44e5-4ab2-81c0-43f79aae030e/NodeAlias.aspx?width=191&height=123"
+                    }
                 }
             ]
         },

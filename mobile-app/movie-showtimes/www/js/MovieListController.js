@@ -5,8 +5,8 @@
 angular.module('app').controller('MovieListController', function ($scope, DataSession, DataService) {
     $scope.fullMovies = [];
 
-    $scope.defaultCinema = "Chọn cụm rạp";
-    $scope.defaultTheater = "Chọn rạp";
+    $scope.defaultCinema = "Tất cả cụm rạp";
+    $scope.defaultTheater = "Tất cả rạp";
 
     $scope.isLoaded = false;
 
