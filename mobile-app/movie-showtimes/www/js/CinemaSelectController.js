@@ -4,14 +4,16 @@
 
 angular.module('app').controller('CinemaSelectController', function ($scope, $q, DataSession, DataService) {
     $scope.selectedCinema = $scope.getSelectedCinema();
-
+    var _data = DataSession['MovieListController'];
     DataService.getCinemas().then(function (cinemas) {
+        _data.cinemaItems = cinemas;
         $scope.cinemaItems = cinemas;
     });
 
-    $scope.selectCinema = function (index) {
-        DataSession['MovieListController'].selectedCinema = index;
-        $scope.setSelectedCinema(index == -1 ? "Chọn cụm rạp" : $scope.cinemaItems[index]);
+    $scope.selectCinema = function (name) {
+        _data.selectedCinema = name;
+        _data.cinemaChange && _data.cinemaChange();
+        $scope.setSelectedCinema(name);
         $scope.varSelectCinema.hide();
     }
 });

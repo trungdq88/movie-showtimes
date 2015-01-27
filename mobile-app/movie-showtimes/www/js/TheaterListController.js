@@ -6,6 +6,9 @@ angular.module('app').controller('TheaterListController', function ($scope, Data
     $scope.theaterItems = [];
     $scope.isLoaded = false;
 
+    $scope.updateTheaters = function() {
+
+    };
 
     DataService.getTheaters().then(function (theaters) {
         $scope.theaterItems = theaters;

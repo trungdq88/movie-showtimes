@@ -3,34 +3,62 @@
  */
 
 angular.module('app').controller('MovieListController', function ($scope, DataSession, DataService) {
-    $scope.movieItems = [];
+    $scope.fullMovies = [];
+
+    $scope.defaultCinema = "Chọn cụm rạp";
+    $scope.defaultTheater = "Chọn rạp";
+
     $scope.isLoaded = false;
-    DataSession['MovieListController'] = DataSession['MovieListController'] || {};
-    $scope.selectedCinema =
-        DataSession['MovieListController'].selectedCinema || "Chọn cụm rạp";
-    $scope.selectedTheater =
-        DataSession['MovieListController'].selectedTheater || "Chọn rạp";
+
+    function updateFilter() {
+        var cinemaFilterResults, theaterFilterResults;
+        if ($scope.selectedCinema != $scope.defaultCinema) {
+            cinemaFilterResults = $scope.fullMovies.filter(function (movie) {
+                return movie.sessions.filter(function (session) {
+                    return session.theater.cinema == $scope.selectedCinema;
+                }).length;
+            });
+        } else {
+            cinemaFilterResults = $scope.fullMovies;
+        }
+
+        if ($scope.selectedTheater != $scope.defaultTheater) {
+            theaterFilterResults = cinemaFilterResults.filter(function (movie) {
+                return movie.sessions.filter(function (session) {
+                    return session.theater.name == $scope.selectedTheater;
+                }).length;
+            });
+        } else {
+            theaterFilterResults = cinemaFilterResults;
+        }
+
+        $scope.movieItems = theaterFilterResults;
+    }
+
+    var _data = DataSession['MovieListController'] = DataSession['MovieListController'] || {};
+    $scope.selectedCinema = _data.selectedCinema || $scope.defaultCinema;
+    $scope.selectedTheater = _data.selectedTheater || $scope.defaultTheater;
 
     $scope.getSelectedCinema = function () {
-        return DataSession['MovieListController'].selectedCinema || -1;
+        return _data.selectedCinema || $scope.defaultCinema;
+    };
+    $scope.getSelectedTheater = function () {
+        return _data.selectedTheater || $scope.selectedTheater;
     };
 
     $scope.setSelectedCinema = function (name) {
         $scope.selectedCinema = name;
-    };
-    $scope.selectedTheater =
-        DataSession['MovieListController'].selectedTheater || "Chọn rạp";
-
-    $scope.getSelectedTheater = function () {
-        return DataSession['MovieListController'].selectedTheater || -1;
+        updateFilter();
     };
 
     $scope.setSelectedTheater = function (name) {
         $scope.selectedTheater = name;
+        updateFilter();
     };
 
     DataService.getMovies().then(function (movies) {
-        $scope.movieItems = movies;
+        $scope.fullMovies = movies;
+        $scope.movieItems = $scope.fullMovies;
         $scope.isLoaded = true;
     }, function (reason) {
         console.log("Could not get movies.", reason);

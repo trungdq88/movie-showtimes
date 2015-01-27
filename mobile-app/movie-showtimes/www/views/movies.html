@@ -63,18 +63,18 @@
     <ons-modal var="varSelectCinema" ng-controller="CinemaSelectController">
         <ons-list>
             <ons-list-item modifier="tappable"
-                           ng-click="selectCinema(-1)">
+                           ng-click="selectCinema(defaultCinema)">
                 <label class="radio-button radio-button--list-item">
-                    <input type="radio" name="cinema" ng-checked="selectedCinema == -1">
+                    <input type="radio" name="cinema" ng-checked="selectedCinema == defaultCinema">
                     <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
-                    Tất cả cụm rạp
+                    {{defaultCinema}}
                 </label>
             </ons-list-item>
             <ons-list-item modifier="tappable"
-                           ng-click="selectCinema($index)"
-                           ng-repeat="item in cinemaItems">
+                           ng-repeat="item in cinemaItems"
+                           ng-click="selectCinema(item)">
                 <label class="radio-button radio-button--list-item">
-                    <input type="radio" name="cinema" ng-checked="$index == selectedCinema">
+                    <input type="radio" name="cinema" ng-checked="item == selectedCinema">
                     <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
                     {{item}}
                 </label>
@@ -86,18 +86,18 @@
     <ons-modal var="varSelectTheater" ng-controller="TheaterSelectController">
         <ons-list>
             <ons-list-item modifier="tappable"
-                           ng-click="selectTheater(-1)">
+                           ng-click="selectTheater(defaultTheater)">
                 <label class="radio-button radio-button--list-item">
-                    <input type="radio" name="theater" ng-checked="selectedTheater == -1">
+                    <input type="radio" name="theater" ng-checked="selectedTheater == defaultTheater">
                     <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
-                    Tất cả rạp
+                    {{defaultTheater}}
                 </label>
             </ons-list-item>
             <ons-list-item modifier="tappable"
-                           ng-click="selectTheater($index)"
-                           ng-repeat="item in theaterItems">
+                           ng-repeat="item in theaterItems"
+                           ng-click="selectTheater(item)">
                 <label class="radio-button radio-button--list-item">
-                    <input type="radio" name="theater" ng-checked="$index == selectedTheater">
+                    <input type="radio" name="theater" ng-checked="item == selectedTheater">
                     <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
                     {{item}}
                 </label>
