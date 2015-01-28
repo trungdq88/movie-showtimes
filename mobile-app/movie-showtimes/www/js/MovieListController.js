@@ -21,6 +21,9 @@ angular.module('app').controller('MovieListController', function ($scope, DataSe
     };
     $scope.toggleSearch = function () {
         $scope.openSearch = !$scope.openSearch;
+        if (!$scope.openSearch) {
+            $scope.searchTerm = "";
+        }
     };
 
     function updateFilter() {
