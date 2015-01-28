@@ -13,7 +13,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -25,7 +25,7 @@
         "org.apache.cordova.splashscreen": {
             "PACKAGE_NAME": "com.dqt.app.movie.showtimes"
         },
-        "org.apache.cordova.device": {
+        "org.apache.cordova.inappbrowser": {
             "PACKAGE_NAME": "com.dqt.app.movie.showtimes"
         }
     },

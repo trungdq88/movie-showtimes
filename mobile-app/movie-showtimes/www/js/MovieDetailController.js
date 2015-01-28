@@ -59,10 +59,6 @@ angular.module('app').controller('MovieDetailController', function ($scope, Data
         console.log('Could not get movie.', reason);
     });
     $scope.openTrailer = function () {
-        if (devicePlatform == "iOS") {
-            window.open($scope.movie.trailer, '_system');
-        } else {
-            navigator.app.loadUrl($scope.movie.trailer, {openExternal: true});
-        }
+        window.open($scope.movie.trailer, '_system');
     }
 });

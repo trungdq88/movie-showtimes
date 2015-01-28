@@ -59,10 +59,6 @@ angular.module('app').controller('TheaterDetailControllerTitle', function ($scop
     });
 
     $scope.openMap = function () {
-        if (devicePlatform == "iOS") {
-            window.open($scope.theater.map_link, '_system');
-        } else {
-            navigator.app.loadUrl($scope.theater.map_link, {openExternal: true});
-        }
+        window.open($scope.theater.map_link, '_system');
     }
 });

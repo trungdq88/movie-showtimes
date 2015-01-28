@@ -2,19 +2,6 @@
  * Created by dinhquangtrung on 1/27/15.
  */
 
-// Depending on the device, a few examples are:
-//   - "Android"
-//   - "BlackBerry"
-//   - "iOS"
-//   - "webOS"
-//   - "WinCE"
-//   - "Tizen"
-document.addEventListener("deviceready", function getDeviceProperty()
-{
-    window.devicePlatform = device.platform;
-}, false);
-
-
 function uniqBy(a, key) {
     var seen = {};
     return a.filter(function(item) {
