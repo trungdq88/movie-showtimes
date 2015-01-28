@@ -2,6 +2,15 @@
  * Created by dinhquangtrung on 1/27/15.
  */
 
+// Depending on the device, a few examples are:
+//   - "Android"
+//   - "BlackBerry"
+//   - "iOS"
+//   - "webOS"
+//   - "WinCE"
+//   - "Tizen"
+var devicePlatform = device.platform;
+
 function uniqBy(a, key) {
     var seen = {};
     return a.filter(function(item) {

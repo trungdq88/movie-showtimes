@@ -5,7 +5,7 @@
 
     <ons-list style="border-top: none">
         <ons-list-item style="line-height: 1; padding: 0;">
-            <ons-row class="action" ng-click="openTrailer()">
+            <ons-row class="action" ng-click="openTrailer()" ng-hide="!movie.trailer">
                 <ons-col class="action-col">
                     <div class="action-icon">
                         <ons-icon icon="fa-play-circle"></ons-icon>

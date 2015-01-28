@@ -4,7 +4,7 @@
     </div>
     <ons-list style="border-top: none">
         <ons-list-item style="line-height: 1; padding: 0;">
-            <ons-row class="action" ng-click="openMap()">
+            <ons-row class="action" ng-click="openMap()" ng-hide="!theater.map_link">
                 <ons-col class="action-col">
                     <div class="action-icon">
                         <ons-icon icon="fa-map-marker"></ons-icon>
