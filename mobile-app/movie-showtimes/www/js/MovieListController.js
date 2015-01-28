@@ -9,6 +9,16 @@ angular.module('app').controller('MovieListController', function ($scope, DataSe
     $scope.defaultTheater = "Tất cả rạp";
 
     $scope.isLoaded = false;
+    $scope.openSearch = false;
+
+    $scope.searchFilter = function(searchString, searchTerm) {
+        if (searchTerm.length > 0) {
+            return removeDiacritics(searchString.toLowerCase().trim())
+                .indexOf(removeDiacritics(searchTerm.toLowerCase().trim())) != -1;
+        } else {
+            return true;
+        }
+    };
 
     function updateFilter() {
         var cinemaFilterResults, theaterFilterResults;

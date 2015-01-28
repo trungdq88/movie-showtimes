@@ -6,19 +6,20 @@
             </ons-toolbar-button>
         </div>
         <div class="center">Phim đang chiếu</div>
-        <!--<div class="right">-->
-        <!--<ons-toolbar-button onclick="navAvailableMovies.popPage()">-->
-        <!--Back-->
-        <!--</ons-toolbar-button>-->
-        <!--</div>-->
+        <div class="right">
+            <ons-toolbar-button ng-click="openSearch = !openSearch">
+                <ons-icon icon="fa-search"></ons-icon>
+            </ons-toolbar-button>
+        </div>
     </ons-toolbar>
+    <div class="navigation-bar" ng-hide="!openSearch">
+        <div class="navigation-bar__center">
 
-    <!--<div style="text-align: center;">-->
-        <!--<ons-button modifier="light" onclick="navMovies.pushPage('page_new.html')">-->
-            <!--New Page-->
-        <!--</ons-button>-->
-    <!--</div>-->
+            <input type="search" ng-model="searchTerm" class="search-input"
+                   style="width: 96%; margin: 6px auto 6px auto;" placeholder="Tìm kiếm">
 
+        </div>
+    </div>
     <p id="loading-holder" class="placeholder" ng-class="{hidden:isLoaded}">
         <img src="img/loading-spin.svg"/>
     </p>
@@ -39,7 +40,8 @@
     <ons-list>
         <ons-list-item ng-repeat="movieItem in movieItems"
                        modifier="chevron" class="list-item-container"
-                       ng-click="showDetail(movieItem.name)">
+                       ng-click="showDetail(movieItem.name)"
+                       ng-hide="!searchFilter(movieItem.name, searchTerm)">
             <ons-row>
                 <ons-col width="95px">
                     <img ng-src="{{movieItem.poster}}" class="thumbnail">
