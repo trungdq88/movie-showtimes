@@ -10,4 +10,7 @@ angular.module('app').controller('MenuController', function ($scope, DataService
             popover.show('#set-city-btn');
         });
     };
+    $scope.refreshData = function () {
+        location.reload();
+    };
 });

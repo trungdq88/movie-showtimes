@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="styles/movie-detail.css"/>
     <link rel="stylesheet" href="styles/movie-detail-sessions.css"/>
     <link rel="stylesheet" href="styles/utils.css"/>
+    <link rel="stylesheet" href="styles/about.css"/>
 
     <script src="lib/onsen/js/angular/angular.js"></script>
     <script src="lib/onsen/js/onsenui.js"></script>
@@ -34,7 +35,7 @@
     <script src="js/CitySelectController.js"></script>
     <script src="js/MovieSelectController.js"></script>
     <script src="js/Cinema2SelectController.js"></script>
-    <script src="js/Filters.js"></script>
+    <script src="js/AngularAdd.js"></script>
     <script src="js/DataService.js"></script>
     <script src="js/DataSession.js"></script>
 
@@ -81,6 +82,22 @@
     </ons-button>
     </div>
 </ons-modal>
-
+<ons-modal var="varAbout"
+           ng-click="varAbout.hide()">
+    <div id="about-dialog">
+        <h1>Ứng dụng tra cứu lịch chiếu phim</h1>
+        <div>
+            Tác giả:
+            <ul>
+                <li>Đinh Quang Trung</li>
+                <li>Nguyễn Ngọc Thanh Hải</li>
+                <li>Phạm Thị Thu Hoà</li>
+            </ul>
+        </div>
+        <p>
+            Liên hệ: <span style="color: blue;">http://fb.com/trungdq88</span>
+        </p>
+    </div>
+</ons-modal>
 </body>
 </html>

@@ -1,0 +1,10 @@
+#about-dialog {
+    background: #fff;
+    color: #333;
+    padding: 30px;
+    text-align: left;
+}
+
+#about-dialog h1 {
+    font-size: 20px;
+}

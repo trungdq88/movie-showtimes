@@ -12,12 +12,15 @@ angular.module('app').controller('MovieListController', function ($scope, DataSe
     $scope.openSearch = false;
 
     $scope.searchFilter = function(searchString, searchTerm) {
-        if (searchTerm.length > 0) {
+        if (searchTerm && searchTerm.length > 0) {
             return removeDiacritics(searchString.toLowerCase().trim())
                 .indexOf(removeDiacritics(searchTerm.toLowerCase().trim())) != -1;
         } else {
             return true;
         }
+    };
+    $scope.toggleSearch = function () {
+        $scope.openSearch = !$scope.openSearch;
     };
 
     function updateFilter() {
