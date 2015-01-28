@@ -9,7 +9,7 @@ angular.module('app').controller('TheaterSelectController', function ($scope, Da
 
     // This method will be called when cinema filter is changed
     _data.cinemaChange = function () {
-        if (_data.selectedCinema != $scope.defaultCinema) {
+        if (_data.selectedCinema && _data.selectedCinema != $scope.defaultCinema) {
             $scope.theaterItems = _data.theaterItems.filter(function (theater) {
                 return theater.cinema == _data.selectedCinema;
             }).map(function (theater) {
@@ -25,9 +25,6 @@ angular.module('app').controller('TheaterSelectController', function ($scope, Da
 
     DataService.getTheaters().then(function (theaters) {
         _data.theaterItems = theaters;
-        $scope.theaterItems = theaters.map(function (theater) {
-            return theater.name;
-        });
         _data.cinemaChange();
     });
 
