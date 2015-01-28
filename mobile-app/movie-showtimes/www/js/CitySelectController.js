@@ -9,7 +9,7 @@ angular.module('app').controller('CitySelectController', function ($scope, DataS
             $scope.cities.indexOf($scope.currentCity) == -1) {
             // Please set city
             $scope.currentCity = false;
-            $scope.ons.modal.show();
+            $scope.varSelectCity.show();
         }
     });
 
