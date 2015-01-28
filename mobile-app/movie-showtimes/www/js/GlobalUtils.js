@@ -9,7 +9,11 @@
 //   - "webOS"
 //   - "WinCE"
 //   - "Tizen"
-var devicePlatform = device.platform;
+document.addEventListener("deviceready", function getDeviceProperty()
+{
+    window.devicePlatform = device.platform;
+}, false);
+
 
 function uniqBy(a, key) {
     var seen = {};
