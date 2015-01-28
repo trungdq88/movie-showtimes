@@ -21,6 +21,7 @@ angular.module('app').controller('CitySelectController', function ($scope, DataS
             DataService.setCity($scope.currentCity);
             $scope.varSelectCity.hide();
             // Refresh all data in all controllers
+            location.href = 'index.html';
         }
     };
 });
