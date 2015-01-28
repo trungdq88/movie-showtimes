@@ -49,7 +49,8 @@
         </ons-list-item>
     </ons-list>
 
-    <ons-modal var="varSelectCinema2" ng-controller="Cinema2SelectController">
+    <ons-modal var="varSelectCinema2" ng-click="varSelectCinema2.hide()"
+               ng-controller="Cinema2SelectController">
         <ons-list>
             <ons-list-item modifier="tappable"
                            ng-click="selectCinema2(defaultCinema2)">
@@ -72,7 +73,8 @@
         </ons-list>
     </ons-modal>
 
-    <ons-modal var="varSelectMovie" ng-controller="MovieSelectController">
+    <ons-modal var="varSelectMovie" ng-click="varSelectMovie.hide()"
+               ng-controller="MovieSelectController">
         <ons-list>
             <ons-list-item modifier="tappable"
                            ng-click="selectMovie(defaultMovie)">

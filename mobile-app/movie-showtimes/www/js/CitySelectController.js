@@ -24,4 +24,10 @@ angular.module('app').controller('CitySelectController', function ($scope, DataS
             location.href = 'index.html';
         }
     };
+
+    $scope.hideSelectCity = function (event) {
+        if (event.target.parentElement.id == "city-select") {
+            $scope.varSelectCity.hide();
+        }
+    }
 });

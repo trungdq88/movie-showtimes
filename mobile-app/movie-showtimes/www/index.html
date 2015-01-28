@@ -58,7 +58,8 @@
     </ons-navigator>
 </ons-template>
 
-<ons-modal var="varSelectCity" ng-controller="CitySelectController">
+<ons-modal id="city-select" var="varSelectCity"  ng-controller="CitySelectController"
+           ng-click="hideSelectCity($event)">
     <div class="city-select">
     <ons-list>
 
