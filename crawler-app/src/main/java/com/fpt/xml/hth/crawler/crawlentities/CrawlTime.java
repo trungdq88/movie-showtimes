@@ -37,4 +37,13 @@ public class CrawlTime {
     public void setTime(String time) {
         this.time = time;
     }
+    
+    public static ArrayList<CrawlTime> getList(ArrayList<String> times){
+        ArrayList<CrawlTime> ctimes = new ArrayList<CrawlTime>();
+        for(String item:times){
+        CrawlTime time = new CrawlTime("", item);
+        ctimes.add(time);
+        }
+        return ctimes;
+    } 
 }

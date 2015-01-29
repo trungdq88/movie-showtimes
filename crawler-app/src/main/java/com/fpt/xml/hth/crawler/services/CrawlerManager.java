@@ -30,38 +30,20 @@ public class CrawlerManager {
     private String url;
 
     public void crawl() {
-        try {
-            HTMLParser parser = new HTMLParser();
-            parser.start();
+                try {
+            BHDCrawler crawler = new BHDCrawler();
+//            CGVCrawler crawler = new CGVCrawler();
+            crawler.start();
             JAXBContext jaxbContext = JAXBContext.newInstance(CrawlCinema.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             StringWriter sw = new StringWriter();
-            jaxbMarshaller.marshal(parser.getCinema(), sw);
+            jaxbMarshaller.marshal(crawler.getCinema(), sw);
             String xmlString = sw.toString();
 
-            PrintWriter writer = new PrintWriter("xml.xml", "UTF-8");
+            PrintWriter writer = new PrintWriter("bhd.xml", "UTF-8");
             writer.println(xmlString);
             writer.close();
-//        for (CrawlTheater theater : parser.getCinema().getTheaters()) {
-//            System.out.println("Theater");
-//            System.out.println(theater.getId());
-//            System.out.println(theater.getName());
-//            System.out.println(theater.getAddress());
-//            for (CrawlMovie movie : theater.getMovies()) {
-//                System.out.println("Movie");
-//                System.out.println(movie.getName());
-//                System.out.println(movie.getDirector());
-//                System.out.println(movie.getTrailer());
-//                for(CrawlDate date : movie.getDates()){                   
-//                    System.out.println("Date");
-//                    System.out.println(date.getDate());                   
-//                    for(CrawlTime time : date.getTimes()){
-//                        System.out.println("Time");
-//                        System.out.println(time.getTime());
-//                    }
-//                }
-//            }
-//        }
+
         } catch (JAXBException ex) {
             Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (FileNotFoundException ex) {

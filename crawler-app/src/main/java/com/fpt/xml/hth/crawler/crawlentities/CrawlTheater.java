@@ -19,6 +19,12 @@ public class CrawlTheater extends Theater {
 
     public CrawlTheater() {
     }
+    
+    public CrawlTheater(String id, String name, String description, String city, String address, String mapLink, String image){
+        super(name, description, city, address, mapLink, image);
+        this.id = id;
+    }
+    
     public ArrayList<CrawlMovie> getMovies() {
         return movies;
     }

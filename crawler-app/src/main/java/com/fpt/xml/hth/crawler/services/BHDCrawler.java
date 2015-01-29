@@ -24,7 +24,7 @@ import org.jsoup.select.Elements;
  *
  * @author Administrator
  */
-public class HTMLParser {
+public class BHDCrawler {
 
     private String url;
     private CrawlCinema cinema = new CrawlCinema();
@@ -58,9 +58,11 @@ public class HTMLParser {
     private void crawlTheater() {
         System.out.println("crawlTheaterBegin");
         try {
-            url = "http://bhdstar.vn/vn/movie-booking/ajax-response?mode=ajax&type=cinema&reponse_type=option_tag&opt_chain=cinema&opt_tech=*&opt_cinema=101&opt_movie=*&opt_time=*&opt_date=*";
+            url = "http://bhdstar.vn/vn/movie-booking/ajax-response?mode=ajax"
+                    + "&type=cinema&reponse_type=option_tag&opt_chain=cinema"
+                    + "&opt_tech=*&opt_cinema=101&opt_movie=*&opt_time=*&opt_date=*";
 //            doc = Jsoup.parse(new URL(url).openStream(), "UTF-8", url);
-            Document doc = JsoupConnect.get(url);
+            Document doc = JsoupConnect.getHTML(url);
             Elements elements = doc.select("option");
             for (Element element : elements) {
                 String id = element.val();
@@ -70,10 +72,11 @@ public class HTMLParser {
                 theater.setMovies(crawlMovie(theater.getId()));
                 cinema.addTheater(theater);
             }
-            crawlTheaterAddress();
+            crawlTheaterInfo();
             System.out.println("crawlTheaterEnd");
         } catch (IOException ex) {
-            Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrawlerManager.class.getName())
+                    .log(Level.SEVERE, null, ex);
         }
 
     }
@@ -81,24 +84,30 @@ public class HTMLParser {
     /**
      * Get theater address
      */
-    private void crawlTheaterAddress() {
-        System.out.println("crawlTheaterAddressBegin");
+    private void crawlTheaterInfo() {
+        System.out.println("crawlTheaterInfoBegin");
         try {
             url = "http://bhdstar.vn/vn/content/tat-ca-rap-4184";
-            Document doc = JsoupConnect.get(url);
-            Elements elements = doc.select(".blackbox");
+            Document doc = JsoupConnect.getHTML(url);
+            Elements elements = doc.select("#news-list > div");
             for (Element element : elements) {
-                String name = element.select("h2").text();
-                String address = element.select(".right").get(0).text();
+                String name = element.select(".blackbox h2").text();
+                String address = element.select(".blackbox .right").get(0).text();
+                String city = "Hồ Chí Minh";
+                String image = "http://bhdstar.vn" 
+                        + element.select(".main-image").attr("src");
                 for (CrawlTheater theater : cinema.getTheaters()) {
                     if (theater.getName().equals(name)) {
                         theater.setAddress(address);
+                        theater.setCity(city);
+                        theater.setImage(image);
                     }
                 }
             }
-            System.out.println("crawlTheaterAddressEnd");
+            System.out.println("crawlTheaterInfoEnd");
         } catch (IOException ex) {
-            Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrawlerManager.class.getName())
+                    .log(Level.SEVERE, null, ex);
         }
 
     }
@@ -113,8 +122,11 @@ public class HTMLParser {
         crawlMovie();
         ArrayList<CrawlMovie> movies = new ArrayList<CrawlMovie>();
         try {
-            String url = "http://bhdstar.vn/vn/movie-booking/ajax-response?mode=ajax&type=movie&reponse_type=option_tag&opt_chain=cinema&opt_tech=*&opt_cinema=" + theaterId + "&opt_movie=*&opt_time=*&opt_date=*";
-            Document doc = JsoupConnect.get(url);
+            String url = "http://bhdstar.vn/vn/movie-booking/ajax-response?mode=ajax"
+                    + "&type=movie&reponse_type=option_tag&opt_chain=cinema"
+                    + "&opt_tech=*&opt_cinema=" + theaterId 
+                    + "&opt_movie=*&opt_time=*&opt_date=*";
+            Document doc = JsoupConnect.getHTML(url);
             Elements elements = doc.select("option");
             for (Element element : elements) {
                 String id = element.val();
@@ -133,7 +145,8 @@ public class HTMLParser {
             System.out.println("setMovieEnd");
             return movies;
         } catch (IOException ex) {
-            Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrawlerManager.class.getName())
+                    .log(Level.SEVERE, null, ex);
             return movies;
         }
     }
@@ -145,7 +158,7 @@ public class HTMLParser {
         System.out.println("crawlMovieBegin");
         try {
             String url = "http://bhdstar.vn/vn/movie/browse/dang-chieu-4200";
-            Document doc = JsoupConnect.get(url);
+            Document doc = JsoupConnect.getHTML(url);
             Elements elements = doc.select("#movie-browse > div");
             for (Element element : elements) {
                 String id = "";
@@ -160,29 +173,38 @@ public class HTMLParser {
                 String videoType = "";
                 String trailer = "";
 
-                poster = element.select("div > a img").attr("src");
+                poster = "http://bhdstar.vn" + 
+                        element.select("div > a img").attr("src");
                 name = element.select(".title a").text();
-                category = element.select(".categorized").text().replace("Thể loại:", "").trim();
-                showDate = element.select(".launch-date").text().replace("Khởi chiếu:", "").trim();
-                length = element.select(".duration").text().replace("Thời lượng:", "").trim();
-                actor = element.select(".movie-stars").text().replace("Diễn viên:", "").trim();
+                category = element.select(".categorized")
+                        .text().replace("Thể loại:", "").trim();
+                showDate = element.select(".launch-date")
+                        .text().replace("Khởi chiếu:", "").trim();
+                length = element.select(".duration")
+                        .text().replaceAll("\\D", "").trim();
+                actor = element.select(".movie-stars")
+                        .text().replace("Diễn viên:", "").trim();
                 description = element.select(".summary").text();
 
-                id = element.select(".title a").attr("href");
-                id = id.substring(id.length() - 5);
+//                id = element.select(".title a").attr("href")
+//                        .substring(id.length() - 5);
                 String url2 = "http://bhdstar.vn/vn/movie/movie-detail-popup?item_id=";
-                Document doc2 = JsoupConnect.get(url2 + id);
-
-                trailer = doc2.select(".video-container iframe").attr("src");
+                Document doc2 = JsoupConnect.getHTML(url2 + id);
+                trailer = doc2.select(".video-container iframe").attr("src")
+                        .replace("embed/", "watch?v=").replace("//", "");
                 director = doc2.select(".outline-container div:nth-child(3) .right").text();
                 videoType = doc2.select(".outline-container div:nth-child(6) .right").text();
 
-                CrawlMovie movie = new CrawlMovie(name, description, poster, trailer, showDate, length, category, director, actor, "", "", videoType);
+                CrawlMovie movie = 
+                        new CrawlMovie(name, description, poster, trailer, 
+                                        showDate, length, category, director, 
+                                        actor, "", "", videoType);
                 cmovies.add(movie);
             }
             System.out.println("crawlMovieEnd");
         } catch (IOException ex) {
-            Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrawlerManager.class.getName())
+                    .log(Level.SEVERE, null, ex);
         }
     }
     
@@ -196,8 +218,11 @@ public class HTMLParser {
         System.out.println("crawlDateBegin");
         ArrayList<CrawlDate> dates = new ArrayList<CrawlDate>();
         try {
-            String url = "http://bhdstar.vn/vn/movie-booking/ajax-response?mode=ajax&type=date&reponse_type=option_tag&opt_chain=cinema&opt_tech=*&opt_cinema=" + theaterId + "&opt_movie=" + movieId + "&opt_time=*&opt_date=*";
-            Document doc = JsoupConnect.get(url);
+            String url = "http://bhdstar.vn/vn/movie-booking/ajax-response?"
+                    + "mode=ajax&type=date&reponse_type=option_tag&"
+                    + "opt_chain=cinema&opt_tech=*&opt_cinema=" + theaterId 
+                    + "&opt_movie=" + movieId + "&opt_time=*&opt_date=*";
+            Document doc = JsoupConnect.getHTML(url);
             Elements elements = doc.select("option");
             for (Element element : elements) {
                 String id = element.val();
@@ -209,7 +234,8 @@ public class HTMLParser {
             System.out.println("crawlDateEnd");
             return dates;
         } catch (IOException ex) {
-            Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrawlerManager.class.getName())
+                    .log(Level.SEVERE, null, ex);
             return dates;
         }
     }
@@ -221,23 +247,28 @@ public class HTMLParser {
      * @param theaterId
      * @return 
      */
-    private ArrayList<CrawlTime> crawlTime(String dateId, String movieId, String theaterId) {
+    private ArrayList<CrawlTime> crawlTime(String dateId, String movieId
+                                            , String theaterId) {
         System.out.println("crawlTimeBegin");
         ArrayList<CrawlTime> times = new ArrayList<CrawlTime>();
         try {
-            String url = "http://bhdstar.vn/vn/movie-booking/ajax-response?mode=ajax&type=time&reponse_type=option_tag&opt_chain=cinema&opt_tech=*&opt_cinema=" + theaterId + "&opt_movie=" + movieId + "&opt_time=*&opt_date=" + dateId;
-            Document doc = JsoupConnect.get(url);
+            String url = "http://bhdstar.vn/vn/movie-booking/ajax-response?"
+                    + "mode=ajax&type=time&reponse_type=option_tag&"
+                    + "opt_chain=cinema&opt_tech=*&opt_cinema=" + theaterId + 
+                    "&opt_movie=" + movieId + "&opt_time=*&opt_date=" + dateId;
+            Document doc = JsoupConnect.getHTML(url);
             Elements elements = doc.select("option");
             for (Element element : elements) {
                 String id = element.val();
-                String time = element.text();
+                String time = element.text().substring(0, 4);
                 CrawlTime ctime = new CrawlTime(id, time);
                 times.add(ctime);
             }
             System.out.println("crawlTimeEnd");
             return times;
         } catch (IOException ex) {
-            Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrawlerManager.class.getName())
+                    .log(Level.SEVERE, null, ex);
             return times;
         }
     }

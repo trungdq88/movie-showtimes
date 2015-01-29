@@ -17,6 +17,7 @@ public class CrawlMovie extends Movie {
 
     private String id;
     private ArrayList<CrawlDate> dates = new ArrayList<CrawlDate>();
+    private String url;
 
     public CrawlMovie() {
     }
@@ -49,6 +50,15 @@ public class CrawlMovie extends Movie {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+    
 
     public Movie toParent() {
         return new Movie(name, description, poster, trailer, showDate, length, genre, director, actor, ageRestriction, audioType, videoType);
