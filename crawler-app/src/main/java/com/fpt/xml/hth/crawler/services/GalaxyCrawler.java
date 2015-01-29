@@ -111,63 +111,26 @@ public class GalaxyCrawler {
 
     private ArrayList<CrawlMovie> crawlMovie() {
         try {
-            // ArrayList<CrawlMovie> movies = new ArrayList<CrawlMovie>();
+            ArrayList<CrawlMovie> movies = new ArrayList<CrawlMovie>();
+            ArrayList<Document> mDocs = new ArrayList<Document>();
             Document doc = JsoupConnect.getHTML("https://www.galaxycine.vn/vi/phim/nowshowing");
             Elements elements = doc.select(".box-content .item .item-title");
 
             for (Element element : elements) {
                 String movieDetailUrl = HOST + element.attr("href");
+                System.out.println("Indexing: " + movieDetailUrl);
                 Document mDoc = JsoupConnect.getHTML(movieDetailUrl);
                 CrawlMovie movie = getCrawlMovie(mDoc);
 
-                // Add sessions
-                int theaterCount = mDoc.select(".schedule-title").size();
-                for (int i = 0; i < theaterCount; i++) {
-                    String theaterName = mDoc.select(".schedule-title").get(i).text().trim();
-                    // Clone current movie to add to each theater
-                    CrawlMovie _movie = movie.getClone();
-
-                    System.out.println("TheaterName: " + theaterName);
-                    CrawlTheater foundTheater = null;
-                    for (int find = 0; find < cinema.getTheaters().size(); find++) {
-                        if (cinema.getTheaters().get(find).getName().equalsIgnoreCase(theaterName)) {
-                            foundTheater = cinema.getTheaters().get(find);
-                            break;
-                        }
-                    }
-                    if (foundTheater != null) {
-//                        if (foundTheater.getName().equalsIgnoreCase("GALAXY NGUYỄN DU")
-//                                && movie.getName().equalsIgnoreCase("I FINE THANK YOU LOVE YOU/ NỮ GIA SƯ")) {
-//                            System.out.println("Debugger;");
-//                        }
-                        // Get dates and times
-                        Element showTime = mDoc.select(".showtime").get(i);
-                        Elements dates = showTime.select(".showtime-title");
-                        // Get dates
-                        for (int index = 0; index < dates.size(); index++) {
-                            CrawlDate date = new CrawlDate();
-                            ArrayList<CrawlTime> _times = new ArrayList<CrawlTime>();
-                            date.setDate(dates.get(index).text()); // TODO: need to format the date before setDate
-
-                            // Get times
-                            Elements times = showTime.select(".showtime-items").get(index).select(".item");
-                            for (Element time1 : times) {
-                                CrawlTime time = new CrawlTime();
-                                time.setTime(time1.text());
-                                _times.add(time);
-                            }
-
-                            date.setTimes(_times);
-                            _movie.addDate(date);
-                        }
-
-                        foundTheater.addMovie(_movie);
-                    } else {
-                        System.out.println("Something wrong, could not match theater");
-                    }
-                }
-                // movies.add(movie);
+                movies.add(movie);
+                mDocs.add(mDoc);
             }
+
+            // Processing duplicate movie name
+            processingDuplicateMovieName(movies);
+
+            // Add movies and session to theater
+            addMovieSessionsToTheaters(movies, mDocs);
 
             // System.out.println("Total: " + movies.size() + " movie(s)");
         } catch (IOException ex) {
@@ -175,6 +138,77 @@ public class GalaxyCrawler {
         }
 
         return null;
+    }
+
+    private void processingDuplicateMovieName(ArrayList<CrawlMovie> movies) {
+        ArrayList<String> names = new ArrayList<String>();
+        for (int i = 0; i < movies.size(); i++) {
+            CrawlMovie movie = movies.get(i);
+            int found = names.indexOf(movie.getName());
+            if (found == -1) {
+                names.add(movie.getName());
+            } else {
+                CrawlMovie foundMovie = movies.get(found);
+                foundMovie.setName(foundMovie.getName() +
+                        (foundMovie.getVideoType() == null ? "" : " " + foundMovie.getVideoType()));
+                movie.setName(movie.getName() +
+                        (movie.getVideoType() == null ? "" : " " + movie.getVideoType()));
+            }
+        }
+    }
+
+    private void addMovieSessionsToTheaters(ArrayList<CrawlMovie> movies, ArrayList<Document> mDocs) {
+        for (int k = 0; k < movies.size(); k++) {
+            Document mDoc = mDocs.get(k);
+            CrawlMovie movie = movies.get(k);
+
+            // Add sessions
+            int theaterCount = mDoc.select(".schedule-title").size();
+            for (int i = 0; i < theaterCount; i++) {
+                String theaterName = mDoc.select(".schedule-title").get(i).text().trim();
+                // Clone current movie to add to each theater
+                CrawlMovie _movie = movie.getClone();
+
+                System.out.println("TheaterName: " + theaterName);
+                CrawlTheater foundTheater = null;
+                for (int find = 0; find < cinema.getTheaters().size(); find++) {
+                    if (cinema.getTheaters().get(find).getName().equalsIgnoreCase(theaterName)) {
+                        foundTheater = cinema.getTheaters().get(find);
+                        break;
+                    }
+                }
+                if (foundTheater != null) {
+//                        if (foundTheater.getName().equalsIgnoreCase("GALAXY NGUYỄN DU")
+//                                && movie.getName().equalsIgnoreCase("I FINE THANK YOU LOVE YOU/ NỮ GIA SƯ")) {
+//                            System.out.println("Debugger;");
+//                        }
+                    // Get dates and times
+                    Element showTime = mDoc.select(".showtime").get(i);
+                    Elements dates = showTime.select(".showtime-title");
+                    // Get dates
+                    for (int index = 0; index < dates.size(); index++) {
+                        CrawlDate date = new CrawlDate();
+                        ArrayList<CrawlTime> _times = new ArrayList<CrawlTime>();
+                        date.setDate(dates.get(index).text()); // TODO: need to format the date before setDate
+
+                        // Get times
+                        Elements times = showTime.select(".showtime-items").get(index).select(".item");
+                        for (Element time1 : times) {
+                            CrawlTime time = new CrawlTime();
+                            time.setTime(time1.text());
+                            _times.add(time);
+                        }
+
+                        date.setTimes(_times);
+                        _movie.addDate(date);
+                    }
+
+                    foundTheater.addMovie(_movie);
+                } else {
+                    System.out.println("Something wrong, could not match theater");
+                }
+            }
+        }
     }
 
     private CrawlMovie getCrawlMovie(Document mDoc) {
@@ -217,7 +251,6 @@ public class GalaxyCrawler {
         if ((_tmp = mDoc.select(".type")).size() > 0) {
             movie.setVideoType(_tmp.get(0).text());
         }
-        System.out.println("Movie: " + movie);
         return movie;
     }
 }
