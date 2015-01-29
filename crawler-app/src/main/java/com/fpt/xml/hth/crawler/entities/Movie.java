@@ -136,5 +136,22 @@ public class Movie {
     public void setVideoType(String videoType) {
         this.videoType = videoType;
     }
+
+    @Override
+    public String toString() {
+        return "Movie{\n" + "name=" + name
+                + ", \ndescription=" + description 
+                + ", \nposter=" + poster 
+                + ", \ntrailer=" + trailer 
+                + ", \nshowDate=" + showDate 
+                + ", \nlength=" + length 
+                + ", \ngenre=" + genre 
+                + ", \ndirector=" + director
+                + ", \nactor=" + actor 
+                + ", \nageRestriction=" + ageRestriction
+                + ", \naudioType=" + audioType 
+                + ", \nvideoType=" + videoType 
+                + '}';
+    }
     
 }

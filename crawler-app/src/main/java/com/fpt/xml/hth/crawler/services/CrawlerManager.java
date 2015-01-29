@@ -30,9 +30,10 @@ public class CrawlerManager {
     private String url;
 
     public void crawl() {
-                try {
-            BHDCrawler crawler = new BHDCrawler();
-//            CGVCrawler crawler = new CGVCrawler();
+        try {
+            // BHDCrawler crawler = new BHDCrawler();
+            // CGVCrawler crawler = new CGVCrawler();
+            GalaxyCrawler crawler = new GalaxyCrawler();
             crawler.start();
             JAXBContext jaxbContext = JAXBContext.newInstance(CrawlCinema.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
@@ -40,7 +41,7 @@ public class CrawlerManager {
             jaxbMarshaller.marshal(crawler.getCinema(), sw);
             String xmlString = sw.toString();
 
-            PrintWriter writer = new PrintWriter("bhd.xml", "UTF-8");
+            PrintWriter writer = new PrintWriter("galaxy.xml", "UTF-8");
             writer.println(xmlString);
             writer.close();
 

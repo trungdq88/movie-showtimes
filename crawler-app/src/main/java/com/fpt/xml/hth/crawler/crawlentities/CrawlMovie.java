@@ -63,4 +63,21 @@ public class CrawlMovie extends Movie {
     public Movie toParent() {
         return new Movie(name, description, poster, trailer, showDate, length, genre, director, actor, ageRestriction, audioType, videoType);
     }
+
+    public CrawlMovie getClone() {
+        return new CrawlMovie(
+                this.name,
+                this.description,
+                this.poster,
+                this.trailer,
+                this.showDate,
+                this.length,
+                this.genre,
+                this.director,
+                this.actor,
+                this.ageRestriction,
+                this.audioType,
+                this.videoType
+        );
+    }
 }
