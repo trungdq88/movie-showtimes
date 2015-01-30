@@ -34,6 +34,7 @@ public class CrawlerManager {
             // BHDCrawler crawler = new BHDCrawler();
             // CGVCrawler crawler = new CGVCrawler();
             GalaxyCrawler crawler = new GalaxyCrawler();
+            
             crawler.start();
             JAXBContext jaxbContext = JAXBContext.newInstance(CrawlCinema.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
