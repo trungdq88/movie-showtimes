@@ -33,7 +33,7 @@ public class HomeServlet extends HttpServlet {
         File f = new File(path);
         if(!f.exists() || f.isDirectory()) {
             NetworkUtils net = new NetworkUtils();
-            String xml = net.sendGetRequest("http://jbossews-trungdq88.rhcloud.com/API/APIServlet");
+            String xml = net.sendGetRequest("http://jbossews-trungdq88.rhcloud.com/API/getMovies?city=");
             Files.write(Paths.get(path), xml.getBytes(), StandardOpenOption.CREATE);
             System.out.println("Write file: " + path);
         }
