@@ -8,6 +8,14 @@
         <servlet-name>APIServlet</servlet-name>
         <url-pattern>/APIServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>GetMoviesServlet</servlet-name>
+        <servlet-class>com.fpt.xml.hth.web.service.GetMoviesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetMoviesServlet</servlet-name>
+        <url-pattern>/getMovies</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
