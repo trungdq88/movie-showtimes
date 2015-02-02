@@ -11,8 +11,12 @@ import com.fpt.xml.hth.crawler.crawlentities.CrawlMovie;
 import com.fpt.xml.hth.crawler.crawlentities.CrawlTheater;
 import com.fpt.xml.hth.crawler.crawlentities.CrawlTime;
 import com.fpt.xml.hth.crawler.utils.JsoupConnect;
+import com.fpt.xml.hth.crawler.utils.StringUtil;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jsoup.Jsoup;
@@ -240,8 +244,8 @@ public class BHDCrawler {
             Elements elements = doc.select("option");
             for (Element element : elements) {
                 String id = element.val();
-                String date = element.text();
-                CrawlDate cdate = new CrawlDate(id, date);
+                String sdate = StringUtil.formatDate(element.text(), "dd/mm/yyyy", "yyyy-mm-dd");          
+                CrawlDate cdate = new CrawlDate(id, sdate);
                 cdate.setTimes(crawlTime(cdate.getId(), movieId, theaterId));
                 dates.add(cdate);
             }
