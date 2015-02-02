@@ -9,27 +9,27 @@
 
 <h1>Danh sách phim</h1>
 <!-- TODO: use XSL here -->
-<%--<c:import var="movieXsl" url="movieList.xsl"/>
+<c:import var="movieXsl" url="movieList.xsl"/>
 <x:transform xslt="${movieXsl}" xml="${xml}">
     <x:param name="movieName" value="${param.movie}"/>
-</x:transform>--%>
+</x:transform>
 
-<x:forEach var="node" select="$doc//movie">
+<%--<x:forEach var="node" select="$doc//movie">
     Movie name:
     <a href="?movie=<x:out select="$node/name" />">
         <x:out select="$node/name"/>
     </a>
     <br/>
-</x:forEach>
+</x:forEach>--%>
 
 <c:if test="${not empty param.movie}">
     <h1>Danh sách rạp</h1>
-    <%--<c:import var="theaterXsl" url="theaterList.xsl"/>--%>
-    <%--<x:transform xslt="${theaterXsl}" xml="${xml}">--%>
-        <%--<x:param name="movieName" value="qwe"/>--%>
-    <%--</x:transform>--%>
+    <c:import var="theaterXsl" url="theaterList.xsl"/>
+    <x:transform xslt="${theaterXsl}" xml="${xml}">
+        <x:param name="movieName" value="The Hobbit"/>
+    </x:transform>
     
-    <c:set var="movieParam" value="${param.movie}" />
+    <%--<c:set var="movieParam" value="${param.movie}" />
     <x:forEach var="theater"
                select="$doc/movies/movie/name[text()=$movieParam]/../sessions/session/theater">
         Theater name:
@@ -37,11 +37,11 @@
             <x:out select="$theater/name"/>
         </a>
         <br/>
-    </x:forEach>
+    </x:forEach>--%>
     
 </c:if>
 
-<c:if test="${not empty param.theater and not empty param.movie}">
+<%--<c:if test="${not empty param.theater and not empty param.movie}">
     <h1>Giờ chiếu</h1>
     <c:set var="theaterParam" value="${param.theater}" />
     <x:forEach var="session"
@@ -50,4 +50,4 @@
             <x:out select="$session/show_time"/>
         <br/>
     </x:forEach>
-</c:if>
+</c:if>--%>
