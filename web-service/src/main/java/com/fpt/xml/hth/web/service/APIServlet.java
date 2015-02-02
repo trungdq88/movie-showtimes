@@ -30,7 +30,7 @@ public class APIServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.addHeader("Access-Control-Allow-Origin", "*");
         request.getRequestDispatcher("WEB-INF/sample.jsp").forward(request, response);
     }
 
