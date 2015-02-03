@@ -5,6 +5,7 @@
  */
 package com.fpt.xml.hth.db.lib.DAO;
 
+import com.fpt.xml.hth.db.lib.Config;
 import com.fpt.xml.hth.db.lib.DTO.MovieTheaterSessionDTO;
 import com.fpt.xml.hth.db.lib.converter.MovieTheaterSessionConverter;
 import com.mongodb.BasicDBObject;
@@ -32,20 +33,25 @@ public class MovieDAO implements IMongoDAO<MovieTheaterSessionDTO> {
     private MovieTheaterSessionConverter converter;
 
     public MovieDAO() {
-        try {
-            this.mongoClient = new MongoClient("localhost", 27017);
-            this.cinemaDB = mongoClient.getDB("MOVIE");
-            this.movieCollection = cinemaDB.getCollection("Movie");
-            this.converter = new MovieTheaterSessionConverter();
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(CinemaDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
     }
 
+    private void connection() {
+        try {
+            this.mongoClient = new MongoClient(Config.DATABASE, Config.PORT);
+            this.cinemaDB = mongoClient.getDB(Config.DATABASE_NAME);
+            this.movieCollection = cinemaDB.getCollection(Config.MOVIE_COLLECTION);
+            this.converter = new MovieTheaterSessionConverter();
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(MovieDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public void insert(MovieTheaterSessionDTO object) {
+        connection();
         BasicDBObject obj = converter.convertModelToBasicObject(object);
         this.movieCollection.insert(obj);
+        mongoClient.close();
     }
 
     public MovieTheaterSessionDTO readItem(DBObject object) {
@@ -53,33 +59,47 @@ public class MovieDAO implements IMongoDAO<MovieTheaterSessionDTO> {
     }
 
     public void update(MovieTheaterSessionDTO oldObj, MovieTheaterSessionDTO newObj) {
+        connection();
         BasicDBObject oldBasicObject = new BasicDBObject("_id", oldObj.getId());
         BasicDBObject newObject = converter.convertModelToBasicObject(newObj);
         BasicDBObject query = new BasicDBObject().append("$set", newObject);
         movieCollection.update(oldBasicObject, query, true, false);
+        mongoClient.close();
     }
 
     public void delete(MovieTheaterSessionDTO object) {
+        connection();
         BasicDBObject query = new BasicDBObject("_id", new ObjectId(object.getId().toString()));
         movieCollection.remove(query);
+        mongoClient.close();
     }
 
     public MovieTheaterSessionDTO findDocumentById(String _id) {
+        connection();
         BasicDBObject obj = (BasicDBObject) movieCollection.find(new BasicDBObject("_id", new ObjectId(_id))).next();
+        mongoClient.close();
         return converter.convertBasicObjectToModel(obj);
     }
 
     public DBCollection getDBCollection() {
-        return movieCollection;
+        connection();
+        DBCollection collection = this.movieCollection;
+        mongoClient.close();
+        return collection;
     }
-   public List<MovieTheaterSessionDTO> getAll(){
+
+    public List<MovieTheaterSessionDTO> getAll() {
+        connection();
         List<MovieTheaterSessionDTO> lst = new ArrayList<MovieTheaterSessionDTO>();
-        DBCollection collection = this.getDBCollection();
+        DBCollection collection = movieCollection;
         DBCursor cursor = collection.find();
-        while (cursor.hasNext()){
-            MovieTheaterSessionDTO dto = (MovieTheaterSessionDTO) cursor.next();
-            lst.add(dto);
+        while (cursor.hasNext()) {
+            BasicDBObject basic = (BasicDBObject) cursor.next();
+            MovieTheaterSessionDTO movieDto = converter.convertBasicObjectToModel(basic);
+            lst.add(movieDto);
         }
+        cursor.close();
+        mongoClient.close();
         return lst;
     }
 }

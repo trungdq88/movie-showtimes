@@ -5,16 +5,16 @@
  */
 package com.fpt.xml.hth.db.lib.DTO;
 
-import com.fpt.xml.hth.db.lib.entities.Theater;
+import com.fpt.xml.hth.db.lib.entities.TheaterDB;
 import java.util.List;
 
 /**
- * class TheaterSessionDTO mapping with one element in list theaters in Movie collection
+ * class TheaterDBSessionDTO mapping with one element in list theaters in Movie collection
  * @author Thu Hoa
  */
 public class TheaterSessionDTO {
 
-    private Theater theater;
+    private TheaterDB theater;
     private String cinemaName;
     private List<String> lstSession;
 
@@ -26,11 +26,11 @@ public class TheaterSessionDTO {
         this.cinemaName = cinemaName;
     }
 
-    public Theater getTheater() {
+    public TheaterDB getTheater() {
         return theater;
     }
 
-    public void setTheater(Theater theater) {
+    public void setTheater(TheaterDB theater) {
         this.theater = theater;
     }
 

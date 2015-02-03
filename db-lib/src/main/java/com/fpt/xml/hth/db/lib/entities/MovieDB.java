@@ -8,7 +8,7 @@ package com.fpt.xml.hth.db.lib.entities;
  *
  * @author Thu Hoa
  */
-public class Movie {
+public class MovieDB {
 
     private String name;
     private String poster;

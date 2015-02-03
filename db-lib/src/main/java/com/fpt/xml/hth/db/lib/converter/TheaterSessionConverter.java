@@ -5,7 +5,7 @@
  */
 package com.fpt.xml.hth.db.lib.converter;
 
-import com.fpt.xml.hth.db.lib.entities.Theater;
+import com.fpt.xml.hth.db.lib.entities.TheaterDB;
 import com.fpt.xml.hth.db.lib.DTO.TheaterSessionDTO;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
@@ -25,17 +25,17 @@ public class TheaterSessionConverter implements IModelConverter<TheaterSessionDT
     }
 
     /**
-     * To convert from BasicDBObject object to TheaterSessionDTO object
+     * To convert from BasicDBObject object to TheaterDBSessionDTO object
      *
      * @param object
-     * @return TheaterSessionDTO
+     * @return TheaterDBSessionDTO
      */
     public TheaterSessionDTO convertBasicObjectToModel(BasicDBObject object) {
         String cinemaName = object.getString("cinemaName");
         BasicDBObject basicTheater = (BasicDBObject) object.get("theater");
         BasicDBList basicSessions = (BasicDBList) object.get("sessions");
         // convert basicTheater to theater
-        Theater theater = conveter.convertBasicObjectToModel(basicTheater);
+        TheaterDB theater = conveter.convertBasicObjectToModel(basicTheater);
         // convert basicSessions to session
         List<String> sessions = new ArrayList<String>();
         for (int i = 0; i < basicSessions.size(); i++) {
@@ -50,14 +50,14 @@ public class TheaterSessionConverter implements IModelConverter<TheaterSessionDT
     }
 
     /**
-     * To convert from TheaterSessionDTO object to BasicDBObject object
+     * To convert from TheaterDBSessionDTO object to BasicDBObject object
      *
      * @param model
      * @return BasicDBObject
      */
     public BasicDBObject convertModelToBasicObject(TheaterSessionDTO model) {
         String cinemaName = model.getCinemaName();
-        Theater theater = model.getTheater();
+        TheaterDB theater = model.getTheater();
         List<String> lstSessions = model.getLstSession();
         // convert theather to basicTheater
         BasicDBObject basicTheater = conveter.convertModelToBasicObject(theater);
