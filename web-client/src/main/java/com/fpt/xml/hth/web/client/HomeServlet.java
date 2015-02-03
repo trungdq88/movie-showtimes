@@ -40,6 +40,6 @@ public class HomeServlet extends HttpServlet {
 
 
 
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/movie.jsp").forward(request, response);
     }
 }

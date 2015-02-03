@@ -10,7 +10,7 @@
 <c:if test="${empty param.movie}">
     <h1>Danh sách phim</h1>
     <!-- TODO: use XSL here -->
-    <c:import var="movieXsl" url="movieList.xsl"/>
+    <c:import var="movieXsl" url="movieList.xsl" charEncoding="UTF-8"/>
     <x:transform xslt="${movieXsl}" xml="${xml}">
         <x:param name="movieName" value="${param.movie}"/>
     </x:transform>
@@ -26,7 +26,7 @@
 <c:if test="${not empty param.movie and empty param.theater}">   
     
     <h1>Danh sách rạp</h1>
-    <c:import var="theaterXsl" url="theaterList.xsl"/>
+    <c:import var="theaterXsl" url="theaterList.xsl" charEncoding="UTF-8"/>
     <x:transform xslt="${theaterXsl}" xml="${xml}">
         <x:param name="movieName" value="The Hobbit"/>
     </x:transform>
@@ -53,7 +53,7 @@
            <br/>
        </x:forEach> --%>
 
-    <c:import var="timeXsl" url="timeList.xsl"/>
+    <c:import var="timeXsl" url="timeList.xsl" charEncoding="UTF-8"/>
     <x:transform xslt="${timeXsl}" xml="${xml}">
         <x:param name="movieName" value="The Hobbit"/>
     </x:transform>
