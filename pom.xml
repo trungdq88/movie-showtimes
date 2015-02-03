@@ -14,7 +14,6 @@
         <module>db-lib</module>
         <module>crawler-app</module>
         <module>web-service</module>
-        <module>web-client</module>
     </modules>
 
     <build>

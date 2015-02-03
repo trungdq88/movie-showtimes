@@ -28,7 +28,7 @@ import org.jsoup.select.Elements;
  *
  * @author Administrator
  */
-public class BHDCrawler {
+public class BHDCrawler extends AbstractCrawler {
 
     private String url;
     private CrawlCinema cinema = new CrawlCinema();

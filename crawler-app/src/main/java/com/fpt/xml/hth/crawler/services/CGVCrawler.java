@@ -27,7 +27,7 @@ import org.jsoup.select.Elements;
  *
  * @author Administrator
  */
-public class CGVCrawler {
+public class CGVCrawler extends AbstractCrawler {
 
     private String url;
     private CrawlCinema cinema = new CrawlCinema();

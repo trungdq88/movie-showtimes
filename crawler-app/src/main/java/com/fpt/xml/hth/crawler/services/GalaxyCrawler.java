@@ -24,7 +24,7 @@ import org.jsoup.select.Elements;
  *
  * @author dinhquangtrung
  */
-public class GalaxyCrawler {
+public class GalaxyCrawler extends AbstractCrawler {
 
     private String url;
     private CrawlCinema cinema = new CrawlCinema();
