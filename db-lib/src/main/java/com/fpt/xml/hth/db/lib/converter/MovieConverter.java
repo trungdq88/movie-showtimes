@@ -5,7 +5,7 @@
  */
 package com.fpt.xml.hth.db.lib.converter;
 
-import com.fpt.xml.hth.db.lib.entities.Movie;
+import com.fpt.xml.hth.db.lib.entities.MovieDB;
 import com.mongodb.BasicDBObject;
 import org.bson.types.ObjectId;
 
@@ -13,9 +13,9 @@ import org.bson.types.ObjectId;
  *
  * @author Thu Hoa
  */
-public class MovieConverter implements IModelConverter<Movie> {
+public class MovieConverter implements IModelConverter<MovieDB> {
 
-    public Movie convertBasicObjectToModel(BasicDBObject object) {
+    public MovieDB convertBasicObjectToModel(BasicDBObject object) {
         String name = object.getString("name");
         String description = object.getString("description");
         String length = object.getString("length");
@@ -29,7 +29,7 @@ public class MovieConverter implements IModelConverter<Movie> {
         String audio_type = object.getString("audio_type");
         String video_type = object.getString("video_type");
         // set values to object movie
-        Movie movie = new Movie();
+        MovieDB movie = new MovieDB();
         movie.setName(name);
         movie.setActor(actor);
         movie.setAge_restriction(age_restriction);
@@ -46,7 +46,7 @@ public class MovieConverter implements IModelConverter<Movie> {
         return movie;
     }
 
-    public BasicDBObject convertModelToBasicObject(Movie model) {
+    public BasicDBObject convertModelToBasicObject(MovieDB model) {
         String name = model.getName();
         String description = model.getDescription();
         String length = model.getLength();

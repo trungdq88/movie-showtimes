@@ -5,7 +5,7 @@
  */
 package com.fpt.xml.hth.db.lib.converter;
 
-import com.fpt.xml.hth.db.lib.entities.Movie;
+import com.fpt.xml.hth.db.lib.entities.MovieDB;
 import com.fpt.xml.hth.db.lib.DTO.MovieTheaterSessionDTO;
 import com.fpt.xml.hth.db.lib.DTO.TheaterSessionDTO;
 import com.mongodb.BasicDBList;
@@ -29,10 +29,10 @@ public class MovieTheaterSessionConverter implements IModelConverter<MovieTheate
     }
 
     /**
-     * To convert from BasicDBObject object to MovieTheaterSessionDTO object
+     * To convert from BasicDBObject object to MovieDBTheaterSessionDTO object
      *
      * @param object
-     * @return MovieTheaterSessionDTO
+     * @return MovieDBTheaterSessionDTO
      */
     //TODO: remove
     public MovieTheaterSessionDTO convertBasicObjectToModel(BasicDBObject object) {
@@ -41,7 +41,7 @@ public class MovieTheaterSessionConverter implements IModelConverter<MovieTheate
         BasicDBObject basicMovie = (BasicDBObject) object.get("movie");
         BasicDBList basicLstSession = (BasicDBList) object.get("theaters");
         //convert basicMovie object movie
-        Movie movie = movieConverter.convertBasicObjectToModel(basicMovie);
+        MovieDB movie = movieConverter.convertBasicObjectToModel(basicMovie);
         //convert basicLstSession to theaters
         List<TheaterSessionDTO> theaters = new ArrayList<TheaterSessionDTO>();;
         if (basicLstSession != null && !basicLstSession.isEmpty()) {
@@ -60,14 +60,14 @@ public class MovieTheaterSessionConverter implements IModelConverter<MovieTheate
     }
 
     /**
-     * To convert from MovieTheaterSessionDTO object to BasicDBObject object
+     * To convert from MovieDBTheaterSessionDTO object to BasicDBObject object
      *
      * @param model
      * @return BasicDBObject
      */
     public BasicDBObject convertModelToBasicObject(MovieTheaterSessionDTO model) {
         ObjectId id = model.getId();
-        Movie movie = model.getMovie();
+        MovieDB movie = model.getMovie();
         List<TheaterSessionDTO> theaters = model.getTheaters();
         //convert movie to BasicDBObject
         BasicDBObject basicMovie = movieConverter.convertModelToBasicObject(movie);
