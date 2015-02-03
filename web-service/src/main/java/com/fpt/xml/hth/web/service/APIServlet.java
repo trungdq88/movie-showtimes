@@ -51,8 +51,8 @@ public class APIServlet extends HttpServlet {
             MovieTheaterSessionDTO dto = lstMovie.get(i);
         }
         out.print("<movie>");
+        out.print("</movie>");
 
-        out.print("</movie");
 
     }
 
