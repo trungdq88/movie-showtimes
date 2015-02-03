@@ -5,7 +5,6 @@
  */
 package com.fpt.xml.hth.crawler.crawlentities;
 
-import com.fpt.xml.hth.crawler.entities.Movie;
 import com.fpt.xml.hth.crawler.entities.Session;
 import java.util.ArrayList;
 

@@ -5,7 +5,6 @@
  */
 package com.fpt.xml.hth.crawler.crawlentities;
 
-import com.fpt.xml.hth.crawler.entities.Cinema;
 import com.fpt.xml.hth.crawler.entities.Movie;
 import java.util.ArrayList;
 
@@ -22,8 +21,34 @@ public class CrawlMovie extends Movie {
     public CrawlMovie() {
     }
 
-    public CrawlMovie(String name, String description, String poster, String trailer, String showDate, String length, String genre, String director, String actor, String ageRestriction, String audioType, String videoType) {
-        super(name, description, poster, trailer, showDate, length, genre, director, actor, ageRestriction, audioType, videoType);
+    public CrawlMovie(
+            String name, 
+            String description, 
+            String poster, 
+            String trailer, 
+            String showDate, 
+            String length, 
+            String genre, 
+            String director, 
+            String actor, 
+            String ageRestriction, 
+            String audioType, 
+            String videoType
+    ) {
+        super(
+                name, 
+                description, 
+                poster, 
+                trailer, 
+                showDate, 
+                length, 
+                genre, 
+                director, 
+                actor, 
+                ageRestriction, 
+                audioType, 
+                videoType
+        );
 
     }
 
@@ -61,7 +86,20 @@ public class CrawlMovie extends Movie {
     
 
     public Movie toParent() {
-        return new Movie(name, description, poster, trailer, showDate, length, genre, director, actor, ageRestriction, audioType, videoType);
+        return new Movie(
+                name, 
+                description, 
+                poster, 
+                trailer, 
+                showDate, 
+                length, 
+                genre, 
+                director, 
+                actor, 
+                ageRestriction, 
+                audioType, 
+                videoType
+        );
     }
 
     public CrawlMovie getClone() {

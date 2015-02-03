@@ -21,7 +21,6 @@ import java.util.logging.Logger;
 import org.json.JSONObject;
 import org.jsoup.HttpStatusException;
 import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 
 /**
  *
