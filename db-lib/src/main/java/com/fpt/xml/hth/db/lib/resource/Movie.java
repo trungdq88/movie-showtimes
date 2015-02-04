@@ -79,7 +79,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Movie {
 
     @XmlElement(required = true)
-    protected BigInteger id;
+    protected String id;
     @XmlElement(required = true)
     protected String name;
     @XmlElement(required = true)
@@ -115,7 +115,7 @@ public class Movie {
      *     {@link BigInteger }
      *     
      */
-    public BigInteger getId() {
+    public String getId() {
         return id;
     }
 
@@ -127,7 +127,7 @@ public class Movie {
      *     {@link BigInteger }
      *     
      */
-    public void setId(BigInteger value) {
+    public void setId(String value) {
         this.id = value;
     }
 

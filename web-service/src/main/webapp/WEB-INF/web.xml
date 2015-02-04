@@ -4,6 +4,14 @@
         <servlet-name>APIServlet</servlet-name>
         <servlet-class>com.fpt.xml.hth.web.service.APIServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetCitiesServlet</servlet-name>
+        <servlet-class>com.fpt.xml.hth.web.service.GetCitiesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetCitiesServetDemo</servlet-name>
+        <servlet-class>com.fpt.xml.hth.web.service.GetCitiesServetDemo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>APIServlet</servlet-name>
         <url-pattern>/APIServlet</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>GetMoviesServlet</servlet-name>
         <url-pattern>/getMovies</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetCitiesServlet</servlet-name>
+        <url-pattern>/GetCitiesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetCitiesServetDemo</servlet-name>
+        <url-pattern>/getCities</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

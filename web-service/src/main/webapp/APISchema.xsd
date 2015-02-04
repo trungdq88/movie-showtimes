@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    <xs:simpleType name="show-time" >
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="youtube-url">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(https://)?(www\.youtube\.com/watch\?v).*" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Theater">
+        <xs:sequence>
+            <xs:element name="cinema" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="city" type="xs:string" />
+            <xs:element name="address" type="xs:string"/>
+            <xs:element name="map_link" type="xs:string"/>
+            <xs:element name="image" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Session">
+        <xs:sequence>
+            <xs:element name="id" type="xs:integer" />
+            <xs:element name="show_time" type="show-time" />
+            <xs:element name="movie" type="xs:string" />
+            <xs:element name="theater" type="Theater">          
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Movie">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string" />
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="poster" type="xs:string"/>
+            <xs:element name="trailer" type="youtube-url"/>
+            <xs:element name="show_date" type="show-time"/>
+            <xs:element name="length" type="xs:string"/>
+            <xs:element name="genre" type="xs:string"/>
+            <xs:element name="director" type="xs:string"/>
+            <xs:element name="actor" type="xs:string"/>
+            <xs:element name="age_restriction" type="xs:string"/>
+            <xs:element name="audio_type" type="xs:string"/>
+            <xs:element name="video_type" type="xs:string"/>
+            <xs:element name="sessions" >
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="session" maxOccurs="unbounded" type="Session">                           
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="movies">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="movie" maxOccurs="unbounded" type="Movie">
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

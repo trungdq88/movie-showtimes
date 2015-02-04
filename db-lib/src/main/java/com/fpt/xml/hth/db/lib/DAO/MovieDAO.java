@@ -7,6 +7,7 @@ package com.fpt.xml.hth.db.lib.DAO;
 
 import com.fpt.xml.hth.db.lib.Config;
 import com.fpt.xml.hth.db.lib.DTO.MovieTheaterSessionDTO;
+import com.fpt.xml.hth.db.lib.DTO.TheaterSessionDTO;
 import com.fpt.xml.hth.db.lib.converter.MovieTheaterSessionConverter;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -38,7 +39,7 @@ public class MovieDAO implements IMongoDAO<MovieTheaterSessionDTO> {
 
     private void connection() {
         try {
-            this.mongoClient = new MongoClient(Config.DATABASE, Config.PORT);
+            this.mongoClient = new MongoClient(Config.getHost(), Config.getPort());
             this.cinemaDB = mongoClient.getDB(Config.DATABASE_NAME);
             this.movieCollection = cinemaDB.getCollection(Config.MOVIE_COLLECTION);
             this.converter = new MovieTheaterSessionConverter();
@@ -96,6 +97,36 @@ public class MovieDAO implements IMongoDAO<MovieTheaterSessionDTO> {
         while (cursor.hasNext()) {
             BasicDBObject basic = (BasicDBObject) cursor.next();
             MovieTheaterSessionDTO movieDto = converter.convertBasicObjectToModel(basic);
+            lst.add(movieDto);
+        }
+        cursor.close();
+        mongoClient.close();
+        return lst;
+    }
+
+    /**
+     * get list movies by param city
+     *
+     * @param city
+     * @return List<MovieTheaterSessionDTO>
+     */
+    public List<MovieTheaterSessionDTO> getAllByCity(String city) {
+        connection();
+        List<MovieTheaterSessionDTO> lst = new ArrayList<MovieTheaterSessionDTO>();
+        DBCollection collection = movieCollection;
+        DBCursor cursor = collection.find();
+        while (cursor.hasNext()) {
+            BasicDBObject basic = (BasicDBObject) cursor.next();
+            MovieTheaterSessionDTO movieDto = converter.convertBasicObjectToModel(basic);
+            // check name of city
+            List<TheaterSessionDTO> lstTheaterSession = movieDto.getTheaters();
+            for (int i = 0; i < lstTheaterSession.size(); i++) {
+                TheaterSessionDTO dto = lstTheaterSession.get(i);
+                // if not equal city, remove from theaters
+                if (!dto.getTheater().getCity().equals(city)) {
+                    movieDto.getTheaters().remove(dto);
+                }
+            }
             lst.add(movieDto);
         }
         cursor.close();

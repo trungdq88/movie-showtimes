@@ -29,7 +29,7 @@ public class TransferdEntities {
      * @param dto
      * @return movies
      */
-    public Movie transferFromGeneratedEntitiesToDBEntities(MovieTheaterSessionDTO dto) {
+    public Movie transferFromDBEntitiesToGeneratedEntities(MovieTheaterSessionDTO dto) {
         Movie movie = new Movie();
         MovieDB movieDB = dto.getMovie();
         //1.Set value for movie
@@ -39,8 +39,7 @@ public class TransferdEntities {
         movie.setDescription(movieDB.getDescription());
         movie.setDirector(movieDB.getDirector());
         movie.setGenre(movieDB.getGenre());
-        BigInteger id = new BigInteger(dto.getId().toString());
-        movie.setId(id);
+        movie.setId(dto.getId().toString());
         movie.setLength(movieDB.getLength());
         movie.setName(movieDB.getName());
         movie.setPoster(movieDB.getPoster());
@@ -67,9 +66,9 @@ public class TransferdEntities {
                 Session session = new Session();
                 session.setTheater(theater);
                 session.setMovie(movieDB.getName());
-                int showtime = 0;
+                BigInteger showtime = BigInteger.ZERO;
                 try {
-                    showtime = Integer.parseInt(sessionsString.get(i));
+                    showtime = new BigInteger(sessionsString.get(i));
                 } catch (NumberFormatException e) {
                     e.getMessage();
                 }
