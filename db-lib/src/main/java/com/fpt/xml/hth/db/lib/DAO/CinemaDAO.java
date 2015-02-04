@@ -15,7 +15,10 @@ import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.bson.types.ObjectId;
@@ -36,7 +39,7 @@ public class CinemaDAO implements IMongoDAO<CinemaDTO> {
 
     private void connection() {
         try {
-            this.mongoClient = new MongoClient(Config.DATABASE, Config.PORT);
+            this.mongoClient = new MongoClient(Config.getHost(), Config.getPort());
             this.cinemaDB = mongoClient.getDB(Config.DATABASE_NAME);
             this.cinemaCollection = cinemaDB.getCollection(Config.CINEMA_COLLECTION);
             this.converter = new CinemaConverter();
@@ -98,5 +101,28 @@ public class CinemaDAO implements IMongoDAO<CinemaDTO> {
         cursor.close();
         mongoClient.close();
         return lst;
+    }
+    
+    /**
+     * select all city in database
+     *
+     * @return List<String>
+     */
+    public List<String> getCities() {
+        connection();
+        Set<String> lst = new HashSet<String>();
+        List<BasicDBObject> collection = cinemaCollection.distinct("theaters");
+        for (int i = 0; i < collection.size(); i++) {
+            BasicDBObject basic = collection.get(i);
+            String city = basic.getString("city");
+            lst.add(city);
+        }
+        List<String> lstCity = new ArrayList<String>();
+        Iterator<String> iter = lst.iterator();
+        while (iter.hasNext()) {
+            lstCity.add(iter.next());
+        }
+        mongoClient.close();
+        return lstCity;
     }
 }
