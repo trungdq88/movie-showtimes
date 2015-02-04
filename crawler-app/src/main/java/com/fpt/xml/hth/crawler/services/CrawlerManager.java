@@ -27,30 +27,45 @@ import javax.xml.bind.Marshaller;
  */
 public class CrawlerManager {
 
-    private String url;
+    public void crawl(String[] targets) {
 
-    public void crawl() {
-        try {
-            // BHDCrawler crawler = new BHDCrawler();
-            // CGVCrawler crawler = new CGVCrawler();
-            GalaxyCrawler crawler = new GalaxyCrawler();
-            crawler.start();
-            JAXBContext jaxbContext = JAXBContext.newInstance(CrawlCinema.class);
-            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-            StringWriter sw = new StringWriter();
-            jaxbMarshaller.marshal(crawler.getCinema(), sw);
-            String xmlString = sw.toString();
+        for (String target : targets) {
 
-            PrintWriter writer = new PrintWriter("galaxy.xml", "UTF-8");
-            writer.println(xmlString);
-            writer.close();
+            AbstractCrawler crawler = null;
+            try {
+                if (target.equals("cgv")) {
+                    crawler = new CGVCrawler();
+                } else if (target.equals("bhd")) {
+                    crawler = new BHDCrawler();
+                } else if (target.equals("galaxy")) {
+                    crawler = new GalaxyCrawler();
+                }
 
-        } catch (JAXBException ex) {
-            Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
+                if (crawler == null) {
+                    System.out.println("Error: cinema code is not correct: " + target);
+                    break;
+                }
+
+                System.out.println("Crawl: " + target);
+
+                crawler.start();
+                JAXBContext jaxbContext = JAXBContext.newInstance(CrawlCinema.class);
+                Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+                StringWriter sw = new StringWriter();
+                jaxbMarshaller.marshal(crawler.getCinema(), sw);
+                String xmlString = sw.toString();
+
+                PrintWriter writer = new PrintWriter("output_" + target + ".xml", "UTF-8");
+                writer.println(xmlString);
+                writer.close();
+
+            } catch (JAXBException ex) {
+                Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (UnsupportedEncodingException ex) {
+                Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

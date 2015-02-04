@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movies>
+    <movie>
+        <id>54cde10e71b3f4c8997bf838</id>
+        <name>Khu Rừng Cổ Tích</name>
+        <description>Khu Rừng Cổ Tích - Into The Woods theo chân cặp vợ chồng người thợ làm bánh (James Corden và Emily Blunt) vào một khu rừng u ám đáng sợ để tìm cách hóa giải lời nguyền do mụ phù thủy xấu xí (Meryl Streep) áp đặt cho họ. Họ buộc phải thu thập đủ những món đồ của chính các nhân vật cổ tích: con bò trắng của cậu bé Jack (Daniel Huttlestone), chiếc áo choàng của cô bé quàng khăn đỏ (Lilla Crawford), mái tóc của công chúa tóc mây Rapunzel (MacKenzie Mauzy), chiếc giày của nàng Lọ Lem Cinderella (Anna Kendrick).</description>
+        <poster>https://www.cgv.vn/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/i/n/into_the_woods_160x237_1.jpg</poster>
+        <trailer>https://www.youtube.com/watch?v=GyCC7HVEKIA</trailer>
+        <show_date>0</show_date>
+        <length>124 phút</length>
+        <genre>Gia đình, Hài, Thần thoại</genre>
+        <director>Rob Marshall</director>
+        <actor>Anna Kendrick, Meryl Streep, Chris Pine</actor>
+        <age_restriction></age_restriction>
+        <audio_type>Tiếng Anh và phụ đề tiếng Việt</audio_type>
+        <video_type>2D</video_type>
+        <sessions>
+            <session>
+                <show_time>0</show_time>
+                <movie>Khu Rừng Cổ Tích</movie>
+                <theater>
+                    <name>CGV Hung Vuong</name>
+                    <description>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</description>
+                    <city>HCM</city>
+                    <address>Hùng Vương Plaza 126 Hùng Vương Quận 5 Tp. Hồ Chí Minh</address>
+                    <map_link>https://www.google.com/maps?ll=10.761117,106.674823&amp;z=17&amp;t=m&amp;hl=vi&amp;gl=US&amp;mapclient=embed&amp;q=Hung+Vuong+Plaza,+126+H%C3%B9ng+V%C6%B0%C6%A1ng+ph%C6%B0%E1%BB%9Dng+4,+Qu%E1%BA%ADn+5+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam</map_link>
+                    <image>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</image>
+                </theater>
+            </session>
+            <session>
+                <show_time>0</show_time>
+                <movie>Khu Rừng Cổ Tích</movie>
+                <theater>
+                    <name>CGV Hung Vuong</name>
+                    <description>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</description>
+                    <city>HCM</city>
+                    <address>Hùng Vương Plaza 126 Hùng Vương Quận 5 Tp. Hồ Chí Minh</address>
+                    <map_link>https://www.google.com/maps?ll=10.761117,106.674823&amp;z=17&amp;t=m&amp;hl=vi&amp;gl=US&amp;mapclient=embed&amp;q=Hung+Vuong+Plaza,+126+H%C3%B9ng+V%C6%B0%C6%A1ng+ph%C6%B0%E1%BB%9Dng+4,+Qu%E1%BA%ADn+5+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam</map_link>
+                    <image>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</image>
+                </theater>
+            </session>
+            <session>
+                <show_time>0</show_time>
+                <movie>Khu Rừng Cổ Tích</movie>
+                <theater>
+                    <name>CGV Pandora</name>
+                    <description>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</description>
+                    <city>HCM</city>
+                    <address>Pandora City 1/1 Trường Chinh Quận Tân Phú TP. Hồ Chí Minh</address>
+                    <map_link>https://www.google.com/maps?ll=10.806624,106.634274&amp;z=17&amp;t=m&amp;hl=vi&amp;gl=US&amp;mapclient=embed&amp;cid=7632581306546425697</map_link>
+                    <image>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</image>
+                </theater>
+            </session>
+            <session>
+                <show_time>0</show_time>
+                <movie>Khu Rừng Cổ Tích</movie>
+                <theater>
+                    <name>CGV Pandora</name>
+                    <description>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</description>
+                    <city>HCM</city>
+                    <address>Pandora City 1/1 Trường Chinh Quận Tân Phú TP. Hồ Chí Minh</address>
+                    <map_link>https://www.google.com/maps?ll=10.806624,106.634274&amp;z=17&amp;t=m&amp;hl=vi&amp;gl=US&amp;mapclient=embed&amp;cid=7632581306546425697</map_link>
+                    <image>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</image>
+                </theater>
+            </session>
+        </sessions>
+    </movie>
+    <movie>
+        <id>54cde36271b3095583992f15</id>
+        <name>Khu Rừng Cổ Tích</name>
+        <description>Khu Rừng Cổ Tích - Into The Woods theo chân cặp vợ chồng người thợ làm bánh (James Corden và Emily Blunt) vào một khu rừng u ám đáng sợ để tìm cách hóa giải lời nguyền do mụ phù thủy xấu xí (Meryl Streep) áp đặt cho họ. Họ buộc phải thu thập đủ những món đồ của chính các nhân vật cổ tích: con bò trắng của cậu bé Jack (Daniel Huttlestone), chiếc áo choàng của cô bé quàng khăn đỏ (Lilla Crawford), mái tóc của công chúa tóc mây Rapunzel (MacKenzie Mauzy), chiếc giày của nàng Lọ Lem Cinderella (Anna Kendrick).</description>
+        <poster>https://www.cgv.vn/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/i/n/into_the_woods_160x237_1.jpg</poster>
+        <trailer>https://www.youtube.com/watch?v=GyCC7HVEKIA</trailer>
+        <show_date>0</show_date>
+        <length>124 phút</length>
+        <genre>Gia đình, Hài, Thần thoại</genre>
+        <director>Rob Marshall</director>
+        <actor>Anna Kendrick, Meryl Streep, Chris Pine</actor>
+        <age_restriction></age_restriction>
+        <audio_type>Tiếng Anh và phụ đề tiếng Việt</audio_type>
+        <video_type>2D</video_type>
+        <sessions>
+            <session>
+                <show_time>0</show_time>
+                <movie>Khu Rừng Cổ Tích</movie>
+                <theater>
+                    <name>CGV Hung Vuong</name>
+                    <description>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</description>
+                    <city>HCM</city>
+                    <address>Hùng Vương Plaza 126 Hùng Vương Quận 5 Tp. Hồ Chí Minh</address>
+                    <map_link>https://www.google.com/maps?ll=10.761117,106.674823&amp;z=17&amp;t=m&amp;hl=vi&amp;gl=US&amp;mapclient=embed&amp;q=Hung+Vuong+Plaza,+126+H%C3%B9ng+V%C6%B0%C6%A1ng+ph%C6%B0%E1%BB%9Dng+4,+Qu%E1%BA%ADn+5+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam</map_link>
+                    <image>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</image>
+                </theater>
+            </session>
+            <session>
+                <show_time>0</show_time>
+                <movie>Khu Rừng Cổ Tích</movie>
+                <theater>
+                    <name>CGV Hung Vuong</name>
+                    <description>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</description>
+                    <city>HCM</city>
+                    <address>Hùng Vương Plaza 126 Hùng Vương Quận 5 Tp. Hồ Chí Minh</address>
+                    <map_link>https://www.google.com/maps?ll=10.761117,106.674823&amp;z=17&amp;t=m&amp;hl=vi&amp;gl=US&amp;mapclient=embed&amp;q=Hung+Vuong+Plaza,+126+H%C3%B9ng+V%C6%B0%C6%A1ng+ph%C6%B0%E1%BB%9Dng+4,+Qu%E1%BA%ADn+5+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam</map_link>
+                    <image>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</image>
+                </theater>
+            </session>
+            <session>
+                <show_time>0</show_time>
+                <movie>Khu Rừng Cổ Tích</movie>
+                <theater>
+                    <name>CGV Pandora</name>
+                    <description>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</description>
+                    <city>HCM</city>
+                    <address>Pandora City 1/1 Trường Chinh Quận Tân Phú TP. Hồ Chí Minh</address>
+                    <map_link>https://www.google.com/maps?ll=10.806624,106.634274&amp;z=17&amp;t=m&amp;hl=vi&amp;gl=US&amp;mapclient=embed&amp;cid=7632581306546425697</map_link>
+                    <image>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</image>
+                </theater>
+            </session>
+            <session>
+                <show_time>0</show_time>
+                <movie>Khu Rừng Cổ Tích</movie>
+                <theater>
+                    <name>CGV Pandora</name>
+                    <description>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</description>
+                    <city>HCM</city>
+                    <address>Pandora City 1/1 Trường Chinh Quận Tân Phú TP. Hồ Chí Minh</address>
+                    <map_link>https://www.google.com/maps?ll=10.806624,106.634274&amp;z=17&amp;t=m&amp;hl=vi&amp;gl=US&amp;mapclient=embed&amp;cid=7632581306546425697</map_link>
+                    <image>https://www.cgv.vn/media/cinema/_/m/_mg_4868_-_copy_2a.jpg</image>
+                </theater>
+            </session>
+        </sessions>
+    </movie>
+</movies>

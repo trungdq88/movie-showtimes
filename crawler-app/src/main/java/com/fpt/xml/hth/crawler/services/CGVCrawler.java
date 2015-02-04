@@ -27,7 +27,7 @@ import org.jsoup.select.Elements;
  *
  * @author Administrator
  */
-public class CGVCrawler {
+public class CGVCrawler extends AbstractCrawler {
 
     private String url;
     private CrawlCinema cinema = new CrawlCinema();
@@ -88,7 +88,7 @@ public class CGVCrawler {
                 String address = jsonTheater.optString("address");
                 String city = jsonTheater.optString("city");
 //                String description = jsonTheater.optString("description");
-                String image = "https://www.cgv.vn/media/cinema" 
+                String image = "https://www.cgv.vn/media/cinema"
                         + jsonTheater.getJSONArray("image")
                         .getJSONObject(0).optString("file");
                 String map = jsonTheater.optString("map");
@@ -118,6 +118,9 @@ public class CGVCrawler {
                 JSONObject objMovie = objDate.getJSONObject(name);
                 String image = objMovie.getString("image");
                 String url = objMovie.getString("url");
+                String age = objMovie.getString("rating");
+                age = age.equalsIgnoreCase("NC16") ? "16+"
+                        : age.equalsIgnoreCase("NC18") ? "18+" : "";
                 JSONObject objTime = objMovie.getJSONObject("session");
                 for (String type : JSONObject.getNames(objTime)) {
                     JSONObject objType = objTime.getJSONObject(type);
@@ -127,7 +130,9 @@ public class CGVCrawler {
                         CrawlMovie movie = movies.get(index);
                         movie.setPoster(image);
                         movie.setUrl(url);
+                        movie.setAgeRestriction(age);
                         movie.setName(name);
+                        movie.setVideoType(type);
                         CrawlDate cdate = new CrawlDate("", date);
                         cdate.setTimes(CrawlTime.getList(times));
                         movie.addDate(cdate);
@@ -135,6 +140,7 @@ public class CGVCrawler {
                         CrawlMovie movie = new CrawlMovie();
                         movie.setPoster(image);
                         movie.setUrl(url);
+                        movie.setAgeRestriction(age);
                         movie.setName(name);
                         CrawlDate cdate = new CrawlDate("", date);
                         cdate.setTimes(CrawlTime.getList(times));
@@ -163,7 +169,7 @@ public class CGVCrawler {
                     ++i;
                     System.out.println("crawlMovieInfo" + i);
                     int index = ListUtil.indexOfItem(list, movie.getName());
-                    
+
                     if (index == -1) {
                         list.add(movie);
                         String url = movie.getUrl();
@@ -175,7 +181,7 @@ public class CGVCrawler {
                             doc = JsoupConnect.getHTML(url);
                         }
                         ++r;
-                        System.out.println("request"+r);
+                        System.out.println("request" + r);
                         String director = doc.select(".movie-director > div")
                                 .text().trim();
                         String actor = doc.select(".movie-actress > div")
@@ -187,14 +193,21 @@ public class CGVCrawler {
                         String description
                                 = doc.select("#collateral-tabs dd:nth-child(2) .std")
                                 .text().trim();
-                        String trailer = doc.select("product_view_trailer iframe")
-                                .attr("src");
+                        String trailer = doc.select(".product_view_trailer iframe")
+                                .attr("src").replace("embed/", "watch?v=")
+                                .replace("//", "");
+                        String showDate = doc.select(".movie-release > div")
+                                .text().trim();
+                        String audioType = doc.select(".movie-language > div")
+                                .text().trim();
                         movie.setActor(actor);
                         movie.setDirector(director);
                         movie.setGenre(genre);
                         movie.setLength(length);
                         movie.setDescription(description);
                         movie.setTrailer(trailer);
+                        movie.setShowDate(showDate);
+                        movie.setAudioType(audioType);
                     } else {
                         CrawlMovie m = list.get(index);
                         movie.setUrl(m.getUrl());
@@ -204,6 +217,8 @@ public class CGVCrawler {
                         movie.setLength(m.getLength());
                         movie.setDescription(m.getDescription());
                         movie.setTrailer(m.getTrailer());
+                        movie.setAudioType(m.getAudioType());
+                        movie.setShowDate(m.getShowDate());
                     }
 
                 }

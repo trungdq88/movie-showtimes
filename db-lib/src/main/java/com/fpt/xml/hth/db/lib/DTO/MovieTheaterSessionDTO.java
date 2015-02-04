@@ -4,13 +4,12 @@
  */
 package com.fpt.xml.hth.db.lib.DTO;
 
-import com.fpt.xml.hth.db.lib.entities.Movie;
-import com.fpt.xml.hth.db.lib.entities.Theater;
+import com.fpt.xml.hth.db.lib.entities.MovieDB;
 import java.util.List;
 import org.bson.types.ObjectId;
 
 /**
- * class MovieTheater Session mapping with collection Session in db
+ * class MovieDBTheater Session mapping with collection Session in db
  *
  * @author Thu Hoa
  */
@@ -18,7 +17,7 @@ import org.bson.types.ObjectId;
 public class MovieTheaterSessionDTO {
 
     private ObjectId id;
-    private Movie movie;
+    private MovieDB movie;
     private List<TheaterSessionDTO> theaters;
 
     public MovieTheaterSessionDTO() {
@@ -38,11 +37,11 @@ public class MovieTheaterSessionDTO {
         this.id = id;
     }
 
-    public Movie getMovie() {
+    public MovieDB getMovie() {
         return movie;
     }
 
-    public void setMovie(Movie movie) {
+    public void setMovie(MovieDB movie) {
         this.movie = movie;
     }
 

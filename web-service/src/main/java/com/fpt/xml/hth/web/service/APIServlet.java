@@ -4,19 +4,24 @@
  */
 package com.fpt.xml.hth.web.service;
 
-import com.fpt.xml.hth.db.lib.DAO.CinemaDAO;
 import com.fpt.xml.hth.db.lib.DAO.MovieDAO;
-import com.fpt.xml.hth.db.lib.DTO.CinemaDTO;
 import com.fpt.xml.hth.db.lib.DTO.MovieTheaterSessionDTO;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
+import com.fpt.xml.hth.db.lib.resource.Movie;
+import com.fpt.xml.hth.db.lib.resource.Movies;
+import com.fpt.xml.hth.db.lib.transfer.TransferdEntities;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 
 /**
  *
@@ -36,24 +41,33 @@ public class APIServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.addHeader("Access-Control-Allow-Origin", "*");
-        // /request.getRequestDispatcher("WEB-INF/sample.jsp").forward(request, response);
-        // 1. Get data from db-lib
-        // 2. Create XML string
-        // out.write("<movies>asda</movies>");
-        // 1.get list all movie
+        //TODO: ??set value of schemaLocation
         MovieDAO movieDAO = new MovieDAO();
         List<MovieTheaterSessionDTO> lstMovie = movieDAO.getAll();
-        // 2. Create XML string
-        response.setContentType("text/xml");
-        // 3. Return
-        PrintWriter out = response.getWriter();
+        Movies movies = new Movies();
+        TransferdEntities transfer = new TransferdEntities();
         for (int i = 0; i < lstMovie.size(); i++) {
             MovieTheaterSessionDTO dto = lstMovie.get(i);
+            Movie movie = transfer.transferFromDBEntitiesToGeneratedEntities(dto);
+            movies.getMovie().add(movie);
         }
-        out.print("<movie>");
-
-        out.print("</movie");
-
+        StringWriter writer = new StringWriter();
+        //2. apply xsd to create xml
+        try {
+            JAXBContext context = JAXBContext.newInstance(Movies.class);
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            marshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION,"http://jbossews-trungdq88.rhcloud.com/API/APISchema.xsd");
+            marshaller.marshal(movies, writer);
+        } catch (JAXBException ex) {
+            Logger.getLogger(APIServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //3. output
+        String xml = writer.toString();
+        response.setContentType("text/xml; charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        out.write(xml);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

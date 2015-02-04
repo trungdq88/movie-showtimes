@@ -7,12 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.nio.file.Files;
-import java.nio.file.LinkOption;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
@@ -33,13 +28,11 @@ public class HomeServlet extends HttpServlet {
         File f = new File(path);
         if(!f.exists() || f.isDirectory()) {
             NetworkUtils net = new NetworkUtils();
-            String xml = net.sendGetRequest("http://jbossews-trungdq88.rhcloud.com/API/APIServlet");
+            String xml = net.sendGetRequest("http://jbossews-trungdq88.rhcloud.com/API/getMovies?city=");
             Files.write(Paths.get(path), xml.getBytes(), StandardOpenOption.CREATE);
             System.out.println("Write file: " + path);
         }
-
-
-
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        
+        request.getRequestDispatcher("WEB-INF/movie.jsp").forward(request, response);
     }
 }

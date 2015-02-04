@@ -5,7 +5,7 @@
 package com.fpt.xml.hth.db.lib.converter;
 
 import com.fpt.xml.hth.db.lib.DTO.CinemaDTO;
-import com.fpt.xml.hth.db.lib.entities.Theater;
+import com.fpt.xml.hth.db.lib.entities.TheaterDB;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import java.util.ArrayList;
@@ -32,11 +32,11 @@ public class CinemaConverter implements IModelConverter<CinemaDTO> {
         // get theater
         BasicDBList lst = (BasicDBList) object.get("theaters");
         //convert theather
-        List<Theater> lstTheaters = new ArrayList<Theater>();
+        List<TheaterDB> lstTheaters = new ArrayList<TheaterDB>();
         for (int i = 0; i < lst.size(); i++) {
             BasicDBObject obj = (BasicDBObject) lst.get(i);
             TheaterConverter converter = new TheaterConverter();
-            Theater theater = converter.convertBasicObjectToModel(obj);
+            TheaterDB theater = converter.convertBasicObjectToModel(obj);
             lstTheaters.add(theater);
         }
         // set values for object cinema
@@ -59,11 +59,11 @@ public class CinemaConverter implements IModelConverter<CinemaDTO> {
         String name = model.getName();
         System.out.println("Convert name: " + name);
         String website_link = model.getWebsite_link();
-        List<Theater> lstTheater = model.getLstTheater();
+        List<TheaterDB> lstTheater = model.getLstTheater();
         List<BasicDBObject> lstTheaterBasic = new ArrayList<BasicDBObject>();
         //convert each theater
         for (int i = 0; i < lstTheater.size(); i++) {
-            Theater theater = lstTheater.get(i);
+            TheaterDB theater = lstTheater.get(i);
             TheaterConverter converter = new TheaterConverter();
             BasicDBObject obj = converter.convertModelToBasicObject(theater);
             lstTheaterBasic.add(obj);

@@ -11,8 +11,8 @@ import org.bson.types.ObjectId;
  *
  * @author Thu Hoa
  */
-public class Theater {
-    // mongod not generated ObjectID for Theater ?? need id of thether
+public class TheaterDB {
+    // mongod not generated ObjectID for TheaterDB ?? need id of thether
     //private String id;
     private String name;
     private String address;

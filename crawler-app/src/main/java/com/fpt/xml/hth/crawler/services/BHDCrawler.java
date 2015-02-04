@@ -11,8 +11,12 @@ import com.fpt.xml.hth.crawler.crawlentities.CrawlMovie;
 import com.fpt.xml.hth.crawler.crawlentities.CrawlTheater;
 import com.fpt.xml.hth.crawler.crawlentities.CrawlTime;
 import com.fpt.xml.hth.crawler.utils.JsoupConnect;
+import com.fpt.xml.hth.crawler.utils.StringUtil;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jsoup.Jsoup;
@@ -24,7 +28,7 @@ import org.jsoup.select.Elements;
  *
  * @author Administrator
  */
-public class BHDCrawler {
+public class BHDCrawler extends AbstractCrawler {
 
     private String url;
     private CrawlCinema cinema = new CrawlCinema();
@@ -80,7 +84,7 @@ public class BHDCrawler {
         }
 
     }
-    
+
     /**
      * Get theater address
      */
@@ -94,7 +98,7 @@ public class BHDCrawler {
                 String name = element.select(".blackbox h2").text();
                 String address = element.select(".blackbox .right").get(0).text();
                 String city = "Hồ Chí Minh";
-                String image = "http://bhdstar.vn" 
+                String image = "http://bhdstar.vn"
                         + element.select(".main-image").attr("src");
                 for (CrawlTheater theater : cinema.getTheaters()) {
                     if (theater.getName().equals(name)) {
@@ -111,11 +115,12 @@ public class BHDCrawler {
         }
 
     }
-    
+
     /**
      * Get movies for a theater
+     *
      * @param theaterId
-     * @return 
+     * @return
      */
     private ArrayList<CrawlMovie> crawlMovie(String theaterId) {
         System.out.println("setMovieBegin");
@@ -124,7 +129,7 @@ public class BHDCrawler {
         try {
             String url = "http://bhdstar.vn/vn/movie-booking/ajax-response?mode=ajax"
                     + "&type=movie&reponse_type=option_tag&opt_chain=cinema"
-                    + "&opt_tech=*&opt_cinema=" + theaterId 
+                    + "&opt_tech=*&opt_cinema=" + theaterId
                     + "&opt_movie=*&opt_time=*&opt_date=*";
             Document doc = JsoupConnect.getHTML(url);
             Elements elements = doc.select("option");
@@ -132,8 +137,8 @@ public class BHDCrawler {
                 String id = element.val();
                 String name = element.text();
                 CrawlMovie movie = new CrawlMovie();
-                for(CrawlMovie item : cmovies){
-                    if(item.getName().equals(name)){
+                for (CrawlMovie item : cmovies) {
+                    if (item.getName().equals(name)) {
                         movie = item;
                         break;
                     }
@@ -150,7 +155,7 @@ public class BHDCrawler {
             return movies;
         }
     }
-    
+
     /**
      * Crawl all movies
      */
@@ -172,11 +177,14 @@ public class BHDCrawler {
                 String description = "";
                 String videoType = "";
                 String trailer = "";
+                String ageRestriction = "";
+                String audioType = "";
 
-                poster = "http://bhdstar.vn" + 
-                        element.select("div > a img").attr("src");
+                poster = "http://bhdstar.vn"
+                        + element.select("div > a img").attr("src");
                 name = element.select(".title a").text();
-                category = element.select(".categorized")
+                videoType
+                        = category = element.select(".categorized")
                         .text().replace("Thể loại:", "").trim();
                 showDate = element.select(".launch-date")
                         .text().replace("Khởi chiếu:", "").trim();
@@ -186,19 +194,28 @@ public class BHDCrawler {
                         .text().replace("Diễn viên:", "").trim();
                 description = element.select(".summary").text();
 
-//                id = element.select(".title a").attr("href")
-//                        .substring(id.length() - 5);
+                id = element.select(".title a").attr("href");
+                id = id.substring(id.length() - 5);
                 String url2 = "http://bhdstar.vn/vn/movie/movie-detail-popup?item_id=";
                 Document doc2 = JsoupConnect.getHTML(url2 + id);
                 trailer = doc2.select(".video-container iframe").attr("src")
                         .replace("embed/", "watch?v=").replace("//", "");
-                director = doc2.select(".outline-container div:nth-child(3) .right").text();
-                videoType = doc2.select(".outline-container div:nth-child(6) .right").text();
+                for (Element e : doc2.select(".outline-container div.row")) {
+                    if (e.select(".left").text().equalsIgnoreCase("Đạo diễn")) {
+                        director = e.select(".right").text();
+                    } else if (e.select(".left").text().equalsIgnoreCase("Định dạng")) {
+                        videoType = e.select(".right").text();
+                    } else if (e.select(".left").text().equalsIgnoreCase("Giới hạn độ tuổi")){
+                        ageRestriction = e.select(".right").text();
+                    } else if (e.select(".left").text().equalsIgnoreCase("Ngôn ngữ phim")){
+                        audioType = e.select(".right").text();
+                    }
+                }
 
-                CrawlMovie movie = 
-                        new CrawlMovie(name, description, poster, trailer, 
-                                        showDate, length, category, director, 
-                                        actor, "", "", videoType);
+                CrawlMovie movie
+                        = new CrawlMovie(name, description, poster, trailer, 
+                                showDate, length, category, director, actor, 
+                                ageRestriction, audioType, videoType);
                 cmovies.add(movie);
             }
             System.out.println("crawlMovieEnd");
@@ -207,12 +224,13 @@ public class BHDCrawler {
                     .log(Level.SEVERE, null, ex);
         }
     }
-    
+
     /**
      * Get dates for a movie
+     *
      * @param movieId
      * @param theaterId
-     * @return 
+     * @return
      */
     private ArrayList<CrawlDate> crawlDate(String movieId, String theaterId) {
         System.out.println("crawlDateBegin");
@@ -220,42 +238,44 @@ public class BHDCrawler {
         try {
             String url = "http://bhdstar.vn/vn/movie-booking/ajax-response?"
                     + "mode=ajax&type=date&reponse_type=option_tag&"
-                    + "opt_chain=cinema&opt_tech=*&opt_cinema=" + theaterId 
+                    + "opt_chain=cinema&opt_tech=*&opt_cinema=" + theaterId
                     + "&opt_movie=" + movieId + "&opt_time=*&opt_date=*";
             Document doc = JsoupConnect.getHTML(url);
             Elements elements = doc.select("option");
             for (Element element : elements) {
                 String id = element.val();
-                String date = element.text();
-                CrawlDate cdate = new CrawlDate(id, date);
+                String sdate = StringUtil.formatDate(element.text(), "dd/mm/yyyy", "yyyy-mm-dd");          
+                CrawlDate cdate = new CrawlDate(id, sdate);
                 cdate.setTimes(crawlTime(cdate.getId(), movieId, theaterId));
                 dates.add(cdate);
             }
             System.out.println("crawlDateEnd");
             return dates;
+
         } catch (IOException ex) {
-            Logger.getLogger(CrawlerManager.class.getName())
+            Logger.getLogger(CrawlerManager.class
+                    .getName())
                     .log(Level.SEVERE, null, ex);
             return dates;
         }
     }
-    
+
     /**
      * Get time for a movie
+     *
      * @param dateId
      * @param movieId
      * @param theaterId
-     * @return 
+     * @return
      */
-    private ArrayList<CrawlTime> crawlTime(String dateId, String movieId
-                                            , String theaterId) {
+    private ArrayList<CrawlTime> crawlTime(String dateId, String movieId, String theaterId) {
         System.out.println("crawlTimeBegin");
         ArrayList<CrawlTime> times = new ArrayList<CrawlTime>();
         try {
             String url = "http://bhdstar.vn/vn/movie-booking/ajax-response?"
                     + "mode=ajax&type=time&reponse_type=option_tag&"
-                    + "opt_chain=cinema&opt_tech=*&opt_cinema=" + theaterId + 
-                    "&opt_movie=" + movieId + "&opt_time=*&opt_date=" + dateId;
+                    + "opt_chain=cinema&opt_tech=*&opt_cinema=" + theaterId
+                    + "&opt_movie=" + movieId + "&opt_time=*&opt_date=" + dateId;
             Document doc = JsoupConnect.getHTML(url);
             Elements elements = doc.select("option");
             for (Element element : elements) {
@@ -266,8 +286,10 @@ public class BHDCrawler {
             }
             System.out.println("crawlTimeEnd");
             return times;
+
         } catch (IOException ex) {
-            Logger.getLogger(CrawlerManager.class.getName())
+            Logger.getLogger(CrawlerManager.class
+                    .getName())
                     .log(Level.SEVERE, null, ex);
             return times;
         }
