@@ -3,25 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.fpt.xml.hth.crawler.validation;
 
-import java.util.ArrayList;
+import com.fpt.xml.hth.crawler.crawlentities.CrawlDate;
+import com.fpt.xml.hth.crawler.crawlentities.CrawlTime;
 
 /**
  *
  * @author Administrator
  */
-public class ValidSessionTrack extends ValidTrack{
-    
+public class ValidSessionTrack extends ValidTrack<CrawlDate> {
+
+    public ValidSessionTrack(CrawlDate date) {
+        this.invalidNum = 0;
+        this.valid = false;
+        this.element = date;
+    }
+
     @Override
     public void start() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (CrawlTime time : element.getTimes()) {
+            invalidNum += time.isValid() ? 0 : 1;
+        }
+        this.valid = isValidData();
     }
 
     @Override
     public void log() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String message = element.getDate();
+        message += this.valid ? " is valid \n" : " is not valid \n";
+        message += invalidNum + " times are not valid \n";
+        System.out.println(message);
     }
-    
+
+    private boolean isValidData() {
+        if (invalidNum != 0) {
+            return false;
+        }
+        return element.isValid();
+    }
+
 }

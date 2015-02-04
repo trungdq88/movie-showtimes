@@ -40,7 +40,10 @@ public class ValidCinemaTrack extends ValidTrack<CrawlCinema> {
 
     @Override
     public void log() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String message = element.getName();
+        message += this.valid ? " is valid \n" : " is not valid \n";
+        message += invalidNum + " theaters are not valid \n";
+        System.out.println(message);
     }
 
 }

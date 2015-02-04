@@ -22,8 +22,13 @@ import javax.xml.bind.Marshaller;
  */
 public class CrawlerManager {
 
+    @SuppressWarnings("empty-statement")
     public void crawl(String[] targets) {
-
+        if(targets == null){
+            targets = new String[]{"galaxy"};
+        }else if(targets.length == 0){
+            targets = new String[]{"galaxy"};
+        }
         for (String target : targets) {
 
             AbstractCrawler crawler = null;

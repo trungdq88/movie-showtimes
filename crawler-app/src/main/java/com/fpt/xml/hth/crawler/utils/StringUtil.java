@@ -13,9 +13,27 @@ import java.util.regex.Pattern;
  * @author Administrator
  */
 public class StringUtil {
+    /**
+     * Regex to check valid movie length
+     */
+    public static final String REGEX_LENGTH = "\\d+.*";
+    /**
+     * Regex to check valid youtube url
+     */
+    public static final String REGEX_YOUTUBE_URL = "(https://)?(www\\.youtube\\.com/watch\\?v).*";
+    /**
+     * Regex to check valid date
+     */
+    public static final String REGEX_DATE = 
+            "((\\d{2}|\\d)(-|/|\\\\)(\\d{2}|\\d)(-|/|\\\\)(\\d{2}|\\d{4}))|"
+            + "((\\d{2}|\\d{4})(-|/|\\\\)(\\d{2}|\\d)(-|/|\\\\)(\\d{2}|\\d))";
+    /**
+     * Regex to check valid time
+     */
+    public static final String REGEX_TIME = "(\\d|\\d{2}):(\\d|\\d{2})";
 
     public static void main(String[] args) {
-        String date = formatDate("2015-02-13", "yyyy-mm-dd", "mm/yyyy");
+        String date = formatDate("2015-02-13", "yyyy-mm-dd", "mm/dd/yyyy");
         System.out.println(date);
     }
 
@@ -57,20 +75,11 @@ public class StringUtil {
      * @return
      */
     public static String formatDate(String date, String from, String to) {
-        //Pattern p = Pattern.compile("[0-9]{4}");
         char[] charFrom = from.toLowerCase().toCharArray();
         char[] charTo = to.toLowerCase().toCharArray();
         char[] charDate = date.toCharArray();
-        String result = to.toLowerCase();
 
         for (int i = 0; i < charFrom.length; i++) {
-            String year = "";
-            String month = "";
-            String day = "";
-            String token = "";
-            char f = charFrom[i];
-            char d = charDate[i];
-
             for (int j = 0; j < charTo.length; j++) {
                 if (charTo[j] == charFrom[i]) {
                     charTo[j] = charDate[i];
@@ -80,11 +89,29 @@ public class StringUtil {
         }
         return String.valueOf(charTo);
     }
-    
-    public static boolean notEmpty(String str){       
-        if(str != null){
+
+    /**
+     * Check if a string is not empty (null or empty string)
+     *
+     * @param str
+     * @return
+     */
+    public static boolean notEmpty(String str) {
+        if (str != null) {
             return !str.equals("");
-        }     
+        }
         return false;
     }
+
+    /**
+     * Check valid string with a regex
+     * @param str
+     * @param regex
+     * @return
+     */
+    public static boolean validStringFormat(String str, String regex) {
+        Pattern p = Pattern.compile(regex);
+        return str.matches(regex);
+    }
+
 }

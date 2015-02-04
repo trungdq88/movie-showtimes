@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.fpt.xml.hth.crawler.crawlentities;
 
+import com.fpt.xml.hth.crawler.utils.StringUtil;
 import java.util.ArrayList;
 
 /**
@@ -13,13 +13,15 @@ import java.util.ArrayList;
  * @author Administrator
  */
 public class CrawlDate {
+
     private String id;
     private String date;
     private ArrayList<CrawlTime> times = new ArrayList<CrawlTime>();
-    
-    public CrawlDate(){}
-    
-    public CrawlDate(String id, String date){
+
+    public CrawlDate() {
+    }
+
+    public CrawlDate(String id, String date) {
         this.id = id;
         this.date = date;
     }
@@ -39,8 +41,8 @@ public class CrawlDate {
     public void setTimes(ArrayList<CrawlTime> times) {
         this.times = times;
     }
-    
-    public void addTime(CrawlTime time){
+
+    public void addTime(CrawlTime time) {
         this.times.add(time);
     }
 
@@ -51,5 +53,13 @@ public class CrawlDate {
     public void setDate(String date) {
         this.date = date;
     }
-    
+
+    public boolean isValid() {
+        if (!StringUtil.validStringFormat(date, StringUtil.REGEX_DATE)) {
+            System.out.println("Date is not valid: " + date + "\n");
+            return false;
+        }
+        return true;
+    }
+
 }

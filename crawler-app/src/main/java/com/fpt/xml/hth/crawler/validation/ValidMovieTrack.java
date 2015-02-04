@@ -5,6 +5,7 @@
  */
 package com.fpt.xml.hth.crawler.validation;
 
+import com.fpt.xml.hth.crawler.crawlentities.CrawlDate;
 import com.fpt.xml.hth.crawler.crawlentities.CrawlMovie;
 import java.util.ArrayList;
 
@@ -25,12 +26,29 @@ public class ValidMovieTrack extends ValidTrack<CrawlMovie> {
 
     @Override
     public void start() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (CrawlDate date : element.getDates()) {
+            ValidSessionTrack track = new ValidSessionTrack(date);
+            track.start();
+            sessionsTrack.add(track);
+            if (!track.isValid()) {
+                invalidNum++;
+            }
+            this.valid = isValidData();
+        }
     }
 
     @Override
     public void log() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String message = element.getName();
+        message += this.valid ? " is valid \n" : " is not valid \n";
+        message += invalidNum + " sessions are not valid \n";
+        System.out.println(message);
     }
 
+    private boolean isValidData() {
+        if (invalidNum != 0) {
+            return false;
+        }
+        return element.isValid();
+    }
 }

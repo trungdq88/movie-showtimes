@@ -15,7 +15,13 @@ import org.jsoup.nodes.Document;
  * @author Administrator
  */
 public class JsoupConnect {
-
+    
+    /**
+     * Jsoup connect to an url to get html
+     * @param url
+     * @return
+     * @throws IOException 
+     */
     public static Document getHTML(String url) throws IOException {
         Document doc;
         doc = Jsoup.connect(url).timeout(10000).get();
@@ -23,6 +29,12 @@ public class JsoupConnect {
         return doc;
     }
 
+    /**
+     * Jsoup connect to an url to get json
+     * @param url
+     * @return
+     * @throws IOException 
+     */
     public static JSONObject getJSON(String url) throws IOException {
         String strJSON = Jsoup.connect(url).timeout(10000).ignoreContentType(true).execute().body();
 

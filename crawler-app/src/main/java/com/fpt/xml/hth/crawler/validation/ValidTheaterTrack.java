@@ -7,17 +7,16 @@ package com.fpt.xml.hth.crawler.validation;
 
 import com.fpt.xml.hth.crawler.crawlentities.CrawlMovie;
 import com.fpt.xml.hth.crawler.crawlentities.CrawlTheater;
-import com.fpt.xml.hth.crawler.utils.StringUtil;
 import java.util.ArrayList;
 
 /**
  *
  * @author Administrator
  */
-public class ValidTheaterTrack extends ValidTrack<CrawlTheater>{
-    
+public class ValidTheaterTrack extends ValidTrack<CrawlTheater> {
+
     public ArrayList<ValidMovieTrack> moviessTrack;
-    
+
     public ValidTheaterTrack(CrawlTheater theater) {
         this.moviessTrack = new ArrayList<ValidMovieTrack>();
         this.invalidNum = 0;
@@ -27,7 +26,7 @@ public class ValidTheaterTrack extends ValidTrack<CrawlTheater>{
 
     @Override
     public void start() {
-                for (CrawlMovie movie : element.getMovies()) {
+        for (CrawlMovie movie : element.getMovies()) {
             ValidMovieTrack track = new ValidMovieTrack(movie);
             track.start();
             moviessTrack.add(track);
@@ -35,18 +34,21 @@ public class ValidTheaterTrack extends ValidTrack<CrawlTheater>{
                 invalidNum++;
             }
         }
-        
+        this.valid = isValidData();
     }
 
     @Override
     public void log() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String message = element.getName();
+        message += this.valid ? " is valid \n" : " is not valid \n";
+        message += invalidNum + " movies are not valid \n";
+        System.out.println(message);
     }
-    
-    private boolean isValidData(){
-        if(invalidNum != 0) {
+
+    private boolean isValidData() {
+        if (invalidNum != 0) {
             return false;
-        }       
+        }
         return element.isValid();
     }
 

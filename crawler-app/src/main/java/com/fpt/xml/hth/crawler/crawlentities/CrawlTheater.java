@@ -6,6 +6,7 @@
 package com.fpt.xml.hth.crawler.crawlentities;
 
 import com.fpt.xml.hth.crawler.entities.Theater;
+import com.fpt.xml.hth.crawler.utils.ProvineUtil;
 import com.fpt.xml.hth.crawler.utils.StringUtil;
 import java.util.ArrayList;
 
@@ -20,34 +21,34 @@ public class CrawlTheater extends Theater {
 
     public CrawlTheater() {
     }
-    
+
     public CrawlTheater(
-            String id, 
-            String name, 
-            String description, 
-            String city, 
-            String address, 
-            String mapLink, 
+            String id,
+            String name,
+            String description,
+            String city,
+            String address,
+            String mapLink,
             String image
-    ){
+    ) {
         super(name, description, city, address, mapLink, image);
         this.id = id;
     }
-    
+
     public ArrayList<CrawlMovie> getMovies() {
         return movies;
     }
 
     public void setMovies(ArrayList<CrawlMovie> movies) {
         this.movies = movies;
-    }   
-   
-    public void addMovie(CrawlMovie movie){
+    }
+
+    public void addMovie(CrawlMovie movie) {
         movies.add(movie);
     }
-    
+
     public CrawlTheater(String id) {
-            this.id = id;
+        this.id = id;
     }
 
     public String getId() {
@@ -61,13 +62,22 @@ public class CrawlTheater extends Theater {
     public Theater toTheater() {
         return new Theater(name, description, city, address, mapLink, image);
     }
-    
-    public boolean isValid(){
-        if(StringUtil.notEmpty(name)){
-            if(StringUtil.notEmpty(city)){
-                
-            }
+
+    public boolean isValid() {
+        int check = 0;
+
+        if (!StringUtil.notEmpty(name)) {
+            System.out.println("Empty thater name!");
+            check++;
         }
-        return false;
+        if (!ProvineUtil.provines.containsValue(city)) {
+            System.out.println(name + " invalid provine name: " + city + "\n");
+            check++;
+        }
+        if (!StringUtil.notEmpty(image)) {
+            System.out.println(name + " has empty image url!");
+            check++;
+        }
+        return check == 0;
     }
 }

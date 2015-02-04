@@ -18,7 +18,7 @@ public class CrawlSession extends Session {
     private ArrayList<CrawlDate> dates = new ArrayList<CrawlDate>();
 
     public CrawlSession() {
-    }   
+    }
 
     public ArrayList<CrawlDate> getDate() {
         return dates;
@@ -27,8 +27,8 @@ public class CrawlSession extends Session {
     public void setDate(ArrayList<CrawlDate> dates) {
         this.dates = dates;
     }
-    
-    public void addDate(CrawlDate date){
+
+    public void addDate(CrawlDate date) {
         this.dates.add(date);
     }
 
@@ -42,5 +42,14 @@ public class CrawlSession extends Session {
 
     public Session toParent() {
         return new Session(showDateTime, movie, theater);
+    }
+
+    public boolean isValid() {
+        if (dates == null) {
+            return false;
+        } else if (dates.isEmpty()) {
+            return false;
+        }
+        return true;
     }
 }
