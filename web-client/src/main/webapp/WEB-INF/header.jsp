@@ -11,6 +11,7 @@
         <title>Lịch Chiếu Phim</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
+        <script src="app.js"></script>
         <style>
             html {
                 height: 100%;
@@ -69,13 +70,38 @@
             .movie h3 {
                 margin: 0;
             }
+            #nav-bar {
+                color: white;
+            }
+            .nav-item {
+                padding: 10px;
+                display: inline-block;
+                border-radius: 10px;
+                margin-right: 20px;
+            }
+            .nav-item.selected {
+                background-color: #fff;
+                color: #333;
+            }
+            #caution {
+                font-size: 10px;
+                color: #989898;
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+            }
+            .date {
+                color: #fff;
+            }
         </style>
     </head>
     <body>
         <header>
             <div id="nav-bar">
-                <a href="#">Tìm lịch chiếu theo phim</a>
-                <a href="#">Tìm lịch chiếu theo rạp</a>
-                <a href="#">Tìm lịch chiếu theo ngày</a>
+                <a class="nav-item selected" href="#">Tìm lịch chiếu theo phim</a>
+                <a class="nav-item" href="#">Tìm lịch chiếu theo rạp</a>
+                <a class="nav-item" href="#">Tìm lịch chiếu theo ngày</a>
+                Dữ liệu cập nhật từ: 04/02/2015
             </div>
+
         </header>

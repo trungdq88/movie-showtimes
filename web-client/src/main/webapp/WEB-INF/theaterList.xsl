@@ -6,6 +6,7 @@
             <xsl:for-each select="//movie[name=$movieName]/sessions/session/theater">
                 <div class="movie"> 
                     <a href="?movie={$movieName}&amp;theater={name}">
+                        <img class="movie-poster" src="{image}" />
                         <h3>
                             <xsl:value-of select="name"/>
                         </h3>

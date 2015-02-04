@@ -5,7 +5,7 @@
             <xsl:for-each select="//movie">
                 <div class="movie">
                     <a href="?movie={name}">
-                            <img class="movie-poster" src="{poster}" />
+                        <img class="movie-poster" src="{poster}" />
                         <div>
                             <h3>
                                 <xsl:value-of select="name"/>
