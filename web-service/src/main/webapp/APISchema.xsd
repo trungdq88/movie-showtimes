@@ -9,7 +9,7 @@ and open the template in the editor.
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified">
     <xs:simpleType name="show-time" >
-        <xs:restriction base="xs:int">
+        <xs:restriction base="xs:integer">
             <xs:minInclusive value="0"/>
         </xs:restriction>
     </xs:simpleType>
