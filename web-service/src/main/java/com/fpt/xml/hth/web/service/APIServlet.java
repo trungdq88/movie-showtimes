@@ -40,7 +40,8 @@ public class APIServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //   response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        //TODO: ??set value of schemaLocation
         MovieDAO movieDAO = new MovieDAO();
         List<MovieTheaterSessionDTO> lstMovie = movieDAO.getAll();
         Movies movies = new Movies();
@@ -57,6 +58,7 @@ public class APIServlet extends HttpServlet {
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            marshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION,"http://jbossews-trungdq88.rhcloud.com/API/APISchema.xsd");
             marshaller.marshal(movies, writer);
         } catch (JAXBException ex) {
             Logger.getLogger(APIServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -66,7 +68,6 @@ public class APIServlet extends HttpServlet {
         response.setContentType("text/xml; charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.write(xml);
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
