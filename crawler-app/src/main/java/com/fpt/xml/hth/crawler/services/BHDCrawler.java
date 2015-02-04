@@ -27,7 +27,7 @@ import org.jsoup.select.Elements;
 public class BHDCrawler extends AbstractCrawler {
 
     private String url;
-    private CrawlCinema cinema = new CrawlCinema();
+    private CrawlCinema cinema = new CrawlCinema("BHD Cineplex");
     ArrayList<CrawlMovie> cmovies = new ArrayList<CrawlMovie>();
 
     public String getUrl() {

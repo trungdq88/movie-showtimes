@@ -19,7 +19,8 @@ public class CrawlCinema extends Cinema{
     private String id;
     private ArrayList<CrawlTheater> theaters = new ArrayList<CrawlTheater>();
     
-    public CrawlCinema() {
+    public CrawlCinema(String name) {
+        this.name = name;
     }
 
     public ArrayList<CrawlTheater> getTheaters() {
@@ -44,5 +45,7 @@ public class CrawlCinema extends Cinema{
     
     public Cinema toParent() {
         return new Cinema(name, webUrl);
-    }   
+    }  
+    
+    
 }

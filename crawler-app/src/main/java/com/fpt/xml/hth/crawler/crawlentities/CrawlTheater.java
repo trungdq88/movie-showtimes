@@ -6,6 +6,7 @@
 package com.fpt.xml.hth.crawler.crawlentities;
 
 import com.fpt.xml.hth.crawler.entities.Theater;
+import com.fpt.xml.hth.crawler.utils.StringUtil;
 import java.util.ArrayList;
 
 /**
@@ -59,5 +60,14 @@ public class CrawlTheater extends Theater {
 
     public Theater toTheater() {
         return new Theater(name, description, city, address, mapLink, image);
+    }
+    
+    public boolean isValid(){
+        if(StringUtil.notEmpty(name)){
+            if(StringUtil.notEmpty(city)){
+                
+            }
+        }
+        return false;
     }
 }

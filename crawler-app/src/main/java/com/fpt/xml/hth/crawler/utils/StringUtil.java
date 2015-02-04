@@ -80,4 +80,11 @@ public class StringUtil {
         }
         return String.valueOf(charTo);
     }
+    
+    public static boolean notEmpty(String str){       
+        if(str != null){
+            return !str.equals("");
+        }     
+        return false;
+    }
 }

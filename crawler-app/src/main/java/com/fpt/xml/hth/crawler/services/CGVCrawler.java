@@ -29,8 +29,7 @@ import org.jsoup.nodes.Document;
 public class CGVCrawler extends AbstractCrawler {
 
     private String url;
-    private CrawlCinema cinema = new CrawlCinema();
-//    private JSONObject objJSON = new JSONObject();
+    private CrawlCinema cinema = new CrawlCinema("CGV Cinema");
     private ArrayList<CrawlMovie> cmovies = new ArrayList<CrawlMovie>();
 
     public CGVCrawler() {
