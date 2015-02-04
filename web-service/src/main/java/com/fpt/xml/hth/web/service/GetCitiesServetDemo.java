@@ -29,6 +29,7 @@ public class GetCitiesServetDemo extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.addHeader("Access-Control-Allow-Origin", "*");
         response.setContentType("text/xml;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.write("<cities>");
@@ -48,7 +49,7 @@ public class GetCitiesServetDemo extends HttpServlet {
         out.write("Cần Thơ");
         out.write("</city>");
         out.write("</cities>");
-
+        out.close();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
