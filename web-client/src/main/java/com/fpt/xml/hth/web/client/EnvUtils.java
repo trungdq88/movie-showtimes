@@ -14,9 +14,9 @@ import javax.servlet.ServletContext;
 public class EnvUtils {
     public static String getDataPath(ServletContext servletContext) {
         String openshiftPath = System.getenv("OPENSHIFT_DATA_DIR");
-        if (openshiftPath == null) {
-            return servletContext.getRealPath("/WEB-INF/");
-        }
+//        if (openshiftPath == null) {
+//            return servletContext.getRealPath("/WEB-INF/");
+//        }
         return openshiftPath;
     }
 }
