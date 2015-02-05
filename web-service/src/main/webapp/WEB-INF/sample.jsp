@@ -2,6 +2,7 @@
 <%@page contentType="text/xml" pageEncoding="UTF-8"%>
 <movies>
     <movie>
+        <id>123123123123111</id>
         <actor />
         <age_restriction>18+</age_restriction>
         <audio_type>Lồng tiếng</audio_type>
@@ -15,6 +16,7 @@
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
+                    <id>789789789789</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -28,6 +30,7 @@
                 <id>12</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978922</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
@@ -41,6 +44,7 @@
                 <id>13</id>
                 <show_time>1422982863822</show_time>
                 <theater>
+                    <id>78978978978922</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
@@ -54,6 +58,7 @@
                 <id>14</id>
                 <show_time>1422348531425</show_time>
                 <theater>
+                    <id>78978978978922</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
@@ -69,6 +74,7 @@
         <video_type>4DX</video_type>
     </movie>
     <movie>
+        <id>123123123123222</id>
         <actor>Ngọc Trinh san</actor>
         <age_restriction>18+</age_restriction>
         <audio_type>Lồng tiếng</audio_type>
@@ -81,6 +87,7 @@
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
+                    <id>789789789789</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -93,6 +100,7 @@
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
+                    <id>78978978978933</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -107,6 +115,7 @@
         <video_type>4DX</video_type>
     </movie>
     <movie>
+        <id>123123123123333</id>
         <actor>Ngọc Trinh san</actor>
         <age_restriction>18+</age_restriction>
         <audio_type>Lồng tiếng</audio_type>
@@ -121,6 +130,7 @@
                 <id>10</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -134,6 +144,7 @@
                 <id>11</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978955</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
@@ -147,6 +158,7 @@
                 <id>12</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978922</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
@@ -162,6 +174,7 @@
         <video_type>4DX</video_type>
     </movie>
     <movie>
+        <id>123123123123444</id>
         <actor>Ngọc Trinh san</actor>
         <age_restriction>18+</age_restriction>
         <audio_type>Lồng tiếng</audio_type>
@@ -175,6 +188,7 @@
             <session>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978966</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -188,6 +202,7 @@
                 <id>10</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -201,6 +216,7 @@
                 <id>11</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978955</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
@@ -214,6 +230,7 @@
                 <id>12</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978922</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
@@ -229,6 +246,7 @@
         <video_type>4DX</video_type>
     </movie>
     <movie>
+        <id>123123123123555</id>
         <actor>Ngọc Trinh san</actor>
         <age_restriction>18+</age_restriction>
         <audio_type>Lồng tiếng</audio_type>
@@ -242,6 +260,7 @@
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
+                    <id>789789789789</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -254,6 +273,7 @@
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
+                    <id>78978978978977</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -266,6 +286,7 @@
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
+                    <id>78978978978988</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <city>TPHCM</city>
                     <description>Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung</description>
@@ -277,6 +298,7 @@
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
+                    <id>78978978978999</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -292,6 +314,7 @@
         <video_type>4DX</video_type>
     </movie>
     <movie>
+        <id>123123123123666</id>
         <description>Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều</description>
         <name>Go Sky The Game</name>
         <poster>http://components.onsen.io/patterns/images/location1.png</poster>
@@ -299,6 +322,7 @@
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
+                    <id>789789789789</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -311,6 +335,7 @@
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
+                    <id>789789789789101010</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -324,6 +349,7 @@
                 <id>10</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -337,6 +363,7 @@
                 <id>11</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978955</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
@@ -350,6 +377,7 @@
                 <id>12</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978922</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
@@ -363,6 +391,7 @@
         <show_date>Hôm nay</show_date>
     </movie>
     <movie>
+        <id>123123123123777</id>
         <actor>Ngọc Trinh san</actor>
         <age_restriction>18+</age_restriction>
         <audio_type>Lồng tiếng</audio_type>
@@ -376,6 +405,7 @@
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
+                    <id>789789789789</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -388,6 +418,7 @@
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
+                    <id>789789789789101010</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -400,6 +431,7 @@
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
+                    <id>789789789789111111</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -413,6 +445,7 @@
                 <id>12</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978922</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
@@ -428,6 +461,7 @@
         <video_type>4DX</video_type>
     </movie>
     <movie>
+        <id>123123123123888</id>
         <actor>Ngọc Trinh san</actor>
         <age_restriction>18+</age_restriction>
         <audio_type>Lồng tiếng</audio_type>
@@ -442,6 +476,7 @@
                 <id>12</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978922</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
@@ -457,6 +492,7 @@
         <video_type>4DX</video_type>
     </movie>
     <movie>
+        <id>123123123123999</id>
         <actor>Ngọc Trinh san</actor>
         <age_restriction>18+</age_restriction>
         <audio_type>Lồng tiếng</audio_type>
@@ -470,6 +506,7 @@
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
+                    <id>78978978978988</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <city>TPHCM</city>
                     <description>Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung</description>
@@ -481,6 +518,7 @@
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
+                    <id>78978978978999</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -493,6 +531,7 @@
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
+                    <id>789789789789121212</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -505,6 +544,7 @@
             <session>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978966</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -520,6 +560,7 @@
         <video_type>4DX</video_type>
     </movie>
     <movie>
+        <id>1231231231231000</id>
         <actor>Ngọc Trinh san</actor>
         <age_restriction>18+</age_restriction>
         <audio_type>Lồng tiếng</audio_type>
@@ -535,6 +576,7 @@
                 <id>10</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -548,6 +590,7 @@
                 <id>11</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978955</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
@@ -561,6 +604,7 @@
                 <id>12</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978922</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
@@ -576,6 +620,7 @@
         <video_type>4DX</video_type>
     </movie>
     <movie>
+        <id>1231231231231111111</id>
         <actor>Ngọc Trinh san</actor>
         <age_restriction>18+</age_restriction>
         <audio_type>Lồng tiếng</audio_type>
@@ -590,6 +635,7 @@
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
+                    <id>78978978978988</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <city>TPHCM</city>
                     <description>Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung</description>
@@ -604,6 +650,7 @@
         <video_type>4DX</video_type>
     </movie>
     <movie>
+        <id>123123123123121212</id>
         <actor>Ngọc Trinh san</actor>
         <age_restriction>18+</age_restriction>
         <audio_type>Lồng tiếng</audio_type>
@@ -618,6 +665,7 @@
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
+                    <id>78978978978977</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -630,6 +678,7 @@
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
+                    <id>78978978978988</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <city>TPHCM</city>
                     <description>Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung</description>
@@ -641,6 +690,7 @@
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
+                    <id>78978978978999</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -653,6 +703,7 @@
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
+                    <id>789789789789121212</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -665,6 +716,7 @@
             <session>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978966</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -678,6 +730,7 @@
                 <id>10</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -691,6 +744,7 @@
                 <id>11</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978955</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
@@ -704,6 +758,7 @@
                 <id>12</id>
                 <show_time>1422345531425</show_time>
                 <theater>
+                    <id>78978978978922</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>BHD</cinema>
                     <city>TPHCM</city>
