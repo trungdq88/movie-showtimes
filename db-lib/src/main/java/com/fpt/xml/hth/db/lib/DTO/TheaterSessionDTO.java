@@ -13,10 +13,18 @@ import java.util.List;
  * @author Thu Hoa
  */
 public class TheaterSessionDTO {
-
+private String id;
     private TheaterDB theater;
     private String cinemaName;
     private List<String> lstSession;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getCinemaName() {
         return cinemaName;

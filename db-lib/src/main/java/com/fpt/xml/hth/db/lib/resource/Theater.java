@@ -4,8 +4,6 @@
 // Any modifications to this file will be lost upon recompilation of the source schema. 
 // Generated on: 2015.02.03 at 01:37:40 PM ICT 
 //
-
-
 package com.fpt.xml.hth.db.lib.resource;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,12 +11,14 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for Theater complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
+ * Java class for Theater complex type.
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ *
  * <pre>
  * &lt;complexType name="Theater"&gt;
  *   &lt;complexContent&gt;
@@ -36,11 +36,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Theater", propOrder = {
+    "id",
     "cinema",
     "name",
     "description",
@@ -51,6 +52,8 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Theater {
 
+    @XmlElement(required = true)
+    protected String id;
     @XmlElement(required = true)
     protected String cinema;
     @XmlElement(required = true)
@@ -66,13 +69,19 @@ public class Theater {
     @XmlElement(required = true)
     protected String image;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     /**
      * Gets the value of the cinema property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getCinema() {
         return cinema;
@@ -80,11 +89,9 @@ public class Theater {
 
     /**
      * Sets the value of the cinema property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setCinema(String value) {
         this.cinema = value;
@@ -92,11 +99,9 @@ public class Theater {
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getName() {
         return name;
@@ -104,11 +109,9 @@ public class Theater {
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setName(String value) {
         this.name = value;
@@ -116,11 +119,9 @@ public class Theater {
 
     /**
      * Gets the value of the description property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getDescription() {
         return description;
@@ -128,11 +129,9 @@ public class Theater {
 
     /**
      * Sets the value of the description property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setDescription(String value) {
         this.description = value;
@@ -140,11 +139,9 @@ public class Theater {
 
     /**
      * Gets the value of the city property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getCity() {
         return city;
@@ -152,11 +149,9 @@ public class Theater {
 
     /**
      * Sets the value of the city property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setCity(String value) {
         this.city = value;
@@ -164,11 +159,9 @@ public class Theater {
 
     /**
      * Gets the value of the address property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getAddress() {
         return address;
@@ -176,11 +169,9 @@ public class Theater {
 
     /**
      * Sets the value of the address property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setAddress(String value) {
         this.address = value;
@@ -188,11 +179,9 @@ public class Theater {
 
     /**
      * Gets the value of the mapLink property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getMapLink() {
         return mapLink;
@@ -200,11 +189,9 @@ public class Theater {
 
     /**
      * Sets the value of the mapLink property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setMapLink(String value) {
         this.mapLink = value;
@@ -212,11 +199,9 @@ public class Theater {
 
     /**
      * Gets the value of the image property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getImage() {
         return image;
@@ -224,11 +209,9 @@ public class Theater {
 
     /**
      * Sets the value of the image property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setImage(String value) {
         this.image = value;
