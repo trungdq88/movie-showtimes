@@ -26,15 +26,15 @@ public class ValidTheaterTrack extends ValidTrack<CrawlTheater, ValidMovieTrack>
     @Override
     public void start() {
         for (CrawlMovie movie : element.getMovies()) {
-            if (ListUtil.indexOfItem(movies, movie.getName()) == -1) {
-                movies.add(movie);
+            if (!movies.containsKey(movie.getName())) {
+                movies.put(movie.getName(), movie);
             }
             ValidMovieTrack track = new ValidMovieTrack(movie);
             track.start();
             tracks.add(track);
             if (!track.isValid()) {
-                if (ListUtil.indexOfItem(invalidMovies, movie.getName()) == -1) {
-                    invalidMovies.add(movie);
+                if (!invalidMovies.containsKey(movie.getName())) {
+                    invalidMovies.put(movie.getName(), movie);
                 }
                 invalidNum++;
             }
@@ -43,7 +43,7 @@ public class ValidTheaterTrack extends ValidTrack<CrawlTheater, ValidMovieTrack>
     }
 
     @Override
-    public void log() {           
+    public void log() {
 //        invalidMovies += invalidNum;
 //        movies += element.getMovies().size();
         if (!isValid()) {

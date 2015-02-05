@@ -5,6 +5,7 @@
 package com.fpt.xml.hth.db.lib.DTO;
 
 import com.fpt.xml.hth.db.lib.entities.MovieDB;
+import java.util.ArrayList;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -21,6 +22,7 @@ public class MovieTheaterSessionDTO {
     private List<TheaterSessionDTO> theaters;
 
     public MovieTheaterSessionDTO() {
+        this.theaters = new ArrayList<TheaterSessionDTO>();
     }
 
     public MovieTheaterSessionDTO(MovieTheaterSessionDTO movie) {
@@ -51,6 +53,10 @@ public class MovieTheaterSessionDTO {
 
     public void setTheaters(List<TheaterSessionDTO> theaters) {
         this.theaters = theaters;
+    }
+    
+    public void addTheater(TheaterSessionDTO theater){
+        theaters.add(theater);
     }
 
 }

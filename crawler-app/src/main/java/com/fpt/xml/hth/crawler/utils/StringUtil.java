@@ -35,12 +35,13 @@ public class StringUtil {
 
     public static void main(String[] args) {
 //        String date = formatDate("2015-02-13", "yyyy-mm-dd", "mm/dd/yyyy");        
-        System.out.println(convertUTF8ToASCII("nguyễn ngọc thanh hải"));
-        System.out.println(convertUTF8ToASCII("TP HCM"));
-        System.out.println(convertUTF8ToASCII("nguyen ngoc thanh hai"));
-        System.out.println(convertUTF8ToASCII("a á â ư w i ụ ạ ý ù ì ơ ợ ứ ữ"));
-        System.out.println(convertUTF8ToASCII("     "));
-        System.out.println(convertUTF8ToASCII("  ;'';';';;/.,.,[[]]{{}}{()(_=-=_+_+```~~~\\\\////||||   "));
+//        System.out.println(convertUTF8ToASCII("nguyễn ngọc thanh hải"));
+//        System.out.println(convertUTF8ToASCII("TP HCM"));
+//        System.out.println(convertUTF8ToASCII("nguyen ngoc thanh hai"));
+//        System.out.println(convertUTF8ToASCII("a á â ư w i ụ ạ ý ù ì ơ ợ ứ ữ"));
+//        System.out.println(convertUTF8ToASCII("     "));
+//        System.out.println(convertUTF8ToASCII("  ;'';';';;/.,.,[[]]{{}}{()(_=-=_+_+```~~~\\\\////||||   "));
+        System.out.println(subDate("2015-02-13", "yyyy-mm-dd", 'y'));
     }
 
     /**
@@ -120,10 +121,32 @@ public class StringUtil {
         return str.matches(regex);
     }
     
-    
+    /**
+     * Convert utf8 string to ascii string
+     * Ex: Nguyễn Ngọc Thanh Hải to Nguyen Ngoc Thanh Hai
+     * @param s
+     * @return 
+     */
     public static String convertUTF8ToASCII(String s) {
         return java.text.Normalizer.normalize(s, java.text.Normalizer.Form.NFD)
                 .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+    }
+    
+    /**
+     * Get day, month, year, hour, minute or second from a date or time string with a particular format.
+     * @param date
+     * @param dateFormat
+     * @param target d | m | y | h | m
+     * @return 
+     */
+    public static String subDate(String date, String dateFormat, char target){
+        String result = "";
+        for(int i = 0; i < dateFormat.length(); i++){
+            if(dateFormat.toCharArray()[i] == target){
+                result += date.toCharArray()[i];
+            }
+        }
+        return result;
     }
 
 }

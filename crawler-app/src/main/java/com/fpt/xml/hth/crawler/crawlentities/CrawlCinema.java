@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Administrator
  */
 @XmlRootElement
-public class CrawlCinema {
+public class CrawlCinema{
 
     private String id;
     private ArrayList<CrawlTheater> theaters = new ArrayList<CrawlTheater>();
@@ -25,8 +25,9 @@ public class CrawlCinema {
     public CrawlCinema() {
     }
 
-    public CrawlCinema(String name) {
+    public CrawlCinema(String name, String url) {
         this.name = name;
+        this.webUrl = url;
     }
 
     public String getName() {

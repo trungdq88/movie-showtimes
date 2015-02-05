@@ -23,6 +23,36 @@ public class MovieDB {
     private String audio_type;
     private String video_type;
 
+    public MovieDB() {}
+
+    public MovieDB(
+            String name,
+            String poster,
+            String description,
+            String trailer,
+            String show_date,
+            String length,
+            String genre,
+            String director,
+            String actor,
+            String age_restriction,
+            String audio_type,
+            String video_type
+    ) {
+        this.name = name;
+        this.poster = poster;
+        this.description = description;
+        this.trailer = trailer;
+        this.show_date = show_date;
+        this.length = length;
+        this.genre = genre;
+        this.director = director;
+        this.actor = actor;
+        this.age_restriction = age_restriction;
+        this.audio_type = audio_type;
+        this.video_type = video_type;
+    }
+
     public String getName() {
         return name;
     }

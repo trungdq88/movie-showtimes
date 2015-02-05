@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Administrator
  */
-public class CrawlMovie {
+public class CrawlMovie implements Comparable<CrawlMovie> {
 
     private String id;
     private ArrayList<CrawlDate> dates = new ArrayList<CrawlDate>();
@@ -246,5 +246,19 @@ public class CrawlMovie {
         }
 
         return check == 0;
+    }
+
+    public int compareTo(CrawlMovie o) {
+        if (this.name.equalsIgnoreCase(o.name)) {
+            return 1;
+        }
+        return 0;
+    }
+
+    public int compareTo(String name) {
+        if (this.name.equalsIgnoreCase(name)) {
+            return 1;
+        }
+        return 0;
     }
 }

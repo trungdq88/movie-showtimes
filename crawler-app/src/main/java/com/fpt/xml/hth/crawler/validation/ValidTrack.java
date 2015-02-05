@@ -7,6 +7,8 @@ package com.fpt.xml.hth.crawler.validation;
 
 import com.fpt.xml.hth.crawler.crawlentities.CrawlMovie;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -26,9 +28,9 @@ public abstract class ValidTrack<G, T> {
 //    protected static int movies = 0;
     protected static int theaters = 0;
     protected static int cinemas = 0;
-    protected static ArrayList<CrawlMovie> movies = new ArrayList<CrawlMovie>();
-    protected static ArrayList<CrawlMovie> invalidMovies = new ArrayList<CrawlMovie>();
-    
+    protected static Map<String, CrawlMovie> movies = new HashMap<String, CrawlMovie>();
+    protected static Map<String, CrawlMovie> invalidMovies = new HashMap<String, CrawlMovie>();
+
     protected ArrayList<T> tracks;
     protected G element;
     protected int invalidNum;
