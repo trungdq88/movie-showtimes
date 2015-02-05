@@ -34,7 +34,8 @@ public class HomeServlet extends HttpServlet {
         }
         
         System.out.println("File should be existed: " + path);
-        request.setAttribute("path", path);
+        String xml = FileUtils.readFile(path);
+        request.setAttribute("xml", xml);
         request.getRequestDispatcher("WEB-INF/movie.jsp").forward(request, response);
     }
 }

@@ -15,7 +15,7 @@ public class EnvUtils {
     public static String getDataPath(ServletContext servletContext) {
         String openshiftPath = System.getenv("OPENSHIFT_DATA_DIR");
         if (openshiftPath == null) {
-            return servletContext.getClass().getResource("/data.xml").getPath();
+            return servletContext.getClass().getResource("/").getPath();
         }
         return openshiftPath;
     }
