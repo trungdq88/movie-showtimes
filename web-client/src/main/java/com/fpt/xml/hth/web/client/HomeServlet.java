@@ -23,7 +23,7 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ServletContext servletContext = getServletContext();
-        String path = EnvUtils.getDataPath(servletContext) + "/data.xml";
+        String path = servletContext.getRealPath("/WEB-INF/") + "/data.xml";
 
         File f = new File(path);
         if(!f.exists() || f.isDirectory()) {
