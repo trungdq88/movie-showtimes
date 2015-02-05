@@ -66,9 +66,9 @@ public class TransferdEntities {
                 Session session = new Session();
                 session.setTheater(theater);
                 session.setMovie(movieDB.getName());
-                int showtime = 0;
+                BigInteger showtime = BigInteger.ZERO;
                 try {
-                    showtime = Integer.parseInt(sessionsString.get(i));
+                    showtime = new BigInteger(sessionsString.get(i));
                 } catch (NumberFormatException e) {
                     e.getMessage();
                 }

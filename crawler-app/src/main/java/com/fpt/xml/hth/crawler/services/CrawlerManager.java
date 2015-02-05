@@ -6,11 +6,6 @@
 package com.fpt.xml.hth.crawler.services;
 
 import com.fpt.xml.hth.crawler.crawlentities.CrawlCinema;
-import com.fpt.xml.hth.crawler.crawlentities.CrawlDate;
-import com.fpt.xml.hth.crawler.crawlentities.CrawlMovie;
-import com.fpt.xml.hth.crawler.crawlentities.CrawlTheater;
-import com.fpt.xml.hth.crawler.crawlentities.CrawlTime;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -27,8 +22,13 @@ import javax.xml.bind.Marshaller;
  */
 public class CrawlerManager {
 
+    @SuppressWarnings("empty-statement")
     public void crawl(String[] targets) {
-
+        if(targets == null){
+            targets = new String[]{"galaxy"};
+        }else if(targets.length == 0){
+            targets = new String[]{"galaxy"};
+        }
         for (String target : targets) {
 
             AbstractCrawler crawler = null;

@@ -6,7 +6,7 @@
     <xsl:param name="theaterName"/>
     <xsl:template match="/">   
         <xsl:for-each select="//movie[name=$movieName]/sessions/session[theater[name=$theaterName]]">
-            <div class="movie">
+            <div class="movie" data-name="{name}" tabindex="0">
                 <a href="#">
                     <div class="date">
                         <xsl:value-of select="show_time"/>

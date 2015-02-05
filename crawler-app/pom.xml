@@ -34,7 +34,11 @@
             <artifactId>json</artifactId>
             <version>20140107</version>
         </dependency>
-
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>db-lib</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
