@@ -12,14 +12,22 @@ import org.bson.types.ObjectId;
  * @author Thu Hoa
  */
 public class TheaterDB {
-    // mongod not generated ObjectID for TheaterDB ?? need id of thether
-    //private String id;
+
+    private String id;
     private String name;
     private String address;
     private String description;
     private String city;
     private String map_link;
     private String image;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
