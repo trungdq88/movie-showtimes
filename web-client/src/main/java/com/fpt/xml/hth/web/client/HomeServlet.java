@@ -23,7 +23,7 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ServletContext servletContext = getServletContext();
-        String path = servletContext.getRealPath("/WEB-INF/") + "/data.xml";
+        String path = EnvUtils.getDataPath(servletContext) + "/data.xml";
 
         File f = new File(path);
         if(!f.exists() || f.isDirectory()) {
@@ -34,6 +34,7 @@ public class HomeServlet extends HttpServlet {
         }
         
         System.out.println("File should be existed: " + path);
+        request.setAttribute("path", path);
         request.getRequestDispatcher("WEB-INF/movie.jsp").forward(request, response);
     }
 }

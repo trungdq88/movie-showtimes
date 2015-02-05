@@ -9,7 +9,7 @@
 
 <c:set var="user" value="${param.txtUser}" scope="session"/>
 <c:set var="pass" value="${param.txtPass}"/>
-<c:import var="xml" url="data.xml" charEncoding="UTF-8"/>
+<c:import var="xml" url="${requestScope.path}" charEncoding="UTF-8"/>
 <x:parse var="doc" xml="${xml}" scope="session"/>
 <c:import url="header.jsp"/>
 <div id="body">
