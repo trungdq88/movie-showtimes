@@ -1,6 +1,5 @@
 package com.fpt.xml.hth.db.lib;
 
-import com.fpt.xml.hth.db.lib.DAO.CinemaDAO;
 import com.fpt.xml.hth.db.lib.DAO.MovieDAO;
 import com.fpt.xml.hth.db.lib.DTO.MovieTheaterSessionDTO;
 import java.util.List;
@@ -25,9 +24,7 @@ public class App {
 //        if (lst.size() >0 ) {
 //            System.out.println("success");
 //        }
-        
-        
-        
+
 //        //test insert
 //         CinemaDAO dao = new CinemaDAO();
 //        DBCursor cursor = dao.getDBCollection().find();
@@ -57,10 +54,9 @@ public class App {
 //        dao.delete(model);
 //         System.out.println("delete");
         //test select MovieDB
-            MovieDAO dao = new MovieDAO();
-           List<MovieTheaterSessionDTO> lst = dao.getAll();
-            System.out.println("Model: tiếng việt" + lst.get(0).getMovie().getName());
-
+//            MovieDAO dao = new MovieDAO();
+//           List<MovieTheaterSessionDTO> lst = dao.getAll();
+//            System.out.println("Model: tiếng việt" + lst.get(0).getMovie().getName());
 //            //test insert movie
 //            MovieDAO dao = new MovieDAO();
 //            DBCursor cursor = dao.getDBCollection().find();
@@ -90,13 +86,25 @@ public class App {
 //        try {
 //            mongoClient = new MongoClient("localhost", 27017);
 //            cinemaDB = mongoClient.getDB("MOVIE");
-//            movieCollection = cinemaDB.getCollection("Movie");
+//            movieCollection = cinemaDB.getCollection("Cinema");
 //            if (movieCollection != null) {
 //                System.out.println("success");
 //            }
 //        } catch (UnknownHostException ex) {
 //            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
 //        }
+        // test select City
+//        CinemaDAO dao = new CinemaDAO();
+//        Set<String> lst = dao.getCities();
+//        Iterator<String> iter = lst.iterator();
+//        while (iter.hasNext()) {
+//            System.out.println("cities:" + iter.next());
+//        }
+        //test select MovieDB
+        MovieDAO dao = new MovieDAO();
+        String city = "HCM";
+        List<MovieTheaterSessionDTO> lst = dao.getAllByCity(city);
+        System.out.println("Model:" + lst.size());
 
     }
 }

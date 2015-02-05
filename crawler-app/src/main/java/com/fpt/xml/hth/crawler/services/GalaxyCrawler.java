@@ -27,7 +27,7 @@ import org.jsoup.select.Elements;
 public class GalaxyCrawler extends AbstractCrawler {
 
     private String url;
-    private CrawlCinema cinema = new CrawlCinema();
+    private CrawlCinema cinema = new CrawlCinema("Galaxy Cinema");
     private String DEFAULT_CITY = "Hồ Chí Minh";
     private String HOST = "https://www.galaxycine.vn";
 

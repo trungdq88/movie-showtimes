@@ -49,7 +49,7 @@ public class Session {
     @XmlElement(required = true)
     protected BigInteger id;
     @XmlElement(name = "show_time")
-    protected int showTime;
+    protected BigInteger showTime;
     @XmlElement(required = true)
     protected String movie;
     @XmlElement(required = true)
@@ -82,16 +82,18 @@ public class Session {
     /**
      * Gets the value of the showTime property.
      * 
+     * @return 
      */
-    public int getShowTime() {
+    public BigInteger getShowTime() {
         return showTime;
     }
 
     /**
      * Sets the value of the showTime property.
      * 
+     * @param value
      */
-    public void setShowTime(int value) {
+    public void setShowTime(BigInteger value) {
         this.showTime = value;
     }
 
