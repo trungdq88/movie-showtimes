@@ -6,8 +6,10 @@
 
 package com.fpt.xml.hth.web.service;
 
+import com.fpt.xml.hth.db.lib.DAO.CinemaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +34,15 @@ public class GetCitiesServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/xml;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+        CinemaDAO dao = new CinemaDAO();
+        List<String> cities = dao.getCities();
+        out.write("<cities>");
+        for (int i = 0; i < cities.size(); i++) {
+             out.write("<city>");
+             out.write(cities.get(i));
+             out.write("</city>");
+        }
+        out.write("</cities>");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
