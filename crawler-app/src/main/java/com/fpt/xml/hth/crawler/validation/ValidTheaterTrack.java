@@ -7,18 +7,17 @@ package com.fpt.xml.hth.crawler.validation;
 
 import com.fpt.xml.hth.crawler.crawlentities.CrawlMovie;
 import com.fpt.xml.hth.crawler.crawlentities.CrawlTheater;
+import com.fpt.xml.hth.crawler.utils.ListUtil;
 import java.util.ArrayList;
 
 /**
  *
  * @author Administrator
  */
-public class ValidTheaterTrack extends ValidTrack<CrawlTheater> {
-
-    public ArrayList<ValidMovieTrack> moviessTrack;
+public class ValidTheaterTrack extends ValidTrack<CrawlTheater, ValidMovieTrack> {
 
     public ValidTheaterTrack(CrawlTheater theater) {
-        this.moviessTrack = new ArrayList<ValidMovieTrack>();
+        this.tracks = new ArrayList<ValidMovieTrack>();
         this.invalidNum = 0;
         this.valid = false;
         this.element = theater;
@@ -27,10 +26,16 @@ public class ValidTheaterTrack extends ValidTrack<CrawlTheater> {
     @Override
     public void start() {
         for (CrawlMovie movie : element.getMovies()) {
+            if (ListUtil.indexOfItem(movies, movie.getName()) == -1) {
+                movies.add(movie);
+            }
             ValidMovieTrack track = new ValidMovieTrack(movie);
             track.start();
-            moviessTrack.add(track);
+            tracks.add(track);
             if (!track.isValid()) {
+                if (ListUtil.indexOfItem(invalidMovies, movie.getName()) == -1) {
+                    invalidMovies.add(movie);
+                }
                 invalidNum++;
             }
         }
@@ -38,17 +43,25 @@ public class ValidTheaterTrack extends ValidTrack<CrawlTheater> {
     }
 
     @Override
-    public void log() {
-        String message = element.getName();
-        message += this.valid ? " is valid \n" : " is not valid \n";
-        message += invalidNum + " movies are not valid \n";
-        System.out.println(message);
+    public void log() {           
+//        invalidMovies += invalidNum;
+//        movies += element.getMovies().size();
+        if (!isValid()) {
+            String str = "    ";
+            String message = str;
+            message += element.getName();
+            message += this.valid ? " is valid \n" : " is not valid \n";
+            message += str;
+            message += invalidNum + " movies are not valid \n";
+            System.out.println(message);
+            for (ValidMovieTrack track : tracks) {
+                track.log();
+            }
+        }
     }
 
-    private boolean isValidData() {
-        if (invalidNum != 0) {
-            return false;
-        }
+    @Override
+    protected boolean isValidData() {
         return element.isValid();
     }
 

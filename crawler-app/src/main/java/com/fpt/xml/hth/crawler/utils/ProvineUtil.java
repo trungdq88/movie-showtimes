@@ -21,21 +21,39 @@ public class ProvineUtil {
         provines.put("HO-CHI-MINH", "Hồ Chí Minh");
         provines.put("HA-NOI", "Hà Nội");
         provines.put("DA-NANG", "Đà Nẵng");
-        provines.put("", "Hà Nội");
-        provines.put("HA-NOI", "Hà Nội");
+        provines.put("HAI-PHONG", "Hải Phòng");
+        provines.put("DONG-NAI", "Đồng Nai");
+        provines.put("QUANG-NINH", "Quảng Ninh");
+        provines.put("CAN-THO", "Cần Thơ");
+        provines.put("VUNG-TAU", "Vũng Tàu");
+        provines.put("BINH-DINH", "Bình Định");
+        provines.put("BINH-DUONG", "Bình Dương");
     }
 
     public static final Map<String, String> mapping;
 
     static {
         mapping = new HashMap<String, String>();
-        mapping.put("HCM", provines.get("HO-CHI-MINH"));
-        mapping.put("TP HCM", provines.get("HO-CHI-MINH"));
-        mapping.put("Hồ Chí Minh", provines.get("HO-CHI-MINH"));
-        mapping.put("Ho Chi Minh", provines.get("HO-CHI-MINH"));
-        mapping.put("HN", provines.get("HA-NOI"));
-        mapping.put("Hà Nội", provines.get("HA-NOI"));
-        mapping.put("Ha Noi", provines.get("HA-NOI"));
+        mapping.put("hcm", provines.get("HO-CHI-MINH"));
+        mapping.put("tphcm", provines.get("HO-CHI-MINH"));
+        mapping.put("hochiminh", provines.get("HO-CHI-MINH"));
+        mapping.put("tphochiminh", provines.get("HO-CHI-MINH"));
+        mapping.put("hn", provines.get("HA-NOI"));
+        mapping.put("tphn", provines.get("HA-NOI"));
+        mapping.put("hanoi", provines.get("HA-NOI"));
+        mapping.put("tphanoi", provines.get("HA-NOI"));
+        mapping.put("tdhanoi", provines.get("HA-NOI"));
+        mapping.put("danang", provines.get("DA-NANG"));
+        mapping.put("hp", provines.get("HAI-PHONG"));
+        mapping.put("haiphong", provines.get("HAI-PHONG"));
+        mapping.put("tphaiphong", provines.get("HAI-PHONG"));
+        mapping.put("dongnai", provines.get("DONG-NAI"));
+        mapping.put("quangninh", provines.get("QUANG-NINH"));
+        mapping.put("cantho", provines.get("CAN-THO"));
+        mapping.put("tpcantho", provines.get("CAN-THO"));
+        mapping.put("vungtau", provines.get("VUNG-TAU"));
+        mapping.put("binhdinh", provines.get("BINH-DINH"));
+        mapping.put("binhduong", provines.get("BINH-DUONG"));
     }
 
 }

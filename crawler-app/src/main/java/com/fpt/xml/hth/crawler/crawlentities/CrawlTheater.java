@@ -14,25 +14,35 @@ import java.util.ArrayList;
  *
  * @author Administrator
  */
-public class CrawlTheater extends Theater {
+public class CrawlTheater {
 
     private String id;
     private ArrayList<CrawlMovie> movies = new ArrayList<CrawlMovie>();
+    private String name;
+    private String description;
+    private String city;
+    private String address;
+    private String mapLink;
+    private String image;
 
     public CrawlTheater() {
+        this.id="";
+        this.name="";
+        this.description="";
+        this.city="";
+        this.address="";
+        this.mapLink="";
+        this.image="";
     }
 
-    public CrawlTheater(
-            String id,
-            String name,
-            String description,
-            String city,
-            String address,
-            String mapLink,
-            String image
-    ) {
-        super(name, description, city, address, mapLink, image);
+    public CrawlTheater(String id, String name, String description, String city, String address, String mapLink, String image) {
         this.id = id;
+        this.name = name;
+        this.description = description;
+        this.city = city;
+        this.address = address;
+        this.mapLink = mapLink;
+        this.image = image;
     }
 
     public ArrayList<CrawlMovie> getMovies() {
@@ -58,6 +68,56 @@ public class CrawlTheater extends Theater {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getMapLink() {
+        return mapLink;
+    }
+
+    public void setMapLink(String mapLink) {
+        this.mapLink = mapLink;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    
+    
 
     public Theater toTheater() {
         return new Theater(name, description, city, address, mapLink, image);

@@ -19,6 +19,8 @@ public class CrawlDate {
     private ArrayList<CrawlTime> times = new ArrayList<CrawlTime>();
 
     public CrawlDate() {
+        this.id = "";
+        this.date = "";
     }
 
     public CrawlDate(String id, String date) {

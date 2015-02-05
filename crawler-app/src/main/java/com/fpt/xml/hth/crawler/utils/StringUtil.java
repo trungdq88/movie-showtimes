@@ -13,19 +13,20 @@ import java.util.regex.Pattern;
  * @author Administrator
  */
 public class StringUtil {
+
     /**
      * Regex to check valid movie length
      */
-    public static final String REGEX_LENGTH = "\\d+.*";
+    public static final String REGEX_LENGTH = "^\\d+.*?$|^$";
     /**
      * Regex to check valid youtube url
      */
-    public static final String REGEX_YOUTUBE_URL = "(https://)?(www\\.youtube\\.com/watch\\?v).*";
+    public static final String REGEX_YOUTUBE_URL = "(https?://)?(www\\.)?youtube\\.com.*";
     /**
      * Regex to check valid date
      */
-    public static final String REGEX_DATE = 
-            "((\\d{2}|\\d)(-|/|\\\\)(\\d{2}|\\d)(-|/|\\\\)(\\d{2}|\\d{4}))|"
+    public static final String REGEX_DATE
+            = "((\\d{2}|\\d)(-|/|\\\\)(\\d{2}|\\d)(-|/|\\\\)(\\d{2}|\\d{4}))|"
             + "((\\d{2}|\\d{4})(-|/|\\\\)(\\d{2}|\\d)(-|/|\\\\)(\\d{2}|\\d))";
     /**
      * Regex to check valid time
@@ -33,8 +34,13 @@ public class StringUtil {
     public static final String REGEX_TIME = "(\\d|\\d{2}):(\\d|\\d{2})";
 
     public static void main(String[] args) {
-        String date = formatDate("2015-02-13", "yyyy-mm-dd", "mm/dd/yyyy");
-        System.out.println(date);
+//        String date = formatDate("2015-02-13", "yyyy-mm-dd", "mm/dd/yyyy");        
+        System.out.println(convertUTF8ToASCII("nguyễn ngọc thanh hải"));
+        System.out.println(convertUTF8ToASCII("TP HCM"));
+        System.out.println(convertUTF8ToASCII("nguyen ngoc thanh hai"));
+        System.out.println(convertUTF8ToASCII("a á â ư w i ụ ạ ý ù ì ơ ợ ứ ữ"));
+        System.out.println(convertUTF8ToASCII("     "));
+        System.out.println(convertUTF8ToASCII("  ;'';';';;/.,.,[[]]{{}}{()(_=-=_+_+```~~~\\\\////||||   "));
     }
 
     /**
@@ -105,13 +111,19 @@ public class StringUtil {
 
     /**
      * Check valid string with a regex
+     *
      * @param str
      * @param regex
      * @return
      */
     public static boolean validStringFormat(String str, String regex) {
-        Pattern p = Pattern.compile(regex);
         return str.matches(regex);
+    }
+    
+    
+    public static String convertUTF8ToASCII(String s) {
+        return java.text.Normalizer.normalize(s, java.text.Normalizer.Form.NFD)
+                .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
     }
 
 }

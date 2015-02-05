@@ -12,6 +12,7 @@ import com.fpt.xml.hth.crawler.crawlentities.CrawlTheater;
 import com.fpt.xml.hth.crawler.crawlentities.CrawlTime;
 import com.fpt.xml.hth.crawler.utils.JsoupConnect;
 import com.fpt.xml.hth.crawler.utils.ListUtil;
+import com.fpt.xml.hth.crawler.utils.ProvineUtil;
 import com.fpt.xml.hth.crawler.utils.StringUtil;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -84,7 +85,10 @@ public class CGVCrawler extends AbstractCrawler {
                 String id = jsonTheater.optString("theater_id");
                 String name = jsonTheater.optString("title");
                 String address = jsonTheater.optString("address");
-                String city = jsonTheater.optString("city");
+                String tmpCity = StringUtil
+                        .convertUTF8ToASCII(jsonTheater.optString("city"))
+                        .replace(" ", "").toLowerCase();
+                String city = ProvineUtil.mapping.get(tmpCity);
 //                String description = jsonTheater.optString("description");
                 String image = "https://www.cgv.vn/media/cinema"
                         + jsonTheater.getJSONArray("image")

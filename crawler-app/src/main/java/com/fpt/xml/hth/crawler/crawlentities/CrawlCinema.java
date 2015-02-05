@@ -15,15 +15,34 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Administrator
  */
 @XmlRootElement
-public class CrawlCinema extends Cinema {
+public class CrawlCinema {
 
     private String id;
     private ArrayList<CrawlTheater> theaters = new ArrayList<CrawlTheater>();
+    private String name = "";
+    private String webUrl = "";
 
-    public CrawlCinema(){};
-    
+    public CrawlCinema() {
+    }
+
     public CrawlCinema(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getWebUrl() {
+        return webUrl;
+    }
+
+    public void setWebUrl(String webUrl) {
+        this.webUrl = webUrl;
     }
 
     public ArrayList<CrawlTheater> getTheaters() {
@@ -51,7 +70,7 @@ public class CrawlCinema extends Cinema {
     }
 
     public boolean isValid() {
-        if(!StringUtil.notEmpty(name)){
+        if (!StringUtil.notEmpty(name)) {
             System.out.println("Empty cinema name!");
             return false;
         }

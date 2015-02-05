@@ -14,6 +14,7 @@ import java.util.ArrayList;
  * @author Administrator
  */
 public class ListUtil {
+    
     public static int indexOfItem(ArrayList<CrawlMovie> list, String name){
         for(int i = 0; i < list.size(); i++){
             if(list.get(i).getName().equalsIgnoreCase(name)){

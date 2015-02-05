@@ -18,6 +18,8 @@ public class CrawlTime {
     private String time;
 
     public CrawlTime() {
+        this.id = "";
+        this.time = "";
     }
 
     public CrawlTime(String id, String time) {
