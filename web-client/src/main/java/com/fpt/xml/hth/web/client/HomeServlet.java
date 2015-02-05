@@ -23,16 +23,19 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ServletContext servletContext = getServletContext();
-        String path = servletContext.getRealPath("/WEB-INF/") + "/data.xml";
+        String path = EnvUtils.getDataPath(servletContext) + "/data.xml";
 
         File f = new File(path);
         if(!f.exists() || f.isDirectory()) {
+            System.out.println("Start file: " + path);
             NetworkUtils net = new NetworkUtils();
             String xml = net.sendGetRequest("http://jbossews-trungdq88.rhcloud.com/API/getMovies?city=");
             Files.write(Paths.get(path), xml.getBytes(), StandardOpenOption.CREATE);
-            System.out.println("Write file: " + path);
         }
         
+        System.out.println("File should be existed: " + path);
+        String xml = FileUtils.readFile(path);
+        request.setAttribute("xml", xml);
         request.getRequestDispatcher("WEB-INF/movie.jsp").forward(request, response);
     }
 }

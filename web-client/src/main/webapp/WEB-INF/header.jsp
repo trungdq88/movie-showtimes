@@ -67,6 +67,9 @@
             .movie:hover {
                 background: rgba(255, 255, 255, 0.3);
             }
+            .movie.selected {
+                background: rgba(255, 255, 255, 0.3);
+            }
             .movie h3 {
                 margin: 0;
             }
@@ -78,6 +81,7 @@
                 display: inline-block;
                 border-radius: 10px;
                 margin-right: 20px;
+                border: 1px solid #fff;
             }
             .nav-item.selected {
                 background-color: #fff;

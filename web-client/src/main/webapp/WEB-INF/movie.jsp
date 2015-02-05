@@ -9,7 +9,8 @@
 
 <c:set var="user" value="${param.txtUser}" scope="session"/>
 <c:set var="pass" value="${param.txtPass}"/>
-<c:import var="xml" url="data.xml" charEncoding="UTF-8"/>
+
+<c:set var="xml" value="${requestScope.xml}"/>
 <x:parse var="doc" xml="${xml}" scope="session"/>
 <c:import url="header.jsp"/>
 <div id="body">
@@ -24,7 +25,7 @@
         <div id="theater-container"  class="container">
             <c:import var="theaterXsl" url="theaterList.xsl" charEncoding="UTF-8"/>
             <x:transform xslt="${theaterXsl}" xml="${xml}">
-                <x:param name="movieName" value="${param.movie}"/>
+                <x:param name="movieId" value="${param.movie}"/>
             </x:transform>
         </div>
 
@@ -34,8 +35,8 @@
         <div id="showtime-container" class="container">
             <c:import var="timeXsl" url="timeList.xsl" charEncoding="UTF-8"/>
             <x:transform xslt="${timeXsl}" xml="${xml}">
-                <x:param name="movieName" value="${param.movie}"/>
-                <x:param name="theaterName" value="${param.theater}"/>
+                <x:param name="movieId" value="${param.movie}"/>
+                <x:param name="theaterId" value="${param.theater}"/>
             </x:transform>
         </div>
     </c:if>

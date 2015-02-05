@@ -1,11 +1,14 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output encoding="UTF-8" />
-    <xsl:param name="movieName"/>
+    <xsl:param name="movieId"/>
     <xsl:template match="/">   
         <div id="theater-list">
-            <xsl:for-each select="//movie[name=$movieName]/sessions/session/theater">
-                <div class="movie"> 
-                    <a href="?movie={$movieName}&amp;theater={name}">
+            <xsl:variable name="theaters" select="//movie[id=$movieId]/sessions/session/theater" />
+            <xsl:for-each select="$theaters">
+                <!-- Remove duplicate condition: http://stackoverflow.com/a/22816973/1420186 -->
+                <xsl:if test="generate-id() = generate-id($theaters[. = current()][1])">
+                <div class="movie" data-name="{id}" tabindex="0"> 
+                    <a href="?movie={$movieId}&amp;theater={id}">
                         <img class="movie-poster" src="{image}" />
                         <h3>
                             <xsl:value-of select="name"/>
@@ -16,6 +19,7 @@
                         </div>         
                     </a>                      
                 </div>
+                </xsl:if>
             </xsl:for-each>       
         </div>
     </xsl:template>
