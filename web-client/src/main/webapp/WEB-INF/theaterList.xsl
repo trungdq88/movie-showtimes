@@ -3,8 +3,9 @@
     <xsl:param name="movieName"/>
     <xsl:template match="/">   
         <div id="theater-list">
+                            <a href="{$movieName}">asdasd</a>
             <xsl:for-each select="//movie[name=$movieName]/sessions/session/theater">
-                <div class="movie"> 
+                <div class="movie" data-name="{name}" tabindex="0"> 
                     <a href="?movie={$movieName}&amp;theater={name}">
                         <img class="movie-poster" src="{image}" />
                         <h3>

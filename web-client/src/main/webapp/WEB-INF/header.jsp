@@ -67,6 +67,9 @@
             .movie:hover {
                 background: rgba(255, 255, 255, 0.3);
             }
+            .movie.selected {
+                background: rgba(255, 255, 255, 0.3);
+            }
             .movie h3 {
                 margin: 0;
             }
