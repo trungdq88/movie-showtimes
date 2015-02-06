@@ -137,18 +137,22 @@ public class Transformation {
      */
     private ArrayList<String> buildSessions(ArrayList<CrawlDate> crawlDates) {
         ArrayList<String> sessions = new ArrayList<String>();
-        for (CrawlDate crawlDate : crawlDates) {
-            int year = Integer.parseInt(StringUtil.subDate(crawlDate.getDate(), "yyyy-mm-dd", 'y'));
-            int month = Integer.parseInt(StringUtil.subDate(crawlDate.getDate(), "yyyy-mm-dd", 'y'));
-            int dayOfMonth = Integer.parseInt(StringUtil.subDate(crawlDate.getDate(), "yyyy-mm-dd", 'y'));
-            for (CrawlTime crawlTime : crawlDate.getTimes()) {
-                int hourOfDay = Integer.parseInt(StringUtil.subDate(crawlTime.getTime(), "hh:mm", 'h'));
-                int minute = Integer.parseInt(StringUtil.subDate(crawlTime.getTime(), "hh:mm", 'm'));
+        try {
+            for (CrawlDate crawlDate : crawlDates) {
+                int year = Integer.parseInt(StringUtil.subDate(crawlDate.getDate(), "yyyy-mm-dd", 'y'));
+                int month = Integer.parseInt(StringUtil.subDate(crawlDate.getDate(), "yyyy-mm-dd", 'm'));
+                int dayOfMonth = Integer.parseInt(StringUtil.subDate(crawlDate.getDate(), "yyyy-mm-dd", 'd'));
+                for (CrawlTime crawlTime : crawlDate.getTimes()) {
+                    int hourOfDay = Integer.parseInt(StringUtil.subDate(crawlTime.getTime(), "hh:mm", 'h'));
+                    int minute = Integer.parseInt(StringUtil.subDate(crawlTime.getTime(), "hh:mm", 'm'));
 
-                Calendar date = new GregorianCalendar(year, month, dayOfMonth, hourOfDay, minute);
-                sessions.add(date.getTimeInMillis() + "");
+                    Calendar date = new GregorianCalendar(year, month, dayOfMonth, hourOfDay, minute);
+                    sessions.add(date.getTimeInMillis() + "");
+                }
             }
+            return sessions;
+        } catch (Exception e) {
+            return sessions;
         }
-        return sessions;
     }
 }
