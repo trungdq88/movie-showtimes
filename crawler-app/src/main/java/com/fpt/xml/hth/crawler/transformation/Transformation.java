@@ -10,7 +10,6 @@ import com.fpt.xml.hth.crawler.crawlentities.CrawlDate;
 import com.fpt.xml.hth.crawler.crawlentities.CrawlMovie;
 import com.fpt.xml.hth.crawler.crawlentities.CrawlTheater;
 import com.fpt.xml.hth.crawler.crawlentities.CrawlTime;
-import com.fpt.xml.hth.crawler.utils.ListUtil;
 import com.fpt.xml.hth.crawler.utils.StringUtil;
 import com.fpt.xml.hth.db.lib.DTO.CinemaDTO;
 import com.fpt.xml.hth.db.lib.DTO.MovieTheaterSessionDTO;
