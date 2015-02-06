@@ -43,7 +43,7 @@ public class MovieTheaterSessionConverter implements IModelConverter<MovieTheate
         //convert basicMovie object movie
         MovieDB movie = movieConverter.convertBasicObjectToModel(basicMovie);
         //convert basicLstSession to theaters
-        List<TheaterSessionDTO> theaters = new ArrayList<TheaterSessionDTO>();;
+        List<TheaterSessionDTO> theaters = new ArrayList<TheaterSessionDTO>();
         if (basicLstSession != null && !basicLstSession.isEmpty()) {
             for (int i = 0; i < basicLstSession.size(); i++) {
                 BasicDBObject basic = (BasicDBObject) basicLstSession.get(i);
