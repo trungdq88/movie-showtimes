@@ -62,7 +62,10 @@ public class Transformation {
     public void setMovies(Map<String, MovieTheaterSessionDTO> movies) {
         this.movies = movies;
     }
-
+    
+    /**
+     * Convert CrawlEntotoes to DTO Entities
+     */
     public void convertCrawlEntitiesToDTO() {
         cinema.setName(crawlCinema.getName());
         cinema.setWebsite_link(crawlCinema.getWebUrl());
@@ -80,7 +83,7 @@ public class Transformation {
                     crawlTheater.getImage()
             );
             cinema.addTheater(theaterDB);
-
+            
             for (CrawlMovie crawlMovie : crawlTheater.getMovies()) {
                 MovieDB movieDB = new MovieDB(
                         crawlMovie.getName(),
@@ -96,7 +99,8 @@ public class Transformation {
                         crawlMovie.getAudioType(),
                         crawlMovie.getVideoType()
                 );
-
+                
+                //Add theater for exist movie
                 if (movies.containsKey(crawlMovie.getName())) {
                     TheaterSessionDTO theater = new TheaterSessionDTO();
                     theater.setId(id);
@@ -105,6 +109,7 @@ public class Transformation {
                     theater.setLstSession(buildSessions(crawlMovie.getDates()));
                     movies.get(crawlMovie.getName()).addTheater(theater);
                 } else {
+                    //Add new movie
                     MovieTheaterSessionDTO movie = new MovieTheaterSessionDTO();
                     movie.setMovie(movieDB);
                     TheaterSessionDTO theater = new TheaterSessionDTO();

@@ -9,6 +9,8 @@ import com.fpt.xml.hth.crawler.crawlentities.CrawlCinema;
 import com.fpt.xml.hth.crawler.transformation.Transformation;
 import com.fpt.xml.hth.crawler.utils.MarshalUtil;
 import com.fpt.xml.hth.crawler.validation.ValidCinemaTrack;
+import com.fpt.xml.hth.db.lib.DAO.CinemaDAO;
+import com.fpt.xml.hth.db.lib.DTO.CinemaDTO;
 
 
 /**
@@ -52,7 +54,9 @@ public class CrawlerManager {
             if(track.isValid()){
                 Transformation trans = new Transformation();
                 trans.setCrawlCinema(crawlCinema);
-                trans.getCinema();
+                CinemaDTO dto = trans.getCinema();
+                CinemaDAO dao = new CinemaDAO();
+                dao.insert(dto);
             }else{
                 System.out.println("NOT VALID CINEMA");
             }

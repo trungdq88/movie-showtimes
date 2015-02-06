@@ -19,7 +19,8 @@ public class Config {
     public static final String MOVIE_COLLECTION = "Movie";
 
     public static String getHost() {
-        return System.getenv("OPENSHIFT_MONGODB_DB_HOST");
+      //  return System.getenv("OPENSHIFT_MONGODB_DB_HOST");
+        return "localhost";
     }
 
     public static int getPort() {

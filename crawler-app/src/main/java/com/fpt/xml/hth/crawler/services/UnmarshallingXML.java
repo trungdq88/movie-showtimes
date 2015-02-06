@@ -9,6 +9,8 @@ import com.fpt.xml.hth.crawler.crawlentities.CrawlCinema;
 import com.fpt.xml.hth.crawler.transformation.Transformation;
 import com.fpt.xml.hth.crawler.utils.MarshalUtil;
 import com.fpt.xml.hth.crawler.validation.ValidCinemaTrack;
+import com.fpt.xml.hth.db.lib.DAO.CinemaDAO;
+import com.fpt.xml.hth.db.lib.DTO.CinemaDTO;
 import com.fpt.xml.hth.db.lib.DTO.MovieTheaterSessionDTO;
 import java.io.File;
 import java.util.logging.Level;
@@ -46,6 +48,9 @@ public class UnmarshallingXML {
         Transformation trans = new Transformation();
         trans.setCrawlCinema(cinema);
         trans.convertCrawlEntitiesToDTO();
-        MarshalUtil.marshalXML((MovieTheaterSessionDTO)trans.getMovies().values().toArray()[0], "dto"); 
+        //oMarshalUtil.marshalXML((MovieTheaterSessionDTO) trans.getMovies().values().toArray()[0], "dto");
+        CinemaDTO dto = trans.getCinema();
+        CinemaDAO dao = new CinemaDAO();
+        dao.insert(dto);
     }
 }
