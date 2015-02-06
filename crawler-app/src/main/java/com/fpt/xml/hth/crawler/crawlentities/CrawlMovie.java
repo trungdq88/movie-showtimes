@@ -5,7 +5,6 @@
  */
 package com.fpt.xml.hth.crawler.crawlentities;
 
-import com.fpt.xml.hth.crawler.entities.Movie;
 import com.fpt.xml.hth.crawler.utils.StringUtil;
 import java.util.ArrayList;
 
@@ -13,44 +12,72 @@ import java.util.ArrayList;
  *
  * @author Administrator
  */
-public class CrawlMovie extends Movie {
+public class CrawlMovie implements Comparable<CrawlMovie> {
 
     private String id;
     private ArrayList<CrawlDate> dates = new ArrayList<CrawlDate>();
     private String url;
+    private String name;
+    private String description;
+    private String poster;
+    private String trailer;
+    private String showDate;
+    private String length;
+    private String genre;
+    private String director;
+    private String actor;
+    private String ageRestriction;
+    private String audioType;
+    private String videoType;
 
     public CrawlMovie() {
+        this.id = "";
+        this.url = "";
+        this.name = "";
+        this.description = "";
+        this.poster = "";
+        this.trailer = "";
+        this.showDate = "";
+        this.length = "";
+        this.genre = "";
+        this.director = "";
+        this.actor = "";
+        this.ageRestriction = "";
+        this.audioType = "";
+        this.videoType = "";
     }
 
-    public CrawlMovie(
-            String name,
-            String description,
-            String poster,
-            String trailer,
-            String showDate,
-            String length,
-            String genre,
-            String director,
-            String actor,
-            String ageRestriction,
-            String audioType,
-            String videoType
-    ) {
-        super(
-                name,
-                description,
-                poster,
-                trailer,
-                showDate,
-                length,
-                genre,
-                director,
-                actor,
-                ageRestriction,
-                audioType,
-                videoType
-        );
+    public CrawlMovie(String id) {
+        this.id = id;
+        this.url = "";
+        this.name = "";
+        this.description = "";
+        this.poster = "";
+        this.trailer = "";
+        this.showDate = "";
+        this.length = "";
+        this.genre = "";
+        this.director = "";
+        this.actor = "";
+        this.ageRestriction = "";
+        this.audioType = "";
+        this.videoType = "";
+    }
 
+    public CrawlMovie(String name, String description, String poster, String trailer, String showDate, String length, String genre, String director, String actor, String ageRestriction, String audioType, String videoType) {
+        this.id = "";
+        this.name = name;
+        this.description = description;
+        this.poster = poster;
+        this.trailer = trailer;
+        this.showDate = showDate;
+        this.length = length;
+        this.genre = genre;
+        this.director = director;
+        this.actor = actor;
+        this.ageRestriction = ageRestriction;
+        this.audioType = audioType;
+        this.videoType = videoType;
     }
 
     public ArrayList<CrawlDate> getDates() {
@@ -63,10 +90,6 @@ public class CrawlMovie extends Movie {
 
     public void addDate(CrawlDate date) {
         dates.add(date);
-    }
-
-    public CrawlMovie(String id) {
-        this.id = id;
     }
 
     public String getId() {
@@ -85,21 +108,100 @@ public class CrawlMovie extends Movie {
         this.url = url;
     }
 
-    public Movie toParent() {
-        return new Movie(
-                this.name,
-                this.description,
-                this.poster,
-                this.trailer,
-                this.showDate,
-                this.length,
-                this.genre,
-                this.director,
-                this.actor,
-                this.ageRestriction,
-                this.audioType,
-                this.videoType
-        );
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
+    }
+
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
+
+    public String getShowDate() {
+        return showDate;
+    }
+
+    public void setShowDate(String showDate) {
+        this.showDate = showDate;
+    }
+
+    public String getLength() {
+        return length;
+    }
+
+    public void setLength(String length) {
+        this.length = length;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public String getActor() {
+        return actor;
+    }
+
+    public void setActor(String actor) {
+        this.actor = actor;
+    }
+
+    public String getAgeRestriction() {
+        return ageRestriction;
+    }
+
+    public void setAgeRestriction(String ageRestriction) {
+        this.ageRestriction = ageRestriction;
+    }
+
+    public String getAudioType() {
+        return audioType;
+    }
+
+    public void setAudioType(String audioType) {
+        this.audioType = audioType;
+    }
+
+    public String getVideoType() {
+        return videoType;
+    }
+
+    public void setVideoType(String videoType) {
+        this.videoType = videoType;
     }
 
     public CrawlMovie getClone() {
@@ -121,7 +223,7 @@ public class CrawlMovie extends Movie {
 
     public boolean isValid() {
         int check = 0;
-        
+
         if (!StringUtil.notEmpty(name)) {
             System.out.println("Empty movie name!");
             check++;
@@ -144,5 +246,19 @@ public class CrawlMovie extends Movie {
         }
 
         return check == 0;
+    }
+
+    public int compareTo(CrawlMovie o) {
+        if (this.name.equalsIgnoreCase(o.name)) {
+            return 1;
+        }
+        return 0;
+    }
+
+    public int compareTo(String name) {
+        if (this.name.equalsIgnoreCase(name)) {
+            return 1;
+        }
+        return 0;
     }
 }

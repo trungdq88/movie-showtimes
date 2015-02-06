@@ -5,20 +5,39 @@
  */
 package com.fpt.xml.hth.crawler.validation;
 
+import com.fpt.xml.hth.crawler.crawlentities.CrawlMovie;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author Administrator
  * @param <G>
+ * @param <T>
  */
-public abstract class ValidTrack<G> {
+public abstract class ValidTrack<G, T> {
+
+    protected static int invalidDates = 0;
+    protected static int invalidTimes = 0;
+//    protected static int invalidMovies = 0;
+    protected static int invalidTheaters = 0;
+    protected static int invalidCinemas = 0;
+    protected static int dates = 0;
+    protected static int times = 0;
+//    protected static int movies = 0;
+    protected static int theaters = 0;
+    protected static int cinemas = 0;
+    protected static Map<String, CrawlMovie> movies = new HashMap<String, CrawlMovie>();
+    protected static Map<String, CrawlMovie> invalidMovies = new HashMap<String, CrawlMovie>();
+
+    protected ArrayList<T> tracks;
     protected G element;
     protected int invalidNum;
     protected boolean valid;
 
     /**
      * Start validation crawled data
-     *
-     * @param element
      */
     public abstract void start();
 
@@ -45,14 +64,22 @@ public abstract class ValidTrack<G> {
     /**
      * Print out invalid log
      */
-    public abstract void log();    
-    
+    public abstract void log();
+
     /**
      * Get element
-     * @return 
+     *
+     * @return
      */
     public G getElement() {
         return element;
     }
-       
+
+    /**
+     * Check valid element data
+     *
+     * @return
+     */
+    protected abstract boolean isValidData();
+
 }

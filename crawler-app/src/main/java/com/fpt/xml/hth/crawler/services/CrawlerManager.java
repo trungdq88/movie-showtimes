@@ -24,10 +24,10 @@ public class CrawlerManager {
 
     @SuppressWarnings("empty-statement")
     public void crawl(String[] targets) {
-        if(targets == null){
-            targets = new String[]{"galaxy"};
-        }else if(targets.length == 0){
-            targets = new String[]{"galaxy"};
+        if (targets == null) {
+            targets = new String[]{"cgv"};
+        } else if (targets.length == 0) {
+            targets = new String[]{"cgv"};
         }
         for (String target : targets) {
 

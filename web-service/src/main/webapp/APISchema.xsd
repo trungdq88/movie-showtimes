@@ -22,6 +22,7 @@ and open the template in the editor.
 
     <xs:complexType name="Theater">
         <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
             <xs:element name="cinema" type="xs:string"/>
             <xs:element name="name" type="xs:string"/>
             <xs:element name="description" type="xs:string"/>

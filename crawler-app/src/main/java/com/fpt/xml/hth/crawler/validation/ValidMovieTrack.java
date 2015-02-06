@@ -11,25 +11,26 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Administrator
+ * @author HaiNNT
  */
-public class ValidMovieTrack extends ValidTrack<CrawlMovie> {
-
-    public ArrayList<ValidSessionTrack> sessionsTrack;
+public class ValidMovieTrack extends ValidTrack<CrawlMovie, ValidSessionTrack> {
 
     public ValidMovieTrack(CrawlMovie movie) {
-        this.sessionsTrack = new ArrayList<ValidSessionTrack>();
+        this.tracks = new ArrayList<ValidSessionTrack>();
         this.invalidNum = 0;
         this.valid = false;
         this.element = movie;
     }
 
+    /**
+     * Start validate
+     */
     @Override
     public void start() {
         for (CrawlDate date : element.getDates()) {
             ValidSessionTrack track = new ValidSessionTrack(date);
             track.start();
-            sessionsTrack.add(track);
+            tracks.add(track);
             if (!track.isValid()) {
                 invalidNum++;
             }
@@ -39,16 +40,24 @@ public class ValidMovieTrack extends ValidTrack<CrawlMovie> {
 
     @Override
     public void log() {
-        String message = element.getName();
-        message += this.valid ? " is valid \n" : " is not valid \n";
-        message += invalidNum + " sessions are not valid \n";
-        System.out.println(message);
+        invalidDates += invalidNum;
+        dates += element.getDates().size();
+        if (!isValid()) {
+            String str = "        ";
+            String message = str;
+            message += element.getName();
+            message += this.valid ? " is valid \n" : " is not valid \n";
+            message += str;
+            message += invalidNum + " sessions are not valid \n";
+            System.out.println(message);
+        }
+        for (ValidSessionTrack track : tracks) {
+            track.log();
+        }
     }
 
-    private boolean isValidData() {
-        if (invalidNum != 0) {
-            return false;
-        }
+    @Override
+    protected boolean isValidData() {
         return element.isValid();
     }
 }

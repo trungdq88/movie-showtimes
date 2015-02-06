@@ -14,12 +14,10 @@ import java.util.ArrayList;
  *
  * @author Administrator
  */
-public class ValidCinemaTrack extends ValidTrack<CrawlCinema> {
-
-    public ArrayList<ValidTheaterTrack> theatersTrack;
+public class ValidCinemaTrack extends ValidTrack<CrawlCinema, ValidTheaterTrack> {
 
     public ValidCinemaTrack(CrawlCinema cinema) {
-        this.theatersTrack = new ArrayList<ValidTheaterTrack>();
+        this.tracks = new ArrayList<ValidTheaterTrack>();
         this.invalidNum = 0;
         this.valid = false;
         this.element = cinema;
@@ -30,20 +28,36 @@ public class ValidCinemaTrack extends ValidTrack<CrawlCinema> {
         for (CrawlTheater theater : element.getTheaters()) {
             ValidTheaterTrack track = new ValidTheaterTrack(theater);
             track.start();
-            theatersTrack.add(track);
+            tracks.add(track);
             if (!track.isValid()) {
                 invalidNum++;
             }
         }
-        this.valid = invalidNum == 0 && StringUtil.notEmpty(element.getName());
+        this.valid = isValidData();
     }
 
     @Override
     public void log() {
-        String message = element.getName();
-        message += this.valid ? " is valid \n" : " is not valid \n";
-        message += invalidNum + " theaters are not valid \n";
-        System.out.println(message);
+        invalidTheaters += invalidNum;
+        theaters += element.getTheaters().size();
+        if (!isValid()) {
+            String message = element.getName();
+            message += this.valid ? " is valid \n" : " is not valid \n";
+            message += invalidNum + " theaters are not valid \n";
+            System.out.println(message);
+        }
+        for (ValidTheaterTrack track : tracks) {
+            track.log();
+        }
+        System.out.println(invalidTheaters + "/" + theaters + " thaaters invalid.\n");
+        System.out.println(invalidMovies.size() + "/" + movies.size() + " movies invalid.\n");
+        System.out.println(invalidDates + "/" + dates + " dates invalid.\n");
+        System.out.println(invalidTimes + "/" + times + " times invalid.\n");
+    }
+
+    @Override
+    protected boolean isValidData() {
+        return StringUtil.notEmpty(element.getName());
     }
 
 }

@@ -81,6 +81,7 @@
                 display: inline-block;
                 border-radius: 10px;
                 margin-right: 20px;
+                border: 1px solid #fff;
             }
             .nav-item.selected {
                 background-color: #fff;

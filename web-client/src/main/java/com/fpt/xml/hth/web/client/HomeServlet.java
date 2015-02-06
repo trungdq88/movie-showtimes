@@ -10,6 +10,8 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by dinhquangtrung on 2/1/15.
@@ -23,7 +25,10 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ServletContext servletContext = getServletContext();
-        String path = EnvUtils.getDataPath(servletContext) + "/data.xml";
+        SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-mm-dd");
+        Date d = new Date();
+        String today = dt1.format(d);
+        String path = EnvUtils.getDataPath(servletContext) + "/data" + today +".xml";
 
         File f = new File(path);
         if(!f.exists() || f.isDirectory()) {

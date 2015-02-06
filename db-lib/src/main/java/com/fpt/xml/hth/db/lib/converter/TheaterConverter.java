@@ -20,8 +20,6 @@ public class TheaterConverter implements IModelConverter<TheaterDB> {
      * @return TheaterDB
      */
     public TheaterDB convertBasicObjectToModel(BasicDBObject object) {
-        // mongod not generated ObjectID for TheaterDB
-        // ObjectId id = object.getObjectId("_id");
         String name = object.getString("name");
         String address = object.getString("address");
         String description = object.getString("description");

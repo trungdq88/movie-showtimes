@@ -6,6 +6,7 @@ package com.fpt.xml.hth.db.lib.DTO;
 
 import com.fpt.xml.hth.db.lib.entities.TheaterDB;
 import java.io.Serializable;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import org.bson.types.ObjectId;
@@ -24,6 +25,7 @@ public class CinemaDTO {
     private List<TheaterDB> lstTheater;
 
     public CinemaDTO() {
+        this.lstTheater = new ArrayList<TheaterDB>();
     }
 
     public CinemaDTO(CinemaDTO cinema) {
@@ -64,6 +66,10 @@ public class CinemaDTO {
 
     public void setWebsite_link(String website_link) {
         this.website_link = website_link;
+    }
+    
+    public void addTheater(TheaterDB theater){
+        lstTheater.add(theater);
     }
 
 }

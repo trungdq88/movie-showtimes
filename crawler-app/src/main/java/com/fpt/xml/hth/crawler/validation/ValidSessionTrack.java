@@ -12,12 +12,13 @@ import com.fpt.xml.hth.crawler.crawlentities.CrawlTime;
  *
  * @author Administrator
  */
-public class ValidSessionTrack extends ValidTrack<CrawlDate> {
+public class ValidSessionTrack extends ValidTrack<CrawlDate, Object> {
 
     public ValidSessionTrack(CrawlDate date) {
         this.invalidNum = 0;
         this.valid = false;
         this.element = date;
+        this.tracks = null;
     }
 
     @Override
@@ -30,16 +31,21 @@ public class ValidSessionTrack extends ValidTrack<CrawlDate> {
 
     @Override
     public void log() {
-        String message = element.getDate();
-        message += this.valid ? " is valid \n" : " is not valid \n";
-        message += invalidNum + " times are not valid \n";
-        System.out.println(message);
+        invalidTimes += invalidNum;
+        times += element.getTimes().size();
+        if (!isValid()) {
+            String str = "            ";
+            String message = str;
+            message += element.getDate();
+            message += this.valid ? " is valid \n" : " is not valid \n";
+            message += str;
+            message += invalidNum + " times are not valid \n";
+            System.out.println(message);
+        }
     }
 
-    private boolean isValidData() {
-        if (invalidNum != 0) {
-            return false;
-        }
+    @Override
+    protected boolean isValidData() {
         return element.isValid();
     }
 
