@@ -9,7 +9,7 @@ and open the template in the editor.
 <movies
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     xmlns='http://jbossews-trungdq88.rhcloud.com/API/movieSchema'
-    xsi:schemaLocation='http://jbossews-trungdq88.rhcloud.com/API/movieSchema file:/Users/dinhquangtrung/Documents/Projects/movie-showtimes/web-service/src/main/webapp/APISchema.xsd'>
+    xsi:schemaLocation='http://jbossews-trungdq88.rhcloud.com/API/movieSchema APISchema.xsd'>
     <movie>
         <id>123123123123111</id>
         <actor />
@@ -24,8 +24,8 @@ and open the template in the editor.
         <sessions>
             <session>
                 <show_time>1422982863822</show_time>
-                <theater>
-                    
+                <theater>        
+                    <id>78978977978921</id>            
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -89,6 +89,7 @@ and open the template in the editor.
         <audio_type>Lồng tiếng</audio_type>
         <description>Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều</description>
         <director>Đinh Quang Trung</director>
+        <genre />
         <length>123 phút</length>
         <name>The Hobbit</name>
         <poster>http://components.onsen.io/patterns/images/location1.png</poster>
@@ -96,7 +97,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    
+                    <id>78978978978922</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -109,7 +110,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    
+                    <id>78978978978922</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -120,7 +121,8 @@ and open the template in the editor.
                 </theater>
             </session>
         </sessions>
-        <trailer />
+        <show_date />
+        <trailer>https://www.youtube.com/watch?v=njos57IJf-0</trailer>
         <video_type>4DX</video_type>
     </movie>
     <movie>
@@ -197,7 +199,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422345531425</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -269,7 +271,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -282,7 +284,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -295,8 +297,9 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
+                    <cinema>CGV</cinema>
                     <city>TPHCM</city>
                     <description>Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung</description>
                     <image>http://lottecinemavn.com/getattachment/65104783-44e5-4ab2-81c0-43f79aae030e/NodeAlias.aspx?width=191&amp;height=123</image>
@@ -307,7 +310,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -324,14 +327,20 @@ and open the template in the editor.
     </movie>
     <movie>
         <id>123123123123666</id>
+        <actor>Ngọc Trinh san</actor>
+        <age_restriction>18+</age_restriction>
+        <audio_type>Lồng tiếng</audio_type>
         <description>Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều</description>
-        <name>Go Sky The Game</name>
+        <director>Đinh Quang Trung</director>
+        <genre>Hành động, Tâm lý</genre>
+        <length>123 phút</length>
+        <name>Taken 3</name>
         <poster>http://components.onsen.io/patterns/images/location1.png</poster>
         <sessions>
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -344,7 +353,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -398,6 +407,8 @@ and open the template in the editor.
             </session>
         </sessions>
         <show_date>Hôm nay</show_date>
+        <trailer>https://www.youtube.com/watch?v=njos57IJf-0</trailer>
+        <video_type>4DX</video_type>
     </movie>
     <movie>
         <id>123123123123777</id>
@@ -414,7 +425,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -427,7 +438,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -440,7 +451,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -515,8 +526,9 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
+                    <cinema>BHD</cinema>
                     <city>TPHCM</city>
                     <description>Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung</description>
                     <image>http://lottecinemavn.com/getattachment/65104783-44e5-4ab2-81c0-43f79aae030e/NodeAlias.aspx?width=191&amp;height=123</image>
@@ -527,7 +539,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -540,7 +552,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -553,7 +565,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422345531425</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -576,7 +588,6 @@ and open the template in the editor.
         <description>Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều</description>
         <director>Đinh Quang Trung</director>
         <genre>Hành động, Tâm lý</genre>
-        <id>10</id>
         <length>123 phút</length>
         <name>Supper man 4</name>
         <poster>http://components.onsen.io/patterns/images/location1.png</poster>
@@ -636,7 +647,6 @@ and open the template in the editor.
         <description>Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều</description>
         <director>Đinh Quang Trung</director>
         <genre>Hành động, Tâm lý</genre>
-        <id>11</id>
         <length>123 phút</length>
         <name>Ant man 5</name>
         <poster>http://components.onsen.io/patterns/images/location1.png</poster>
@@ -644,8 +654,9 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
+                    <cinema>CGV</cinema>
                     <city>TPHCM</city>
                     <description>Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung</description>
                     <image>http://lottecinemavn.com/getattachment/65104783-44e5-4ab2-81c0-43f79aae030e/NodeAlias.aspx?width=191&amp;height=123</image>
@@ -666,7 +677,6 @@ and open the template in the editor.
         <description>Bốn năm sau khi chia tay với Dũng và Mai, Phạm Hương Hội giờ đã khác xưa rất nhiều</description>
         <director>Đinh Quang Trung</director>
         <genre>Hành động, Tâm lý</genre>
-        <id>13</id>
         <length>123 phút</length>
         <name>Bat man 2</name>
         <poster>http://components.onsen.io/patterns/images/location1.png</poster>
@@ -674,7 +684,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -687,8 +697,9 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
+                    <cinema>Lotte</cinema>
                     <city>TPHCM</city>
                     <description>Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung</description>
                     <image>http://lottecinemavn.com/getattachment/65104783-44e5-4ab2-81c0-43f79aae030e/NodeAlias.aspx?width=191&amp;height=123</image>
@@ -699,7 +710,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -712,7 +723,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -725,7 +736,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422345531425</show_time>
                 <theater>
-                    
+                    <id>78978988978944</id>
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>

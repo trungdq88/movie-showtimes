@@ -19,28 +19,26 @@ and open the template in the editor.
 
     <xs:simpleType name="youtube-url">
         <xs:restriction base="xs:string">
-            <xs:pattern value="youtube\.com" />
+            <xs:pattern value=".*youtube\.com.*|^$" />
         </xs:restriction>
     </xs:simpleType>    
 
     <xs:complexType name="theater">
         <xs:sequence>
             <xs:element name="id" type="xs:string"/>
-            <xs:element name="cinema" type="xs:string"/>
-            <xs:element name="name" type="xs:string"/>
-            <xs:element name="description" type="xs:string"/>
-            <xs:element name="city" type="xs:string" />
             <xs:element name="address" type="xs:string"/>
-            <xs:element name="map_link" type="xs:string"/>
+            <xs:element name="cinema" type="xs:string"/>
+            <xs:element name="city" type="xs:string" />
+            <xs:element name="description" type="xs:string"/>
             <xs:element name="image" type="xs:string"/>
+            <xs:element name="map_link" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="session">
         <xs:sequence>
-            <xs:element name="id" type="xs:integer" />
             <xs:element name="show_time" type="show_time" />
-            <xs:element name="movie" type="xs:string" />
             <xs:element name="theater" type="theater">          
             </xs:element>
         </xs:sequence>
