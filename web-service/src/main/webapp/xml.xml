@@ -25,7 +25,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    <id>789789789789</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -36,7 +36,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>12</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978922</id>
@@ -50,7 +50,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>13</id>
+                
                 <show_time>1422982863822</show_time>
                 <theater>
                     <id>78978978978922</id>
@@ -64,7 +64,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>14</id>
+                
                 <show_time>1422348531425</show_time>
                 <theater>
                     <id>78978978978922</id>
@@ -96,7 +96,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    <id>789789789789</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -109,7 +109,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    <id>78978978978933</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -136,7 +136,7 @@ and open the template in the editor.
         <poster>http://components.onsen.io/patterns/images/location1.png</poster>
         <sessions>
             <session>
-                <id>10</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978944</id>
@@ -150,7 +150,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>11</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978955</id>
@@ -164,7 +164,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>12</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978922</id>
@@ -197,7 +197,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422345531425</show_time>
                 <theater>
-                    <id>78978978978966</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -208,7 +208,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>10</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978944</id>
@@ -222,7 +222,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>11</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978955</id>
@@ -236,7 +236,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>12</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978922</id>
@@ -269,7 +269,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    <id>789789789789</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -282,7 +282,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    <id>78978978978977</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -295,7 +295,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    <id>78978978978988</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <city>TPHCM</city>
                     <description>Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung</description>
@@ -307,7 +307,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    <id>78978978978999</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -331,7 +331,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    <id>789789789789</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -344,7 +344,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    <id>789789789789101010</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -355,7 +355,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>10</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978944</id>
@@ -369,7 +369,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>11</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978955</id>
@@ -383,7 +383,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>12</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978922</id>
@@ -414,7 +414,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    <id>789789789789</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -427,7 +427,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    <id>789789789789101010</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -440,7 +440,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422982863822</show_time>
                 <theater>
-                    <id>789789789789111111</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Galaxy</cinema>
                     <city>TPHCM</city>
@@ -451,7 +451,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>12</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978922</id>
@@ -482,7 +482,7 @@ and open the template in the editor.
         <poster>http://components.onsen.io/patterns/images/location1.png</poster>
         <sessions>
             <session>
-                <id>12</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978922</id>
@@ -515,7 +515,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    <id>78978978978988</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <city>TPHCM</city>
                     <description>Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung</description>
@@ -527,7 +527,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    <id>78978978978999</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -540,7 +540,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    <id>789789789789121212</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -553,7 +553,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422345531425</show_time>
                 <theater>
-                    <id>78978978978966</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -582,7 +582,7 @@ and open the template in the editor.
         <poster>http://components.onsen.io/patterns/images/location1.png</poster>
         <sessions>
             <session>
-                <id>10</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978944</id>
@@ -596,7 +596,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>11</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978955</id>
@@ -610,7 +610,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>12</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978922</id>
@@ -644,7 +644,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    <id>78978978978988</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <city>TPHCM</city>
                     <description>Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung</description>
@@ -674,7 +674,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    <id>78978978978977</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -687,7 +687,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    <id>78978978978988</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <city>TPHCM</city>
                     <description>Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung Galaxy Quang Trung</description>
@@ -699,7 +699,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    <id>78978978978999</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>Lotte</cinema>
                     <city>TPHCM</city>
@@ -712,7 +712,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422431967169</show_time>
                 <theater>
-                    <id>789789789789121212</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -725,7 +725,7 @@ and open the template in the editor.
             <session>
                 <show_time>1422345531425</show_time>
                 <theater>
-                    <id>78978978978966</id>
+                    
                     <address>15 Quang Trung, Q.12, TPHCM</address>
                     <cinema>CGV</cinema>
                     <city>TPHCM</city>
@@ -736,7 +736,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>10</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978944</id>
@@ -750,7 +750,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>11</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978955</id>
@@ -764,7 +764,7 @@ and open the template in the editor.
                 </theater>
             </session>
             <session>
-                <id>12</id>
+                
                 <show_time>1422345531425</show_time>
                 <theater>
                     <id>78978978978922</id>
