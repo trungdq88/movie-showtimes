@@ -7,6 +7,7 @@ package com.fpt.xml.hth.db.lib.DTO;
 import com.fpt.xml.hth.db.lib.entities.MovieDB;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.bson.types.ObjectId;
 
 /**
@@ -15,6 +16,7 @@ import org.bson.types.ObjectId;
  * @author Thu Hoa
  */
 // TODO: remove
+ @XmlRootElement
 public class MovieTheaterSessionDTO {
 
     private ObjectId id;
