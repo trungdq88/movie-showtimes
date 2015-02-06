@@ -6,17 +6,33 @@
 package com.fpt.xml.hth.db.lib.DTO;
 
 import com.fpt.xml.hth.db.lib.entities.TheaterDB;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * class TheaterDBSessionDTO mapping with one element in list theaters in Movie collection
+ * class TheaterDBSessionDTO mapping with one element in list theaters in Movie
+ * collection
+ *
  * @author Thu Hoa
  */
 public class TheaterSessionDTO {
 
+    private String id;
     private TheaterDB theater;
     private String cinemaName;
     private List<String> lstSession;
+
+    public TheaterSessionDTO() {
+        this.lstSession = new ArrayList<String>();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getCinemaName() {
         return cinemaName;
@@ -40,6 +56,10 @@ public class TheaterSessionDTO {
 
     public void setLstSession(List<String> lstSession) {
         this.lstSession = lstSession;
+    }
+
+    public void addSession(String session) {
+        lstSession.add(session);
     }
 
 }

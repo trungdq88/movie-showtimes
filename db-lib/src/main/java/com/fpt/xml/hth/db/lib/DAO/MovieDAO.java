@@ -15,6 +15,8 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
+import com.mongodb.MongoCredential;
+import com.mongodb.ServerAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +41,12 @@ public class MovieDAO implements IMongoDAO<MovieTheaterSessionDTO> {
 
     private void connection() {
         try {
-            this.mongoClient = new MongoClient(Config.getHost(), Config.getPort());
+            MongoCredential credential = MongoCredential.createMongoCRCredential
+        (Config.USER_NAME, Config.DATABASE_NAME, Config.PASS_WORD.toCharArray());
+            ServerAddress address = new ServerAddress(Config.getHost(), Config.getPort());
+            List<MongoCredential> lst = new ArrayList<MongoCredential>();
+            lst.add(credential);
+            this.mongoClient = new MongoClient(address, lst);
             this.cinemaDB = mongoClient.getDB(Config.DATABASE_NAME);
             this.movieCollection = cinemaDB.getCollection(Config.MOVIE_COLLECTION);
             this.converter = new MovieTheaterSessionConverter();

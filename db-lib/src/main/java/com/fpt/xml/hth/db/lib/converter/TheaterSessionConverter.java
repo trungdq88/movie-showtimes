@@ -32,6 +32,7 @@ public class TheaterSessionConverter implements IModelConverter<TheaterSessionDT
      */
     public TheaterSessionDTO convertBasicObjectToModel(BasicDBObject object) {
         String cinemaName = object.getString("cinemaName");
+        String id = object.getString("id");
         BasicDBObject basicTheater = (BasicDBObject) object.get("theater");
         BasicDBList basicSessions = (BasicDBList) object.get("sessions");
         // convert basicTheater to theater
@@ -43,6 +44,7 @@ public class TheaterSessionConverter implements IModelConverter<TheaterSessionDT
             sessions.add(session);
         }
         TheaterSessionDTO theaterSessionDTO = new TheaterSessionDTO();
+        theaterSessionDTO.setId(id);
         theaterSessionDTO.setCinemaName(cinemaName);
         theaterSessionDTO.setLstSession(sessions);
         theaterSessionDTO.setTheater(theater);
@@ -57,6 +59,7 @@ public class TheaterSessionConverter implements IModelConverter<TheaterSessionDT
      */
     public BasicDBObject convertModelToBasicObject(TheaterSessionDTO model) {
         String cinemaName = model.getCinemaName();
+        String id = model.getId();
         TheaterDB theater = model.getTheater();
         List<String> lstSessions = model.getLstSession();
         // convert theather to basicTheater
@@ -71,6 +74,7 @@ public class TheaterSessionConverter implements IModelConverter<TheaterSessionDT
         basicTheaterSession.append("cinemaName", cinemaName);
         basicTheaterSession.append("theater", basicTheater);
         basicTheaterSession.append("sessions", basicLst);
+        basicTheaterSession.append("id", id);
         return basicTheaterSession;
     }
 

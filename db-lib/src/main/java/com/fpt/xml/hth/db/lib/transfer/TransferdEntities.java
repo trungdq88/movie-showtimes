@@ -56,6 +56,8 @@ public class TransferdEntities {
             for (int j = 0; j < sessionsString.size(); j++) {
                 //set value for theater
                 Theater theater = new Theater();
+                // use id of theatersession to set for id of theater
+                theater.setId(dtoTS.getId());
                 theater.setAddress(theaterDB.getAddress());
                 theater.setCity(theaterDB.getCity());
                 theater.setDescription(theaterDB.getImage());
@@ -79,4 +81,5 @@ public class TransferdEntities {
         movie.setSessions(sessions);
         return movie;
     }
+
 }

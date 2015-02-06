@@ -41,9 +41,10 @@ public class APIServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.addHeader("Access-Control-Allow-Origin", "*");
-        //TODO: ??set value of schemaLocation
         MovieDAO movieDAO = new MovieDAO();
-        List<MovieTheaterSessionDTO> lstMovie = movieDAO.getAll();
+        String city = request.getParameter("city");
+        //1.get movies by city
+        List<MovieTheaterSessionDTO> lstMovie = movieDAO.getAllByCity(city);
         Movies movies = new Movies();
         TransferdEntities transfer = new TransferdEntities();
         for (int i = 0; i < lstMovie.size(); i++) {
