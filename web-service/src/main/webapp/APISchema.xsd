@@ -7,6 +7,7 @@ and open the template in the editor.
 
 <xs:schema version="1.0"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://jbossews-trungdq88.rhcloud.com/API/movieSchema"
            elementFormDefault="qualified">
     <xs:simpleType name="show-time" >
         <xs:restriction base="xs:integer">
