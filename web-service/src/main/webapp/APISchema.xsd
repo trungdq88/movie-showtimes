@@ -9,7 +9,7 @@ and open the template in the editor.
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            targetNamespace="http://jbossews-trungdq88.rhcloud.com/API/movieSchema"
            elementFormDefault="qualified">
-    <xs:simpleType name="show-time" >
+    <xs:simpleType name="show_time" >
         <xs:restriction base="xs:integer">
             <xs:minInclusive value="0"/>
         </xs:restriction>
@@ -17,7 +17,7 @@ and open the template in the editor.
 
     <xs:simpleType name="youtube-url">
         <xs:restriction base="xs:string">
-            <xs:pattern value="^.*?youtube\.com.*?$" />
+            <xs:pattern value="youtube\.com" />
         </xs:restriction>
     </xs:simpleType>
 
@@ -37,7 +37,7 @@ and open the template in the editor.
     <xs:complexType name="Session">
         <xs:sequence>
             <xs:element name="id" type="xs:integer" />
-            <xs:element name="show_time" type="show-time" />
+            <xs:element name="show_time" type="show_time" />
             <xs:element name="movie" type="xs:string" />
             <xs:element name="theater" type="Theater">          
             </xs:element>

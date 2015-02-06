@@ -28,7 +28,8 @@ public class HomeServlet extends HttpServlet {
         SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-mm-dd");
         Date d = new Date();
         String today = dt1.format(d);
-        String path = EnvUtils.getDataPath(servletContext) + "/data" + today +".xml";
+        String path = EnvUtils.getDataPath(servletContext) + "/data-" + today +".xml";
+        String xsdPath = EnvUtils.getDataPath(servletContext) + "/schema.xsd";
 
         File f = new File(path);
         if(!f.exists() || f.isDirectory()) {
@@ -36,11 +37,22 @@ public class HomeServlet extends HttpServlet {
             NetworkUtils net = new NetworkUtils();
             String xml = net.sendGetRequest("http://jbossews-trungdq88.rhcloud.com/API/getMovies?city=");
             Files.write(Paths.get(path), xml.getBytes(), StandardOpenOption.CREATE);
+            String xsd = net.sendGetRequest("http://jbossews-trungdq88.rhcloud.com/API/APISchema.xsd");
+            Files.write(Paths.get(xsdPath), xsd.getBytes(), StandardOpenOption.CREATE);
         }
         
         System.out.println("File should be existed: " + path);
-        String xml = FileUtils.readFile(path);
-        request.setAttribute("xml", xml);
-        request.getRequestDispatcher("WEB-INF/movie.jsp").forward(request, response);
+        // Validate xml
+        String valid = Validator.validate(path, xsdPath);
+        System.out.println("XML validation: " + valid);
+        
+        if (valid.equals("true")) {
+            String xml = FileUtils.readFile(path);
+            request.setAttribute("xml", xml);
+            request.getRequestDispatcher("WEB-INF/movie.jsp").forward(request, response);
+        } else {
+            PrintWriter out = response.getWriter();
+            out.write("XML is invalid!\n" + valid);
+        }
     }
 }
