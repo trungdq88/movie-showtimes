@@ -17,6 +17,7 @@
                 height: 100%;
                 width: 100%;
                 font-family: 'Arial';
+                background: black;
                 background: url(bg.jpg);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
