@@ -173,43 +173,49 @@ public class CGVCrawler extends AbstractCrawler {
                     ++i;
                     System.out.println("crawlMovieInfo" + i);
                     if (!list.containsKey(movie.getName())) {
-                        list.put(movie.getName(), movie);
                         String url = movie.getUrl();
-                        Document doc;
+                        Document doc = null;
                         try {
                             doc = JsoupConnect.getHTML(url);
                         } catch (HttpStatusException e) {
-                            url = StringUtil.makeCGVMovieUrl(url);
-                            doc = JsoupConnect.getHTML(url);
+                            try {
+                                url = StringUtil.makeCGVMovieUrl(url);
+                                doc = JsoupConnect.getHTML(url);
+                            } catch (HttpStatusException exs) {
+                                doc = null;
+                            }
                         }
-                        ++r;
-                        System.out.println("request" + r);
-                        String director = doc.select(".movie-director > div")
-                                .text().trim();
-                        String actor = doc.select(".movie-actress > div")
-                                .first().text().trim();
-                        String genre = doc.select(".movie-genre > div")
-                                .text().trim();
-                        String length = doc.select(".movie-actress > div")
-                                .last().text().replaceAll("\\D", "").trim();
-                        String description
-                                = doc.select("#collateral-tabs dd:nth-child(2) .std")
-                                .text().trim();
-                        String trailer = doc.select(".product_view_trailer iframe")
-                                .attr("src").replace("embed/", "watch?v=")
-                                .replace("//", "");
-                        String showDate = doc.select(".movie-release > div")
-                                .text().trim();
-                        String audioType = doc.select(".movie-language > div")
-                                .text().trim();
-                        movie.setActor(actor);
-                        movie.setDirector(director);
-                        movie.setGenre(genre);
-                        movie.setLength(length);
-                        movie.setDescription(description);
-                        movie.setTrailer(trailer);
-                        movie.setShowDate(showDate);
-                        movie.setAudioType(audioType);
+                        if (doc != null) {
+                            ++r;
+                            System.out.println("request" + r);
+                            String director = doc.select(".movie-director > div")
+                                    .text().trim();
+                            String actor = doc.select(".movie-actress > div")
+                                    .first().text().trim();
+                            String genre = doc.select(".movie-genre > div")
+                                    .text().trim();
+                            String length = doc.select(".movie-actress > div")
+                                    .last().text().replaceAll("\\D", "").trim();
+                            String description
+                                    = doc.select("#collateral-tabs dd:nth-child(2) .std")
+                                    .text().trim();
+                            String trailer = doc.select(".product_view_trailer iframe")
+                                    .attr("src").replace("embed/", "watch?v=")
+                                    .replace("//", "");
+                            String showDate = doc.select(".movie-release > div")
+                                    .text().trim();
+                            String audioType = doc.select(".movie-language > div")
+                                    .text().trim();
+                            movie.setActor(actor);
+                            movie.setDirector(director);
+                            movie.setGenre(genre);
+                            movie.setLength(length);
+                            movie.setDescription(description);
+                            movie.setTrailer(trailer);
+                            movie.setShowDate(showDate);
+                            movie.setAudioType(audioType);
+                            list.put(movie.getName(), movie);
+                        }
                     } else {
                         CrawlMovie m = list.get(movie.getName());
                         movie.setUrl(m.getUrl());

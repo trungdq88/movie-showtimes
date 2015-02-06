@@ -19,6 +19,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>db-lib</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>6.0</version>
@@ -28,6 +33,41 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.2.7</version>
+        </dependency>
+        <dependency>
+            <artifactId>FastInfoset</artifactId>
+            <groupId>com.sun.xml.fastinfoset</groupId>
+            <type>jar</type>
+            <version>1.2.12</version>
+        </dependency>
+        <dependency>
+            <artifactId>istack-commons-runtime</artifactId>
+            <groupId>com.sun.istack</groupId>
+            <type>jar</type>
+            <version>2.16</version>
+        </dependency>
+        <dependency>
+            <artifactId>jaxb-api</artifactId>
+            <groupId>javax.xml.bind</groupId>
+            <type>jar</type>
+            <version>2.2.7</version>
+        </dependency>
+        <dependency>
+            <artifactId>jaxb-core</artifactId>
+            <groupId>com.sun.xml.bind</groupId>
+            <type>jar</type>
+            <version>2.2.7</version>
+        </dependency>
+        <dependency>
+            <artifactId>jsr173_api</artifactId>
+            <groupId>javax.xml.bind</groupId>
+            <type>jar</type>
+            <version>1.0</version>
         </dependency>
     </dependencies>
 

@@ -6,15 +6,14 @@
 package com.fpt.xml.hth.crawler.services;
 
 import com.fpt.xml.hth.crawler.crawlentities.CrawlCinema;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
+import com.fpt.xml.hth.crawler.transformation.Transformation;
+import com.fpt.xml.hth.crawler.utils.MarshalUtil;
+import com.fpt.xml.hth.crawler.validation.ValidCinemaTrack;
+import com.fpt.xml.hth.db.lib.DAO.CinemaDAO;
+import com.fpt.xml.hth.db.lib.DAO.MovieDAO;
+import com.fpt.xml.hth.db.lib.DTO.CinemaDTO;
+import com.fpt.xml.hth.db.lib.DTO.MovieTheaterSessionDTO;
+import java.util.ArrayList;
 
 /**
  *
@@ -29,43 +28,56 @@ public class CrawlerManager {
         } else if (targets.length == 0) {
             targets = new String[]{"cgv"};
         }
+        ArrayList<CrawlCinema> crawlCinemas = new ArrayList<CrawlCinema>();
         for (String target : targets) {
 
             AbstractCrawler crawler = null;
-            try {
-                if (target.equals("cgv")) {
-                    crawler = new CGVCrawler();
-                } else if (target.equals("bhd")) {
-                    crawler = new BHDCrawler();
-                } else if (target.equals("galaxy")) {
-                    crawler = new GalaxyCrawler();
-                }
 
-                if (crawler == null) {
-                    System.out.println("Error: cinema code is not correct: " + target);
-                    break;
-                }
+            if (target.equals("cgv")) {
+                crawler = new CGVCrawler();
+            } else if (target.equals("bhd")) {
+                crawler = new BHDCrawler();
+            } else if (target.equals("galaxy")) {
+                crawler = new GalaxyCrawler();
+            }
 
-                System.out.println("Crawl: " + target);
+            if (crawler == null) {
+                System.out.println("Error: cinema code is not correct: " + target);
+                break;
+            }
 
-                crawler.start();
-                JAXBContext jaxbContext = JAXBContext.newInstance(CrawlCinema.class);
-                Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-                StringWriter sw = new StringWriter();
-                jaxbMarshaller.marshal(crawler.getCinema(), sw);
-                String xmlString = sw.toString();
+            System.out.println("Crawl: " + target);
 
-                PrintWriter writer = new PrintWriter("output_" + target + ".xml", "UTF-8");
-                writer.println(xmlString);
-                writer.close();
-
-            } catch (JAXBException ex) {
-                Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (UnsupportedEncodingException ex) {
-                Logger.getLogger(CrawlerManager.class.getName()).log(Level.SEVERE, null, ex);
+            crawler.start();
+            CrawlCinema crawlCinema = crawler.getCinema();
+            MarshalUtil.marshalXML(crawlCinema, target);
+            ValidCinemaTrack track = new ValidCinemaTrack(crawlCinema);
+            track.start();
+            track.log();
+            if (track.isValid()) {
+                crawlCinemas.add(crawlCinema);
+            } else {
+                System.out.println(crawlCinema.getName().toUpperCase() + " IS NOT VALID");
             }
         }
+        try {
+            Transformation trans = new Transformation();
+            trans.setCrawlCinemas(crawlCinemas);
+            trans.convertCrawlEntitiesToDTO();
+            CinemaDAO cinemaDAO = new CinemaDAO();
+            MovieDAO movieDAO = new MovieDAO();
+            for (CinemaDTO dto : trans.getCinemas()) {
+                cinemaDAO.insert(dto);
+            }
+            for (MovieTheaterSessionDTO movieDTO : trans.getMovies().values()) {
+                movieDAO.insert(movieDTO);
+            }
+            System.out.println("Import data success");
+        } catch (Exception e) {
+            System.out.println("Import data fail");
+            e.getMessage();
+            e.printStackTrace();
+        }
+
     }
 }
