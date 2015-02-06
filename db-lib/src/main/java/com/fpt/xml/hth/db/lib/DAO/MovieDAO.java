@@ -41,8 +41,7 @@ public class MovieDAO implements IMongoDAO<MovieTheaterSessionDTO> {
 
     private void connection() {
         try {
-            MongoCredential credential = MongoCredential.createMongoCRCredential
-        (Config.USER_NAME, Config.DATABASE_NAME, Config.PASS_WORD.toCharArray());
+            MongoCredential credential = MongoCredential.createMongoCRCredential(Config.USER_NAME, Config.DATABASE_NAME, Config.PASS_WORD.toCharArray());
             ServerAddress address = new ServerAddress(Config.getHost(), Config.getPort());
             List<MongoCredential> lst = new ArrayList<MongoCredential>();
             lst.add(credential);
@@ -125,13 +124,18 @@ public class MovieDAO implements IMongoDAO<MovieTheaterSessionDTO> {
         while (cursor.hasNext()) {
             BasicDBObject basic = (BasicDBObject) cursor.next();
             MovieTheaterSessionDTO movieDto = converter.convertBasicObjectToModel(basic);
-            // check name of city
-            List<TheaterSessionDTO> lstTheaterSession = movieDto.getTheaters();
-            for (int i = 0; i < lstTheaterSession.size(); i++) {
-                TheaterSessionDTO dto = lstTheaterSession.get(i);
-                // if not equal city, remove from theaters
-                if (!dto.getTheater().getCity().equals(city)) {
-                    movieDto.getTheaters().remove(dto);
+            if (city != null && !city.isEmpty()) {
+                // check name of city
+                List<TheaterSessionDTO> lstTheaterSession = movieDto.getTheaters();
+                int size = lstTheaterSession.size();
+                for (int i = 0; i < size; i++) {
+                    TheaterSessionDTO dto = lstTheaterSession.get(i);
+                    // if not equal city, remove from theaters
+                    if (!dto.getTheater().getCity().equals(city)) {
+                        movieDto.getTheaters().remove(dto);
+                        i--;
+                        size--;
+                    }
                 }
             }
             lst.add(movieDto);
