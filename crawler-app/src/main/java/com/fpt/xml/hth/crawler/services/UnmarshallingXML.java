@@ -10,9 +10,11 @@ import com.fpt.xml.hth.crawler.transformation.Transformation;
 import com.fpt.xml.hth.crawler.utils.MarshalUtil;
 import com.fpt.xml.hth.crawler.validation.ValidCinemaTrack;
 import com.fpt.xml.hth.db.lib.DAO.CinemaDAO;
+import com.fpt.xml.hth.db.lib.DAO.MovieDAO;
 import com.fpt.xml.hth.db.lib.DTO.CinemaDTO;
 import com.fpt.xml.hth.db.lib.DTO.MovieTheaterSessionDTO;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBContext;
@@ -45,12 +47,21 @@ public class UnmarshallingXML {
 //            Logger.getLogger(UnmarshallingXML.class.getName()).log(Level.SEVERE, null, ex);
 //        }
         CrawlCinema cinema = (CrawlCinema) MarshalUtil.unmarshalXML(new CrawlCinema(), "output_cgv.xml");
+        ArrayList<CrawlCinema> cinemas = new ArrayList<CrawlCinema>();
+        cinemas.add(cinema);
+        cinemas.add(cinema);
         Transformation trans = new Transformation();
-        trans.setCrawlCinema(cinema);
+        trans.setCrawlCinemas(cinemas);
         trans.convertCrawlEntitiesToDTO();
         //oMarshalUtil.marshalXML((MovieTheaterSessionDTO) trans.getMovies().values().toArray()[0], "dto");
-        CinemaDTO dto = trans.getCinema();
+        ArrayList<CinemaDTO> dtos = trans.getCinemas();
         CinemaDAO dao = new CinemaDAO();
-        dao.insert(dto);
+        for (CinemaDTO dto : dtos) {
+            dao.insert(dto);
+        }
+        MovieDAO movieDao = new MovieDAO();
+        for (MovieTheaterSessionDTO movie : trans.getMovies().values()) {
+            movieDao.insert(movie);
+        }
     }
 }

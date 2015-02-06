@@ -120,33 +120,58 @@ public class StringUtil {
     public static boolean validStringFormat(String str, String regex) {
         return str.matches(regex);
     }
-    
+
     /**
-     * Convert utf8 string to ascii string
-     * Ex: Nguyễn Ngọc Thanh Hải to Nguyen Ngoc Thanh Hai
+     * Convert utf8 string to ascii string Ex: Nguyễn Ngọc Thanh Hải to Nguyen
+     * Ngoc Thanh Hai
+     *
      * @param s
-     * @return 
+     * @return
      */
     public static String convertUTF8ToASCII(String s) {
         return java.text.Normalizer.normalize(s, java.text.Normalizer.Form.NFD)
                 .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
     }
-    
+
     /**
-     * Get day, month, year, hour, minute or second from a date or time string with a particular format.
+     * Get day, month, year, hour, minute or second from a date or time string
+     * with a particular format.
+     *
      * @param date
      * @param dateFormat
      * @param target d | m | y | h | m
-     * @return 
+     * @return
      */
-    public static String subDate(String date, String dateFormat, char target){
+    public static String subDate(String date, String dateFormat, char target) {
         String result = "";
-        for(int i = 0; i < dateFormat.length(); i++){
-            if(dateFormat.toCharArray()[i] == target){
+        for (int i = 0; i < dateFormat.length(); i++) {
+            if (dateFormat.toCharArray()[i] == target) {
                 result += date.toCharArray()[i];
             }
         }
         return result;
+    }
+
+    /**
+     * Compare 2 string ignore case and utf8
+     *
+     * @param str1
+     * @param str2
+     * @return
+     */
+    public static boolean compareString(String str1, String str2) {
+        str1 = convertUTF8ToASCII(str1).toLowerCase().replace(" ", "");
+        str2 = convertUTF8ToASCII(str2).toLowerCase().replace(" ", "");
+        return str1.equals(str2);
+    }
+
+    /**
+     * Create map string key
+     * @param str
+     * @return 
+     */
+    public static String createKey(String str) {
+        return convertUTF8ToASCII(str).toLowerCase().replace(" ", "");
     }
 
 }

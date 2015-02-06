@@ -10,8 +10,10 @@ import com.fpt.xml.hth.crawler.transformation.Transformation;
 import com.fpt.xml.hth.crawler.utils.MarshalUtil;
 import com.fpt.xml.hth.crawler.validation.ValidCinemaTrack;
 import com.fpt.xml.hth.db.lib.DAO.CinemaDAO;
+import com.fpt.xml.hth.db.lib.DAO.MovieDAO;
 import com.fpt.xml.hth.db.lib.DTO.CinemaDTO;
-
+import com.fpt.xml.hth.db.lib.DTO.MovieTheaterSessionDTO;
+import java.util.ArrayList;
 
 /**
  *
@@ -26,10 +28,11 @@ public class CrawlerManager {
         } else if (targets.length == 0) {
             targets = new String[]{"cgv"};
         }
+        ArrayList<CrawlCinema> crawlCinemas = new ArrayList<CrawlCinema>();
         for (String target : targets) {
 
             AbstractCrawler crawler = null;
-//            try {
+
             if (target.equals("cgv")) {
                 crawler = new CGVCrawler();
             } else if (target.equals("bhd")) {
@@ -51,15 +54,30 @@ public class CrawlerManager {
             ValidCinemaTrack track = new ValidCinemaTrack(crawlCinema);
             track.start();
             track.log();
-            if(track.isValid()){
-                Transformation trans = new Transformation();
-                trans.setCrawlCinema(crawlCinema);
-                CinemaDTO dto = trans.getCinema();
-                CinemaDAO dao = new CinemaDAO();
-                dao.insert(dto);
-            }else{
-                System.out.println("NOT VALID CINEMA");
+            if (track.isValid()) {
+                crawlCinemas.add(crawlCinema);
+            } else {
+                System.out.println(crawlCinema.getName().toUpperCase() + " IS NOT VALID");
             }
         }
+        try {
+            Transformation trans = new Transformation();
+            trans.setCrawlCinemas(crawlCinemas);
+            trans.convertCrawlEntitiesToDTO();
+            CinemaDAO cinemaDAO = new CinemaDAO();
+            MovieDAO movieDAO = new MovieDAO();
+            for (CinemaDTO dto : trans.getCinemas()) {
+                cinemaDAO.insert(dto);
+            }
+            for (MovieTheaterSessionDTO movieDTO : trans.getMovies().values()) {
+                movieDAO.insert(movieDTO);
+            }
+            System.out.println("Import data success");
+        } catch (Exception e) {
+            System.out.println("Import data fail");
+            e.getMessage();
+            e.printStackTrace();
+        }
+
     }
 }

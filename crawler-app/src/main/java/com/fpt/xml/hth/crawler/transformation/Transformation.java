@@ -29,30 +29,30 @@ import org.bson.types.ObjectId;
  */
 public class Transformation {
 
-    private CrawlCinema crawlCinema;
-    private CinemaDTO cinema;
+    private ArrayList<CrawlCinema> crawlCinemas;
+    private ArrayList<CinemaDTO> cinemas;
     private Map<String, MovieTheaterSessionDTO> movies;
 
     public Transformation() {
-        this.crawlCinema = new CrawlCinema();
-        this.cinema = new CinemaDTO();
+        this.crawlCinemas = new ArrayList<CrawlCinema>();
+        this.cinemas = new ArrayList<CinemaDTO>();
         this.movies = new HashMap<String, MovieTheaterSessionDTO>();
     }
 
-    public CrawlCinema getCrawlCinema() {
-        return crawlCinema;
+    public ArrayList<CrawlCinema> getCrawlCinemas() {
+        return crawlCinemas;
     }
 
-    public void setCrawlCinema(CrawlCinema crawlCinema) {
-        this.crawlCinema = crawlCinema;
+    public void setCrawlCinemas(ArrayList<CrawlCinema> crawlCinemas) {
+        this.crawlCinemas = crawlCinemas;
     }
 
-    public CinemaDTO getCinema() {
-        return cinema;
+    public ArrayList<CinemaDTO> getCinemas() {
+        return cinemas;
     }
 
-    public void setCinema(CinemaDTO cinema) {
-        this.cinema = cinema;
+    public void setCinemas(ArrayList<CinemaDTO> cinema) {
+        this.cinemas = cinema;
     }
 
     public Map<String, MovieTheaterSessionDTO> getMovies() {
@@ -62,73 +62,78 @@ public class Transformation {
     public void setMovies(Map<String, MovieTheaterSessionDTO> movies) {
         this.movies = movies;
     }
-    
+
     /**
      * Convert CrawlEntotoes to DTO Entities
      */
     public void convertCrawlEntitiesToDTO() {
-        cinema.setName(crawlCinema.getName());
-        cinema.setWebsite_link(crawlCinema.getWebUrl());
+        for (CrawlCinema crawlCinema : crawlCinemas) {
+            CinemaDTO cinema = new CinemaDTO();
+            cinema.setName(crawlCinema.getName());
+            cinema.setWebsite_link(crawlCinema.getWebUrl());
 
-        for (CrawlTheater crawlTheater : crawlCinema.getTheaters()) {
-            //Add theater for CinemaDTO
-            String id = ObjectId.get().toHexString();
-            TheaterDB theaterDB = new TheaterDB(
-                    id,
-                    crawlTheater.getName(),
-                    crawlTheater.getAddress(),
-                    crawlTheater.getDescription(),
-                    crawlTheater.getCity(),
-                    crawlTheater.getMapLink(),
-                    crawlTheater.getImage()
-            );
-            cinema.addTheater(theaterDB);
-            
-            for (CrawlMovie crawlMovie : crawlTheater.getMovies()) {
-                MovieDB movieDB = new MovieDB(
-                        crawlMovie.getName(),
-                        crawlMovie.getPoster(),
-                        crawlMovie.getDescription(),
-                        crawlMovie.getTrailer(),
-                        crawlMovie.getShowDate(),
-                        crawlMovie.getLength(),
-                        crawlMovie.getGenre(),
-                        crawlMovie.getDirector(),
-                        crawlMovie.getActor(),
-                        crawlMovie.getAgeRestriction(),
-                        crawlMovie.getAudioType(),
-                        crawlMovie.getVideoType()
+            for (CrawlTheater crawlTheater : crawlCinema.getTheaters()) {
+                //Add theater for CinemaDTO
+                String id = ObjectId.get().toHexString();
+                TheaterDB theaterDB = new TheaterDB(
+                        id,
+                        crawlTheater.getName(),
+                        crawlTheater.getAddress(),
+                        crawlTheater.getDescription(),
+                        crawlTheater.getCity(),
+                        crawlTheater.getMapLink(),
+                        crawlTheater.getImage()
                 );
-                
-                //Add theater for exist movie
-                if (movies.containsKey(crawlMovie.getName())) {
-                    TheaterSessionDTO theater = new TheaterSessionDTO();
-                    theater.setId(id);
-                    theater.setTheater(theaterDB);
-                    theater.setCinemaName(cinema.getName());
-                    theater.setLstSession(buildSessions(crawlMovie.getDates()));
-                    movies.get(crawlMovie.getName()).addTheater(theater);
-                } else {
-                    //Add new movie
-                    MovieTheaterSessionDTO movie = new MovieTheaterSessionDTO();
-                    movie.setMovie(movieDB);
-                    TheaterSessionDTO theater = new TheaterSessionDTO();
-                    theater.setId(id);
-                    theater.setTheater(theaterDB);
-                    theater.setCinemaName(cinema.getName());
-                    theater.setLstSession(buildSessions(crawlMovie.getDates()));
-                    movie.addTheater(theater);
-                    movies.put(crawlMovie.getName(), movie);
+                cinema.addTheater(theaterDB);
+
+                for (CrawlMovie crawlMovie : crawlTheater.getMovies()) {
+                    MovieDB movieDB = new MovieDB(
+                            crawlMovie.getName(),
+                            crawlMovie.getPoster(),
+                            crawlMovie.getDescription(),
+                            crawlMovie.getTrailer(),
+                            crawlMovie.getShowDate(),
+                            crawlMovie.getLength(),
+                            crawlMovie.getGenre(),
+                            crawlMovie.getDirector(),
+                            crawlMovie.getActor(),
+                            crawlMovie.getAgeRestriction(),
+                            crawlMovie.getAudioType(),
+                            crawlMovie.getVideoType()
+                    );
+
+                    //Add theater for exist movie
+                    if (movies.containsKey(StringUtil.createKey(crawlMovie.getName()))) {
+                        TheaterSessionDTO theater = new TheaterSessionDTO();
+                        theater.setId(id);
+                        theater.setTheater(theaterDB);
+                        theater.setCinemaName(cinema.getName());
+                        theater.setLstSession(buildSessions(crawlMovie.getDates()));
+                        movies.get(StringUtil.createKey(crawlMovie.getName()))
+                                .addTheater(theater);
+                    } else {
+                        //Add new movie
+                        MovieTheaterSessionDTO movie = new MovieTheaterSessionDTO();
+                        movie.setMovie(movieDB);
+                        TheaterSessionDTO theater = new TheaterSessionDTO();
+                        theater.setId(id);
+                        theater.setTheater(theaterDB);
+                        theater.setCinemaName(cinema.getName());
+                        theater.setLstSession(buildSessions(crawlMovie.getDates()));
+                        movie.addTheater(theater);
+                        movies.put(StringUtil.createKey(crawlMovie.getName()), movie);
+                    }
                 }
             }
+            cinemas.add(cinema);
         }
-
     }
 
     /**
      * Build list sessions from list crawlDates
+     *
      * @param crawlDates
-     * @return 
+     * @return
      */
     private ArrayList<String> buildSessions(ArrayList<CrawlDate> crawlDates) {
         ArrayList<String> sessions = new ArrayList<String>();
