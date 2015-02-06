@@ -16,7 +16,7 @@ and open the template in the editor.
 
     <xs:simpleType name="youtube-url">
         <xs:restriction base="xs:string">
-            <xs:pattern value="(https://)?(www\.youtube\.com/watch\?v).*" />
+            <xs:pattern value="^.*?youtube\.com.*?$" />
         </xs:restriction>
     </xs:simpleType>
 
