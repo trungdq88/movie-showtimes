@@ -32,6 +32,7 @@ public class GetCitiesServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.addHeader("Access-Control-Allow-Origin", "*");
         response.setContentType("text/xml;charset=UTF-8");
         PrintWriter out = response.getWriter();
         CinemaDAO dao = new CinemaDAO();
