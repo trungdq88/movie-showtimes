@@ -14,12 +14,8 @@ import com.fpt.xml.hth.crawler.utils.JsoupConnect;
 import com.fpt.xml.hth.crawler.utils.StringUtil;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -28,10 +24,10 @@ import org.jsoup.select.Elements;
  *
  * @author Administrator
  */
-public class BHDCrawler {
+public class BHDCrawler extends AbstractCrawler {
 
     private String url;
-    private CrawlCinema cinema = new CrawlCinema();
+    private CrawlCinema cinema = new CrawlCinema("BHD Cineplex", "http://bhdstar.vn/");
     ArrayList<CrawlMovie> cmovies = new ArrayList<CrawlMovie>();
 
     public String getUrl() {
@@ -62,7 +58,7 @@ public class BHDCrawler {
     private void crawlTheater() {
         System.out.println("crawlTheaterBegin");
         try {
-            url = "http://bhdstar.vn/vn/movie-booking/ajax-response?mode=ajax"
+            url = cinema.getWebUrl() + "vn/movie-booking/ajax-response?mode=ajax"
                     + "&type=cinema&reponse_type=option_tag&opt_chain=cinema"
                     + "&opt_tech=*&opt_cinema=101&opt_movie=*&opt_time=*&opt_date=*";
 //            doc = Jsoup.parse(new URL(url).openStream(), "UTF-8", url);
@@ -91,14 +87,14 @@ public class BHDCrawler {
     private void crawlTheaterInfo() {
         System.out.println("crawlTheaterInfoBegin");
         try {
-            url = "http://bhdstar.vn/vn/content/tat-ca-rap-4184";
+            url = cinema.getWebUrl() + "vn/content/tat-ca-rap-4184";
             Document doc = JsoupConnect.getHTML(url);
             Elements elements = doc.select("#news-list > div");
             for (Element element : elements) {
                 String name = element.select(".blackbox h2").text();
                 String address = element.select(".blackbox .right").get(0).text();
                 String city = "Hồ Chí Minh";
-                String image = "http://bhdstar.vn"
+                String image = cinema.getWebUrl()
                         + element.select(".main-image").attr("src");
                 for (CrawlTheater theater : cinema.getTheaters()) {
                     if (theater.getName().equals(name)) {
@@ -127,7 +123,7 @@ public class BHDCrawler {
         crawlMovie();
         ArrayList<CrawlMovie> movies = new ArrayList<CrawlMovie>();
         try {
-            String url = "http://bhdstar.vn/vn/movie-booking/ajax-response?mode=ajax"
+            String url = cinema.getWebUrl() + "vn/movie-booking/ajax-response?mode=ajax"
                     + "&type=movie&reponse_type=option_tag&opt_chain=cinema"
                     + "&opt_tech=*&opt_cinema=" + theaterId
                     + "&opt_movie=*&opt_time=*&opt_date=*";
@@ -162,7 +158,7 @@ public class BHDCrawler {
     private void crawlMovie() {
         System.out.println("crawlMovieBegin");
         try {
-            String url = "http://bhdstar.vn/vn/movie/browse/dang-chieu-4200";
+            String url = cinema.getWebUrl() + "vn/movie/browse/dang-chieu-4200";
             Document doc = JsoupConnect.getHTML(url);
             Elements elements = doc.select("#movie-browse > div");
             for (Element element : elements) {
@@ -180,7 +176,7 @@ public class BHDCrawler {
                 String ageRestriction = "";
                 String audioType = "";
 
-                poster = "http://bhdstar.vn"
+                poster = cinema.getWebUrl()
                         + element.select("div > a img").attr("src");
                 name = element.select(".title a").text();
                 videoType
@@ -196,7 +192,7 @@ public class BHDCrawler {
 
                 id = element.select(".title a").attr("href");
                 id = id.substring(id.length() - 5);
-                String url2 = "http://bhdstar.vn/vn/movie/movie-detail-popup?item_id=";
+                String url2 = cinema.getWebUrl() + "vn/movie/movie-detail-popup?item_id=";
                 Document doc2 = JsoupConnect.getHTML(url2 + id);
                 trailer = doc2.select(".video-container iframe").attr("src")
                         .replace("embed/", "watch?v=").replace("//", "");
@@ -236,7 +232,7 @@ public class BHDCrawler {
         System.out.println("crawlDateBegin");
         ArrayList<CrawlDate> dates = new ArrayList<CrawlDate>();
         try {
-            String url = "http://bhdstar.vn/vn/movie-booking/ajax-response?"
+            String url = cinema.getWebUrl() + "vn/movie-booking/ajax-response?"
                     + "mode=ajax&type=date&reponse_type=option_tag&"
                     + "opt_chain=cinema&opt_tech=*&opt_cinema=" + theaterId
                     + "&opt_movie=" + movieId + "&opt_time=*&opt_date=*";
@@ -272,7 +268,7 @@ public class BHDCrawler {
         System.out.println("crawlTimeBegin");
         ArrayList<CrawlTime> times = new ArrayList<CrawlTime>();
         try {
-            String url = "http://bhdstar.vn/vn/movie-booking/ajax-response?"
+            String url = cinema.getWebUrl() + "vn/movie-booking/ajax-response?"
                     + "mode=ajax&type=time&reponse_type=option_tag&"
                     + "opt_chain=cinema&opt_tech=*&opt_cinema=" + theaterId
                     + "&opt_movie=" + movieId + "&opt_time=*&opt_date=" + dateId;

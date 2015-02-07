@@ -36,8 +36,5 @@ public class Cinema {
     public void setWebUrl(String webUrl) {
         this.webUrl = webUrl;
     }
-    
-    
-    
-    
+   
 }

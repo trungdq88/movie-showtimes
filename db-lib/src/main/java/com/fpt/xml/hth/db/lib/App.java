@@ -2,12 +2,7 @@ package com.fpt.xml.hth.db.lib;
 
 import com.fpt.xml.hth.db.lib.DAO.MovieDAO;
 import com.fpt.xml.hth.db.lib.DTO.MovieTheaterSessionDTO;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 
 /**
  * Hello world!
@@ -17,14 +12,19 @@ public class App {
 
     public static void main(String[] args) {
         //test select
-//        CinemaDAO dao = new CinemaDAO();
+        //CinemaDAO dao = new CinemaDAO();
 //        DBCursor cursor = dao.getDBCollection().find();
 //        while (cursor.hasNext()) {
 //            DBObject obj = cursor.next();
-//            Cinema model = dao.readItem(obj);
+//            CinemaDTO model = dao.readItem(obj);
 //            System.out.println("Model: " + model.getName());
 //            System.out.println("theater: " + model.getLstTheater().get(0).getDescription());
 //        }
+//        List<CinemaDTO> lst = dao.getAll();
+//        if (lst.size() >0 ) {
+//            System.out.println("success");
+//        }
+
 //        //test insert
 //         CinemaDAO dao = new CinemaDAO();
 //        DBCursor cursor = dao.getDBCollection().find();
@@ -53,13 +53,10 @@ public class App {
 //        CinemaDTO model = dao.readItem(obj);
 //        dao.delete(model);
 //         System.out.println("delete");
-        //test select Movie
-            MovieDAO dao = new MovieDAO();
-            DBCursor cursor = dao.getDBCollection().find();
-            DBObject obj = cursor.next();
-            MovieTheaterSessionDTO model = dao.readItem(obj);
-            System.out.println("Model: tiếng việt" + model.getMovie().getName());
-            System.out.println("theater: " + model.getTheaters().get(0).getTheater().getName());
+        //test select MovieDB
+//            MovieDAO dao = new MovieDAO();
+//           List<MovieTheaterSessionDTO> lst = dao.getAll();
+//            System.out.println("Model: tiếng việt" + lst.get(0).getMovie().getName());
 //            //test insert movie
 //            MovieDAO dao = new MovieDAO();
 //            DBCursor cursor = dao.getDBCollection().find();
@@ -69,7 +66,7 @@ public class App {
 //            model1.setId(null);
 //            dao.insert(model1);
 //            System.out.println("insert");
-      //test update Movie
+        //test update MovieDB
 //        MovieDAO dao = new MovieDAO();
 //        DBCursor cursor = dao.getDBCollection().find();
 //        DBObject obj = cursor.next();
@@ -77,12 +74,37 @@ public class App {
 //        MovieTheaterSessionDTO newObj = new MovieTheaterSessionDTO(model);
 //        newObj.getMovie().setName("THUHOA");
 //        dao.update(model, newObj);
-           //test delete Movie
+        //test delete MovieDB
 //        MovieDAO dao = new MovieDAO();
 //        DBCursor cursor = dao.getDBCollection().find();
 //        DBObject obj = cursor.next();
 //        MovieTheaterSessionDTO model = dao.readItem(obj);
 //        dao.delete(model);
+//        MongoClient mongoClient;
+//        DB cinemaDB;
+//        DBCollection movieCollection;
+//        try {
+//            mongoClient = new MongoClient("localhost", 27017);
+//            cinemaDB = mongoClient.getDB("MOVIE");
+//            movieCollection = cinemaDB.getCollection("Cinema");
+//            if (movieCollection != null) {
+//                System.out.println("success");
+//            }
+//        } catch (UnknownHostException ex) {
+//            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        // test select City
+//        CinemaDAO dao = new CinemaDAO();
+//        Set<String> lst = dao.getCities();
+//        Iterator<String> iter = lst.iterator();
+//        while (iter.hasNext()) {
+//            System.out.println("cities:" + iter.next());
+//        }
+        //test select MovieDB
+        MovieDAO dao = new MovieDAO();
+        String city = "HCM";
+        List<MovieTheaterSessionDTO> lst = dao.getAllByCity(city);
+        System.out.println("Model:" + lst.size());
 
     }
 }

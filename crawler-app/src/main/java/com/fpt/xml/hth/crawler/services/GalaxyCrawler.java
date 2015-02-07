@@ -24,10 +24,10 @@ import org.jsoup.select.Elements;
  *
  * @author dinhquangtrung
  */
-public class GalaxyCrawler {
+public class GalaxyCrawler extends AbstractCrawler {
 
     private String url;
-    private CrawlCinema cinema = new CrawlCinema();
+    private CrawlCinema cinema = new CrawlCinema("Galaxy Cinema", "https://www.galaxycine.vn");
     private String DEFAULT_CITY = "Hồ Chí Minh";
     private String HOST = "https://www.galaxycine.vn";
 
@@ -97,12 +97,18 @@ public class GalaxyCrawler {
 //            System.out.println("Address: " + obj.getString("address") + " " + obj.getString("tel"));
 //            System.out.println("Image: " + "https://www.galaxycine.vn" + obj.getString("media"));
 //            System.out.println("Map: " + "https://www.galaxycine.vn" + obj.getString("gmap"));
-            if (!obj.isNull("address")) theater.setAddress(obj.getString("address"));
+            if (!obj.isNull("address")) {
+                theater.setAddress(obj.getString("address"));
+            }
             theater.setCity(DEFAULT_CITY);
             theater.setDescription("");
 
-            if (!obj.isNull("media")) theater.setImage(HOST + obj.getString("media"));
-            if (!obj.isNull("gmap")) theater.setMapLink(HOST + obj.getString("gmap"));
+            if (!obj.isNull("media")) {
+                theater.setImage(HOST + obj.getString("media"));
+            }
+            if (!obj.isNull("gmap")) {
+                theater.setMapLink(HOST + obj.getString("gmap"));
+            }
         } else {
             System.out.println("Something wrong, result have no script tag");
         }
@@ -149,10 +155,10 @@ public class GalaxyCrawler {
                 names.add(movie.getName());
             } else {
                 CrawlMovie foundMovie = movies.get(found);
-                foundMovie.setName(foundMovie.getName() +
-                        (foundMovie.getVideoType() == null ? "" : " " + foundMovie.getVideoType()));
-                movie.setName(movie.getName() +
-                        (movie.getVideoType() == null ? "" : " " + movie.getVideoType()));
+                foundMovie.setName(foundMovie.getName()
+                        + (foundMovie.getVideoType() == null ? "" : " " + foundMovie.getVideoType()));
+                movie.setName(movie.getName()
+                        + (movie.getVideoType() == null ? "" : " " + movie.getVideoType()));
             }
         }
     }
@@ -189,7 +195,10 @@ public class GalaxyCrawler {
                     for (int index = 0; index < dates.size(); index++) {
                         CrawlDate date = new CrawlDate();
                         ArrayList<CrawlTime> _times = new ArrayList<CrawlTime>();
-                        date.setDate(dates.get(index).text()); // TODO: need to format the date before setDate
+                        String tmpDate = StringUtil.getFirstMatch(
+                                "(\\d{2}-\\d{2}-\\d{4})", dates.get(index).text());
+                        date.setDate(StringUtil
+                                .formatDate(tmpDate, "dd-mm-yyyy", "yyyy-mm-dd"));
 
                         // Get times
                         Elements times = showTime.select(".showtime-items").get(index).select(".item");

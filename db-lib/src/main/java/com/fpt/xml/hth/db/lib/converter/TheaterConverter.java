@@ -4,24 +4,22 @@
  */
 package com.fpt.xml.hth.db.lib.converter;
 
-import com.fpt.xml.hth.db.lib.entities.Theater;
+import com.fpt.xml.hth.db.lib.entities.TheaterDB;
 import com.mongodb.BasicDBObject;
 
 /**
  *
  * @author Thu Hoa
  */
-public class TheaterConverter implements IModelConverter<Theater> {
+public class TheaterConverter implements IModelConverter<TheaterDB> {
 
     /**
-     * To convert from BasicDBObject object to Theater object
+     * To convert from BasicDBObject object to TheaterDB object
      *
      * @param object
-     * @return Theater
+     * @return TheaterDB
      */
-    public Theater convertBasicObjectToModel(BasicDBObject object) {
-        // mongod not generated ObjectID for Theater
-        // ObjectId id = object.getObjectId("_id");
+    public TheaterDB convertBasicObjectToModel(BasicDBObject object) {
         String name = object.getString("name");
         String address = object.getString("address");
         String description = object.getString("description");
@@ -29,7 +27,7 @@ public class TheaterConverter implements IModelConverter<Theater> {
         String map_link = object.getString("map_link");
         String image = object.getString("image");
         //set values for theater
-        Theater theater = new Theater();
+        TheaterDB theater = new TheaterDB();
         // theater.setId(id);
         theater.setName(name);
         theater.setAddress(address);
@@ -41,13 +39,13 @@ public class TheaterConverter implements IModelConverter<Theater> {
     }
 
     /**
-     * To convert from Theater object to BasicDBObject object
+     * To convert from TheaterDB object to BasicDBObject object
      *
      * @param model
      * @return BasicDBObject
      */
-    public BasicDBObject convertModelToBasicObject(Theater model) {
-        // mongod not generated ObjectID for Theater
+    public BasicDBObject convertModelToBasicObject(TheaterDB model) {
+        // mongod not generated ObjectID for TheaterDB
 //        ObjectId id = model.getId();
         String name = model.getName();
         String address = model.getAddress();

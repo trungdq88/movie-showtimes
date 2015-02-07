@@ -5,6 +5,7 @@
  */
 package com.fpt.xml.hth.crawler.crawlentities;
 
+import com.fpt.xml.hth.crawler.utils.StringUtil;
 import java.util.ArrayList;
 
 /**
@@ -17,11 +18,15 @@ public class CrawlTime {
     private String time;
 
     public CrawlTime() {
+        this.id = "";
+        this.time = "";
     }
+
     public CrawlTime(String id, String time) {
         this.id = id;
         this.time = time;
     }
+
     public String getId() {
         return id;
     }
@@ -37,13 +42,21 @@ public class CrawlTime {
     public void setTime(String time) {
         this.time = time;
     }
-    
-    public static ArrayList<CrawlTime> getList(ArrayList<String> times){
+
+    public static ArrayList<CrawlTime> getList(ArrayList<String> times) {
         ArrayList<CrawlTime> ctimes = new ArrayList<CrawlTime>();
-        for(String item:times){
-        CrawlTime time = new CrawlTime("", item);
-        ctimes.add(time);
+        for (String item : times) {
+            CrawlTime time = new CrawlTime("", item);
+            ctimes.add(time);
         }
         return ctimes;
-    } 
+    }
+
+    public boolean isValid() {
+        if (!StringUtil.validStringFormat(time, StringUtil.REGEX_TIME)) {
+            System.out.println("Invalid time: " + time + "\n");
+            return false;
+        }
+        return true;
+    }
 }

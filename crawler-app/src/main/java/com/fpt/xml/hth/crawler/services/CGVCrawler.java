@@ -11,28 +11,29 @@ import com.fpt.xml.hth.crawler.crawlentities.CrawlMovie;
 import com.fpt.xml.hth.crawler.crawlentities.CrawlTheater;
 import com.fpt.xml.hth.crawler.crawlentities.CrawlTime;
 import com.fpt.xml.hth.crawler.utils.JsoupConnect;
-import com.fpt.xml.hth.crawler.utils.ListUtil;
+import com.fpt.xml.hth.crawler.utils.ProvineUtil;
 import com.fpt.xml.hth.crawler.utils.StringUtil;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.JSONObject;
 import org.jsoup.HttpStatusException;
 import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 
 /**
  *
  * @author Administrator
  */
-public class CGVCrawler {
+public class CGVCrawler extends AbstractCrawler {
 
     private String url;
-    private CrawlCinema cinema = new CrawlCinema();
-//    private JSONObject objJSON = new JSONObject();
+    private CrawlCinema cinema = new CrawlCinema("CGV Cinema", "https://www.cgv.vn/");
     private ArrayList<CrawlMovie> cmovies = new ArrayList<CrawlMovie>();
+    private static final String formKey = "E6lFkGb374KeiuwG";
 
     public CGVCrawler() {
     }
@@ -80,15 +81,18 @@ public class CGVCrawler {
         for (int i = 1; i < 24; i++) {
             System.out.println("crawlTheater" + i);
             try {
-                JSONObject objJSON = JsoupConnect.getJSON("https://www.cgv.vn/vn/theaters/cinema/ajaxview/id/" + i + "?form_key=1htcwNFhJGmxZ3BT");
+                JSONObject objJSON = JsoupConnect.getJSON(cinema.getWebUrl() + "vn/theaters/cinema/ajaxview/id/" + i + "?form_key=" + formKey);
                 JSONObject jsonTheater = objJSON.getJSONObject("content");
 
                 String id = jsonTheater.optString("theater_id");
                 String name = jsonTheater.optString("title");
                 String address = jsonTheater.optString("address");
-                String city = jsonTheater.optString("city");
+                String tmpCity = StringUtil
+                        .convertUTF8ToASCII(jsonTheater.optString("city"))
+                        .replace(" ", "").toLowerCase();
+                String city = ProvineUtil.mapping.get(tmpCity);
 //                String description = jsonTheater.optString("description");
-                String image = "https://www.cgv.vn/media/cinema"
+                String image = cinema.getWebUrl() + "media/cinema"
                         + jsonTheater.getJSONArray("image")
                         .getJSONObject(0).optString("file");
                 String map = jsonTheater.optString("map");
@@ -111,7 +115,7 @@ public class CGVCrawler {
      */
     private ArrayList<CrawlMovie> crawlMovie(JSONObject objJSON) {
         System.out.println("crawlMovieBegin");
-        ArrayList<CrawlMovie> movies = new ArrayList<CrawlMovie>();
+        Map<String, CrawlMovie> movies = new HashMap<String, CrawlMovie>();
         for (String date : JSONObject.getNames(objJSON)) {
             JSONObject objDate = objJSON.getJSONObject(date);
             for (String name : JSONObject.getNames(objDate)) {
@@ -124,10 +128,10 @@ public class CGVCrawler {
                 JSONObject objTime = objMovie.getJSONObject("session");
                 for (String type : JSONObject.getNames(objTime)) {
                     JSONObject objType = objTime.getJSONObject(type);
-                    ArrayList<String> times = new ArrayList<String>(Arrays.asList(JSONObject.getNames(objType)));
-                    int index = ListUtil.indexOfItem(movies, name);
-                    if (ListUtil.indexOfItem(movies, name) != -1) {
-                        CrawlMovie movie = movies.get(index);
+                    ArrayList<String> times = new ArrayList<String>(
+                            Arrays.asList(JSONObject.getNames(objType)));
+                    if (movies.containsKey(name)) {
+                        CrawlMovie movie = movies.get(name);
                         movie.setPoster(image);
                         movie.setUrl(url);
                         movie.setAgeRestriction(age);
@@ -145,19 +149,19 @@ public class CGVCrawler {
                         CrawlDate cdate = new CrawlDate("", date);
                         cdate.setTimes(CrawlTime.getList(times));
                         movie.addDate(cdate);
-                        movies.add(movie);
+                        movies.put(name, movie);
                     }
                 }
 
             }
         }
         System.out.println("crawlMovieEnd");
-        return movies;
+        return new ArrayList<CrawlMovie>(movies.values());
     }
 
     private void crawlMovieInfo() {
         System.out.println("crawlMovieInfoBegin");
-        ArrayList<CrawlMovie> list = new ArrayList<CrawlMovie>();
+        Map<String, CrawlMovie> list = new HashMap<String, CrawlMovie>();
         int j = 0;
         try {
             for (CrawlTheater theater : cinema.getTheaters()) {
@@ -168,48 +172,52 @@ public class CGVCrawler {
                 for (CrawlMovie movie : theater.getMovies()) {
                     ++i;
                     System.out.println("crawlMovieInfo" + i);
-                    int index = ListUtil.indexOfItem(list, movie.getName());
-
-                    if (index == -1) {
-                        list.add(movie);
+                    if (!list.containsKey(movie.getName())) {
                         String url = movie.getUrl();
-                        Document doc;
+                        Document doc = null;
                         try {
                             doc = JsoupConnect.getHTML(url);
                         } catch (HttpStatusException e) {
-                            url = StringUtil.makeCGVMovieUrl(url);
-                            doc = JsoupConnect.getHTML(url);
+                            try {
+                                url = StringUtil.makeCGVMovieUrl(url);
+                                doc = JsoupConnect.getHTML(url);
+                            } catch (HttpStatusException exs) {
+                                doc = null;
+                            }
                         }
-                        ++r;
-                        System.out.println("request" + r);
-                        String director = doc.select(".movie-director > div")
-                                .text().trim();
-                        String actor = doc.select(".movie-actress > div")
-                                .first().text().trim();
-                        String genre = doc.select(".movie-genre > div")
-                                .text().trim();
-                        String length = doc.select(".movie-actress > div")
-                                .last().text().replaceAll("\\D", "").trim();
-                        String description
-                                = doc.select("#collateral-tabs dd:nth-child(2) .std")
-                                .text().trim();
-                        String trailer = doc.select(".product_view_trailer iframe")
-                                .attr("src").replace("embed/", "watch?v=")
-                                .replace("//", "");
-                        String showDate = doc.select(".movie-release > div")
-                                .text().trim();
-                        String audioType = doc.select(".movie-language > div")
-                                .text().trim();
-                        movie.setActor(actor);
-                        movie.setDirector(director);
-                        movie.setGenre(genre);
-                        movie.setLength(length);
-                        movie.setDescription(description);
-                        movie.setTrailer(trailer);
-                        movie.setShowDate(showDate);
-                        movie.setAudioType(audioType);
+                        if (doc != null) {
+                            ++r;
+                            System.out.println("request" + r);
+                            String director = doc.select(".movie-director > div")
+                                    .text().trim();
+                            String actor = doc.select(".movie-actress > div")
+                                    .first().text().trim();
+                            String genre = doc.select(".movie-genre > div")
+                                    .text().trim();
+                            String length = doc.select(".movie-actress > div")
+                                    .last().text().replaceAll("\\D", "").trim();
+                            String description
+                                    = doc.select("#collateral-tabs dd:nth-child(2) .std")
+                                    .text().trim();
+                            String trailer = doc.select(".product_view_trailer iframe")
+                                    .attr("src").replace("embed/", "watch?v=")
+                                    .replace("//", "");
+                            String showDate = doc.select(".movie-release > div")
+                                    .text().trim();
+                            String audioType = doc.select(".movie-language > div")
+                                    .text().trim();
+                            movie.setActor(actor);
+                            movie.setDirector(director);
+                            movie.setGenre(genre);
+                            movie.setLength(length);
+                            movie.setDescription(description);
+                            movie.setTrailer(trailer);
+                            movie.setShowDate(showDate);
+                            movie.setAudioType(audioType);
+                            list.put(movie.getName(), movie);
+                        }
                     } else {
-                        CrawlMovie m = list.get(index);
+                        CrawlMovie m = list.get(movie.getName());
                         movie.setUrl(m.getUrl());
                         movie.setActor(m.getActor());
                         movie.setDirector(m.getDirector());
