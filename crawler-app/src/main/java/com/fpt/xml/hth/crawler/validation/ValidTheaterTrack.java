@@ -7,7 +7,6 @@ package com.fpt.xml.hth.crawler.validation;
 
 import com.fpt.xml.hth.crawler.crawlentities.CrawlMovie;
 import com.fpt.xml.hth.crawler.crawlentities.CrawlTheater;
-import com.fpt.xml.hth.crawler.utils.ListUtil;
 import java.util.ArrayList;
 
 /**
@@ -54,10 +53,11 @@ public class ValidTheaterTrack extends ValidTrack<CrawlTheater, ValidMovieTrack>
             message += str;
             message += invalidNum + " movies are not valid \n";
             System.out.println(message);
-            for (ValidMovieTrack track : tracks) {
-                track.log();
-            }
         }
+        for (ValidMovieTrack track : tracks) {
+            track.log();
+        }
+
     }
 
     @Override

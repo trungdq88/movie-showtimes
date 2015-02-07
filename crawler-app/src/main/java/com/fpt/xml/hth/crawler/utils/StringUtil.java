@@ -5,6 +5,11 @@
  */
 package com.fpt.xml.hth.crawler.utils;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.SimpleTimeZone;
+import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -41,7 +46,13 @@ public class StringUtil {
 //        System.out.println(convertUTF8ToASCII("a á â ư w i ụ ạ ý ù ì ơ ợ ứ ữ"));
 //        System.out.println(convertUTF8ToASCII("     "));
 //        System.out.println(convertUTF8ToASCII("  ;'';';';;/.,.,[[]]{{}}{()(_=-=_+_+```~~~\\\\////||||   "));
-        System.out.println(subDate("2015-02-13", "yyyy-mm-dd", 'y'));
+//        System.out.println(Integer.parseInt(subDate("2015-02-7", "yyyy-mm-dd", 'd')));
+        Calendar _date = new GregorianCalendar(2015, 1, 7, 9, 0);
+        System.out.println(_date.getTimeInMillis());
+//        Date date = _date.getTime();
+//        TimeZone zone = new SimpleTimeZone(7 * 60 * 60 * 1000, "GMT+7");
+//        _date.setTimeZone(zone);
+        System.out.println(_date.getTime());
     }
 
     /**
@@ -143,13 +154,18 @@ public class StringUtil {
      * @return
      */
     public static String subDate(String date, String dateFormat, char target) {
-        String result = "";
-        for (int i = 0; i < dateFormat.length(); i++) {
-            if (dateFormat.toCharArray()[i] == target) {
-                result += date.toCharArray()[i];
+        try {
+
+            String result = "";
+            for (int i = 0; i < dateFormat.length(); i++) {
+                if (dateFormat.toCharArray()[i] == target) {
+                    result += date.toCharArray()[i];
+                }
             }
+            return result;
+        } catch (Exception e) {
+            return "0";
         }
-        return result;
     }
 
     /**
@@ -167,8 +183,9 @@ public class StringUtil {
 
     /**
      * Create map string key
+     *
      * @param str
-     * @return 
+     * @return
      */
     public static String createKey(String str) {
         return convertUTF8ToASCII(str).toLowerCase().replace(" ", "");

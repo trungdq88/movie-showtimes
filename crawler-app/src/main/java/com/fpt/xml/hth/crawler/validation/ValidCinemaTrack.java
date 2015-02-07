@@ -49,15 +49,33 @@ public class ValidCinemaTrack extends ValidTrack<CrawlCinema, ValidTheaterTrack>
         for (ValidTheaterTrack track : tracks) {
             track.log();
         }
-        System.out.println(invalidTheaters + "/" + theaters + " thaaters invalid.\n");
+        System.out.println(invalidTheaters + "/" + theaters + " theaters invalid.\n");
         System.out.println(invalidMovies.size() + "/" + movies.size() + " movies invalid.\n");
         System.out.println(invalidDates + "/" + dates + " dates invalid.\n");
         System.out.println(invalidTimes + "/" + times + " times invalid.\n");
+        System.out.println(computeValid() + "");
     }
 
     @Override
     protected boolean isValidData() {
         return StringUtil.notEmpty(element.getName());
+    }
+    
+    /**
+     * Check valid with percents of invalid data
+     * 
+     * @return invalid with any 30% of theater or movie or date or time
+     */
+    private boolean computeValid() {
+        try {
+            int theater = invalidCinemas * 100 / theaters;
+            int movie = invalidMovies.size() * 100 / movies.size();
+            int date = invalidDates * 100 / dates;
+            int time = invalidTimes * 100 / times;
+            return theater <= 30 && movie <= 30 && date <= 30 && time <= 30;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }

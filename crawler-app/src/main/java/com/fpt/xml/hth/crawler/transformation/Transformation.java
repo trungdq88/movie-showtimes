@@ -140,7 +140,8 @@ public class Transformation {
         try {
             for (CrawlDate crawlDate : crawlDates) {
                 int year = Integer.parseInt(StringUtil.subDate(crawlDate.getDate(), "yyyy-mm-dd", 'y'));
-                int month = Integer.parseInt(StringUtil.subDate(crawlDate.getDate(), "yyyy-mm-dd", 'm'));
+                int month = Integer.parseInt(StringUtil.subDate(crawlDate.getDate(), "yyyy-mm-dd", 'm')) - 1;
+
                 int dayOfMonth = Integer.parseInt(StringUtil.subDate(crawlDate.getDate(), "yyyy-mm-dd", 'd'));
                 for (CrawlTime crawlTime : crawlDate.getTimes()) {
                     int hourOfDay = Integer.parseInt(StringUtil.subDate(crawlTime.getTime(), "hh:mm", 'h'));
