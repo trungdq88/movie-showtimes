@@ -1,9 +1,8 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output encoding="UTF-8" />
-    <xsl:param name="theaterId"/>
     <xsl:template match="/">
         <div id="movie-list">       
-            <xsl:for-each select="//movie[sessions[session[theater[id=$theaterId]]]]">
+            <xsl:for-each select="//movie">
                 <div class="movie" data-name="{id}" tabindex="0">
                     <a href="?movie={id}">
                         <img class="movie-poster" src="{poster}" />

@@ -29,20 +29,18 @@ public class HomeServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         boolean ignoreValidate = true;
-
+        
         Map cookieMap = new HashMap();
-
         Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                cookieMap.put(cookie.getName(), cookie.getValue());
-            }
+
+        for (Cookie cookie : cookies) {
+            cookieMap.put(cookie.getName(), cookie.getValue());
         }
         String city = (String) cookieMap.get("city");
         if (city == null || city.isEmpty()) {
             city = "";
         }
-
+        
         String paramCity = request.getParameter("city");
         if (paramCity != null) {
             // Create cookies for first and last names.      
@@ -56,6 +54,8 @@ public class HomeServlet extends HttpServlet {
             city = paramCity;
         }
 
+        
+
         ServletContext servletContext = getServletContext();
         SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-MM-dd");
         Date d = new Date();
@@ -65,7 +65,7 @@ public class HomeServlet extends HttpServlet {
 
         String xsdUrl = "http://jbossews-trungdq88.rhcloud.com/API/APISchema.xsd";
         String xmlUrl = "http://jbossews-trungdq88.rhcloud.com/API/getMovies?city=" + city;
-
+        
         File f = new File(path);
         if (!f.exists() || f.isDirectory()) {
             System.out.println("Start file: " + path);

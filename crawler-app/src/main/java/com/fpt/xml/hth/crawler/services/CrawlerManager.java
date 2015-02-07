@@ -60,24 +60,24 @@ public class CrawlerManager {
                 System.out.println(crawlCinema.getName().toUpperCase() + " IS NOT VALID");
             }
         }
-        try {
-            Transformation trans = new Transformation();
-            trans.setCrawlCinemas(crawlCinemas);
-            trans.convertCrawlEntitiesToDTO();
-            CinemaDAO cinemaDAO = new CinemaDAO();
-            MovieDAO movieDAO = new MovieDAO();
-            for (CinemaDTO dto : trans.getCinemas()) {
-                cinemaDAO.insert(dto);
-            }
-            for (MovieTheaterSessionDTO movieDTO : trans.getMovies().values()) {
-                movieDAO.insert(movieDTO);
-            }
-            System.out.println("Import data success!");
-        } catch (Exception e) {
-            System.out.println("Import data fail!");
-            e.getMessage();
-            e.printStackTrace();
-        }
+//        try {
+//            Transformation trans = new Transformation();
+//            trans.setCrawlCinemas(crawlCinemas);
+//            trans.convertCrawlEntitiesToDTO();
+//            CinemaDAO cinemaDAO = new CinemaDAO();
+//            MovieDAO movieDAO = new MovieDAO();
+//            for (CinemaDTO dto : trans.getCinemas()) {
+//                cinemaDAO.insert(dto);
+//            }
+//            for (MovieTheaterSessionDTO movieDTO : trans.getMovies().values()) {
+//                movieDAO.insert(movieDTO);
+//            }
+//            System.out.println("Import data success!");
+//        } catch (Exception e) {
+//            System.out.println("Import data fail!");
+//            e.getMessage();
+//            e.printStackTrace();
+//        }
 
     }
 }
