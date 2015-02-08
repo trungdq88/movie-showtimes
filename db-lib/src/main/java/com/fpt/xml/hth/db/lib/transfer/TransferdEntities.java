@@ -29,7 +29,7 @@ public class TransferdEntities {
      * @param dto
      * @return movies
      */
-    public Movie transferFromDBEntitiesToGeneratedEntities(MovieTheaterSessionDTO dto) {
+    public Movie transferFromDBEntitiesToGeneratedEntities(MovieTheaterSessionDTO dto, String city) {
         Movie movie = new Movie();
         MovieDB movieDB = dto.getMovie();
         //1.Set value for movie
@@ -44,41 +44,44 @@ public class TransferdEntities {
         movie.setName(movieDB.getName());
         movie.setPoster(movieDB.getPoster());
         movie.setTrailer(movieDB.getTrailer());
-        movie.setVideoType(movieDB.getVideo_type()); 
+        movie.setVideoType(movieDB.getVideo_type());
         movie.setShowDate(movieDB.getShow_date());
         //1.get all theater in dto
         List<TheaterSessionDTO> lstTheaterSession = dto.getTheaters();
         //2.create sessions
         Sessions sessions = new Movie.Sessions();
         for (int i = 0; i < lstTheaterSession.size(); i++) {
+
             TheaterSessionDTO dtoTS = lstTheaterSession.get(i);
             List<String> sessionsString = dtoTS.getLstSession();
             TheaterDB theaterDB = dtoTS.getTheater();
             // parse each dto to movies (number of movies depend on number of session in dto)
-            for (int j = 0; j < sessionsString.size(); j++) {
-                //set value for theater
-                Theater theater = new Theater();
-                // use id of theatersession to set for id of theater
-                theater.setId(dtoTS.getId());
-                theater.setCinema(dtoTS.getCinemaName());
-                theater.setAddress(theaterDB.getAddress());
-                theater.setCity(theaterDB.getCity());
-                theater.setDescription(theaterDB.getImage());
-                theater.setImage(theaterDB.getImage());
-                theater.setMapLink(theaterDB.getMap_link());
-                theater.setName(theaterDB.getName());
-                // get value for session
-                Session session = new Session();
-                session.setTheater(theater);
-                session.setMovie(movieDB.getName());
-                BigInteger showtime = BigInteger.ZERO;
-                try {
-                    showtime = new BigInteger(sessionsString.get(j));
-                } catch (NumberFormatException e) {
-                    e.getMessage();
+            if (theaterDB.getCity().equals(city)) {
+                for (int j = 0; j < sessionsString.size(); j++) {
+                    //set value for theater
+                    Theater theater = new Theater();
+                    // use id of theatersession to set for id of theater
+                    theater.setId(dtoTS.getId());
+                    theater.setCinema(dtoTS.getCinemaName());
+                    theater.setAddress(theaterDB.getAddress());
+                    theater.setCity(theaterDB.getCity());
+                    theater.setDescription(theaterDB.getImage());
+                    theater.setImage(theaterDB.getImage());
+                    theater.setMapLink(theaterDB.getMap_link());
+                    theater.setName(theaterDB.getName());
+                    // get value for session
+                    Session session = new Session();
+                    session.setTheater(theater);
+                    session.setMovie(movieDB.getName());
+                    BigInteger showtime = BigInteger.ZERO;
+                    try {
+                        showtime = new BigInteger(sessionsString.get(j));
+                    } catch (NumberFormatException e) {
+                        e.getMessage();
+                    }
+                    session.setShowTime(showtime);
+                    sessions.getSession().add(session);
                 }
-                session.setShowTime(showtime);
-                sessions.getSession().add(session);
             }
         }
         movie.setSessions(sessions);

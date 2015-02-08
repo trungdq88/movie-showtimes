@@ -108,7 +108,7 @@ public class App {
         List<MovieTheaterSessionDTO> lst = dao.getAllByCity(city);
         TransferdEntities entitiy = new TransferdEntities();
         for (MovieTheaterSessionDTO dto : lst) {
-            Movie movie = entitiy.transferFromDBEntitiesToGeneratedEntities(dto);
+            Movie movie = entitiy.transferFromDBEntitiesToGeneratedEntities(dto, city);
             System.out.println(movie.getName());
         }
 //        System.out.println("end1");

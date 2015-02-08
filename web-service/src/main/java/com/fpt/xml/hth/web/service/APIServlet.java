@@ -50,7 +50,7 @@ public class APIServlet extends HttpServlet {
         TransferdEntities transfer = new TransferdEntities();
         for (int i = 0; i < lstMovie.size(); i++) {
             MovieTheaterSessionDTO dto = lstMovie.get(i);
-            Movie movie = transfer.transferFromDBEntitiesToGeneratedEntities(dto);
+            Movie movie = transfer.transferFromDBEntitiesToGeneratedEntities(dto, city);
             movies.getMovie().add(movie);
         }
         StringWriter writer = new StringWriter();
