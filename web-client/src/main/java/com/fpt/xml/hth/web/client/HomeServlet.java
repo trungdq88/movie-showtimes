@@ -86,7 +86,16 @@ public class HomeServlet extends HttpServlet {
             request.setAttribute("date", today);
             request.setAttribute("url", xmlUrl);
             request.setAttribute("city", city);
-            request.getRequestDispatcher("WEB-INF/movie.jsp").forward(request, response);
+
+            String action = request.getParameter("action");
+            action = action == null ? "movie" : action;
+            if (action.equals("theater")) {
+                request.getRequestDispatcher("WEB-INF/theater.jsp").forward(request, response);
+            } else if (action.equals("detail")) {
+                request.getRequestDispatcher("WEB-INF/movie-detail.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("WEB-INF/movie.jsp").forward(request, response);
+            }
         } else {
             PrintWriter out = response.getWriter();
             out.write("XML is invalid!\n" + valid);

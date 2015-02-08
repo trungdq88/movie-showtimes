@@ -4,7 +4,7 @@
         <div id="movie-list">       
             <xsl:for-each select="//movie">
                 <div class="movie" data-name="{id}" tabindex="0">
-                    <a href="?movie={id}">
+                    <a href="?action=movie&amp;movie={id}">
                         <img class="movie-poster" src="{poster}" />
                         <div>
                             <h3>
@@ -24,7 +24,8 @@
                                 <span>Thời lượng:</span>
                                 <xsl:value-of select="length"/>
                             </div>
-                        </div>                               
+                        </div>   
+                        <a href="?action=detail&amp;movie={id}">Chi tiết</a>                                
                     </a>
                 </div>
             </xsl:for-each>

@@ -27,9 +27,15 @@
         </div>
         <header>
             <div id="nav-bar">
-                <a class="nav-item selected" href="#">Tìm lịch chiếu theo phim</a>
-                <a class="nav-item" href="#">Tìm lịch chiếu theo rạp</a>
-                <a class="nav-item" href="#">Tìm lịch chiếu theo ngày</a>
+                <a class="nav-item ${(param.action == 'movie') ? 'selected' : ''}" 
+                   href="?action=movie">
+                    Tìm lịch chiếu theo phim
+                </a>
+                <a class="nav-item ${(param.action == 'theater') ? 'selected' : ''}" 
+                   href="?action=theater">
+                    Tìm lịch chiếu theo rạp
+                </a>
+                <a class="nav-item ${(param.action == '') ? 'selected' : ''}" href="#">Tìm lịch chiếu theo ngày</a>
                 Dữ liệu cập nhật từ: ${requestScope.date} - ${requestScope.url}
             </div>
 
