@@ -59,7 +59,8 @@ public class APIServlet extends HttpServlet {
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION,"http://jbossews-trungdq88.rhcloud.com/API/APISchema.xsd");
+            marshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION,
+                    "http://jbossews-trungdq88.rhcloud.com/API/movieSchema http://jbossews-trungdq88.rhcloud.com/API/APISchema.xsd");
             marshaller.marshal(movies, writer);
         } catch (JAXBException ex) {
             Logger.getLogger(APIServlet.class.getName()).log(Level.SEVERE, null, ex);

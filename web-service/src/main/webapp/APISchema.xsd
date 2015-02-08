@@ -52,6 +52,7 @@ and open the template in the editor.
             <xs:element name="description" type="xs:string"/>
             <xs:element name="poster" type="xs:string"/>
             <xs:element name="trailer" type="youtube-url"/>
+            <xs:element name="show_date" type="xs:string"/>
             <xs:element name="length" type="xs:string"/>
             <xs:element name="genre" type="xs:string"/>
             <xs:element name="director" type="xs:string"/>
@@ -59,7 +60,6 @@ and open the template in the editor.
             <xs:element name="age_restriction" type="xs:string"/>
             <xs:element name="audio_type" type="xs:string"/>
             <xs:element name="video_type" type="xs:string"/>
-            <xs:element name="show_date" type="xs:string"/>
             <xs:element name="sessions" >
                 <xs:complexType>
                     <xs:sequence>
