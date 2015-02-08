@@ -121,13 +121,13 @@ public class MovieDAO implements IMongoDAO<MovieTheaterSessionDTO> {
         List<MovieTheaterSessionDTO> lst = new ArrayList<MovieTheaterSessionDTO>();
         DBCollection collection = movieCollection;
 
-        BasicDBObject dbObject = new BasicDBObject();
-        dbObject.append("theaters", new BasicDBObject(
-                "$elemMatch", new BasicDBObject(
-                        "theater.city", city
-                )));
+//        BasicDBObject dbObject = new BasicDBObject();
+//        dbObject.append("theaters", new BasicDBObject(
+//                "$elemMatch", new BasicDBObject(
+//                        "theater.city", city
+//                )));
 
-        DBCursor cursor = collection.find(dbObject);
+        DBCursor cursor = collection.find();
 
         while (cursor.hasNext()) {
             BasicDBObject basic = (BasicDBObject) cursor.next();
@@ -138,7 +138,6 @@ public class MovieDAO implements IMongoDAO<MovieTheaterSessionDTO> {
                 for (TheaterSessionDTO theaterDTO : movieDto.getTheaters()) {
                     if (theaterDTO.getTheater().getCity().equals(city)) {
                         lstTheaterSession.add(theaterDTO);
-                        break;
                     }
                 }
             }
