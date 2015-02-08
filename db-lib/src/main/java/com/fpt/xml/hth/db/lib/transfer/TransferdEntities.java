@@ -44,7 +44,8 @@ public class TransferdEntities {
         movie.setName(movieDB.getName());
         movie.setPoster(movieDB.getPoster());
         movie.setTrailer(movieDB.getTrailer());
-        movie.setVideoType(movieDB.getVideo_type());       
+        movie.setVideoType(movieDB.getVideo_type()); 
+        movie.setShowDate(movieDB.getShow_date());
         //1.get all theater in dto
         List<TheaterSessionDTO> lstTheaterSession = dto.getTheaters();
         //2.create sessions

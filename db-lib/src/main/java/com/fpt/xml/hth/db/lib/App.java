@@ -102,9 +102,15 @@ public class App {
 //        }
         //test select MovieDB
         MovieDAO dao = new MovieDAO();
-        String city = "HCM";
+        String city = "Hải Phòng";
         List<MovieTheaterSessionDTO> lst = dao.getAllByCity(city);
-        System.out.println("Model:" + lst.size());
-
+        System.out.println("end1");
+        for (MovieTheaterSessionDTO dto : lst) {
+            System.out.println("end2");
+            System.out.println(dto.getTheaters().get(0).getTheater().getCity());
+            System.out.println("end3");
+//            System.out.println(dto.getTheaters().get(1).getTheater().getCity());
+//            System.out.println(dto.getTheaters().get(2).getTheater().getCity());
+        }
     }
 }

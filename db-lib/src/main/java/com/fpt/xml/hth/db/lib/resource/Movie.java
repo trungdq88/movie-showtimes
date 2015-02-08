@@ -89,7 +89,7 @@ public class Movie {
     @XmlElement(required = true)
     protected String trailer;
     @XmlElement(name = "show_date", required = true)
-    protected BigInteger showDate;
+    protected String showDate;
     @XmlElement(required = true)
     protected String length;
     @XmlElement(required = true)
@@ -235,7 +235,7 @@ public class Movie {
      *     {@link BigInteger }
      *     
      */
-    public BigInteger getShowDate() {
+    public String getShowDate() {
         return showDate;
     }
 
@@ -247,7 +247,7 @@ public class Movie {
      *     {@link BigInteger }
      *     
      */
-    public void setShowDate(BigInteger value) {
+    public void setShowDate(String value) {
         this.showDate = value;
     }
 
