@@ -138,7 +138,6 @@ public class MovieDAO implements IMongoDAO<MovieTheaterSessionDTO> {
                 for (TheaterSessionDTO theaterDTO : movieDto.getTheaters()) {
                     if (theaterDTO.getTheater().getCity().equals(city)) {
                         lstTheaterSession.add(theaterDTO);
-                        break;
                     }
                 }
             }
