@@ -128,6 +128,7 @@ public class MovieDAO implements IMongoDAO<MovieTheaterSessionDTO> {
                 )));
 
         DBCursor cursor = collection.find(dbObject);
+
         while (cursor.hasNext()) {
             BasicDBObject basic = (BasicDBObject) cursor.next();
             MovieTheaterSessionDTO movieDto = converter.convertBasicObjectToModel(basic);

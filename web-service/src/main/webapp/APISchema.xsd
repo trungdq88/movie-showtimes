@@ -19,26 +19,27 @@ and open the template in the editor.
 
     <xs:simpleType name="youtube-url">
         <xs:restriction base="xs:string">
-            <xs:pattern value=".*youtube\.com.*|^$" />
+            <xs:pattern value=".*youtube\.com.*|" />
         </xs:restriction>
     </xs:simpleType>    
 
     <xs:complexType name="theater">
         <xs:sequence>
             <xs:element name="id" type="xs:string"/>
-            <xs:element name="address" type="xs:string"/>
             <xs:element name="cinema" type="xs:string"/>
-            <xs:element name="city" type="xs:string" />
-            <xs:element name="description" type="xs:string"/>
-            <xs:element name="image" type="xs:string"/>
-            <xs:element name="map_link" type="xs:string"/>
             <xs:element name="name" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="city" type="xs:string" />
+            <xs:element name="address" type="xs:string"/>
+            <xs:element name="map_link" type="xs:string" minOccurs="0"/>
+            <xs:element name="image" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="session">
         <xs:sequence>
             <xs:element name="show_time" type="show_time" />
+            <xs:element name="movie" type="xs:string"/>
             <xs:element name="theater" type="theater">          
             </xs:element>
         </xs:sequence>
@@ -47,15 +48,18 @@ and open the template in the editor.
     <xs:complexType name="movie">
         <xs:sequence>
             <xs:element name="id" type="xs:string" />
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="poster" type="xs:string"/>
+            <xs:element name="trailer" type="youtube-url"/>
+            <xs:element name="show_date" type="xs:string"/>
+            <xs:element name="length" type="xs:string"/>
+            <xs:element name="genre" type="xs:string"/>
+            <xs:element name="director" type="xs:string"/>
             <xs:element name="actor" type="xs:string"/>
             <xs:element name="age_restriction" type="xs:string"/>
             <xs:element name="audio_type" type="xs:string"/>
-            <xs:element name="description" type="xs:string"/>
-            <xs:element name="director" type="xs:string"/>
-            <xs:element name="genre" type="xs:string"/>
-            <xs:element name="length" type="xs:string"/>
-            <xs:element name="name" type="xs:string"/>
-            <xs:element name="poster" type="xs:string"/>
+            <xs:element name="video_type" type="xs:string"/>
             <xs:element name="sessions" >
                 <xs:complexType>
                     <xs:sequence>
@@ -64,9 +68,6 @@ and open the template in the editor.
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="show_date" type="xs:string"/>
-            <xs:element name="trailer" type="youtube-url"/>
-            <xs:element name="video_type" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 
