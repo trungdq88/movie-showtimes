@@ -41,15 +41,12 @@ public class APIServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.addHeader("Access-Control-Allow-Origin", "*");
-        if (request.getCharacterEncoding() == null) {
-            request.setCharacterEncoding("UTF-8");
-        }
         MovieDAO movieDAO = new MovieDAO();
         String city = request.getParameter("city");
-
+        
         PrintWriter out = response.getWriter();
         out.write(city);
-
+        
 //        //1.get movies by city
 //        List<MovieTheaterSessionDTO> lstMovie = movieDAO.getAllByCity(city);
 //        Movies movies = new Movies();
