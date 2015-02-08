@@ -69,6 +69,8 @@
     -->
     <Connector address="${OPENSHIFT_JBOSSEWS_IP}"
                port="${OPENSHIFT_JBOSSEWS_HTTP_PORT}"
+               URIEncoding="UTF-8"
+               useBodyEncodingForURI="true"
                protocol="HTTP/1.1"
                connectionTimeout="20000"
                redirectPort="8443"/>
