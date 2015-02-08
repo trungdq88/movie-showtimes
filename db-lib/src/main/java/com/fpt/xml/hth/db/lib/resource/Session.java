@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence&gt;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}integer"/&gt;
  *         &lt;element name="show_time" type="{}show-time"/&gt;
- *         &lt;element name="movie" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="movie_name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="theater" type="{}Theater"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -41,7 +41,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "Session", propOrder = {
     "id",
     "showTime",
-    "movie",
+    "movie_name",
     "theater"
 })
 public class Session {
@@ -51,7 +51,7 @@ public class Session {
     @XmlElement(name = "show_time", required = true)
     protected BigInteger showTime;
     @XmlElement(required = true)
-    protected String movie;
+    protected String movie_name;
     @XmlElement(required = true)
     protected Theater theater;
 
@@ -104,7 +104,7 @@ public class Session {
     }
 
     /**
-     * Gets the value of the movie property.
+     * Gets the value of the movie_name property.
      * 
      * @return
      *     possible object is
@@ -112,11 +112,11 @@ public class Session {
      *     
      */
     public String getMovie() {
-        return movie;
+        return movie_name;
     }
 
     /**
-     * Sets the value of the movie property.
+     * Sets the value of the movie_name property.
      * 
      * @param value
      *     allowed object is
@@ -124,7 +124,7 @@ public class Session {
      *     
      */
     public void setMovie(String value) {
-        this.movie = value;
+        this.movie_name = value;
     }
 
     /**

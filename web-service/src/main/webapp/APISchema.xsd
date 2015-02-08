@@ -39,7 +39,7 @@ and open the template in the editor.
     <xs:complexType name="session">
         <xs:sequence>
             <xs:element name="show_time" type="show_time" />
-            <xs:element name="movie" type="xs:string"/>
+            <xs:element name="movie_name" type="xs:string"/>
             <xs:element name="theater" type="theater">          
             </xs:element>
         </xs:sequence>
