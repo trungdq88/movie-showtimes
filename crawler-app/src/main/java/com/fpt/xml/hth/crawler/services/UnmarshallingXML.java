@@ -46,7 +46,7 @@ public class UnmarshallingXML {
 //        } catch (JAXBException ex) {
 //            Logger.getLogger(UnmarshallingXML.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        CrawlCinema cinema = (CrawlCinema) MarshalUtil.unmarshalXML(new CrawlCinema(), "output_galaxy.xml");
+        CrawlCinema cinema = (CrawlCinema) MarshalUtil.unmarshalXML(new CrawlCinema(), "output_cgv.xml");
         ValidCinemaTrack track = new ValidCinemaTrack(cinema);
         track.start();
         track.log();
@@ -55,16 +55,19 @@ public class UnmarshallingXML {
         Transformation trans = new Transformation();
         trans.setCrawlCinemas(cinemas);
         trans.convertCrawlEntitiesToDTO();
-        //MarshalUtil.marshalXML((MovieTheaterSessionDTO) trans.getMovies().values().toArray()[0], "dto");
-//        ArrayList<CinemaDTO> dtos = trans.getCinemas();
-//        CinemaDAO dao = new CinemaDAO();
-//        for (CinemaDTO dto : dtos) {
-//            dao.insert(dto);
-//        }
-//        MovieDAO movieDao = new MovieDAO();
-//        for (MovieTheaterSessionDTO movie : trans.getMovies().values()) {
-//            movieDao.insert(movie);
-//        }
-        MarshalUtil.marshalXML(trans.getMovies().values().toArray()[0], "galaxy_dto");
+//        MarshalUtil.marshalXML((MovieTheaterSessionDTO) trans.getMovies().values().toArray()[0], "dto");
+        ArrayList<CinemaDTO> dtos = trans.getCinemas();
+        CinemaDAO cinemaDAO = new CinemaDAO();
+        MovieDAO movieDAO = new MovieDAO();
+        if (cinemaDAO.dropCollection() && movieDAO.dropCollection()) {
+            for (CinemaDTO dto : trans.getCinemas()) {
+                cinemaDAO.insert(dto);
+            }
+
+            for (MovieTheaterSessionDTO movieDTO : trans.getMovies().values()) {
+                movieDAO.insert(movieDTO);
+            }
+        }
+//        MarshalUtil.marshalXML(trans.getMovies().values().toArray()[0], "galaxy_dto");
     }
 }

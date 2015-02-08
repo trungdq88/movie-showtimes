@@ -66,16 +66,19 @@ public class CrawlerManager {
             trans.convertCrawlEntitiesToDTO();
             CinemaDAO cinemaDAO = new CinemaDAO();
             MovieDAO movieDAO = new MovieDAO();
-            for (CinemaDTO dto : trans.getCinemas()) {
-                cinemaDAO.insert(dto);
-            }
-            for (MovieTheaterSessionDTO movieDTO : trans.getMovies().values()) {
-                movieDAO.insert(movieDTO);
+            if (cinemaDAO.dropCollection() && movieDAO.dropCollection()) {
+                for (CinemaDTO dto : trans.getCinemas()) {
+                    cinemaDAO.insert(dto);
+                }
+
+                for (MovieTheaterSessionDTO movieDTO : trans.getMovies().values()) {
+                    movieDAO.insert(movieDTO);
+                }
             }
             System.out.println("Import data success");
         } catch (Exception e) {
             System.out.println("Import data fail");
-            e.getMessage();
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
 

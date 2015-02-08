@@ -120,26 +120,32 @@ public class MovieDAO implements IMongoDAO<MovieTheaterSessionDTO> {
         connection();
         List<MovieTheaterSessionDTO> lst = new ArrayList<MovieTheaterSessionDTO>();
         DBCollection collection = movieCollection;
-        DBCursor cursor = collection.find();
+
+        BasicDBObject dbObject = new BasicDBObject();
+        dbObject.append("theaters", new BasicDBObject(
+                "$elemMatch", new BasicDBObject(
+                        "theater.city", city
+                )));
+
+        DBCursor cursor = collection.find(dbObject);
         while (cursor.hasNext()) {
             BasicDBObject basic = (BasicDBObject) cursor.next();
             MovieTheaterSessionDTO movieDto = converter.convertBasicObjectToModel(basic);
             List<TheaterSessionDTO> lstTheaterSession = movieDto.getTheaters();
-            /*
-            if (city != null && !city.isEmpty()) {
-                // check name of city
-                int size = lstTheaterSession.size();
-                for (int i = 0; i < size; i++) {
-                    TheaterSessionDTO dto = lstTheaterSession.get(i);
-                    // if not equal city, remove from theaters
-                    if (!dto.getTheater().getCity().equals(city)) {
-                        movieDto.getTheaters().remove(dto);
-                        i--;
-                        size--;
-                    }
-                }
-            }
-            */
+
+//             if (city != null && !city.isEmpty()) {
+//             // check name of city
+//             int size = lstTheaterSession.size();
+//             for (int i = 0; i < size; i++) {
+//             TheaterSessionDTO dto = lstTheaterSession.get(i);
+//             // if not equal city, remove from theaters
+//             if (!dto.getTheater().getCity().equals(city)) {
+//             movieDto.getTheaters().remove(dto);
+//             i--;
+//             size--;
+//             }
+//             }
+//             }
             if (lstTheaterSession.size() > 0) {
                 lst.add(movieDto);
             }
@@ -147,5 +153,19 @@ public class MovieDAO implements IMongoDAO<MovieTheaterSessionDTO> {
         cursor.close();
         mongoClient.close();
         return lst;
+    }
+
+    public boolean dropCollection() {
+        try {
+            connection();
+            movieCollection.drop();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            mongoClient.close();
+        }
+
     }
 }
