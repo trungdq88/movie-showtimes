@@ -43,6 +43,7 @@ public class APIServlet extends HttpServlet {
         response.addHeader("Access-Control-Allow-Origin", "*");
         MovieDAO movieDAO = new MovieDAO();
         String city = request.getParameter("city");
+
         //1.get movies by city
         List<MovieTheaterSessionDTO> lstMovie = movieDAO.getAllByCity(city);
         Movies movies = new Movies();
