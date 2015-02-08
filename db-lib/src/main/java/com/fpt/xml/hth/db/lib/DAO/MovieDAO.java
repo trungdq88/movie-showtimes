@@ -132,15 +132,15 @@ public class MovieDAO implements IMongoDAO<MovieTheaterSessionDTO> {
         while (cursor.hasNext()) {
             BasicDBObject basic = (BasicDBObject) cursor.next();
             MovieTheaterSessionDTO movieDto = converter.convertBasicObjectToModel(basic);
-            List<TheaterSessionDTO> lstTheaterSession = new ArrayList<TheaterSessionDTO>();
-            if (city != null && !city.isEmpty()) {
-                for (TheaterSessionDTO theaterDTO : movieDto.getTheaters()) {
-                    if (theaterDTO.getTheater().getCity().equals(city)) {                
-                        lstTheaterSession.add(theaterDTO);
-                    }
-                }
-            }
-            movieDto.setTheaters(lstTheaterSession);
+//            List<TheaterSessionDTO> lstTheaterSession = new ArrayList<TheaterSessionDTO>();
+//            if (city != null && !city.isEmpty()) {
+//                for (TheaterSessionDTO theaterDTO : movieDto.getTheaters()) {
+//                    if (theaterDTO.getTheater().getCity().equals(city)) {                
+//                        lstTheaterSession.add(theaterDTO);
+//                    }
+//                }
+//            }
+//            movieDto.setTheaters(lstTheaterSession);
             lst.add(movieDto);
         }
         cursor.close();
