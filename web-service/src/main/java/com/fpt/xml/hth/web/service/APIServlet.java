@@ -43,33 +43,37 @@ public class APIServlet extends HttpServlet {
         response.addHeader("Access-Control-Allow-Origin", "*");
         MovieDAO movieDAO = new MovieDAO();
         String city = request.getParameter("city");
-        //1.get movies by city
-        List<MovieTheaterSessionDTO> lstMovie = movieDAO.getAllByCity(city);
-        Movies movies = new Movies();
-        TransferdEntities transfer = new TransferdEntities();
-        for (int i = 0; i < lstMovie.size(); i++) {
-            MovieTheaterSessionDTO dto = lstMovie.get(i);
-            Movie movie = transfer.transferFromDBEntitiesToGeneratedEntities(dto);
-            movies.getMovie().add(movie);
-        }
-        StringWriter writer = new StringWriter();
-        //2. apply xsd to create xml
-        try {
-            JAXBContext context = JAXBContext.newInstance(Movies.class);
-            Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION,
-                    "http://jbossews-trungdq88.rhcloud.com/API/movieSchema http://jbossews-trungdq88.rhcloud.com/API/APISchema.xsd");
-            marshaller.marshal(movies, writer);
-        } catch (JAXBException ex) {
-            Logger.getLogger(APIServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        //3. output
-        String xml = writer.toString();
-        response.setContentType("text/xml; charset=UTF-8");
+        
         PrintWriter out = response.getWriter();
-        out.write(xml);
+        out.write(city);
+        
+//        //1.get movies by city
+//        List<MovieTheaterSessionDTO> lstMovie = movieDAO.getAllByCity(city);
+//        Movies movies = new Movies();
+//        TransferdEntities transfer = new TransferdEntities();
+//        for (int i = 0; i < lstMovie.size(); i++) {
+//            MovieTheaterSessionDTO dto = lstMovie.get(i);
+//            Movie movie = transfer.transferFromDBEntitiesToGeneratedEntities(dto);
+//            movies.getMovie().add(movie);
+//        }
+//        StringWriter writer = new StringWriter();
+//        //2. apply xsd to create xml
+//        try {
+//            JAXBContext context = JAXBContext.newInstance(Movies.class);
+//            Marshaller marshaller = context.createMarshaller();
+//            marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+//            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+//            marshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION,
+//                    "http://jbossews-trungdq88.rhcloud.com/API/movieSchema http://jbossews-trungdq88.rhcloud.com/API/APISchema.xsd");
+//            marshaller.marshal(movies, writer);
+//        } catch (JAXBException ex) {
+//            Logger.getLogger(APIServlet.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        //3. output
+//        String xml = writer.toString();
+//        response.setContentType("text/xml; charset=UTF-8");
+//        PrintWriter out = response.getWriter();
+//        out.write(xml);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
