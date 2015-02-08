@@ -1,5 +1,10 @@
 package com.fpt.xml.hth.web.client;
 
+import com.fpt.xml.hth.web.client.utils.EnvUtils;
+import com.fpt.xml.hth.web.client.utils.FileUtils;
+import com.fpt.xml.hth.web.client.utils.NetworkUtils;
+import com.fpt.xml.hth.web.client.utils.StringUtil;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -59,7 +64,9 @@ public class HomeServlet extends HttpServlet {
         SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-MM-dd");
         Date d = new Date();
         String today = dt1.format(d);
-        String path = EnvUtils.getDataPath(servletContext) + "/data-" + today + ".xml";
+        String cityBlob = StringUtil.convertUTF8ToASCII(city).replace(" ", "_");
+        String path = EnvUtils.getDataPath(servletContext) +
+                "/data-" + today + "-" + cityBlob + ".xml";
         String xsdPath = EnvUtils.getDataPath(servletContext) + "/schema.xsd";
 
         String xsdUrl = "http://jbossews-trungdq88.rhcloud.com/API/APISchema.xsd";

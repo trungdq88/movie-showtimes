@@ -1,4 +1,4 @@
-package com.fpt.xml.hth.web.client;
+package com.fpt.xml.hth.web.client.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
