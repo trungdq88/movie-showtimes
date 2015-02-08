@@ -2,6 +2,8 @@ package com.fpt.xml.hth.db.lib;
 
 import com.fpt.xml.hth.db.lib.DAO.MovieDAO;
 import com.fpt.xml.hth.db.lib.DTO.MovieTheaterSessionDTO;
+import com.fpt.xml.hth.db.lib.resource.Movie;
+import com.fpt.xml.hth.db.lib.transfer.TransferdEntities;
 import java.util.List;
 
 /**
@@ -102,15 +104,20 @@ public class App {
 //        }
         //test select MovieDB
         MovieDAO dao = new MovieDAO();
-        String city = "Hải Phòng";
+        String city = "Hai Phòng";
         List<MovieTheaterSessionDTO> lst = dao.getAllByCity(city);
-        System.out.println("end1");
+        TransferdEntities entitiy = new TransferdEntities();
         for (MovieTheaterSessionDTO dto : lst) {
-            System.out.println("end2");
-            System.out.println(dto.getTheaters().get(0).getTheater().getCity());
-            System.out.println("end3");
-//            System.out.println(dto.getTheaters().get(1).getTheater().getCity());
-//            System.out.println(dto.getTheaters().get(2).getTheater().getCity());
+            Movie movie = entitiy.transferFromDBEntitiesToGeneratedEntities(dto);
+            System.out.println(movie.getName());
         }
+//        System.out.println("end1");
+//        for (MovieTheaterSessionDTO dto : lst) {
+//            System.out.println("end2");
+//            System.out.println(dto.getTheaters().get(0).getTheater().getCity());
+//            System.out.println("end3");
+////            System.out.println(dto.getTheaters().get(1).getTheater().getCity());
+////            System.out.println(dto.getTheaters().get(2).getTheater().getCity());
+//        }
     }
 }
