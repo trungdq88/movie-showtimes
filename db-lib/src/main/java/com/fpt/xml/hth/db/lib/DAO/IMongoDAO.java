@@ -10,24 +10,52 @@ import com.mongodb.DBObject;
 /**
  *
  * @author Thu Hoa
+ * @modifier HaiNNT 08-02-2015
  */
 public interface IMongoDAO<T> {
 
-    //CREATE
+    /**
+     * Insert an object into collection
+     * @param object 
+     */
     void insert(T object);
 
-    //READ
+    /**
+     * Select from collection
+     * @param object
+     * @return 
+     */
     T readItem(DBObject object);
 
-    //UPDATE
+    /**
+     * Update an object in collection
+     * @param oldObj
+     * @param newObj 
+     */
     void update(T oldObj, T newObj);
 
-    //DELETE
+    /**
+     * Delete an object in collection
+     * @param object 
+     */
     void delete(T object);
 
-    //SELECT by ID
+    /**
+     * Select from collection by Id
+     * @param _id
+     * @return 
+     */
     T findDocumentById(String _id);
 
-    //SELECT ALL
+    /**
+     * Select all object from collection
+     * @return 
+     */
     DBCollection getDBCollection();
+    
+    /**
+     * Drop collection
+     * @return 
+     */
+    boolean dropCollection();
 }

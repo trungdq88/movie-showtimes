@@ -41,8 +41,7 @@ public class CinemaDAO implements IMongoDAO<CinemaDTO> {
 
     private void connection() {
         try {
-            MongoCredential credential = MongoCredential.createMongoCRCredential
-        (Config.USER_NAME, Config.DATABASE_NAME, Config.PASS_WORD.toCharArray());
+            MongoCredential credential = MongoCredential.createMongoCRCredential(Config.USER_NAME, Config.DATABASE_NAME, Config.PASS_WORD.toCharArray());
             ServerAddress address = new ServerAddress(Config.getHost(), Config.getPort());
             List<MongoCredential> lst = new ArrayList<MongoCredential>();
             lst.add(credential);
@@ -131,5 +130,19 @@ public class CinemaDAO implements IMongoDAO<CinemaDTO> {
         }
         mongoClient.close();
         return lstCity;
+    }
+
+    public boolean dropCollection() {
+        try {
+            connection();
+            cinemaCollection.drop();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            mongoClient.close();
+        }
+
     }
 }
