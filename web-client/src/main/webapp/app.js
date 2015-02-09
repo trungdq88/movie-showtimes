@@ -86,10 +86,11 @@ function processSelectedPage() {
     var params = getParams();
     var keys = Object.keys(params);
     for (var i = 0; i < keys.length; i++) {
-        var item = document.querySelector('[data-name="' + params[keys[i]] + '"]');
-        if (!item) break;
-        addClass(item, 'selected');
-        item.focus();
+        var item = document.querySelector('[data-id="' + params[keys[i]] + '"]');
+        if (item) {
+            addClass(item, 'selected');
+            item.focus();
+        }
     }
 }
 

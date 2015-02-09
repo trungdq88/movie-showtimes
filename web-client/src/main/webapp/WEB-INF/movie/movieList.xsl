@@ -3,7 +3,7 @@
     <xsl:template match="/">
         <div id="movie-list">       
             <xsl:for-each select="//movie">
-                <div class="movie" tabindex="0">
+                <div class="movie" data-id="{id}" tabindex="0">
                     <a href="?action=movie&amp;movie={id}">
                         <img class="movie-poster" src="{poster}" />
                         <div>
