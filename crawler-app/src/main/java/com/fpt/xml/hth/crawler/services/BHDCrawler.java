@@ -177,7 +177,7 @@ public class BHDCrawler extends AbstractCrawler {
                 String audioType = "";
 
                 poster = cinema.getWebUrl()
-                        + element.select("div > a img").attr("src");
+                        + element.select("div > a img").attr("src").replace("//", "");
                 name = element.select(".title a").text();
                 videoType
                         = category = element.select(".categorized")
@@ -202,7 +202,7 @@ public class BHDCrawler extends AbstractCrawler {
                     } else if (e.select(".left").text().equalsIgnoreCase("Định dạng")) {
                         videoType = e.select(".right").text();
                     } else if (e.select(".left").text().equalsIgnoreCase("Giới hạn độ tuổi")){
-                        ageRestriction = e.select(".right").text();
+                        ageRestriction = e.select(".right").text().replaceAll("\\D", "");
                     } else if (e.select(".left").text().equalsIgnoreCase("Ngôn ngữ phim")){
                         audioType = e.select(".right").text();
                     }

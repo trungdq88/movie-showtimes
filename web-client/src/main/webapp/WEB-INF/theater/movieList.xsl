@@ -1,10 +1,11 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output encoding="UTF-8" />
+    <xsl:param name="theaterId"/>   
     <xsl:template match="/">
         <div id="movie-list">       
-            <xsl:for-each select="//movie">
+            <xsl:for-each select="//movie[sessions[session[theater[id=$theaterId]]]]">
                 <div class="movie" data-name="{id}" tabindex="0">
-                    <a href="?movie={id}">
+                    <a href="?action=theater&amp;movie={id}&amp;theater={$theaterId}">
                         <img class="movie-poster" src="{poster}" />
                         <div>
                             <h3>
@@ -24,7 +25,8 @@
                                 <span>Thời lượng:</span>
                                 <xsl:value-of select="length"/>
                             </div>
-                        </div>                               
+                        </div>  
+                        <a href="?action=detail&amp;movie={id}">Chi tiết</a>                             
                     </a>
                 </div>
             </xsl:for-each>
