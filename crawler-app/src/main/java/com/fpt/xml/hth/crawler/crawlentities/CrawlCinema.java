@@ -5,7 +5,6 @@
  */
 package com.fpt.xml.hth.crawler.crawlentities;
 
-import com.fpt.xml.hth.crawler.entities.Cinema;
 import com.fpt.xml.hth.crawler.utils.StringUtil;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -64,10 +63,6 @@ public class CrawlCinema{
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Cinema toParent() {
-        return new Cinema(name, webUrl);
     }
 
     public boolean isValid() {
