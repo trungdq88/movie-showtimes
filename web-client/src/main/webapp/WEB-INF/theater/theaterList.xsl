@@ -6,7 +6,7 @@
             <xsl:for-each select="$theaters">
                 <!-- Remove duplicate condition: http://stackoverflow.com/a/22816973/1420186 -->
                 <xsl:if test="generate-id() = generate-id($theaters[. = current()][1])">
-                <div class="movie" data-name="{id}" tabindex="0"> 
+                <div class="movie" data-id="{id}" tabindex="0"> 
                     <a href="?action=theater&amp;theater={id}">
                         <img class="movie-poster" src="{image}" />
                         <h3>

@@ -4,11 +4,11 @@
     <xsl:template match="/">
         <div id="movie-list">       
             <xsl:for-each select="//movie[sessions[session[theater[id=$theaterId]]]]">
-                <div class="movie" data-name="{id}" tabindex="0">
+                <div class="movie" data-id="{id}" tabindex="0">
                     <a href="?action=theater&amp;movie={id}&amp;theater={$theaterId}">
                         <img class="movie-poster" src="{poster}" />
                         <div>
-                            <h3>
+                            <h3 class="movie-detail" data-name="{id}">
                                 <xsl:value-of select="name"/>
                                 <xsl:if test="age_restriction != ''" >
                                     <i class="icon restriction-icon">
@@ -25,8 +25,7 @@
                                 <span>Thời lượng:</span>
                                 <xsl:value-of select="length"/>
                             </div>
-                        </div>  
-                        <a href="?action=detail&amp;movie={id}">Chi tiết</a>                             
+                        </div>                           
                     </a>
                 </div>
             </xsl:for-each>
