@@ -19,44 +19,44 @@
                     <xsl:value-of select="$movie/name"/>
                 </h2>
                 <div>
-                    <label>Đạo diễn: </label>
+                    <b>Đạo diễn: </b>
                     <span>
                         <xsl:value-of select="$movie/director"/>
                     </span>
                 </div>
                 <div>
-                    <label>Diễn viên: </label>
+                    <b>Diễn viên: </b>
                     <span>
                         <xsl:value-of select="$movie/actor"/>
                     </span>
                 </div>
                 <div>
-                    <label>Thể loại: </label>
+                    <b>Thể loại: </b>
                     <span>
                         <xsl:value-of select="$movie/genre"/>
                     </span>
                 </div>
                 <div>
-                    <label>Khởi chiếu: </label>
+                    <b>Khởi chiếu: </b>
                     <span>
                         <xsl:value-of select="$movie/show_date"/>
                     </span>
                 </div>
                 <div>
-                    <label>Ngôn ngữ: </label>
+                    <b>Ngôn ngữ: </b>
                     <span>
                         <xsl:value-of select="$movie/audio_type"/>
                     </span>
                 </div>
                 <div>
-                    <label>Chi tiết: </label>
+                    <b>Chi tiết: </b>
                     <span>
                         <xsl:value-of select="$movie/description"/>
                     </span>
                 </div>
                 <div>
-                    <label>Trailer: </label>
-                    <a href="http://{$movie/trailer}">
+                    <b>Trailer: </b>
+                    <a style="color: #000" href="http://{$movie/trailer}">
                         <xsl:value-of select="$movie/trailer"/>
                     </a>
                 </div>

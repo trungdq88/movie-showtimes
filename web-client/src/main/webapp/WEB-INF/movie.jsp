@@ -42,4 +42,7 @@
     </c:if>
 
 </div>
+<div style='display: none' id="movie-detail">
+    
+</div>
 <c:import url="footer.jsp"/>

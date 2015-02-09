@@ -93,7 +93,46 @@ function processSelectedPage() {
     }
 }
 
+var showDetailDelay = 0;
+var isShow = false;
+function processMovieDetail() {
+    var popup = $id('movie-detail');
+    function closePopup() {
+        popup.innerHTML = '';
+        popup.style.display = 'none';
+        isShow = false;
+    }
+    popup.addEventListener('mouseleave', closePopup);
+    
+    var els = $class('movie-detail');
+    clearTimeout(showDetailDelay);
+    Array.prototype.forEach.call(els, function (el, i) {
+        el.addEventListener('mouseenter', function (e) {
+            var self = this;
+            showDetailDelay = setTimeout(function () {
+                var movieId = self.dataset.name;
+                ajax('?action=detail&movie=' + movieId, function (msg) {
+                    popup.innerHTML = msg;
+                    popup.style.left = (50 + e.x) + 'px';
+                    popup.style.display = 'block';
+                    isShow = true;
+                });
+            }, 500);
+        });
+        el.addEventListener('mouseleave', function () {
+            clearTimeout(showDetailDelay);
+            closePopup();
+        });
+        el.addEventListener('mousemove', function (e) {
+           if (isShow) {
+               popup.style.left = (50 + e.x) + 'px';
+           } 
+        });
+    });
+}
+
 ready(function () {
     transformDate();
     processSelectedPage();
+    processMovieDetail();
 });

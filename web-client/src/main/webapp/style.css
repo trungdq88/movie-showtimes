@@ -111,3 +111,11 @@ city {
 city:hover {
     background-color: rgba(255,255,255,0.3);
 }
+
+#movie-detail {
+    position: fixed;
+    background: #fff;
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+}
