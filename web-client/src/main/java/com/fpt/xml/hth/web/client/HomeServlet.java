@@ -28,6 +28,8 @@ import javax.servlet.http.Cookie;
 @WebServlet(name = "HomeServlet")
 public class HomeServlet extends HttpServlet {
 
+    private static final String API_SOURCE = "http://jbossews-trungdq88.rhcloud.com/API/";
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -69,8 +71,8 @@ public class HomeServlet extends HttpServlet {
                 "/data-" + today + "-" + cityBlob + ".xml";
         String xsdPath = EnvUtils.getDataPath(servletContext) + "/schema.xsd";
 
-        String xsdUrl = "http://jbossews-trungdq88.rhcloud.com/API/APISchema.xsd";
-        String xmlUrl = "http://jbossews-trungdq88.rhcloud.com/API/getMovies?city=" + city;
+        String xsdUrl = API_SOURCE + "APISchema.xsd";
+        String xmlUrl = API_SOURCE + "getMovies?city=" + city;
 
         File f = new File(path);
         if (!f.exists() || f.isDirectory()) {
@@ -87,7 +89,7 @@ public class HomeServlet extends HttpServlet {
         String valid = Validator.validate(path, xsdPath);
         System.out.println("XML validation: " + valid);
 
-        if (valid.equals("true") || ignoreValidate) {
+        if (valid.equals("true")) {
             String xml = FileUtils.readFile(path);
             request.setAttribute("xml", xml);
             request.setAttribute("date", today);
