@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -64,9 +65,10 @@ public class HomeServlet extends HttpServlet {
         SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-MM-dd");
         Date d = new Date();
         String today = dt1.format(d);
+        city = URLDecoder.decode(city, "UTF-8");
         String cityBlob = StringUtil.convertUTF8ToASCII(city).replace(" ", "_");
-        String path = EnvUtils.getDataPath(servletContext) +
-                "/data-" + today + "-" + cityBlob + ".xml";
+        String path = EnvUtils.getDataPath(servletContext)
+                + "/data-" + today + "-" + cityBlob + ".xml";
         String xsdPath = EnvUtils.getDataPath(servletContext) + "/schema.xsd";
 
         String xsdUrl = "http://jbossews-trungdq88.rhcloud.com/API/APISchema.xsd";
@@ -96,10 +98,22 @@ public class HomeServlet extends HttpServlet {
 
             String action = request.getParameter("action");
             action = action == null ? "movie" : action;
+
             if (action.equals("theater")) {
                 request.getRequestDispatcher("WEB-INF/theater.jsp").forward(request, response);
             } else if (action.equals("detail")) {
                 request.getRequestDispatcher("WEB-INF/movie-detail.jsp").forward(request, response);
+            } else if (action.equals("pdf")) {
+                response.setContentType("application/pdf");
+                String movieId = request.getParameter("movie");
+                if (movieId != null && !movieId.equals("")) {
+                    byte[] content = GeneratePDF.generateMovieDetail(path, EnvUtils.getDataPath(servletContext), movieId);
+                    response.setContentLength(content.length);
+                    response.getOutputStream().write(content);
+                    response.getOutputStream().flush();
+                } else {
+                    response.sendRedirect("HomeServlet?action=movie");
+                }
             } else {
                 request.getRequestDispatcher("WEB-INF/movie.jsp").forward(request, response);
             }

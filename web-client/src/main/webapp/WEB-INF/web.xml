@@ -12,9 +12,17 @@
         <servlet-name>HomeServlet</servlet-name>
         <servlet-class>com.fpt.xml.hth.web.client.HomeServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PDFServlet</servlet-name>
+        <servlet-class>com.fpt.xml.hth.web.client.PDFServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/HomeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PDFServlet</servlet-name>
+        <url-pattern>/PDF</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

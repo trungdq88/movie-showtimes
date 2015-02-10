@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fop version="1.0">
+    <renderers>
+        <renderer mime="application/pdf">
+            <filterList>
+                <!-- provides compression using zlib flate (default is on) -->
+                <value>flate</value>
+            </filterList>
+            <fonts>
+                <font kerning="yes" embed-url="arial.ttf">
+                    <font-triplet name="Arial" style="normal" weight="normal" />
+                </font>
+            </fonts>
+        </renderer>
+    </renderers>
+</fop>

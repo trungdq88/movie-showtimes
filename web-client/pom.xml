@@ -2,9 +2,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-      <groupId>com.fpt.xml.hth</groupId>
-      <artifactId>movie-showtimes</artifactId>
-      <version>1.0</version>
+        <groupId>com.fpt.xml.hth</groupId>
+        <artifactId>movie-showtimes</artifactId>
+        <version>1.0</version>
     </parent>
     <artifactId>web-client</artifactId>
     <version>1.0</version>
@@ -69,6 +69,13 @@
             <type>jar</type>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>fop</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -123,11 +130,11 @@
     <profiles>
         <profile>
             <!-- When built in OpenShift the 'openshift' profile will be used when
-                    invoking mvn. -->
+            invoking mvn. -->
             <!-- Use this profile for any OpenShift specific customization your app
-                    will need. -->
+            will need. -->
             <!-- By default that is to put the resulting archive into the 'webapps'
-                    folder. -->
+            folder. -->
             <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
             <id>openshift</id>
             <build>

@@ -24,9 +24,9 @@ public class CrawlerManager {
     @SuppressWarnings("empty-statement")
     public void crawl(String[] targets) {
         if (targets == null) {
-            targets = new String[]{"cgv"};
+            targets = new String[]{"cgv", "bhd", "galaxy"};
         } else if (targets.length == 0) {
-            targets = new String[]{"cgv"};
+            targets = new String[]{"cgv", "bhd", "galaxy"};
         }
         ArrayList<CrawlCinema> crawlCinemas = new ArrayList<CrawlCinema>();
         for (String target : targets) {
