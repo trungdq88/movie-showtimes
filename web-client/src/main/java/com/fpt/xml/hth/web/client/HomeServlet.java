@@ -74,7 +74,7 @@ public class HomeServlet extends HttpServlet {
         String xsdPath = EnvUtils.getDataPath(servletContext) + "/schema.xsd";
 
         String xsdUrl = API_SOURCE + "APISchema.xsd";
-        String xmlUrl = API_SOURCE + "getMovies?city=" + city;
+        String xmlUrl = API_SOURCE + "getMovies?city=" + URLEncoder.encode(city, "UTF-8");
 
         File f = new File(path);
         if (!f.exists() || f.isDirectory()) {
