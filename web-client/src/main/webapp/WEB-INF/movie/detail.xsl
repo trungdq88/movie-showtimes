@@ -60,6 +60,11 @@
                         <xsl:value-of select="$movie/trailer"/>
                     </a>
                 </div>
+                <div>
+                    <a href="?action=pdf&amp;movie={$movie/id}">
+                        Download PDF
+                    </a>
+                </div>
             </div>
     </xsl:template>
 </xsl:stylesheet>
