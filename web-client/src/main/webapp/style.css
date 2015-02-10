@@ -125,3 +125,10 @@ city:hover {
     width: 400px;
     border-radius: 10px;
 }
+
+#search {
+    padding: 9px;
+    font-size: 14px;
+    border: 0;
+    border-radius: 5px;
+}

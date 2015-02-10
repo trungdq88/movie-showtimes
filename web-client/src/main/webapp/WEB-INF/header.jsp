@@ -35,7 +35,7 @@
                    href="?action=theater">
                     Tìm lịch chiếu theo rạp
                 </a>
-                
+                   <input id="search" type="text" placeholder="Tìm kiếm..."/>
             </div>
 
         </header>

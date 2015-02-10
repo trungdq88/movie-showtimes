@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "", namespace = "http://jbossews-trungdq88.rhcloud.com/API/movieSchema", propOrder = {
     "movie"
 })
 @XmlRootElement(name = "movies")
