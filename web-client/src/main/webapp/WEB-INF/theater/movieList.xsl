@@ -8,7 +8,7 @@
                     <a href="?action=theater&amp;movie={id}&amp;theater={$theaterId}">
                         <img class="movie-poster" src="{poster}" />
                         <div>
-                            <h3 class="movie-detail" data-name="{id}">
+                            <h3>
                                 <xsl:value-of select="name"/>
                                 <xsl:if test="age_restriction != ''" >
                                     <i class="icon restriction-icon">

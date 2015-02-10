@@ -30,7 +30,7 @@ function change_alias(alias)
     str = str.replace(/-+-/g, "-"); //thay thế 2- thành 1-
     str = str.replace(/^\-+|\-+$/g, "");
     //cắt bỏ ký tự - ở đầu và cuối chuỗi 
-    return str;
+    return str.replace(/-/g, ' ');
 }
 function addClass(el, className) {
     if (!el)
@@ -39,6 +39,12 @@ function addClass(el, className) {
         el.classList.add(className);
     else
         el.className += ' ' + className;
+}
+function removeClass(el, className) {
+    if (el.classList)
+  el.classList.remove(className);
+else
+  el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
 }
 function ajax(url, cb) {
     var request = new XMLHttpRequest();
@@ -155,9 +161,16 @@ function prepairSearch() {
         el.dataset.searchTerm = change_alias(el.innerText.trim());
     });
     var searchBox = $id('search');
-    searchBox.addEventListener('change', function () {
-        var searchTerm = this.value;
-        //var founds = 
+    searchBox.addEventListener('keyup', function () {
+        var keyword = this.value;
+        Array.prototype.forEach.call(els, function (el, i) {
+            console.log(el.dataset.searchTerm + " _ " + keyword + " _ " + (el.dataset.searchTerm.indexOf(keyword) == -1))
+            if (el.dataset.searchTerm.indexOf(keyword) == -1) {
+                addClass(el.parentElement.parentElement.parentElement, 'hide');
+            } else {
+                removeClass(el.parentElement.parentElement.parentElement, 'hide');
+            }
+        });
     });
 }
 
@@ -165,4 +178,5 @@ ready(function () {
     transformDate();
     processSelectedPage();
     processMovieDetail();
+    prepairSearch();
 });
