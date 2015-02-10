@@ -35,8 +35,7 @@
                    href="?action=theater">
                     Tìm lịch chiếu theo rạp
                 </a>
-                <a class="nav-item ${(param.action == '') ? 'selected' : ''}" href="#">Tìm lịch chiếu theo ngày</a>
-                Dữ liệu cập nhật từ: ${requestScope.date} - ${requestScope.url}
+                   <input id="search" type="text" placeholder="Tìm kiếm..."/>
             </div>
 
         </header>

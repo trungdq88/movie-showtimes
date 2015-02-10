@@ -27,7 +27,7 @@ import org.jsoup.select.Elements;
 public class BHDCrawler extends AbstractCrawler {
 
     private String url;
-    private CrawlCinema cinema = new CrawlCinema("BHD Cineplex", "http://bhdstar.vn/");
+    private CrawlCinema cinema = new CrawlCinema("BHD Cineplex", "http://bhdstar.vn");
     ArrayList<CrawlMovie> cmovies = new ArrayList<CrawlMovie>();
 
     public String getUrl() {
@@ -202,7 +202,7 @@ public class BHDCrawler extends AbstractCrawler {
                     } else if (e.select(".left").text().equalsIgnoreCase("Định dạng")) {
                         videoType = e.select(".right").text();
                     } else if (e.select(".left").text().equalsIgnoreCase("Giới hạn độ tuổi")){
-                        ageRestriction = e.select(".right").text();
+                        ageRestriction = e.select(".right").text().replaceAll("\\D", "");
                     } else if (e.select(".left").text().equalsIgnoreCase("Ngôn ngữ phim")){
                         audioType = e.select(".right").text();
                     }

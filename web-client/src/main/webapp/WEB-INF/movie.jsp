@@ -7,9 +7,6 @@
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<c:set var="user" value="${param.txtUser}" scope="session"/>
-<c:set var="pass" value="${param.txtPass}"/>
-
 <c:set var="xml" value="${requestScope.xml}"/>
 <x:parse var="doc" xml="${xml}" scope="session"/>
 <c:import url="header.jsp"/>
@@ -41,5 +38,8 @@
         </div>
     </c:if>
 
+</div>
+<div style='display: none' id="movie-detail">
+    
 </div>
 <c:import url="footer.jsp"/>

@@ -28,7 +28,7 @@ i.icon.restriction-icon {
 .container {
     background: rgba(255, 255, 255, 0.3);
     float: left;
-    width: 25%;
+    width: 29%;
     margin: 10px;
     height: 80vh;
     overflow: auto;
@@ -54,7 +54,13 @@ img.movie-poster {
     background: rgba(255, 255, 255, 0.3);
 }
 .movie.selected {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.6);
+}
+.movie.selected .description {
+    color: #333;
+}
+.movie.selected h3 {
+    color: #333; 
 }
 .movie h3 {
     margin: 0;
@@ -110,4 +116,19 @@ city {
 }
 city:hover {
     background-color: rgba(255,255,255,0.3);
+}
+
+#movie-detail {
+    position: fixed;
+    background: #fff;
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+#search {
+    padding: 9px;
+    font-size: 14px;
+    border: 0;
+    border-radius: 5px;
 }

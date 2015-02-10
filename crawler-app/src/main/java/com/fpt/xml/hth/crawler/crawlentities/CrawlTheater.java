@@ -5,7 +5,6 @@
  */
 package com.fpt.xml.hth.crawler.crawlentities;
 
-import com.fpt.xml.hth.crawler.entities.Theater;
 import com.fpt.xml.hth.crawler.utils.ProvineUtil;
 import com.fpt.xml.hth.crawler.utils.StringUtil;
 import java.util.ArrayList;
@@ -117,12 +116,6 @@ public class CrawlTheater {
         this.image = image;
     }
     
-    
-
-    public Theater toTheater() {
-        return new Theater(name, description, city, address, mapLink, image);
-    }
-
     public boolean isValid() {
         int check = 0;
 
