@@ -27,7 +27,7 @@ import org.jsoup.select.Elements;
 public class BHDCrawler extends AbstractCrawler {
 
     private String url;
-    private CrawlCinema cinema = new CrawlCinema("BHD Cineplex", "http://bhdstar.vn");
+    private CrawlCinema cinema = new CrawlCinema("BHD Cineplex", "http://bhdstar.vn/");
     ArrayList<CrawlMovie> cmovies = new ArrayList<CrawlMovie>();
 
     public String getUrl() {
@@ -94,8 +94,8 @@ public class BHDCrawler extends AbstractCrawler {
                 String name = element.select(".blackbox h2").text();
                 String address = element.select(".blackbox .right").get(0).text();
                 String city = "Hồ Chí Minh";
-                String image = cinema.getWebUrl()
-                        + element.select(".main-image").attr("src");
+                String image = (cinema.getWebUrl()
+                        + element.select(".main-image").attr("src")).replace("//", "/");;
                 for (CrawlTheater theater : cinema.getTheaters()) {
                     if (theater.getName().equals(name)) {
                         theater.setAddress(address);
@@ -176,8 +176,8 @@ public class BHDCrawler extends AbstractCrawler {
                 String ageRestriction = "";
                 String audioType = "";
 
-                poster = cinema.getWebUrl()
-                        + element.select("div > a img").attr("src");
+                poster = (cinema.getWebUrl()
+                        + element.select("div > a img").attr("src")).replace("//", "/");
                 name = element.select(".title a").text();
                 videoType
                         = category = element.select(".categorized")
