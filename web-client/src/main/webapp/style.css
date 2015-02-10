@@ -125,10 +125,25 @@ city:hover {
     width: 400px;
     border-radius: 10px;
 }
+#movie-detail h2 {
+    margin: 0;
+}
 
 #search {
     padding: 9px;
     font-size: 14px;
     border: 0;
     border-radius: 5px;
+}
+
+.close-button {
+    background: #ccc;
+    color: black;
+    font-size: 12px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
 }
