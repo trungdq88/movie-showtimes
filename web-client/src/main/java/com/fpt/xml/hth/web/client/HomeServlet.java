@@ -89,7 +89,7 @@ public class HomeServlet extends HttpServlet {
         String valid = Validator.validate(path, xsdPath);
         System.out.println("XML validation: " + valid);
 
-        if (valid.equals("true")) {
+        if (valid.equals("true") || ignoreValidate) {
             String xml = FileUtils.readFile(path);
             request.setAttribute("xml", xml);
             request.setAttribute("date", today);
