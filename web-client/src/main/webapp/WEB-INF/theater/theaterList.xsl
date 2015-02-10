@@ -9,7 +9,7 @@
                 <div class="movie" data-id="{id}" tabindex="0"> 
                     <a href="?action=theater&amp;theater={id}">
                         <img class="movie-poster" src="{image}" />
-                        <h3>
+                        <h3 class="movie-detail">
                             <xsl:value-of select="name"/>
                         </h3>
                         <div class="description">
