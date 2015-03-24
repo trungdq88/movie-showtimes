@@ -1,0 +1,2 @@
+#!/bin/bash
+java -jar /var/lib/openshift/54cb1bebfcf93359b800017d/app-root/runtime/repo/crawler-app/target/crawler-app-1.0-jar-with-dependencies.jar galaxy cgv bhd
